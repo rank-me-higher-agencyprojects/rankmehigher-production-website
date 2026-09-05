@@ -35,7 +35,7 @@ const Terms = () => {
 
           <div className="prose prose-invert prose-lg max-w-none">
             <p className="text-muted-foreground text-lg mb-8">
-              Last updated: January 2, 2026
+              Last updated: September 4, 2026
             </p>
 
             <section className="mb-8">
@@ -48,21 +48,21 @@ const Terms = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-foreground mb-4">2. Services</h2>
               <p className="text-muted-foreground">
-                Rank Me Higher provides digital marketing services including but not limited to website design and development, search engine optimization (SEO), local SEO, Google Business Profile optimization, content creation, and digital advertising services.
+                Rank Me Higher operates an AI-powered platform that builds, hosts, and maintains websites for local businesses. Services include free preview website builds (with progress updates by SMS and email, subject to your consent), subscription plans that put your website live with hosting, SSL, custom domain connection, chat-based editing, lead capture and delivery, and a client portal; higher-tier plans additionally include Google Business Profile optimization and review generation with a dedicated business phone number and branded email. We may also provide related services such as SEO, content, and digital advertising for platform businesses.
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-foreground mb-4">3. Payment Terms</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">3. Subscriptions and Payment Terms</h2>
               <p className="text-muted-foreground">
-                Payment terms are established in individual service agreements. All fees are non-refundable unless otherwise specified in writing. Late payments may result in service suspension or termination.
+                Preview website builds are provided free of charge and do not require a payment method. Publishing your website on your own domain requires an active monthly subscription — currently $99/mo (website, hosting, chat edits, portal), $149/mo (adds Google Business Profile optimization), or $199/mo (adds review generation with a dedicated business phone number and branded email). Subscriptions bill monthly in advance, may be canceled at any time effective at the end of the current billing period, and are non-refundable for partial periods unless otherwise specified in writing. Custom work or advertising services may be governed by separate agreements. Late or failed payments may result in suspension of hosting and services.
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-foreground mb-4">4. Intellectual Property</h2>
               <p className="text-muted-foreground">
-                All content, designs, code, and materials created by Rank Me Higher remain our intellectual property until full payment is received. Upon full payment, ownership of deliverables transfers to the client as specified in the service agreement.
+                The platform, its AI systems, and the underlying website code and infrastructure remain the intellectual property of Rank Me Higher. Content you provide — your business name, photos, and materials — remains yours, and you grant us a license to use it to build and operate your website. Your domain name is and remains yours. Websites are hosted on the platform for the duration of an active subscription; deliverables from separate custom-work agreements transfer as specified in those agreements.
               </p>
             </section>
 

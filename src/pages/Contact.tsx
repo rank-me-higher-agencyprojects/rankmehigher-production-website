@@ -99,18 +99,18 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Rank Me Higher | AI Website & SEO Platform from Chicago</title>
-        <meta name="description" content="Contact Rank Me Higher - AI, Software & Website Development Company from Chicago by Andrius Digital. Home of AVA, our AI-powered website & SEO platform managing 54 websites. Call (773) 572-4686." />
-        <meta name="keywords" content="Chicago SEO agency, contact SEO company, web development Chicago, local SEO services, Google Maps optimization, digital marketing agency Illinois" />
-        <meta property="og:title" content="Contact Rank Me Higher | AI Website & SEO Platform from Chicago" />
-        <meta property="og:description" content="Contact Rank Me Higher - AI, Software & Website Development Company from Chicago. Call (773) 572-4686." />
+        <title>Contact Rank Me Higher | AI Websites for Local Business</title>
+        <meta name="description" content="Text (773) 572-4686 or send a message. Fastest path: take the free website quiz on the homepage — the AI builds your site in minutes." />
+        <meta name="keywords" content="contact Rank Me Higher, AI website builder, local business website, Google Business Profile optimization, Chicago" />
+        <meta property="og:title" content="Contact Rank Me Higher | AI Websites for Local Business" />
+        <meta property="og:description" content="Text (773) 572-4686 or send a message. Fastest path: the free website quiz on the homepage." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rankmehigher.com/contact" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contact Rank Me Higher | Chicago SEO Agency" />
-        <meta name="twitter:description" content="Contact Rank Me Higher. Call (773) 572-4686 or email business@rankmehigher.com." />
+        <meta name="twitter:title" content="Contact Rank Me Higher" />
+        <meta name="twitter:description" content="Text (773) 572-4686 or email business@rankmehigher.com. Or take the free website quiz on the homepage." />
         <link rel="canonical" href="https://rankmehigher.com/contact" />
         
         {/* Local Business Schema */}
@@ -172,13 +172,13 @@ const Contact = () => {
           <div className="container mx-auto px-4 lg:px-8 max-w-6xl relative z-10">
             <div className="text-center mb-10">
               <h1 className="font-orbitron font-black text-4xl md:text-5xl text-foreground mb-3 leading-tight">
-                Let's Create Something{' '}
+                Talk To A{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-red-500 to-primary">
-                  Epic
+                  Human
                 </span>
               </h1>
               <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-                Ready to dominate? We're accepting new projects.
+                Fastest path: take the <a href="/#free-website" className="text-primary font-bold hover:underline">free website quiz</a> on the homepage — the AI starts building in minutes. For everything else, we're here.
               </p>
             </div>
 
@@ -309,11 +309,11 @@ const Contact = () => {
                   <h3 className="font-orbitron font-bold text-sm text-foreground mb-3">Why Rank Me Higher?</h3>
                   <div className="space-y-2.5">
                     {[
-                      "54 hand-coded websites launched",
-                      "No templates — no WordPress",
+                      "AI builds your website in minutes, free",
+                      "40+ local businesses on the platform",
+                      "Edit anything by chatting with the AI",
+                      "Leads texted to you in seconds",
                       "Chicago-based, meet us in person",
-                      "Direct line to Andrius, always",
-                      "Live in 10 days, not months",
                       "$99/mo, no hidden fees"
                     ].map((item, index) => (
                       <div key={index} className="flex items-center gap-2">
@@ -375,33 +375,33 @@ const Contact = () => {
           <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
             <div className="prose prose-lg prose-invert max-w-none text-center">
               <h2 className="font-orbitron font-bold text-2xl text-foreground mb-6">
-                AI, Software & <span className="text-primary">Website Development</span> from Chicago
+                The AI-Autonomous <span className="text-primary">Growth Platform</span> for Local Business
               </h2>
-              
+
               <div className="text-muted-foreground space-y-4 text-left">
                 <p>
-                  <strong className="text-foreground">Rank Me Higher</strong> is a Software & Website Development Marketing Company from Chicago. We take a technology-driven approach to building faster, better-ranking websites that actually generate leads and revenue for local businesses.
-                </p>
-                
-                <p>
-                  <strong className="text-cyan-400">AVA</strong> is our proprietary website and SEO platform, built to make enterprise-level marketing technology accessible to small and medium businesses.
+                  <strong className="text-foreground">Rank Me Higher</strong> is the AI-autonomous growth platform for local businesses, built in Chicago. The AI researches your market, plans your website, builds it in minutes with real photos and natural AI imagery, texts you progress, and puts it live — local-SEO-correct from the first build.
                 </p>
 
                 <p>
-                  <strong className="text-cyan-400">AVA</strong> is currently managing <strong className="text-foreground">54 websites</strong> and growing. The platform handles everything from custom website development and hosting to SEO optimization, lead capture, SMS & email automation, and 24/7 support. Every website we build is custom-coded (no templates), SEO-optimized from day one, and includes a full dashboard for leads and analytics.
+                  You edit anything by <strong className="text-foreground">chatting with the AI</strong> — click a section, say the change, and it's done. Every edit is versioned and revertable. One portal, one subscription: hosting, SSL, your custom domain, and lead capture with instant SMS and email delivery are all handled.
                 </p>
 
                 <p>
-                  With offices in <strong className="text-foreground">Chicago Downtown</strong> and <strong className="text-foreground">Mundelein, IL</strong>, we serve businesses throughout the Chicagoland area and beyond. Whether you're a local service business looking to dominate Google Maps or an established company needing a technology upgrade—we have the expertise and proven tools to deliver results. <strong className="text-foreground">Contact us today</strong> for a free consultation.
+                  <strong className="text-foreground">40+ real local businesses</strong> already run on the platform — Off-Tint, KleanAF, LTS Mechanical, ProTeamWorks, Thomas Window Cleaning, TruckClinic, ProRepair, ES Automotive and more. Plans start at <strong className="text-foreground">$99/mo</strong>; $149/mo adds Google Business Profile optimization, and $199/mo adds a review generator with a dedicated business phone and branded email.
+                </p>
+
+                <p>
+                  With offices in <strong className="text-foreground">Chicago Downtown</strong> and <strong className="text-foreground">Mundelein, IL</strong>, we serve local businesses across the United States. The fastest way to see what the platform does is to let it build your site: <strong className="text-foreground">take the free website quiz</strong> on the homepage and the live preview lands on your phone in minutes.
                 </p>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                 {[
-                  { label: "Websites on AVA", value: "54" },
-                  { label: "Custom Coded", value: "100%" },
-                  { label: "Avg Launch Time", value: "10 Days" },
-                  { label: "Client Support", value: "24/7" }
+                  { label: "Sites on the Platform", value: "40+" },
+                  { label: "To See Your Site", value: "$0" },
+                  { label: "Build Time", value: "Minutes" },
+                  { label: "Starting Plan", value: "$99/mo" }
                 ].map((stat, index) => (
                   <div key={index} className="p-4 rounded-xl bg-white/5 border border-white/10">
                     <div className="text-2xl font-orbitron font-bold text-primary">{stat.value}</div>

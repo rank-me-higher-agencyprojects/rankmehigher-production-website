@@ -458,7 +458,7 @@ const Careers = () => {
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-red-500 to-primary">Our Team</span>
                 </h1>
                 <p className="text-sm text-muted-foreground mt-2 max-w-md">
-                  Remote-first. AI-powered. Building the future of local business marketing.
+                  Remote-first. We build the AI platform that runs 40+ local business websites — and growing.
                 </p>
               </div>
               <a
