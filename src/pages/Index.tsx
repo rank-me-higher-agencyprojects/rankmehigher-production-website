@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, CheckCircle2, ChevronDown, Globe, ListChecks, MessageCircle, MessageSquare, Search, Smartphone, Sparkles, Star, TrendingUp, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -8,7 +9,7 @@ import FreeWebsiteQuiz from "@/components/funnel/FreeWebsiteQuiz";
 const PORTAL_URL = "https://websites.rankmehigher.com";
 
 const scrollToQuiz = () => {
-  document.getElementById("quiz")?.scrollIntoView({ behavior: "smooth", block: "center" });
+  document.getElementById("free-website")?.scrollIntoView({ behavior: "smooth", block: "center" });
 };
 
 const FAQ_ITEMS = [
@@ -39,6 +40,17 @@ const FAQ_ITEMS = [
 ];
 
 const Index = () => {
+  // Inner pages deep-link to /#free-website with plain <a> tags; the anchor
+  // renders client-side after the browser's own fragment scroll has already
+  // given up, so retry it once the section exists.
+  useEffect(() => {
+    if (window.location.hash !== "#free-website") return;
+    const t = setTimeout(() => {
+      document.getElementById("free-website")?.scrollIntoView({ block: "center" });
+    }, 150);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -357,7 +369,7 @@ const Index = () => {
           </section>
 
           {/* THE QUIZ */}
-          <section id="quiz" className="py-8 lg:py-12 relative overflow-hidden scroll-mt-24">
+          <section id="free-website" className="py-8 lg:py-12 relative overflow-hidden scroll-mt-24">
             <div className="container mx-auto px-4 lg:px-8 max-w-2xl relative z-10">
               <div className="text-center mb-6">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/30 mb-4">

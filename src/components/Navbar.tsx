@@ -10,7 +10,7 @@ const Navbar = ({ onOpenLeadMagnet }: { onOpenLeadMagnet?: () => void }) => {
   const location = useLocation();
 
   const scrollToQuiz = () => {
-    const element = document.getElementById("quiz");
+    const element = document.getElementById("free-website");
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "center" });
     }

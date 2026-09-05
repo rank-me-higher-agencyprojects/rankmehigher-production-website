@@ -84,6 +84,7 @@ const FreeWebsiteQuiz = () => {
   const [stepError, setStepError] = useState<string | null>(null);
   const [leadId, setLeadId] = useState<string | null>(null);
   const [code, setCode] = useState("");
+  const [resendNote, setResendNote] = useState<string | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const startedRef = useRef(false);
   const mirroredRef = useRef(false);
@@ -207,13 +208,7 @@ const FreeWebsiteQuiz = () => {
     }
   };
 
-  const handleSubmit = async () => {
-    setPhase("submitting");
-    setApiError(null);
-
-    // Mirror into the existing lead table no matter what the funnel API does.
-    const mirror = mirrorToSupabase();
-
+  const buildPayload = (): Record<string, unknown> => {
     const payload: Record<string, unknown> = {
       business_name: form.business_name.trim(),
       industry: form.industry.trim(),
@@ -229,6 +224,17 @@ const FreeWebsiteQuiz = () => {
     if (form.website.trim()) payload.website = form.website.trim();
     const utm = readUtm();
     if (utm) payload.utm = utm;
+    return payload;
+  };
+
+  const handleSubmit = async () => {
+    setPhase("submitting");
+    setApiError(null);
+
+    // Mirror into the existing lead table no matter what the funnel API does.
+    const mirror = mirrorToSupabase();
+
+    const payload = buildPayload();
 
     try {
       const res = await fetch(`${API_BASE}/start`, {
@@ -254,7 +260,7 @@ const FreeWebsiteQuiz = () => {
         } catch {
           // keep default message
         }
-        setApiError(res.status === 429 ? "Whoa — too many tries. Wait a minute and try again." : detail);
+        setApiError(detail);
         setPhase("quiz");
         return;
       }
@@ -266,6 +272,29 @@ const FreeWebsiteQuiz = () => {
       // Network failure — the mirror already has the lead.
       await mirror;
       setPhase("mirror-success");
+    }
+  };
+
+  /** Re-request a code — the API reuses the same unverified lead (fresh
+   *  code, max 3 sends) so this is a plain /start replay. */
+  const handleResend = async () => {
+    setResendNote(null);
+    setApiError(null);
+    try {
+      const res = await fetch(`${API_BASE}/start`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(buildPayload()),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        if (data.lead_id) setLeadId(data.lead_id);
+        setResendNote("New code sent — check your texts.");
+        return;
+      }
+      setResendNote(String(data?.detail || "Couldn't resend right now — text us instead."));
+    } catch {
+      setResendNote("Couldn't resend right now — text us instead.");
     }
   };
 
@@ -443,12 +472,21 @@ const FreeWebsiteQuiz = () => {
             </button>
           </form>
           <p className="text-[11px] text-muted-foreground">
-            Didn't get it? Double-check the number, or text us at{" "}
+            Didn't get it?{" "}
+            <button
+              type="button"
+              onClick={handleResend}
+              className="text-red-400 hover:underline font-semibold"
+            >
+              Resend code
+            </button>
+            , double-check the number, or text us at{" "}
             <a href="sms:773-572-4686" className="text-red-400 hover:underline">
               (773) 572-4686
             </a>
             .
           </p>
+          {resendNote && <p className="text-[11px] text-muted-foreground">{resendNote}</p>}
         </div>
       </div>
     );
