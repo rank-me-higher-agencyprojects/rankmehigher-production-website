@@ -24,10 +24,10 @@ const Blog = () => {
   return (
     <>
       <Helmet>
-        <title>SEO Insights & Local Marketing Tips | Rank Me Higher Blog</title>
-        <meta name="description" content="Get the latest SEO strategies, local marketing tips, and Google Maps ranking secrets. Free insights from Chicago's top local SEO experts." />
-        <meta property="og:title" content="SEO Insights & Local Marketing Tips | Rank Me Higher Blog" />
-        <meta property="og:description" content="Get the latest SEO strategies, local marketing tips, and Google Maps ranking secrets from Chicago's top local SEO experts." />
+        <title>Local SEO & AI Website Insights | Rank Me Higher Blog</title>
+        <meta name="description" content="Local SEO strategies, Google Maps ranking tips, and AI website insights — from the team behind the platform running 40+ local business sites." />
+        <meta property="og:title" content="Local SEO & AI Website Insights | Rank Me Higher Blog" />
+        <meta property="og:description" content="Local SEO strategies, Google Maps ranking tips, and AI website insights from the team behind the platform." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rankmehigher.com/blog" />
         <meta property="og:site_name" content="Rank Me Higher" />
@@ -41,7 +41,7 @@ const Blog = () => {
           "@type": "Blog",
           "name": "Rank Me Higher Blog",
           "url": "https://rankmehigher.com/blog",
-          "description": "SEO strategies, local marketing tips, and Google Maps ranking secrets from Chicago's top local SEO experts.",
+          "description": "Local SEO strategies, Google Maps ranking tips, and AI website insights from the team behind the Rank Me Higher platform.",
           "publisher": { "@type": "Organization", "name": "Rank Me Higher", "url": "https://rankmehigher.com" }
         })}</script>
       </Helmet>
@@ -81,7 +81,7 @@ const Blog = () => {
                     </span>
                   </h1>
                   <p className="text-sm text-muted-foreground max-w-md mx-auto lg:mx-0">
-                    Proven strategies and insider tips from the team that's helped <strong>500+ businesses</strong> dominate their market.
+                    Local SEO and AI website insights from the team whose platform runs <strong>40+ local business sites</strong> today.
                   </p>
                 </div>
 
@@ -100,14 +100,12 @@ const Blog = () => {
                 {/* CTA Buttons */}
                 <div className="hidden lg:flex flex-row gap-3">
                   <a
-                    href="https://calendly.com/rankmehigher/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/#free-website"
                     className="group relative px-4 py-2 rounded-lg bg-red-500/10 backdrop-blur-md border border-red-500/30 text-white font-bold text-xs shadow-lg hover:shadow-red-500/30 hover:bg-red-500/20 hover:border-red-500/50 transition-all duration-300 font-orbitron overflow-hidden"
                   >
                     <div className="relative flex items-center gap-2">
                       <Phone className="w-3 h-3 text-red-400" />
-                      <span>Talk to Expert</span>
+                      <span>Get Free Website</span>
                     </div>
                   </a>
                   <a
@@ -335,39 +333,37 @@ const Blog = () => {
               <div className="relative z-10">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 backdrop-blur-md border border-red-500/30 mb-6">
                   <Sparkles className="w-4 h-4 text-red-400" />
-                  <span className="text-red-300 text-sm font-bold font-orbitron">Limited Spots Available</span>
+                  <span className="text-red-300 text-sm font-bold font-orbitron">Free Build — No Card Needed</span>
                 </div>
-                
+
                 <h2 className="font-orbitron font-black text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
-                  Ready to <span className="text-primary">Rank #1</span>?
+                  Get a <span className="text-primary">FREE Website</span> That Dominates Google
                 </h2>
                 <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-                  Stop reading about SEO and start seeing results. Get a free audit and discover what's holding your business back.
+                  Stop reading about SEO — let the AI build it right. Take the quiz and get your finished site texted to you in minutes.
                 </p>
-                
+
                 <div className="flex flex-wrap justify-center gap-4">
-                  <button 
-                    onClick={() => window.open('https://calendly.com/andrius-cdlagency/andrius-digital-asap-meeting', '_blank')}
+                  <a
+                    href="/#free-website"
                     className="group relative px-8 py-4 rounded-2xl bg-red-500/10 backdrop-blur-md border border-red-500/30 text-white font-bold text-base shadow-lg hover:shadow-2xl hover:shadow-red-500/30 hover:bg-red-500/20 hover:border-red-500/50 hover:scale-[1.02] transition-all duration-300 font-orbitron overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/10 to-red-500/0 group-hover:from-red-500/10 group-hover:via-red-500/20 group-hover:to-red-500/10 transition-all duration-500" />
                     <div className="relative flex items-center gap-2">
                       <Calendar className="w-5 h-5 text-red-400" />
-                      <span>Book a Call Today</span>
+                      <span>Get my free website</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </div>
-                  </button>
-                  
-                  <a 
-                    href="https://calendly.com/rankmehigher/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  </a>
+
+                  <a
+                    href="https://websites.rankmehigher.com"
                     className="group relative px-8 py-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/20 text-white font-bold text-base hover:bg-white/10 hover:border-white/30 hover:scale-[1.02] transition-all duration-300 font-orbitron overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 group-hover:from-white/5 group-hover:via-white/10 group-hover:to-white/5 transition-all duration-500" />
                     <div className="relative flex items-center gap-2">
                       <Phone className="w-5 h-5" />
-                      <span>Book a Call</span>
+                      <span>Sign in</span>
                     </div>
                   </a>
                 </div>

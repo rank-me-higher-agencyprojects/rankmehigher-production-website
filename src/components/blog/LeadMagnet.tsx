@@ -6,20 +6,20 @@ const LeadMagnet = () => {
       <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
         <div className="flex-1">
           <h3 className="font-orbitron font-bold text-lg text-foreground mb-1.5">
-            Want results like these?
+            Get a FREE website that dominates Google
           </h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            We build custom-coded web apps that rank, convert, and grow your business. See if we're a fit.
+            Built by AI in minutes — real photos, local SEO done right, live preview texted to your phone. No card needed.
           </p>
         </div>
-        <button 
-          onClick={() => window.open('https://calendly.com/andrius-cdlagency/andrius-digital-asap-meeting', '_blank')}
+        <a
+          href="/#free-website"
           className="group shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-red-500/15 backdrop-blur-md border border-red-500/30 text-white font-bold text-sm hover:bg-red-500/25 hover:border-red-500/50 transition-all duration-300 font-orbitron"
         >
           <Calendar className="w-4 h-4 text-red-400" />
-          Book a Call
+          Get my free website
           <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-        </button>
+        </a>
       </div>
     </div>
   );
