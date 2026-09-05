@@ -1,207 +1,61 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import { ArrowRight, Globe, Search, MapPin, Phone, Megaphone, Play, Instagram, Mail, Calendar, Star, CheckCircle2, Sparkles, Brain, ChevronDown, MessageCircle, Shield, Zap, AlertTriangle, X, Check, Gauge, Code2, TrendingUp } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronDown, Globe, ListChecks, MessageCircle, MessageSquare, Search, Smartphone, Sparkles, Star, TrendingUp, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FuturisticWrapper from "@/components/ui/FuturisticWrapper";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { supabase } from "@/integrations/supabase/client";
-import { useToast } from "@/hooks/use-toast";
+import FreeWebsiteQuiz from "@/components/funnel/FreeWebsiteQuiz";
 
-const services = [
+const PORTAL_URL = "https://websites.rankmehigher.com";
+
+const scrollToQuiz = () => {
+  document.getElementById("quiz")?.scrollIntoView({ behavior: "smooth", block: "center" });
+};
+
+const FAQ_ITEMS = [
   {
-    id: "websites",
-    title: "High-Conversion Sales Machines",
-    description: "Go live in 10 days. We install proprietary AI systems that capture and close every lead 24/7.",
-    icon: Globe,
-    link: "/services/websites",
+    q: "Is it really free?",
+    a: "Yes. The AI researches your market, plans your pages, and builds your complete website — free. You get a live preview link by text and see the whole thing before paying anything. You only pay when you claim it and put it live on your domain.",
   },
   {
-    id: "localmapbooster",
-    title: "Google Map Dominance",
-    description: "We force your business into the Top 3. Results in 7 days or you don't pay. Zero risk.",
-    icon: MapPin,
-    link: "/localmapbooster",
-    featured: true,
+    q: "Who owns the website?",
+    a: "You do. Your business, your content, your photos, your domain. If you ever leave, your domain and your content go with you — no hostage situations.",
   },
   {
-    id: "ads",
-    title: "Qualified Lead Systems",
-    description: "Zero-touch content and high-ROI ads. We fill your calendar with appointments while you work.",
-    icon: Megaphone,
-    link: "/services/content-ads",
+    q: "What if I already have a website?",
+    a: "Even better. The AI studies what you have and rebuilds you a faster, better-ranking site — then your domain moves over when you're ready. No downtime, nothing to migrate yourself.",
   },
   {
-    id: "seo",
-    title: "Search Monopoly",
-    description: "Stop paying for traffic. We dominate the exact terms your customers are typing. Pure organic growth.",
-    icon: Search,
-    link: "/services/seo",
+    q: "How is it built so fast?",
+    a: "The platform already runs 40+ live local business websites, so the AI knows exactly what a local site needs to rank on Google: the right structure, real service pages, correct local SEO. It researches your market, plans your site, writes the content, and builds it — in minutes, not weeks.",
   },
   {
-    id: "outbound",
-    title: "Database Reactivation",
-    description: "We call your old leads and turn them into new cash. Guaranteed ROI. Zero effort required.",
-    icon: Phone,
-    link: "/services/outbound",
+    q: "What happens after I claim it?",
+    a: "We connect your domain and put your site live — hosting, SSL, everything handled. Your portal opens, and from there you edit by chat, get leads delivered instantly, and watch your site grow. Plans start at $99/mo.",
+  },
+  {
+    q: "Can I change things myself?",
+    a: "Yes — by chatting. Open your portal, click anything on your site, and say the change. The AI makes it. Every edit is versioned, so you can revert anything, anytime.",
   },
 ];
 
-// Declare Calendly global type
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string }) => void;
-    };
-  }
-}
-
-const CALENDLY_URL = "https://calendly.com/andrius-cdlagency/andrius-digital-asap-meeting";
-
 const Index = () => {
-  const [isAvaDialogOpen, setIsAvaDialogOpen] = useState(false);
-  const [isQualifyDialogOpen, setIsQualifyDialogOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [waitlistForm, setWaitlistForm] = useState({
-    businessName: '',
-    email: '',
-    phone: '',
-    website: '',
-    message: ''
-  });
-  const [qualifyForm, setQualifyForm] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    businessWebsite: '',
-    googleBusinessProfile: ''
-  });
-  const { toast } = useToast();
-
-  const openCalendly = () => {
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-    } else {
-      window.open(CALENDLY_URL, '_blank');
-    }
-  };
-
-  const handleWaitlistSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // Store in database or send notification
-      const { error } = await supabase
-        .from('website_submissions')
-        .insert({
-          company_name: waitlistForm.businessName || 'Ava Waitlist',
-          business_email: waitlistForm.email,
-          form_data: {
-            type: 'ava_waitlist',
-            phone: waitlistForm.phone,
-            website: waitlistForm.website,
-            message: waitlistForm.message,
-            submittedAt: new Date().toISOString()
-          }
-        });
-
-      if (error) throw error;
-
-      toast({
-        title: "You're on the list!",
-        description: "We'll notify you when Ava becomes available for new clients.",
-      });
-
-      setIsAvaDialogOpen(false);
-      setWaitlistForm({
-        businessName: '',
-        email: '',
-        phone: '',
-        website: '',
-        message: ''
-      });
-    } catch (error: any) {
-      console.error('Error submitting waitlist:', error);
-      toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleQualifySubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const { error } = await supabase
-        .from('website_submissions')
-        .insert({
-          company_name: qualifyForm.name || 'Free Website Qualification',
-          business_email: qualifyForm.email,
-          form_data: {
-            type: 'free_website_qualification',
-            name: qualifyForm.name,
-            phone: qualifyForm.phone,
-            businessWebsite: qualifyForm.businessWebsite,
-            googleBusinessProfile: qualifyForm.googleBusinessProfile,
-            submittedAt: new Date().toISOString()
-          }
-        });
-
-      if (error) throw error;
-
-      toast({
-        title: "Application Received!",
-        description: "We'll review your business and get back to you within 24 hours.",
-      });
-
-      setIsQualifyDialogOpen(false);
-      setQualifyForm({
-        name: '',
-        email: '',
-        phone: '',
-        businessWebsite: '',
-        googleBusinessProfile: ''
-      });
-    } catch (error: any) {
-      console.error('Error submitting qualification:', error);
-      toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <>
       <Helmet>
-        <title>Chicago AI Website Agency | Rank Page 1 On Google Guaranteed</title>
+        <title>Free AI-Built Website for Your Local Business | Rank Me Higher</title>
         <meta
           name="description"
-          content="Stop wasting money on digital paperweights. We build SEO-machines that dominate Google rankings and automate your business. Complete business revamp in 10 days."
+          content="Get a free website that dominates Google — built by AI in minutes. Answer 6 quick questions and the AI researches your market, builds your site, and texts you the live link. 40+ local businesses already run on Rank Me Higher."
         />
-        <meta property="og:title" content="Chicago AI Website Agency | Rank Page 1 On Google Guaranteed" />
-        <meta property="og:description" content="We build SEO-machines that dominate Google rankings and automate your business. Complete business revamp in 10 days." />
+        <meta property="og:title" content="Free AI-Built Website for Your Local Business | Rank Me Higher" />
+        <meta property="og:description" content="Get a free website that dominates Google — built by AI in minutes. The AI researches your market, builds your site, and texts you the live link." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rankmehigher.com/" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Chicago AI Website Agency | Rank Page 1 On Google Guaranteed" />
-        <meta name="twitter:description" content="We build SEO-machines that dominate Google rankings and automate your business." />
+        <meta name="twitter:title" content="Free AI-Built Website for Your Local Business | Rank Me Higher" />
+        <meta name="twitter:description" content="Get a free website that dominates Google — built by AI in minutes. Answer 6 questions, get the live link by text." />
         <meta name="twitter:image" content="https://rankmehigher.com/assets/logo.png" />
         <link rel="canonical" href="https://rankmehigher.com/" />
         <script type="application/ld+json">{JSON.stringify({
@@ -210,7 +64,7 @@ const Index = () => {
           "name": "Rank Me Higher",
           "url": "https://rankmehigher.com",
           "logo": "https://rankmehigher.com/assets/logo.png",
-          "description": "Chicago-based AI website agency specializing in custom-coded SEO websites, Google Maps optimization, and AI-powered business automation.",
+          "description": "The AI-autonomous growth platform for local businesses. The AI researches your market, builds a local-SEO-correct website in minutes, texts you the live link, and you edit anything by chatting with it. One portal, one subscription.",
           "address": { "@type": "PostalAddress", "streetAddress": "1 N State St Ste 1515", "addressLocality": "Chicago", "addressRegion": "IL", "postalCode": "60602", "addressCountry": "US" },
           "telephone": "+17735724686",
           "sameAs": ["https://www.facebook.com/rankmehigherseo", "https://instagram.com/rankmehigherseo", "https://www.tiktok.com/@rankmehigher", "https://www.trustpilot.com/review/rankmehigher.com", "https://agencies.semrush.com/rank-me-higher/"],
@@ -223,7 +77,7 @@ const Index = () => {
           "@type": "WebSite",
           "name": "Rank Me Higher",
           "url": "https://rankmehigher.com",
-          "description": "Custom-coded SEO websites, AI automation, and Google Maps optimization for local businesses.",
+          "description": "AI website builder for local businesses. Get a free AI-built website that ranks on Google — live in minutes, edited by chat, run from one portal.",
           "publisher": { "@type": "Organization", "name": "Rank Me Higher" }
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
@@ -239,6 +93,15 @@ const Index = () => {
           "sameAs": ["https://www.facebook.com/rankmehigherseo", "https://instagram.com/rankmehigherseo", "https://www.tiktok.com/@rankmehigher", "https://www.trustpilot.com/review/rankmehigher.com", "https://agencies.semrush.com/rank-me-higher/"],
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "54", "bestRating": "5", "worstRating": "1" }
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": FAQ_ITEMS.map((item) => ({
+            "@type": "Question",
+            "name": item.q,
+            "acceptedAnswer": { "@type": "Answer", "text": item.a },
+          })),
+        })}</script>
       </Helmet>
 
       <main className="min-h-screen bg-background relative overflow-hidden">
@@ -250,7 +113,7 @@ const Index = () => {
         </div>
 
         <div className="relative z-10">
-          <Navbar onOpenLeadMagnet={() => setIsQualifyDialogOpen(true)} />
+          <Navbar onOpenLeadMagnet={scrollToQuiz} />
 
           {/* HERO SECTION */}
           {/* Desktop Layout */}
@@ -266,22 +129,22 @@ const Index = () => {
                       ))}
                     </div>
                     <span className="text-sm text-muted-foreground font-orbitron">
-                      <span className="text-foreground font-bold">Actively manage 54 Websites</span> on <span className="text-cyan-400 font-bold">AVA</span>
+                      <span className="text-foreground font-bold">40+ live websites</span> already run on this platform
                     </span>
                   </div>
 
                   <div className="space-y-4">
                     <h1 className="text-4xl xl:text-5xl 2xl:text-6xl font-black leading-[1.1] font-orbitron tracking-tight">
-                      <span className="text-foreground">We Custom Code</span>
+                      <span className="text-foreground">Get a FREE Website</span>
                       <br />
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-red-500 to-primary animate-gradient-x">
-                        SEO-Ready Web Apps
+                        That Dominates Google
                       </span>
                       <br />
-                      <span className="text-foreground text-3xl xl:text-4xl 2xl:text-5xl">That Actually Make Money.</span>
+                      <span className="text-foreground text-3xl xl:text-4xl 2xl:text-5xl">Built by AI in Minutes.</span>
                     </h1>
                     <p className="text-base xl:text-lg text-muted-foreground max-w-xl leading-relaxed">
-                      Stop paying $5K+ for WordPress templates that lag and look like 2015. We <strong>custom code</strong> web apps with <strong>lead capture, SMS & email automations</strong>—managed by <span className="text-cyan-400 font-bold">AVA</span>. <strong>You own the code</strong>, no contracts. Dashboard, leads pipeline & <strong>24/7 support</strong> included.
+                      Answer 6 quick questions. Our AI <strong>researches your market</strong>, <strong>builds your site</strong>, and <strong>texts you the live link</strong> in minutes. Real business photos, correct local SEO, lead capture built in. See the whole thing before you pay a cent.
                     </p>
                   </div>
 
@@ -289,42 +152,42 @@ const Index = () => {
                     <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10">
                       <CheckCircle2 className="w-5 h-5 text-green-400" />
                       <span className="text-white font-bold text-sm font-orbitron">
-                        Built fully active in 10 days. Dashboard, leads pipeline & 24/7 support included.
+                        Free build. Live preview by text. Claim it when you love it.
                       </span>
                     </div>
                     <div className="text-sm text-muted-foreground pl-2">
                       <div className="flex items-start gap-2">
                         <span className="text-cyan-400 font-bold shrink-0">•</span>
-                        <span><strong className="text-foreground">$99/mo.</strong> Unlimited revisions until launch • Hosting • Emergency Telegram support • Go High Level included • Post-launch adjustments $100/hr</span>
+                        <span>Going live on your domain starts at <strong className="text-foreground">$99/mo</strong> — hosting, chat edits, your domain, and your portal included.</span>
                       </div>
                     </div>
                   </div>
 
                   <div className="flex flex-row gap-4">
                     <button
-                      onClick={() => setIsQualifyDialogOpen(true)}
+                      onClick={scrollToQuiz}
                       className="group relative px-7 py-4 rounded-xl bg-red-500/10 backdrop-blur-md border border-red-500/30 text-white font-bold text-base shadow-lg hover:shadow-2xl hover:shadow-red-500/30 hover:bg-red-500/20 hover:border-red-500/50 hover:scale-[1.02] transition-all duration-300 font-orbitron overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/10 to-red-500/0 group-hover:from-red-500/10 group-hover:via-red-500/20 group-hover:to-red-500/10 transition-all duration-500" />
                       <div className="relative flex items-center justify-center gap-2">
                         <Globe className="w-5 h-5 text-red-400" />
-                        <span>Get Your Custom Website</span>
+                        <span>Get my free website</span>
                       </div>
                     </button>
-                    <button
-                      onClick={openCalendly}
+                    <a
+                      href={PORTAL_URL}
                       className="group relative px-7 py-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/20 text-white font-bold text-base hover:bg-white/10 hover:border-white/30 hover:shadow-lg hover:shadow-white/10 hover:scale-[1.02] transition-all duration-300 font-orbitron overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 group-hover:from-white/5 group-hover:via-white/10 group-hover:to-white/5 transition-all duration-500" />
                       <span className="relative flex items-center justify-center gap-2">
-                        Book a Call
+                        Sign in
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                       </span>
-                    </button>
+                    </a>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-border/40">
-                    {['Custom Coded', '24/7 AI Support', 'Task Platform', 'Fast Response'].map((item) => (
+                    {['Built in minutes', 'Real photos + AI imagery', 'Edit by chat', 'Leads texted to you'].map((item) => (
                       <div key={item} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-500/5 border border-red-500/20">
                         <CheckCircle2 className="w-4 h-4 text-red-400" />
                         <span className="text-xs text-muted-foreground font-orbitron">{item}</span>
@@ -345,9 +208,9 @@ const Index = () => {
                           sizes="(max-width: 768px) 100vw, 580px"
                           type="image/webp"
                         />
-                        <img 
-                          src="/off-tint-screenshot.png" 
-                          alt="Off-Tint - Custom coded website by Rank Me Higher" 
+                        <img
+                          src="/off-tint-screenshot.png"
+                          alt="Off-Tint - local business website built on Rank Me Higher"
                           width={800}
                           height={600}
                           loading="eager"
@@ -370,16 +233,16 @@ const Index = () => {
 
                   <div className="grid grid-cols-3 gap-3">
                     <div className="p-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 text-center">
-                      <div className="text-2xl font-bold text-green-400 font-orbitron">10</div>
-                      <div className="text-xs text-muted-foreground">Days to Launch</div>
+                      <div className="text-2xl font-bold text-green-400 font-orbitron">$0</div>
+                      <div className="text-xs text-muted-foreground">To See It Live</div>
                     </div>
                     <div className="p-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 text-center">
-                      <div className="text-2xl font-bold text-cyan-400 font-orbitron">54</div>
-                      <div className="text-xs text-muted-foreground">Active Websites</div>
+                      <div className="text-2xl font-bold text-cyan-400 font-orbitron">40+</div>
+                      <div className="text-xs text-muted-foreground">Live Websites</div>
                     </div>
                     <div className="p-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 text-center">
-                      <div className="text-2xl font-bold text-green-400 font-orbitron">24/7</div>
-                      <div className="text-xs text-muted-foreground">AVA Support included</div>
+                      <div className="text-2xl font-bold text-green-400 font-orbitron">Minutes</div>
+                      <div className="text-xs text-muted-foreground">To Build Yours</div>
                     </div>
                   </div>
                 </div>
@@ -387,7 +250,7 @@ const Index = () => {
             </div>
           </section>
 
-          {/* MOBILE HERO - OFF TINT Style */}
+          {/* MOBILE HERO */}
           <section className="lg:hidden pt-20 pb-5 px-4">
             {/* Rating & Trust Badge - Same Line */}
             <div className="flex items-center justify-center gap-2 mb-[18px]">
@@ -397,21 +260,21 @@ const Index = () => {
                 ))}
               </div>
               <span className="text-sm text-muted-foreground font-orbitron">
-                <span className="text-foreground font-bold">Actively manage 54 Websites</span> on <span className="text-cyan-400 font-bold">AVA</span>
+                <span className="text-foreground font-bold">40+ live websites</span> run on this platform
               </span>
             </div>
 
             {/* Headline */}
             <h1 className="text-2xl sm:text-3xl font-black leading-tight font-orbitron mb-[14px] text-center">
-              <span className="text-foreground">We Custom Code </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">SEO-Ready Website Applications</span>
+              <span className="text-foreground">Get a FREE Website </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">That Dominates Google</span>
               <br />
-              <span className="text-foreground text-xl sm:text-2xl">That Actually Make Money.</span>
+              <span className="text-foreground text-xl sm:text-2xl">Built by AI in Minutes.</span>
             </h1>
 
             {/* Description */}
             <p className="text-sm text-muted-foreground leading-relaxed mb-5 text-center">
-              Stop paying $5K+ for WordPress templates that lag and look like 2015. We <strong>custom code</strong> web apps with <strong>lead capture, SMS & email automations</strong>—managed by <span className="text-cyan-400 font-bold">AVA</span>. <strong>You own the code</strong>, no contracts. Dashboard, leads pipeline & <strong>24/7 support</strong> included.
+              Answer 6 quick questions. Our AI <strong>researches your market</strong>, <strong>builds your site</strong>, and <strong>texts you the live link</strong> in minutes. Real photos, correct local SEO, lead capture built in. See it before you pay a cent.
             </p>
 
             {/* Pricing & Trust */}
@@ -419,13 +282,13 @@ const Index = () => {
               <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10">
                 <CheckCircle2 className="w-4 h-4 text-green-400" />
                 <span className="text-white font-bold text-xs font-orbitron">
-                  Built fully active in 10 days. Dashboard, leads pipeline & 24/7 support included.
+                  Free build. Live preview by text. Claim it when you love it.
                 </span>
               </div>
               <div className="text-xs text-muted-foreground pl-2">
                 <div className="flex items-start gap-2">
                   <span className="text-cyan-400 font-bold shrink-0">•</span>
-                  <span><strong className="text-foreground">$99/mo.</strong> Unlimited revisions until launch • Hosting • Emergency Telegram support • Go High Level included • Post-launch adjustments $100/hr</span>
+                  <span>Going live on your domain starts at <strong className="text-foreground">$99/mo</strong> — hosting, chat edits, your domain, and your portal included.</span>
                 </div>
               </div>
             </div>
@@ -440,9 +303,9 @@ const Index = () => {
                     sizes="100vw"
                     type="image/webp"
                   />
-                  <img 
-                    src="/off-tint-screenshot.png" 
-                    alt="Off-Tint - Custom coded website by Rank Me Higher" 
+                  <img
+                    src="/off-tint-screenshot.png"
+                    alt="Off-Tint - local business website built on Rank Me Higher"
                     width={800}
                     height={600}
                     loading="eager"
@@ -466,43 +329,65 @@ const Index = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col gap-[10px] mb-3">
               <button
-                onClick={() => setIsQualifyDialogOpen(true)}
+                onClick={scrollToQuiz}
                 className="group w-full px-5 py-[14px] rounded-xl bg-red-500/10 backdrop-blur-md border-2 border-red-500/40 text-white font-bold text-sm shadow-lg shadow-red-500/20 hover:shadow-red-500/30 hover:bg-red-500/20 hover:border-red-500/50 active:scale-[0.98] transition-all duration-300 font-orbitron flex items-center justify-center gap-2 relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/10 to-red-500/0" />
                 <Globe className="w-4 h-4 text-red-400 relative z-10" />
-                <span className="relative z-10">Get Your Custom Website</span>
+                <span className="relative z-10">Get my free website</span>
               </button>
-              
-              <button
-                onClick={openCalendly}
+
+              <a
+                href={PORTAL_URL}
                 className="group w-full px-5 py-[14px] rounded-xl bg-white/5 backdrop-blur-md border-2 border-white/20 text-white font-bold text-sm hover:bg-white/10 hover:border-white/30 hover:shadow-lg hover:shadow-white/10 active:scale-[0.98] transition-all duration-300 font-orbitron flex items-center justify-center gap-2 relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 group-hover:from-white/5 group-hover:via-white/10 group-hover:to-white/5 transition-all duration-500" />
                 <span className="relative z-10 flex items-center gap-2">
-                  Book a Call
+                  Sign in
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
-              </button>
+              </a>
             </div>
 
             {/* Trust Badge - Simple */}
             <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
               <CheckCircle2 className="w-3.5 h-3.5 text-green-400" />
-              <span className="font-orbitron">Trusted by businesses across America</span>
+              <span className="font-orbitron">Trusted by local businesses across America</span>
             </div>
           </section>
 
-          {/* PORTFOLIO SHOWCASE SECTION */}
+          {/* THE QUIZ */}
+          <section id="quiz" className="py-8 lg:py-12 relative overflow-hidden scroll-mt-24">
+            <div className="container mx-auto px-4 lg:px-8 max-w-2xl relative z-10">
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/30 mb-4">
+                  <Sparkles className="w-3.5 h-3.5 text-red-400" />
+                  <span className="text-xs font-orbitron text-red-400 font-bold uppercase tracking-wider">Free — takes 60 seconds</span>
+                </div>
+                <h2 className="text-3xl lg:text-4xl font-black leading-tight font-orbitron mb-3">
+                  <span className="text-foreground">Claim Your </span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">Free Website</span>
+                </h2>
+                <p className="text-sm lg:text-base text-muted-foreground max-w-lg mx-auto">
+                  6 questions. That's everything the AI needs to research your market and build your site. Your live link arrives by text.
+                </p>
+              </div>
+              <FuturisticWrapper>
+                <FreeWebsiteQuiz />
+              </FuturisticWrapper>
+            </div>
+          </section>
+
+          {/* PROOF WALL - PORTFOLIO TICKER */}
           <section className="pt-4 pb-2 lg:pt-6 lg:pb-4 relative overflow-hidden">
             <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
               <div className="text-center mb-6">
                 <h2 className="font-orbitron font-black text-3xl lg:text-4xl mb-3">
-                  <span className="text-foreground">Our</span>{' '}
-                  <span className="text-primary">Work</span>
+                  <span className="text-foreground">These businesses already run on</span>{' '}
+                  <span className="text-primary">Rank Me Higher</span>
                 </h2>
                 <p className="text-muted-foreground text-sm lg:text-base max-w-2xl mx-auto">
-                  Real results from real clients. Custom-coded websites that convert.
+                  40+ live local business websites — researched, built, and run by the platform.
                 </p>
               </div>
             </div>
@@ -566,332 +451,6 @@ const Index = () => {
 
           </section>
 
-          {/* NEW SCHOOL AGENCY COMMUNICATION BANNER */}
-          <section className="py-4 lg:py-6 relative overflow-hidden">
-            <div className="container mx-auto px-4 lg:px-8 max-w-4xl relative z-10">
-              <div className="relative p-5 lg:p-6 rounded-2xl bg-gradient-to-br from-cyan-500/5 to-cyan-500/0 border border-cyan-500/20 text-center">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-3">
-                  <Zap className="w-3 h-3 text-cyan-400" />
-                  <span className="text-[10px] font-orbitron text-cyan-400 font-bold uppercase tracking-wider">New-School Agency</span>
-                </div>
-                <h3 className="font-orbitron font-black text-xl lg:text-2xl text-foreground mb-3">
-                  Marketers on <span className="text-cyan-400">Speed Dial</span>
-                </h3>
-                <p className="text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-3">
-                  We're not a faceless agency that takes weeks to reply. You get <strong className="text-foreground">fast, direct responses</strong> — urgent adjustments can be fixed within minutes during reasonable hours. We accommodate weekend emergencies too. You're always <strong className="text-foreground">one Telegram message away</strong> from your team.
-                </p>
-                <p className="text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                  Our expertise goes beyond websites — <strong className="text-foreground">ads, content, SEO, Google Business Profiles</strong> and more. You have a full marketing team on speed dial.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* PRICING SECTION */}
-          <section className="py-4 lg:py-6 relative overflow-hidden">
-            <div className="container mx-auto px-4 lg:px-8 max-w-5xl relative z-10">
-              <div className="text-center mb-6">
-                <h2 className="text-3xl lg:text-5xl font-black leading-tight font-orbitron mb-3">
-                  <span className="text-foreground">Simple, </span>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">Transparent Pricing</span>
-                </h2>
-                <p className="text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
-                  No hidden fees, no long-term contracts. You own your code — it's yours forever. Know exactly what you're paying before we even talk.
-                </p>
-              </div>
-
-              <div className="relative p-5 lg:p-6 rounded-2xl bg-gradient-to-br from-white/8 to-white/3 backdrop-blur-xl border border-white/15">
-                <div className="grid lg:grid-cols-2 gap-6 items-center">
-                  <div className="text-center lg:text-left space-y-5">
-                    <div>
-                      <div className="mb-1">
-                        <span className="text-5xl lg:text-6xl font-black font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">$99</span>
-                        <span className="text-3xl lg:text-4xl font-black font-orbitron text-muted-foreground">/month</span>
-                      </div>
-                      <p className="text-sm text-muted-foreground mt-1">Billed every 1st of the month</p>
-                      <p className="text-sm text-cyan-400 font-bold mt-3">No sales call needed to know our pricing. It's all right here.</p>
-                    </div>
-
-                    <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-left">
-                      <h4 className="font-orbitron font-bold text-xs text-foreground mb-2">What's Included in Your Build</h4>
-                      <ul className="space-y-1.5">
-                        {[
-                          'Custom-coded website (not a template)',
-                          'Unlimited design changes until you approve',
-                          'Mobile-first responsive design',
-                          'SEO-optimized structure & meta tags',
-                          'Lead capture forms & automations',
-                          'Speed optimization (90+ PageSpeed)',
-                          'Built to rank from day 1',
-                        ].map((item, i) => (
-                          <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-2 text-center">
-                      <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                        <span className="block text-xl font-black font-orbitron text-foreground">10</span>
-                        <span className="text-[10px] text-muted-foreground">Days to Launch</span>
-                      </div>
-                      <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                        <span className="block text-xl font-black font-orbitron text-foreground">95+</span>
-                        <span className="text-[10px] text-muted-foreground">PageSpeed Score</span>
-                      </div>
-                      <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                        <span className="block text-xl font-black font-orbitron text-foreground">24/7</span>
-                        <span className="text-[10px] text-muted-foreground">Support Access</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30">
-                      <h4 className="font-orbitron font-bold text-sm text-foreground mb-2">What's Included Every Month</h4>
-                      <ul className="space-y-1.5">
-                        {[
-                          'Website hosting & security (SSL)',
-                          'Emergency support via Telegram group',
-                          'Go High Level sub account (free)',
-                          'Client dashboard & task platform',
-                          'Weekly client coaching calls',
-                          'Performance monitoring & backups',
-                        ].map((item, i) => (
-                          <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                      <h4 className="font-orbitron font-bold text-xs text-foreground mb-1">How It Works</h4>
-                      <p className="text-xs text-muted-foreground leading-relaxed mb-2">
-                        We build your website with <strong className="text-foreground">unlimited revisions</strong> until you're 100% happy. You only approve — we don't bill hourly during the build. Once your site is live, any future changes are billed at <strong className="text-foreground">$100/hr</strong>. Because these are custom-coded React apps (not WordPress), 1 hour of adjustments here equals weeks of work on a traditional site. You own the code — if you ever leave, we hand you the full project files via GitHub.
-                      </p>
-                    </div>
-                    <div className="p-3 rounded-xl bg-cyan-500/5 border border-cyan-500/20">
-                      <h4 className="font-orbitron font-bold text-xs text-cyan-400 mb-1">AI-Powered Development</h4>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        Your website isn't a template — it's a real <strong className="text-foreground">React application</strong>, the same technology used by Netflix, Airbnb, and top startups. We can integrate anything you imagine: booking systems, dashboards, AI chat, payment processing — you name it. We build with AI-powered coding tools that use a small amount of API compute. The cost varies based on how many changes you request, but most clients pay just <strong className="text-foreground">a few dollars to ~$20/mo</strong> — billed on the 1st, zero markup, fully transparent.
-                      </p>
-                    </div>
-
-                    <button
-                      onClick={openCalendly}
-                      className="group w-full px-6 py-3.5 rounded-xl bg-white/5 backdrop-blur-md border border-white/15 text-white font-bold text-sm shadow-lg hover:shadow-xl hover:shadow-red-500/20 hover:bg-white/10 hover:border-white/25 hover:scale-[1.01] transition-all duration-300 font-orbitron flex items-center justify-center gap-2 relative overflow-hidden"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/5 to-red-500/0 group-hover:from-red-500/10 group-hover:via-red-500/15 group-hover:to-red-500/10 transition-all duration-500" />
-                      <span className="relative z-10">Lock In This Price — Book a Call</span>
-                      <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <p className="text-[11px] text-muted-foreground text-center">Free consultation. No credit card needed.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* TEMPLATE VS CUSTOM - BEFORE/AFTER COMPARISON */}
-          <section className="py-2 lg:py-3 relative overflow-hidden">
-            <div className="container mx-auto px-4 lg:px-8 max-w-6xl relative z-10">
-              <div className="text-center mb-12">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/30 mb-4">
-                  <AlertTriangle className="w-3.5 h-3.5 text-red-400" />
-                  <span className="text-xs font-orbitron text-red-400 font-bold">Reality Check</span>
-                </div>
-                <h2 className="text-3xl lg:text-5xl font-black leading-tight font-orbitron mb-4">
-                  <span className="text-foreground">Is Your Website</span>
-                  <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-red-500 to-primary">Costing You Customers?</span>
-                </h2>
-                <p className="text-base lg:text-lg text-muted-foreground max-w-3xl mx-auto">
-                  If your website was built on WordPress, Wix, or GoHighLevel templates — you're blending in with thousands of businesses using the exact same design. Your customers can tell. And they're choosing your competitor instead.
-                </p>
-              </div>
-
-              <div className="grid lg:grid-cols-2 gap-6 mb-12 items-stretch">
-                <div className="relative group flex flex-col">
-                  <div className="absolute -top-3 left-6 z-10 px-4 py-1.5 rounded-full bg-red-500/10 backdrop-blur-xl border border-red-500/30 text-red-400 text-xs font-orbitron font-bold shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                    Template Website
-                  </div>
-                  <div className="p-6 rounded-2xl bg-red-500/5 border-2 border-red-500/30 relative overflow-hidden flex flex-col flex-1">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-full blur-2xl" />
-                    
-                    <div className="mt-4 mb-2 rounded-xl bg-gray-800/80 border border-gray-700 relative overflow-hidden">
-                      <div className="flex items-center gap-2 p-2 bg-gray-900/80">
-                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-                        <div className="ml-2 flex-1 h-4 rounded bg-gray-700/50" />
-                      </div>
-                      <div className="relative aspect-[16/9] overflow-hidden">
-                        <img 
-                          src="/images/template-website-example.webp" 
-                          srcSet="/images/template-website-example-400w.webp 400w, /images/template-website-example-800w.webp 800w, /images/template-website-example-1200w.webp 1200w, /images/template-website-example.webp 2036w"
-                          sizes="(max-width: 768px) 100vw, 500px"
-                          alt="Example of a template-built website showing slow performance" 
-                          width={800}
-                          height={450}
-                          loading="lazy"
-                          className="w-full h-full object-cover object-top opacity-80"
-                        />
-                        <div className="absolute inset-0 bg-red-500/10" />
-                      </div>
-                    </div>
-                    <p className="text-[9px] text-red-400/40 text-center mb-3 italic">Typical template-built website</p>
-
-                    <div className="space-y-1.5 flex-1">
-                      {[
-                        "Same layout as 10,000+ other businesses",
-                        "Slow loading — 4-8 second load times",
-                        "Bloated plugins killing your SEO",
-                        "No lead capture or automation built in",
-                        "Looks 'fine' but doesn't convert visitors",
-                        "Monthly plugin updates break your site",
-                        "No AI — you're answering every call yourself"
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-2">
-                          <X className="w-3 h-3 text-red-400 shrink-0 mt-0.5" />
-                          <span className="text-xs text-muted-foreground/80">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="mt-6 p-4 rounded-xl bg-red-500/10 border border-red-500/20">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Gauge className="w-4 h-4 text-red-400" />
-                        <span className="font-orbitron text-xs font-bold text-red-400">Typical PageSpeed Score</span>
-                      </div>
-                      <div className="flex items-end gap-2">
-                        <span className="text-3xl font-orbitron font-black text-red-400">28</span>
-                        <span className="text-xs text-red-400/70 mb-1">/ 100</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="relative group flex flex-col">
-                  <div className="absolute -top-3 left-6 z-10 px-4 py-1.5 rounded-full bg-cyan-500/10 backdrop-blur-xl border border-cyan-500/30 text-cyan-400 text-xs font-orbitron font-bold shadow-[0_0_15px_rgba(6,182,212,0.3)]">
-                    Rank Me Higher Website
-                  </div>
-                  <div className="p-6 rounded-2xl bg-cyan-500/5 border-2 border-cyan-500/30 relative overflow-hidden flex flex-col flex-1">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl" />
-                    
-                    <div className="mt-4 mb-2 rounded-xl bg-gray-800/80 border border-cyan-500/20 relative overflow-hidden">
-                      <div className="flex items-center gap-2 p-2 bg-gray-900/80">
-                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-                        <div className="ml-2 flex-1 h-4 rounded bg-cyan-500/10 border border-cyan-500/20 flex items-center px-2">
-                          <span className="text-cyan-400/60 text-[8px]">🔒 yourbusiness.com</span>
-                        </div>
-                      </div>
-                      <div className="relative aspect-[16/9] overflow-hidden">
-                        <picture>
-                          <source
-                            srcSet="/images/custom-coded-website-example-400w.webp 400w, /images/custom-coded-website-example-800w.webp 800w, /images/custom-coded-website-example-1200w.webp 1200w, /images/custom-coded-website-example.webp 2990w"
-                            sizes="(max-width: 768px) 100vw, 500px"
-                            type="image/webp"
-                          />
-                          <img 
-                            src="/images/custom-coded-website-example.png" 
-                            alt="Example of a custom-coded website by Rank Me Higher" 
-                            width={800}
-                            height={450}
-                            loading="lazy"
-                            className="w-full h-full object-cover object-top"
-                          />
-                        </picture>
-                        <div className="absolute inset-0 bg-cyan-500/5" />
-                      </div>
-                    </div>
-                    <p className="text-[9px] text-cyan-400/40 text-center mb-3 italic">This is what a custom-coded website looks like</p>
-
-                    <div className="space-y-1.5 flex-1">
-                      {[
-                        "100% unique design built for your brand",
-                        "Lightning fast — under 1 second load time",
-                        "Zero plugins. Clean, hand-written code",
-                        "Built-in lead capture, SMS & email automations",
-                        "Engineered to convert visitors into customers",
-                        "We maintain it — you never worry about updates",
-                        "AI-powered assistant answers calls & chats 24/7"
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-2">
-                          <Check className="w-3 h-3 text-cyan-400 shrink-0 mt-0.5" />
-                          <span className="text-xs text-muted-foreground/80">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="mt-6 p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/20">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Gauge className="w-4 h-4 text-cyan-400" />
-                        <span className="font-orbitron text-xs font-bold text-cyan-400">Average PageSpeed Score</span>
-                      </div>
-                      <div className="flex items-end gap-2">
-                        <span className="text-3xl font-orbitron font-black text-cyan-400">95</span>
-                        <span className="text-xs text-cyan-400/70 mb-1">/ 100</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-4 mb-12">
-                {[
-                  {
-                    icon: Code2,
-                    stat: "0",
-                    label: "Plugins Required",
-                    desc: "Pure custom code means no bloat, no vulnerabilities, no broken updates"
-                  },
-                  {
-                    icon: Gauge,
-                    stat: "3x",
-                    label: "Faster Load Speed",
-                    desc: "Custom code loads 3x faster than WordPress — Google rewards speed with rankings"
-                  },
-                  {
-                    icon: TrendingUp,
-                    stat: "2-5x",
-                    label: "More Conversions",
-                    desc: "Strategic design + built-in lead capture = more calls, more bookings, more revenue"
-                  }
-                ].map((item, i) => (
-                  <div key={i} className="p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-center">
-                    <item.icon className="w-6 h-6 text-primary mx-auto mb-2" />
-                    <div className="text-2xl font-orbitron font-black text-primary mb-1">{item.stat}</div>
-                    <div className="font-orbitron font-bold text-sm text-foreground mb-1">{item.label}</div>
-                    <p className="text-xs text-muted-foreground">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-primary/10 via-red-500/5 to-transparent border border-primary/20">
-                <h3 className="font-orbitron font-bold text-xl md:text-2xl text-foreground mb-3">
-                  Stop Losing Business to a Bad Website
-                </h3>
-                <p className="text-muted-foreground max-w-2xl mx-auto mb-6 text-sm">
-                  Your website is your #1 salesperson — it works 24/7. If it looks like every other template out there, customers assume your business is like every other business out there. Stand out or get scrolled past.
-                </p>
-                <Link
-                  to="/contact"
-                  className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-red-500/10 backdrop-blur-md border border-red-500/30 text-white font-bold text-sm shadow-lg hover:shadow-2xl hover:shadow-red-500/30 hover:bg-red-500/20 hover:border-red-500/50 hover:scale-[1.02] transition-all duration-300 font-orbitron overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/10 to-red-500/0 group-hover:from-red-500/10 group-hover:via-red-500/20 group-hover:to-red-500/10 transition-all duration-500" />
-                  <span className="relative flex items-center gap-2">
-                    Get Your Custom Website
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </Link>
-              </div>
-            </div>
-          </section>
-
           {/* HOW IT WORKS SECTION */}
           <section className="py-4 lg:py-6 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-red-500/[0.03] to-transparent" />
@@ -902,7 +461,7 @@ const Index = () => {
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">Works</span>
                 </h2>
                 <p className="text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
-                  From first call to live website in 10 days. Here's exactly what happens.
+                  From 6 questions to a live website. Here's exactly what happens.
                 </p>
               </div>
 
@@ -910,29 +469,29 @@ const Index = () => {
                 {[
                   {
                     step: '01',
-                    title: 'Discovery Call',
-                    description: 'We present how we build new-technology local business websites and why they outperform what you have now. You then submit our detailed application form — with AI assistance — so we get super detailed info to build out your website exactly right.',
-                    icon: Phone,
+                    title: 'Answer 6 Quick Questions',
+                    description: 'Your business name, what you do, and where you work. That\'s all the AI needs to get started — 60 seconds, no sales call.',
+                    icon: ListChecks,
                     color: 'red',
                   },
                   {
                     step: '02',
-                    title: 'We Build Everything',
-                    description: 'We custom code your website and set up all the automations you listed in the application form. You get updates on Telegram along the way so you always know where things stand.',
-                    icon: Globe,
+                    title: 'The AI Researches & Plans',
+                    description: 'It studies your market, your competitors, and what ranks in your city — then plans a local-SEO-correct website: the right pages, real business photos, natural AI imagery, and content written for your services.',
+                    icon: Search,
                     color: 'red',
                   },
                   {
                     step: '03',
-                    title: 'Review & Launch',
-                    description: 'You review the finished product with unlimited revisions until you\'re 100% happy. We then push it live — domain, SSL, and everything configured.',
-                    icon: CheckCircle2,
+                    title: 'Built & Texted to You',
+                    description: 'Minutes later your phone buzzes: "your website is live — here\'s the link." A complete, working site with lead capture built in. Look at every page. It\'s yours to judge, free.',
+                    icon: Smartphone,
                     color: 'red',
                   },
                   {
                     step: '04',
-                    title: 'Weekly Reports & Ongoing Growth',
-                    description: 'We send weekly suggestions and performance reports free of charge. You can opt in to keep upgrading your website app — including new functions, SEO improvements, and more.',
+                    title: 'Claim It & Go Live',
+                    description: 'Love it? Claim it and we put it on your domain — hosting, SSL, everything handled, from $99/mo. Then edit anything by chatting with it in your portal, forever.',
                     icon: TrendingUp,
                     color: 'cyan',
                   },
@@ -964,17 +523,192 @@ const Index = () => {
 
               <div className="text-center mt-8">
                 <button
-                  onClick={openCalendly}
+                  onClick={scrollToQuiz}
                   className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 text-white font-bold text-sm hover:bg-primary/10 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 font-orbitron"
                 >
-                  <Calendar className="w-4 h-4 text-primary" />
-                  Ready to Start? Book Your Free Strategy Call
+                  <Globe className="w-4 h-4 text-primary" />
+                  Start with the 6 questions
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
             </div>
           </section>
 
+          {/* PLATFORM SECTION */}
+          <section className="py-4 lg:py-6 relative overflow-hidden">
+            <div className="container mx-auto px-4 lg:px-8 max-w-6xl relative z-10">
+              <div className="text-center mb-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-3">
+                  <Zap className="w-3 h-3 text-cyan-400" />
+                  <span className="text-[10px] font-orbitron text-cyan-400 font-bold uppercase tracking-wider">One Portal, One Subscription</span>
+                </div>
+                <h2 className="text-3xl lg:text-5xl font-black leading-tight font-orbitron mb-4">
+                  <span className="text-foreground">Your Website </span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">Runs Itself</span>
+                </h2>
+                <p className="text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Rank Me Higher is the AI-autonomous growth platform for local businesses. Everything lives in one portal — no agency, no tickets, no waiting.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4 mb-6">
+                <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 relative overflow-hidden">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center">
+                      <MessageCircle className="w-5 h-5 text-red-400" />
+                    </div>
+                    <span className="px-2 py-0.5 rounded-full bg-green-500/15 border border-green-500/30 text-[10px] font-bold text-green-400 font-orbitron">LIVE</span>
+                  </div>
+                  <h3 className="font-orbitron font-bold text-lg text-foreground mb-2">Edit Anything by Chatting</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Click anything on your site, say the change — "make the phone number bigger", "add Saturday hours" — and it's done. Every edit is versioned and revertable. No developers, no waiting.
+                  </p>
+                </div>
+
+                <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 relative overflow-hidden">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center">
+                      <MessageSquare className="w-5 h-5 text-red-400" />
+                    </div>
+                    <span className="px-2 py-0.5 rounded-full bg-green-500/15 border border-green-500/30 text-[10px] font-bold text-green-400 font-orbitron">LIVE</span>
+                  </div>
+                  <h3 className="font-orbitron font-bold text-lg text-foreground mb-2">Updates Land in Your Texts</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    "Your website is being planned… built… here's the link." The platform keeps you posted by SMS and email — and when a lead comes in through your site, it's delivered to you instantly.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-cyan-500/5 to-cyan-500/0 border border-cyan-500/20">
+                <div className="flex items-center gap-2 mb-4">
+                  <TrendingUp className="w-4 h-4 text-cyan-400" />
+                  <h3 className="font-orbitron font-bold text-sm text-cyan-400 uppercase tracking-wider">Where the platform is going</h3>
+                </div>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                  {[
+                    { title: "Your rankings, one place", desc: "Watch where you stand on Google — right in your portal." },
+                    { title: "Just ask for tasks", desc: "\"Add a page for spring specials.\" The AI does it." },
+                    { title: "Google Business Profile", desc: "Automatic optimization of your GBP, hands-free." },
+                    { title: "Review generation", desc: "Automated review requests that grow your reputation." },
+                  ].map((item) => (
+                    <div key={item.title} className="p-3 rounded-xl bg-white/5 border border-white/10">
+                      <h4 className="font-orbitron font-bold text-xs text-foreground mb-1">{item.title}</h4>
+                      <p className="text-[11px] text-muted-foreground leading-relaxed">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* PRICING SECTION */}
+          <section className="py-6 lg:py-10 relative overflow-hidden">
+            <div className="container mx-auto px-4 lg:px-8 max-w-5xl relative z-10">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl lg:text-5xl font-black leading-tight font-orbitron mb-3">
+                  <span className="text-foreground">Simple, </span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">Transparent Pricing</span>
+                </h2>
+                <p className="text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
+                  The build is free. Pay only when you claim your site and go live on your domain. No contracts, no setup fees.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-4 items-stretch">
+                {/* $99 - highlighted */}
+                <div className="relative flex flex-col p-6 rounded-2xl bg-red-500/5 border-2 border-red-500/40 shadow-lg shadow-red-500/10 order-first md:order-none">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-red-500/15 backdrop-blur-xl border border-red-500/40 text-red-400 text-[10px] font-orbitron font-bold uppercase tracking-wider whitespace-nowrap">
+                    Start Here
+                  </div>
+                  <div className="mb-4 mt-2">
+                    <span className="text-4xl font-black font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">$99</span>
+                    <span className="text-lg font-bold font-orbitron text-muted-foreground">/mo</span>
+                    <p className="font-orbitron font-bold text-sm text-foreground mt-2">Your Website</p>
+                  </div>
+                  <ul className="space-y-2 flex-1">
+                    {[
+                      'Your AI-built website, live on your domain',
+                      'Hosting, SSL & security handled',
+                      'Edit anything by chat — versioned & revertable',
+                      'Lead capture with instant delivery',
+                      'Your portal — everything in one place',
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <CheckCircle2 className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    onClick={scrollToQuiz}
+                    className="group mt-5 w-full px-5 py-3 rounded-xl bg-red-500/10 border-2 border-red-500/40 text-white font-bold text-sm font-orbitron hover:bg-red-500/20 hover:border-red-500/50 hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    Get my free website
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+
+                {/* $149 */}
+                <div className="flex flex-col p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
+                  <div className="mb-4 mt-2">
+                    <span className="text-4xl font-black font-orbitron text-foreground">$149</span>
+                    <span className="text-lg font-bold font-orbitron text-muted-foreground">/mo</span>
+                    <p className="font-orbitron font-bold text-sm text-foreground mt-2">+ Google Business Profile</p>
+                  </div>
+                  <ul className="space-y-2 flex-1">
+                    {[
+                      'Everything in $99',
+                      'Automatic Google Business Profile optimization',
+                      'Your GBP kept accurate, active & ranking',
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <CheckCircle2 className="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    onClick={scrollToQuiz}
+                    className="mt-5 w-full px-5 py-3 rounded-xl bg-white/5 border border-white/15 text-white font-bold text-sm font-orbitron hover:bg-white/10 hover:border-white/25 transition-all duration-300"
+                  >
+                    Start with the free build
+                  </button>
+                </div>
+
+                {/* $199 */}
+                <div className="flex flex-col p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
+                  <div className="mb-4 mt-2">
+                    <span className="text-4xl font-black font-orbitron text-foreground">$199</span>
+                    <span className="text-lg font-bold font-orbitron text-muted-foreground">/mo</span>
+                    <p className="font-orbitron font-bold text-sm text-foreground mt-2">+ Reviews & Identity</p>
+                  </div>
+                  <ul className="space-y-2 flex-1">
+                    {[
+                      'Everything in $149',
+                      'Review generator that grows your reputation',
+                      'Dedicated business phone number',
+                      'Branded email for your business',
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <CheckCircle2 className="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    onClick={scrollToQuiz}
+                    className="mt-5 w-full px-5 py-3 rounded-xl bg-white/5 border border-white/15 text-white font-bold text-sm font-orbitron hover:bg-white/10 hover:border-white/25 transition-all duration-300"
+                  >
+                    Start with the free build
+                  </button>
+                </div>
+              </div>
+
+              <p className="text-center text-sm text-muted-foreground mt-6 font-orbitron">
+                Every plan starts the same way — <span className="text-foreground font-bold">with your free website.</span>
+              </p>
+            </div>
+          </section>
 
           {/* FAQ SECTION */}
           <section className="py-4 lg:py-6 relative overflow-hidden">
@@ -988,48 +722,7 @@ const Index = () => {
               </div>
 
               <div className="space-y-3">
-                {[
-                  {
-                    q: 'How long does it take to build my website?',
-                    a: 'Most websites are fully live within 10 days. More complex projects with custom features may take up to 14 days. You\'ll get updates in your Telegram group.',
-                  },
-                  {
-                    q: 'Do I own my website?',
-                    a: 'Yes. You own all the code and content. If you ever decide to leave, we\'ll hand over everything — no hostage situations, no hidden clauses.',
-                  },
-                  {
-                    q: 'What is AVA?',
-                    a: 'AVA is a software developed by Rank Me Higher to manage client communication, task management, and SEO — all in one place. She handles voice chat, answers questions, qualifies leads, and books appointments automatically — 24/7, even while you sleep.',
-                  },
-                  {
-                    q: 'Why custom code instead of WordPress?',
-                    a: 'WordPress template sites lag, break with plugin updates, and look like 2015. Our custom-coded websites load faster, rank better on Google, and give us complete control over every feature. No bloat, no vulnerabilities. And the design is unmatched — you just can\'t compare.',
-                  },
-                  {
-                    q: 'What happens if I need changes after launch?',
-                    a: 'Your monthly plan includes 1 hour of adjustments. Anything beyond that is billed at $100/hr. We only suggest what we think you need — no upsells, no pressure. Submit requests through your dashboard or Telegram.',
-                  },
-                  {
-                    q: 'Do you offer refunds?',
-                    a: 'We offer a satisfaction guarantee. If you\'re not happy with the final product before launch, we\'ll revise it until you are with unlimited revisions.',
-                  },
-                  {
-                    q: 'What is the AI usage fee?',
-                    a: 'We use AI to build and maintain your website, which means 1 hour of our work can accomplish what would take 50+ hours of traditional WordPress development. But AI tools cost real money to run. The AI usage fee ($2–$20/mo) covers the actual cost of the AI infrastructure we use on your behalf — we simply pass through what it costs us, nothing more. Most small businesses land around $2–$5/mo. You only pay for what\'s actually used.',
-                  },
-                  {
-                    q: 'Can you help with Google Maps / Local SEO?',
-                    a: 'Absolutely. We offer our Local Map Booster service that gets your business into the top 3 local results. Results in 7 days or you don\'t pay.',
-                  },
-                  {
-                    q: 'What\'s included in the monthly $99?',
-                    a: '1 hour of monthly adjustments, hosting, SSL, emergency Telegram support, Go High Level sub account, AVA AI support, client dashboard, weekly coaching call recordings, performance monitoring, and backups.',
-                  },
-                  {
-                    q: 'What is Go High Level?',
-                    a: 'Go High Level is a powerful CRM platform for managing leads, automating follow-ups, posting to social media automatically, and much more. You get a free sub account included with your plan.',
-                  },
-                ].map((faq, i) => (
+                {FAQ_ITEMS.map((faq, i) => (
                   <details key={i} className="group rounded-xl bg-white/5 border border-white/10 overflow-hidden">
                     <summary className="flex items-center justify-between p-4 lg:p-5 cursor-pointer list-none select-none hover:bg-white/5 transition-colors">
                       <span className="font-orbitron font-bold text-sm lg:text-base text-foreground pr-4">{faq.q}</span>
@@ -1042,13 +735,13 @@ const Index = () => {
                 ))}
               </div>
               <div className="text-center mt-8">
-                <p className="text-muted-foreground text-sm mb-3">Still have questions?</p>
+                <p className="text-muted-foreground text-sm mb-3">The fastest answer? See your own site.</p>
                 <button
-                  onClick={openCalendly}
+                  onClick={scrollToQuiz}
                   className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 text-white font-bold text-sm hover:bg-primary/10 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 font-orbitron"
                 >
-                  <Phone className="w-4 h-4 text-primary" />
-                  Talk to Us
+                  <Globe className="w-4 h-4 text-primary" />
+                  Get my free website
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -1062,34 +755,34 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/5 to-red-500/0" />
                 <div className="relative z-10">
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black font-orbitron mb-3 text-foreground">
-                    We're Selective About Who We Work With
+                    Your Website Is 6 Questions Away
                   </h2>
                   <p className="text-base lg:text-lg text-muted-foreground max-w-xl mx-auto mb-6">
-                    We take on businesses that are serious about growth — not tire-kickers looking for the cheapest option. If you value quality code, real results, and a team that operates like yours, let's talk.
+                    The AI researches your market, builds your site, and texts you the live link — free. See it before you pay anything. Claim it when you love it.
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
                     <button
-                      onClick={() => setIsQualifyDialogOpen(true)}
+                      onClick={scrollToQuiz}
                       className="group relative px-8 py-4 rounded-xl bg-red-500/20 backdrop-blur-md border-2 border-red-500/40 text-white font-bold text-base shadow-lg hover:shadow-2xl hover:shadow-red-500/30 hover:bg-red-500/30 hover:border-red-500/60 hover:scale-[1.02] transition-all duration-300 font-orbitron overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/10 to-red-500/0 group-hover:from-red-500/10 group-hover:via-red-500/20 group-hover:to-red-500/10 transition-all duration-500" />
                       <span className="relative flex items-center justify-center gap-2">
                         <Globe className="w-5 h-5 text-red-400" />
-                        See If We're a Fit
+                        Get my free website
                       </span>
                     </button>
-                    <button
-                      onClick={openCalendly}
+                    <a
+                      href={PORTAL_URL}
                       className="group px-8 py-4 rounded-xl bg-white/5 backdrop-blur-md border-2 border-white/20 text-white font-bold text-base hover:bg-white/10 hover:border-white/30 hover:shadow-lg hover:shadow-white/10 hover:scale-[1.02] transition-all duration-300 font-orbitron flex items-center justify-center gap-2"
                     >
-                      Book a Strategy Call
+                      Sign in
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </a>
                   </div>
 
                   <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
-                    {['You own your code', 'No contracts', 'Live in 10 days', 'Cancel anytime'].map((item) => (
+                    {['Free build', 'Live link by text', 'No credit card', 'Claim it when you love it'].map((item) => (
                       <div key={item} className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <CheckCircle2 className="w-3.5 h-3.5 text-green-400" />
                         <span>{item}</span>
@@ -1104,201 +797,6 @@ const Index = () => {
           <Footer />
         </div>
       </main>
-
-      {/* Ava Waitlist Dialog */}
-      <Dialog open={isAvaDialogOpen} onOpenChange={setIsAvaDialogOpen}>
-        <DialogContent className="sm:max-w-[500px] bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-cyan-500/10 backdrop-blur-xl border-2 border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-orbitron font-bold text-foreground flex items-center gap-2">
-              <Brain className="w-6 h-6 text-cyan-400" />
-              Join AVA SEO Waitlist
-            </DialogTitle>
-            <DialogDescription className="text-muted-foreground">
-              AVA SEO is currently available only for existing clients. Join our waitlist to be notified when we open it to the public.
-            </DialogDescription>
-          </DialogHeader>
-
-          <form onSubmit={handleWaitlistSubmit} className="space-y-4 mt-4">
-            <div className="space-y-2">
-              <Label htmlFor="businessName" className="font-orbitron text-sm">Business Name *</Label>
-              <Input
-                id="businessName"
-                value={waitlistForm.businessName}
-                onChange={(e) => setWaitlistForm({ ...waitlistForm, businessName: e.target.value })}
-                placeholder="Your business name"
-                required
-                className="bg-cyan-500/5 border-cyan-500/20 focus:border-cyan-500/40 focus-visible:ring-0 focus-visible:ring-offset-0"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="email" className="font-orbitron text-sm">Email *</Label>
-              <Input
-                id="email"
-                type="email"
-                value={waitlistForm.email}
-                onChange={(e) => setWaitlistForm({ ...waitlistForm, email: e.target.value })}
-                placeholder="your@email.com"
-                required
-                className="bg-cyan-500/5 border-cyan-500/20 focus:border-cyan-500/40 focus-visible:ring-0 focus-visible:ring-offset-0"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="phone" className="font-orbitron text-sm">Phone</Label>
-              <Input
-                id="phone"
-                type="tel"
-                value={waitlistForm.phone}
-                onChange={(e) => setWaitlistForm({ ...waitlistForm, phone: e.target.value })}
-                placeholder="(555) 123-4567"
-                className="bg-cyan-500/5 border-cyan-500/20 focus:border-cyan-500/40 focus-visible:ring-0 focus-visible:ring-offset-0"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="website" className="font-orbitron text-sm">Website</Label>
-              <Input
-                id="website"
-                type="url"
-                value={waitlistForm.website}
-                onChange={(e) => setWaitlistForm({ ...waitlistForm, website: e.target.value })}
-                placeholder="https://yourwebsite.com"
-                className="bg-cyan-500/5 border-cyan-500/20 focus:border-cyan-500/40 focus-visible:ring-0 focus-visible:ring-offset-0"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="message" className="font-orbitron text-sm">Message</Label>
-              <Textarea
-                id="message"
-                value={waitlistForm.message}
-                onChange={(e) => setWaitlistForm({ ...waitlistForm, message: e.target.value })}
-                placeholder="Tell us about your business..."
-                rows={4}
-                className="bg-cyan-500/5 border-cyan-500/20 focus:border-cyan-500/40 focus-visible:ring-0 focus-visible:ring-offset-0 resize-none"
-              />
-            </div>
-
-            <div className="flex gap-4 pt-4">
-              <button
-                type="button"
-                onClick={() => setIsAvaDialogOpen(false)}
-                className="flex-1 px-6 py-4 rounded-2xl bg-transparent border-2 border-cyan-500/30 text-white font-bold text-base font-orbitron hover:bg-cyan-500/5 hover:border-cyan-500/50 transition-all duration-300 flex items-center justify-center h-[60px]"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="flex-1 px-6 py-4 rounded-2xl bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-cyan-500/20 border-2 border-cyan-500/30 text-white font-bold text-base shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 hover:scale-[1.02] transition-all duration-300 font-orbitron flex items-center justify-center gap-3 group relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed h-[60px]"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/10 to-cyan-500/0 group-hover:from-cyan-500/10 group-hover:via-cyan-500/20 group-hover:to-cyan-500/10 transition-all duration-500" />
-                <Brain className="w-5 h-5 text-cyan-400 relative z-10" />
-                <span className="relative z-10">{isSubmitting ? 'Submitting...' : 'Join Waitlist'}</span>
-                {!isSubmitting && <ArrowRight className="w-5 h-5 text-cyan-400 relative z-10 group-hover:translate-x-1 transition-transform" />}
-              </button>
-            </div>
-          </form>
-        </DialogContent>
-      </Dialog>
-
-      {/* Free Website Qualification Dialog */}
-      <Dialog open={isQualifyDialogOpen} onOpenChange={setIsQualifyDialogOpen}>
-        <DialogContent className="bg-background/95 backdrop-blur-xl border-2 border-red-500/30 rounded-3xl max-w-lg shadow-2xl shadow-red-500/20" onOpenAutoFocus={(e) => e.preventDefault()}>
-          <DialogHeader>
-            <DialogTitle className="flex items-center gap-2 text-xl font-orbitron">
-              <Globe className="w-5 h-5 text-red-400" />
-              <span>Get Your Custom Website</span>
-            </DialogTitle>
-            <DialogDescription className="text-muted-foreground text-xs">
-              Tell us about your business — we'll build a custom game plan and reach out within 24 hours.
-            </DialogDescription>
-          </DialogHeader>
-
-          <div className="mt-2 p-2.5 rounded-lg bg-red-500/10 border border-red-500/30 flex items-start gap-2">
-            <AlertTriangle className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
-            <p className="text-[11px] text-red-300 leading-relaxed">
-              We don't build templates — we code real React & Node.js applications using AI-powered development tools most agencies don't even know exist yet. We're looking for businesses that take their website seriously — not bargain shoppers. If you're ready to invest in a real web application that generates leads and grows with your business, we'd love to work with you.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-3 gap-2 mt-2">
-            <div className="p-1.5 rounded-lg bg-red-500/5 border border-red-500/20 text-center">
-              <span className="block text-xs font-black font-orbitron text-foreground">$99/mo</span>
-              <span className="text-[8px] text-muted-foreground">Monthly</span>
-            </div>
-            <div className="p-1.5 rounded-lg bg-red-500/5 border border-red-500/20 text-center">
-              <span className="block text-xs font-black font-orbitron text-foreground">10 Days</span>
-              <span className="text-[8px] text-muted-foreground">Launch</span>
-            </div>
-            <div className="p-1.5 rounded-lg bg-red-500/5 border border-red-500/20 text-center">
-              <span className="block text-xs font-black font-orbitron text-foreground">Unlimited</span>
-              <span className="text-[8px] text-muted-foreground">Revisions</span>
-            </div>
-          </div>
-          
-          <form onSubmit={handleQualifySubmit} className="space-y-2 mt-2">
-            <div className="grid grid-cols-2 gap-2">
-              <Input
-                id="qualify-name"
-                type="text"
-                value={qualifyForm.name}
-                onChange={(e) => setQualifyForm({ ...qualifyForm, name: e.target.value })}
-                placeholder="Your Name *"
-                required
-                className="bg-red-500/5 border-red-500/20 focus:border-red-500/40 focus-visible:ring-0 focus-visible:ring-offset-0 h-9 text-sm"
-              />
-              <Input
-                id="qualify-phone"
-                type="tel"
-                value={qualifyForm.phone}
-                onChange={(e) => setQualifyForm({ ...qualifyForm, phone: e.target.value })}
-                placeholder="Phone *"
-                required
-                className="bg-red-500/5 border-red-500/20 focus:border-red-500/40 focus-visible:ring-0 focus-visible:ring-offset-0 h-9 text-sm"
-              />
-            </div>
-            <Input
-              id="qualify-email"
-              type="email"
-              value={qualifyForm.email}
-              onChange={(e) => setQualifyForm({ ...qualifyForm, email: e.target.value })}
-              placeholder="Email *"
-              required
-              className="bg-red-500/5 border-red-500/20 focus:border-red-500/40 focus-visible:ring-0 focus-visible:ring-offset-0 h-9 text-sm"
-            />
-            <div className="grid grid-cols-2 gap-2">
-              <Input
-                id="qualify-website"
-                type="url"
-                value={qualifyForm.businessWebsite}
-                onChange={(e) => setQualifyForm({ ...qualifyForm, businessWebsite: e.target.value })}
-                placeholder="Current Website (optional)"
-                className="bg-red-500/5 border-red-500/20 focus:border-red-500/40 focus-visible:ring-0 focus-visible:ring-offset-0 h-9 text-sm"
-              />
-              <Input
-                id="qualify-gbp"
-                type="url"
-                value={qualifyForm.googleBusinessProfile}
-                onChange={(e) => setQualifyForm({ ...qualifyForm, googleBusinessProfile: e.target.value })}
-                placeholder="Google Profile (optional)"
-                className="bg-red-500/5 border-red-500/20 focus:border-red-500/40 focus-visible:ring-0 focus-visible:ring-offset-0 h-9 text-sm"
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full px-6 py-3 rounded-xl bg-red-500/10 backdrop-blur-md border-2 border-red-500/30 text-white font-bold text-sm shadow-xl hover:shadow-2xl hover:shadow-red-500/20 hover:bg-red-500/20 hover:scale-[1.01] transition-all duration-300 font-orbitron flex items-center justify-center gap-2 group relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/10 to-red-500/0 group-hover:from-red-500/10 group-hover:via-red-500/20 group-hover:to-red-500/10 transition-all duration-500" />
-              <span className="relative z-10">{isSubmitting ? 'Submitting...' : 'Get My Game Plan'}</span>
-              {!isSubmitting && <ArrowRight className="w-4 h-4 text-red-400 relative z-10 group-hover:translate-x-1 transition-transform" />}
-            </button>
-          </form>
-        </DialogContent>
-      </Dialog>
     </>
   );
 };
