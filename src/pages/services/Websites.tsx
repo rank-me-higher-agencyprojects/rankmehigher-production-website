@@ -10,140 +10,132 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// Declare Calendly global type
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string }) => void;
-    };
-  }
-}
-
-const CALENDLY_URL = "https://calendly.com/andrius-cdlagency/andrius-digital-asap-meeting";
+const SIGN_IN_URL = "https://websites.rankmehigher.com";
 
 const painPoints = [
-  "Your current website looks outdated and doesn't convert",
-  "You're losing leads because no one answers after hours",
-  "Competitors are ranking above you on Google",
-  "You're paying monthly fees but seeing zero results",
+  "Your website was built years ago and never updated since",
+  "Web designers quoted you thousands and months of waiting",
+  "Every small edit means emailing someone and waiting days",
+  "Competitors with worse work outrank you on Google",
 ];
 
 const features = [
   {
-    icon: Globe,
-    title: "Custom Built Website",
-    description: "Not a template. A fully custom site designed to convert visitors into paying customers.",
+    icon: Bot,
+    title: "AI Researches Your Market",
+    description: "Before writing a line, the AI studies your business, your area, and what customers search for.",
   },
   {
-    icon: Bot,
-    title: "AI Receptionist Included",
-    description: "24/7 AI that answers calls, books appointments, and never misses a lead.",
+    icon: Globe,
+    title: "Local-SEO-Correct From Day One",
+    description: "Correct name, address, phone, JSON-LD schema, honest hours, and city/service pages built in.",
   },
   {
     icon: Zap,
-    title: "Full Automation Stack",
-    description: "Automated follow-ups, appointment reminders, and review requests built-in.",
-  },
-  {
-    icon: Clock,
-    title: "2 Week Delivery",
-    description: "From scratch to fully active in 14 days. No 3-month timelines.",
-  },
-  {
-    icon: Shield,
-    title: "SEO Optimized",
-    description: "Built to rank on Google from day one with proper technical SEO.",
+    title: "Built In Minutes, Not Months",
+    description: "Research, plan, build — the AI ships a complete site with real business photos and natural AI imagery.",
   },
   {
     icon: MessageSquare,
-    title: "CRM Integration",
-    description: "Syncs with HouseCallPro, Jobber, ServiceTitan, and more.",
+    title: "Edit Anything By Chatting",
+    description: "Click anything on your site, say the change. Every edit is versioned and revertable.",
+  },
+  {
+    icon: Shield,
+    title: "Hosting, SSL & Domain Handled",
+    description: "One subscription covers hosting, SSL, and your custom domain. Nothing to manage.",
+  },
+  {
+    icon: Clock,
+    title: "Progress Texted To You",
+    description: "The AI texts and emails you as it works — you get a live preview link on your phone.",
   },
 ];
 
 const process = [
   {
     step: "01",
-    title: "Discovery Call",
-    description: "We learn about your business, goals, and what's not working with your current setup.",
+    title: "Take The Free Website Quiz",
+    description: "Answer a few questions about your business on our homepage. That's all the AI needs to start.",
   },
   {
     step: "02",
-    title: "Design & Build",
-    description: "Our team builds your custom website and configures all automations.",
+    title: "The AI Researches & Plans",
+    description: "It studies your market and maps out a local-SEO-correct site: pages, copy, photos, structure.",
   },
   {
     step: "03",
-    title: "Launch & Train",
-    description: "We launch your site and train you on the AI receptionist and automation tools.",
+    title: "Your Site Is Built In Minutes",
+    description: "You get a text with a live preview link. Real photos, natural AI imagery, lead capture — done.",
   },
   {
     step: "04",
-    title: "Ongoing Support",
-    description: "We stay with you to optimize, update, and ensure everything runs smoothly.",
+    title: "Go Live & Edit By Chat",
+    description: "Like it? Go live on your domain from $99/mo. Change anything, anytime, by chatting with the AI.",
   },
 ];
 
 const faqItems = [
   {
-    question: "How is this different from a regular website?",
-    answer: "Most web designers hand you a pretty template and disappear. We build a complete lead generation system — a custom website that ranks on Google, an AI receptionist that answers 24/7, and automation that follows up with every lead automatically. It's not just a website, it's your entire front office.",
+    question: "Is the free website actually free?",
+    answer: "Yes. The AI researches your market, builds a complete website, and texts you a live preview link — all free, no card required. You only pay when you want it live on your own domain: $99/mo covers hosting, SSL, your domain connection, chat editing, and your portal.",
   },
   {
-    question: "What does the AI Receptionist actually do?",
-    answer: "The AI Receptionist answers calls when you can't, captures lead information, books appointments directly to your calendar, and even handles basic customer questions. It works 24/7/365 — nights, weekends, holidays. You never miss a lead again.",
+    question: "How can an AI build a real website in minutes?",
+    answer: "The platform already runs 40+ real local business websites — Off-Tint, KleanAF, LTS Mechanical, ProTeamWorks, Thomas Window Cleaning, TruckClinic and more. The AI follows the same playbook every time: research your market, plan the pages, build with correct local SEO, then text you the result. It's not a template — it's a build, done fast.",
   },
   {
-    question: "Do I need to be tech-savvy to use this?",
-    answer: "Not at all. We handle all the technical setup and provide simple training. If you can use a smartphone, you can manage your new system. Plus, we're always a call away for support.",
+    question: "What if I want to change something?",
+    answer: "You chat with the AI. Click any part of your site, say the change — new photo, different wording, a new section — and it's done. Every change is versioned, so you can revert anything. No tickets, no waiting on a designer.",
   },
   {
-    question: "What if I already have a website?",
-    answer: "We'll migrate everything over — your content, your domain, your SEO history. We often improve rankings in the transition because we fix technical issues the previous site had.",
+    question: "Will it use my real photos?",
+    answer: "Yes. The AI pulls in your real business photos wherever you have them, and fills gaps with natural AI imagery that matches your trade. No cheesy stock photos of models in hard hats.",
   },
   {
-    question: "How long until I see results?",
-    answer: "Your website goes live in 2 weeks. The AI receptionist starts capturing leads immediately. Most clients see increased call volume within the first month as their Google presence improves.",
+    question: "What do the plans include?",
+    answer: "$99/mo: your website live on your domain, hosting, SSL, chat edits, lead capture with instant delivery, and your portal. $149/mo adds automatic Google Business Profile optimization. $199/mo adds a review generator with a dedicated business phone number and branded email.",
   },
 ];
 
 const Websites = () => {
-  const openCalendly = () => {
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-    } else {
-      window.open(CALENDLY_URL, '_blank');
-    }
-  };
-
   return (
     <>
       <Helmet>
-        <title>Custom Websites with AI Receptionist | 2 Week Delivery | Rank Me Higher</title>
+        <title>AI Website Builder for Local Business | Rank Me Higher</title>
         <meta
           name="description"
-          content="Get a custom-built website with AI receptionist, automated follow-ups, and full CRM integration. From scratch to live in 2 weeks. Book your free consultation."
+          content="The AI researches your market and builds a local-SEO-correct website in minutes, then texts you the live preview. Free build — go live from $99/mo."
         />
-        <meta property="og:title" content="Custom Websites with AI Receptionist | 2 Week Delivery" />
-        <meta property="og:description" content="Get a custom-built website with AI receptionist, automated follow-ups, and full CRM integration. From scratch to live in 2 weeks." />
+        <meta property="og:title" content="AI Website Builder for Local Business | Rank Me Higher" />
+        <meta property="og:description" content="The AI researches your market and builds a local-SEO-correct website in minutes, then texts you the live preview. Free build — go live from $99/mo." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rankmehigher.com/services/websites" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Custom Websites with AI Receptionist | Rank Me Higher" />
-        <meta name="twitter:description" content="Custom-built websites with AI receptionist, automated follow-ups, and CRM integration. Live in 2 weeks." />
+        <meta name="twitter:title" content="AI Website Builder for Local Business | Rank Me Higher" />
+        <meta name="twitter:description" content="AI builds your local business website in minutes and texts you the preview. Free build — go live from $99/mo." />
         <link rel="canonical" href="https://rankmehigher.com/services/websites" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Custom Website Development",
+          "name": "AI Website Builder for Local Business",
           "provider": { "@type": "Organization", "name": "Rank Me Higher", "url": "https://rankmehigher.com" },
-          "description": "Custom-coded websites with AI receptionist, automated follow-ups, CRM integration, and full SEO optimization. Delivered in 2 weeks.",
+          "description": "AI-built local business websites: the AI researches your market, builds a local-SEO-correct site in minutes with real photos, and texts you the live preview. Hosting, SSL, domain, and chat editing included.",
           "url": "https://rankmehigher.com/services/websites",
           "areaServed": "United States",
-          "offers": { "@type": "Offer", "price": "99", "priceCurrency": "USD", "description": "$99/mo" },
+          "offers": { "@type": "Offer", "price": "99", "priceCurrency": "USD", "description": "$99/mo — website, hosting, chat edits, portal. Free preview build." },
           "serviceType": "Web Development"
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqItems.map(item => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+          }))
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -181,7 +173,7 @@ const Websites = () => {
                       ))}
                     </div>
                     <span className="text-muted-foreground text-sm">
-                      Trusted by 300+ Local Businesses
+                      40+ Local Businesses Run On The Platform
                     </span>
                   </div>
 
@@ -189,41 +181,43 @@ const Websites = () => {
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <XCircle className="w-5 h-5 text-primary flex-shrink-0" />
                     <span className="text-sm">
-                      Tired of websites that look pretty but don't bring in customers?
+                      Still waiting months and paying thousands for a website?
                     </span>
                   </div>
 
                   {/* Main Headline */}
                   <h1 className="font-heading font-black text-3xl md:text-4xl lg:text-5xl leading-tight">
                     <span className="text-foreground">Get A </span>
-                    <span className="text-primary">Custom Website</span>
-                    <span className="text-foreground"> With </span>
-                    <span className="text-primary">AI Receptionist</span>
+                    <span className="text-primary">Free Website</span>
+                    <span className="text-foreground"> Built By </span>
+                    <span className="text-primary">AI</span>
                     <span className="text-foreground"> In </span>
-                    <span className="text-primary">2 Weeks</span>
+                    <span className="text-primary">Minutes</span>
                   </h1>
 
                   {/* Subheadline */}
                   <h2 className="font-heading font-bold text-xl md:text-2xl text-foreground">
-                    From Scratch To Fully Active — No 3-Month Timelines
+                    It Researches Your Market, Builds The Site, And Texts You The Link
                   </h2>
 
                   {/* Description */}
                   <p className="text-muted-foreground leading-relaxed">
-                    Stop losing leads to voicemail. We build <span className="font-semibold text-foreground">custom websites that rank on Google</span> and include an <span className="font-semibold text-foreground">AI receptionist that answers 24/7</span>, books appointments, and follows up automatically.
+                    The AI studies your business and your area, then builds a <span className="font-semibold text-foreground">local-SEO-correct website</span> with real photos and natural AI imagery. You <span className="font-semibold text-foreground">edit anything by chatting with it</span>. Hosting, SSL, and your domain are handled.
                   </p>
 
                   {/* CTA Button */}
-                  <Button onClick={openCalendly} variant="hero" size="xl" className="group">
-                    Book Your Free Consultation
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <Button asChild variant="hero" size="xl" className="group">
+                    <a href="/#free-website">
+                      Get my free website
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </a>
                   </Button>
 
                   {/* Trust Badge */}
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <p className="text-muted-foreground text-sm">
-                      2 week delivery guaranteed • AI receptionist included • Full automation stack
+                      Free build with live preview • Go live from $99/mo • Already a member? <a href={SIGN_IN_URL} className="underline hover:text-primary">Sign in</a>
                     </p>
                   </div>
                 </div>
@@ -240,7 +234,7 @@ const Websites = () => {
                           </div>
                         </button>
                         <p className="mt-4 text-white/80 text-sm lg:text-base font-medium">
-                          See How It Works
+                          Watch The AI Build A Site
                         </p>
                       </div>
                     </div>
@@ -273,7 +267,7 @@ const Websites = () => {
 
               <div className="text-center mt-8">
                 <p className="text-muted-foreground text-lg">
-                  We fix all of this — in <span className="font-bold text-primary">2 weeks</span>.
+                  The AI fixes all of this — in <span className="font-bold text-primary">minutes</span>.
                 </p>
               </div>
             </div>
@@ -284,10 +278,10 @@ const Websites = () => {
             <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
               <div className="text-center mb-12">
                 <h2 className="font-heading font-black text-2xl md:text-3xl lg:text-4xl text-foreground mb-4">
-                  Everything You Get With Your <span className="text-primary">Custom Website</span>
+                  What The AI Builds Into <span className="text-primary">Every Website</span>
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Not just a website — a complete lead generation and customer capture system.
+                  Not a template — a researched, local-SEO-correct build that runs 40+ real businesses today.
                 </p>
               </div>
 
@@ -320,7 +314,7 @@ const Websites = () => {
                   How It <span className="text-primary">Works</span>
                 </h2>
                 <p className="text-muted-foreground">
-                  From first call to live website in 2 weeks.
+                  From quiz to live preview link on your phone — in minutes.
                 </p>
               </div>
 
@@ -351,17 +345,19 @@ const Websites = () => {
           <section className="py-16 lg:py-24">
             <div className="container mx-auto px-4 lg:px-8 max-w-3xl text-center">
               <h2 className="font-heading font-black text-2xl md:text-3xl lg:text-4xl text-foreground mb-6">
-                Ready To Stop Losing Leads?
+                See Your Website Before You Pay A Cent
               </h2>
               <p className="text-muted-foreground text-lg mb-8">
-                Book a free consultation and see exactly how we'll build your custom website with AI receptionist — delivered in 2 weeks.
+                Take the free website quiz. The AI builds your site and texts you the live preview link. Going live on your domain starts at $99/mo — $149/mo adds Google Business Profile optimization, $199/mo adds a review generator with a dedicated business phone and branded email.
               </p>
-              <Button onClick={openCalendly} variant="hero" size="xl" className="group">
-                Book Your Free Consultation
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <Button asChild variant="hero" size="xl" className="group">
+                <a href="/#free-website">
+                  Get my free website
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
               <p className="text-muted-foreground text-sm mt-4">
-                No obligations • See your custom plan • 2 week delivery guaranteed
+                Free build • Live preview by text • Already a member? <a href={SIGN_IN_URL} className="underline hover:text-primary">Sign in</a>
               </p>
             </div>
           </section>

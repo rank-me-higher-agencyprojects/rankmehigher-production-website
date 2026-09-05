@@ -16,6 +16,7 @@ Allow: /localmapbooster
 Allow: /services/websites
 Allow: /services/seo
 Allow: /services/content-ads
+Allow: /services/google-ads
 Allow: /services/outbound
 Allow: /privacy
 Allow: /terms

@@ -10,159 +10,148 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string }) => void;
-    };
-  }
-}
-
-const CALENDLY_URL = "https://calendly.com/andrius-cdlagency/andrius-digital-asap-meeting";
+const SIGN_IN_URL = "https://websites.rankmehigher.com";
 
 const painPoints = [
-  "You have a database of past customers who never came back",
-  "Your team is too busy working to make follow-up calls",
-  "You're sitting on revenue but don't have time to extract it",
-  "Cold calling feels awkward and you hate doing it",
+  "Leads sit in an inbox you check twice a day",
+  "By the time you call back, they've hired someone else",
+  "Your website form goes... somewhere? You're not sure",
+  "Customers text your personal cell at all hours",
 ];
 
 const features = [
   {
     icon: Phone,
-    title: "Live Human Agents",
-    description: "Real people, not robots. Trained specifically on your business and services.",
+    title: "Instant SMS Delivery",
+    description: "A lead fills your form — your phone buzzes seconds later with their name, number, and request.",
   },
   {
     icon: RefreshCw,
-    title: "Database Reactivation",
-    description: "We call your past customers and bring them back for repeat service.",
-  },
-  {
-    icon: Calendar,
-    title: "Direct Booking",
-    description: "Appointments go straight to your calendar. No back-and-forth needed.",
-  },
-  {
-    icon: DollarSign,
-    title: "Guaranteed ROI",
-    description: "If we don't generate more revenue than you spend, we keep working for free.",
+    title: "Email Delivery Too",
+    description: "Every lead lands in your email at the same time, with full details. Nothing gets lost.",
   },
   {
     icon: Users,
-    title: "CRM Integration",
-    description: "Syncs with HouseCallPro, Jobber, ServiceTitan, and more.",
+    title: "Webhooks To Your Tools",
+    description: "Already run a CRM or job software? Leads can be pushed straight into it via webhook.",
+  },
+  {
+    icon: Calendar,
+    title: "Every Lead In Your Portal",
+    description: "One place to see every inquiry your site has ever captured — nothing lives only in a text thread.",
+  },
+  {
+    icon: DollarSign,
+    title: "Dedicated Business Number",
+    description: "On the $199/mo plan you get a business phone number, so customers stop texting your personal cell.",
   },
   {
     icon: Headphones,
-    title: "Inbound Support",
-    description: "We also handle incoming calls so you never miss a new lead.",
+    title: "Branded Business Email",
+    description: "The $199/mo plan also adds email at your own domain — you@yourbusiness.com, not gmail.",
   },
 ];
 
 const howItWorks = [
   {
     step: "01",
-    title: "Connect Your Database",
-    description: "We integrate with your CRM and pull your past customer list. You tell us who to call.",
+    title: "Your Site Captures The Lead",
+    description: "Every website the AI builds includes lead capture — forms, call buttons, and quote requests built to convert.",
   },
   {
     step: "02",
-    title: "Train Our Agents",
-    description: "We learn your services, pricing, and scheduling so our team sounds like your team.",
+    title: "You're Notified In Seconds",
+    description: "The lead's details hit your phone by SMS and your inbox by email the moment they submit.",
   },
   {
     step: "03",
-    title: "We Start Calling",
-    description: "Our agents call your past customers, re-engage them, and book them for service.",
+    title: "You Respond While They're Hot",
+    description: "Local jobs go to whoever answers first. You call back in minutes, not hours — and win the job.",
   },
   {
     step: "04",
-    title: "You Do The Work",
-    description: "Show up to booked appointments. We handle the outreach, you handle the service.",
+    title: "Everything Lives In Your Portal",
+    description: "Every lead is logged in your portal so you can follow up, track, and never lose a customer's info.",
   },
 ];
 
 const results = [
-  { metric: "2 Days", label: "To Deploy" },
-  { metric: "35%", label: "Avg. Reactivation Rate" },
-  { metric: "5-10x", label: "Typical ROI" },
+  { metric: "Seconds", label: "From Submit To Your Phone" },
+  { metric: "3", label: "Delivery Channels: SMS, Email, Webhook" },
+  { metric: "40+", label: "Local Sites Capturing Leads Today" },
 ];
 
 const faqItems = [
   {
-    question: "How is this different from a call center?",
-    answer: "Traditional call centers use scripts and minimum wage workers who sound robotic. Our agents are trained specifically on your business — they know your services, your pricing, and how you work. Customers think they're talking to someone from your company.",
+    question: "How fast do I actually get the lead?",
+    answer: "Seconds. The moment someone submits a form on your site, their name, phone, and request are texted to you and emailed to you. Speed matters — local customers usually hire whoever responds first.",
   },
   {
-    question: "What does 'guaranteed ROI' actually mean?",
-    answer: "Simple: if the revenue from booked jobs doesn't exceed what you pay us, we continue working at no additional charge until it does. We only win when you win.",
+    question: "Is lead capture included in every plan?",
+    answer: "Yes. Every website on the platform captures leads and delivers them instantly by SMS and email — that's part of the $99/mo plan. The $199/mo plan adds a dedicated business phone number and branded email at your domain.",
   },
   {
-    question: "How quickly can you start calling?",
-    answer: "We can be making calls within 2 business days of signing up. We just need access to your customer database and a quick training call to learn your business.",
+    question: "What does the dedicated business number do?",
+    answer: "It gives your business its own phone line, separate from your personal cell. Customers call and text a real business number, and you keep your personal number private. It comes with the $199/mo plan, alongside the review generator and branded email.",
   },
   {
-    question: "What if customers get annoyed by the calls?",
-    answer: "We're not pushy telemarketers. Our approach is friendly and value-focused: 'Hey, we noticed it's been a while — wanted to check if you need any service before the season starts.' Most customers appreciate the reminder.",
+    question: "Can leads go into my CRM or job software?",
+    answer: "Yes. Leads can be delivered by webhook to the tools you already use, in addition to SMS and email. Tell the AI where you want them and it's set up.",
   },
   {
-    question: "Do you handle inbound calls too?",
-    answer: "Yes. We can answer your incoming calls, capture new leads, and book appointments — so you never miss a call while you're on a job.",
-  },
-  {
-    question: "What CRMs do you integrate with?",
-    answer: "We work with HouseCallPro, Jobber, ServiceTitan, Housecall Pro, and most major field service management software. If you use something else, we can usually make it work.",
+    question: "What happens to old leads?",
+    answer: "Every lead your site has ever captured lives in your portal — searchable, with full details. Nothing disappears into a text thread or a spam folder.",
   },
 ];
 
 const Outbound = () => {
-  const openCalendly = () => {
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-    } else {
-      window.open(CALENDLY_URL, '_blank');
-    }
-  };
-
   return (
     <>
       <Helmet>
-        <title>Live Outbound Sales Agents | Database Reactivation | Guaranteed ROI | Rank Me Higher</title>
-        <meta 
-          name="description" 
-          content="Reactivate your existing customer database with live human agents. We call your past clients, book them for service again, and guarantee ROI. Deploy in 2 days." 
+        <title>Instant Lead Capture & Delivery | Rank Me Higher</title>
+        <meta
+          name="description"
+          content="Every site captures leads and texts them to you in seconds — SMS, email, and webhooks included. The $199/mo plan adds a dedicated business number."
         />
-        <meta property="og:title" content="Live Outbound Sales Agents | Database Reactivation | Guaranteed ROI" />
-        <meta property="og:description" content="Reactivate your existing customer database with live human agents. Guaranteed ROI. Deploy in 2 days." />
+        <meta property="og:title" content="Instant Lead Capture & Delivery | Rank Me Higher" />
+        <meta property="og:description" content="Every site captures leads and texts them to you in seconds — SMS, email, and webhooks included." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rankmehigher.com/services/outbound" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Live Outbound Sales Agents | Rank Me Higher" />
-        <meta name="twitter:description" content="Reactivate your customer database with live agents. Guaranteed ROI." />
+        <meta name="twitter:title" content="Instant Lead Delivery | Rank Me Higher" />
+        <meta name="twitter:description" content="Leads texted to you in seconds. SMS, email, webhooks — plus a dedicated business number on the $199 plan." />
         <link rel="canonical" href="https://rankmehigher.com/services/outbound" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Outbound Sales & Database Reactivation",
+          "name": "Lead Capture & Instant Delivery",
           "provider": { "@type": "Organization", "name": "Rank Me Higher", "url": "https://rankmehigher.com" },
-          "description": "Live human agents call your past customers and book them for service. Guaranteed ROI with CRM integration.",
+          "description": "Every AI-built website captures leads and delivers them instantly by SMS, email, and webhooks. The $199/mo plan adds a dedicated business phone number and branded email.",
           "url": "https://rankmehigher.com/services/outbound",
           "areaServed": "United States",
-          "serviceType": "Outbound Sales"
+          "serviceType": "Lead Management"
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqItems.map(item => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+          }))
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rankmehigher.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Outbound Sales", "item": "https://rankmehigher.com/services/outbound" }
+            { "@type": "ListItem", "position": 2, "name": "Lead Delivery", "item": "https://rankmehigher.com/services/outbound" }
           ]
         })}</script>
       </Helmet>
-      
+
       <main className="min-h-screen bg-background relative overflow-hidden">
         {/* Ambient Light Overlays */}
         <div className="fixed inset-0 pointer-events-none z-0">
@@ -171,10 +160,10 @@ const Outbound = () => {
           <div className="absolute -top-32 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
         </div>
-        
+
         <div className="relative z-10">
           <Navbar />
-          
+
           {/* Hero Section */}
           <section className="relative pt-24 lg:pt-32 pb-16 lg:pb-24">
             <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
@@ -188,44 +177,45 @@ const Outbound = () => {
                       ))}
                     </div>
                     <span className="text-muted-foreground text-sm">
-                      Guaranteed ROI Or We Work Free
+                      Built Into Every Site On The Platform
                     </span>
                   </div>
 
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <XCircle className="w-5 h-5 text-primary flex-shrink-0" />
                     <span className="text-sm">
-                      Sitting on a goldmine of past customers you haven't called?
+                      How many leads died in your inbox this month?
                     </span>
                   </div>
 
                   <h1 className="font-heading font-black text-3xl md:text-4xl lg:text-5xl leading-tight">
-                    <span className="text-primary">Reactivate</span>
-                    <span className="text-foreground"> Your Database</span>
+                    <span className="text-primary">Every Lead</span>
+                    <span className="text-foreground"> Your Site Captures,</span>
                     <br />
-                    <span className="text-foreground">We </span>
-                    <span className="text-primary">Call Your Clients</span>
-                    <span className="text-foreground"> & </span>
-                    <span className="text-primary">Book Them Again</span>
+                    <span className="text-primary">Texted To You</span>
+                    <span className="text-foreground"> In </span>
+                    <span className="text-primary">Seconds</span>
                   </h1>
 
                   <h2 className="font-heading font-bold text-xl md:text-2xl text-foreground">
-                    Live Human Agents • Deploy In 2 Days • Guaranteed ROI
+                    SMS • Email • Webhooks • All In Your Portal
                   </h2>
 
                   <p className="text-muted-foreground leading-relaxed">
-                    Your past customers already trust you. Our <span className="font-semibold text-foreground">trained live agents</span> call them, remind them it's time for service, and <span className="font-semibold text-foreground">book appointments directly to your calendar</span>. You just show up and do the work.
+                    Local jobs go to whoever answers first. Every website the AI builds <span className="font-semibold text-foreground">captures leads and delivers them instantly</span> — texted to your phone, emailed to your inbox, and logged in your portal. The $199/mo plan adds a <span className="font-semibold text-foreground">dedicated business phone number</span>.
                   </p>
 
-                  <Button onClick={openCalendly} variant="hero" size="xl" className="group">
-                    Book Your Strategy Call
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <Button asChild variant="hero" size="xl" className="group">
+                    <a href="/#free-website">
+                      Get my free website
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </a>
                   </Button>
 
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <p className="text-muted-foreground text-sm">
-                      Live agents • CRM sync • 2-day deployment • ROI guaranteed
+                      Lead capture in every plan • From $99/mo • Already a member? <a href={SIGN_IN_URL} className="underline hover:text-primary">Sign in</a>
                     </p>
                   </div>
                 </div>
@@ -242,7 +232,7 @@ const Outbound = () => {
                           </div>
                         </button>
                         <p className="mt-4 text-white/80 text-sm lg:text-base font-medium">
-                          Hear A Sample Call
+                          Watch A Lead Hit A Phone
                         </p>
                       </div>
                     </div>
@@ -293,7 +283,7 @@ const Outbound = () => {
 
               <div className="text-center mt-8">
                 <p className="text-muted-foreground text-lg">
-                  Let us call them for you — <span className="font-bold text-primary">guaranteed ROI</span>.
+                  Instant delivery fixes this — <span className="font-bold text-primary">every single lead</span>.
                 </p>
               </div>
             </div>
@@ -304,10 +294,10 @@ const Outbound = () => {
             <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
               <div className="text-center mb-12">
                 <h2 className="font-heading font-black text-2xl md:text-3xl lg:text-4xl text-foreground mb-4">
-                  What You Get With <span className="text-primary">Live Outbound Agents</span>
+                  How Your Leads Are <span className="text-primary">Handled</span>
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  A complete outbound sales team without the hiring, training, or management headaches.
+                  From the moment someone hits submit to the moment you call them back.
                 </p>
               </div>
 
@@ -340,7 +330,7 @@ const Outbound = () => {
                   How It <span className="text-primary">Works</span>
                 </h2>
                 <p className="text-muted-foreground">
-                  From signup to booked appointments in 2 days.
+                  From form submit to booked job.
                 </p>
               </div>
 
@@ -371,17 +361,19 @@ const Outbound = () => {
           <section className="py-16 lg:py-24">
             <div className="container mx-auto px-4 lg:px-8 max-w-3xl text-center">
               <h2 className="font-heading font-black text-2xl md:text-3xl lg:text-4xl text-foreground mb-6">
-                Ready To Reactivate Your Customer Database?
+                Stop Losing Leads To Slow Follow-Up
               </h2>
               <p className="text-muted-foreground text-lg mb-8">
-                Book a call and we'll show you exactly how many past customers we can bring back — with guaranteed ROI.
+                Get a free AI-built website with instant lead delivery included. See the live preview by text before you pay anything.
               </p>
-              <Button onClick={openCalendly} variant="hero" size="xl" className="group">
-                Book Your Strategy Call
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <Button asChild variant="hero" size="xl" className="group">
+                <a href="/#free-website">
+                  Get my free website
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
               <p className="text-muted-foreground text-sm mt-4">
-                Deploy in 2 days • Live human agents • Guaranteed ROI
+                Free build • Leads by SMS + email • $199/mo adds a dedicated business number
               </p>
             </div>
           </section>
