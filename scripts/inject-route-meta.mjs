@@ -17,36 +17,40 @@ const DIST = path.resolve(__dirname, '..', 'dist');
 // Route-specific metadata for SEO-critical public pages
 const ROUTE_META = {
   '/services/websites': {
-    title: 'Custom Websites with AI Receptionist | 2 Week Delivery | Rank Me Higher',
-    description: 'Get a custom-built website with AI receptionist, automated follow-ups, and full CRM integration. From scratch to live in 2 weeks. Book your free consultation.',
+    title: 'AI Website Builder for Local Business | Rank Me Higher',
+    description: 'The AI researches your market and builds a local-SEO-correct website in minutes, then texts you the live preview. Free build — go live from $99/mo.',
   },
   '/services/seo': {
-    title: 'SEO Services | Page 1 Google Rankings Guaranteed | Rank Me Higher',
-    description: 'Organic SEO, local SEO, and Google Maps optimization. Page 1 rankings guaranteed or you don\'t pay. Chicago SEO agency serving businesses nationwide.',
+    title: 'Local SEO Websites — Rank Higher on Google | Rank Me Higher',
+    description: 'SEO isn\'t a retainer here — it\'s built into every site the AI ships: correct NAP, JSON-LD, honest hours, city and service pages, fast mobile pages.',
   },
   '/services/content-ads': {
-    title: 'Content & Ads | Video Production, Google Ads, Meta Ads | Rank Me Higher',
-    description: 'Professional video content creation, Google Ads, and Meta Ads campaigns that fill your calendar. Full-service content and advertising from Rank Me Higher.',
+    title: 'Content & Ads That Land on Pages Built to Convert',
+    description: 'Your website is the asset every ad clicks to. The AI builds pages that convert ad traffic — real photos, fast load, instant lead capture.',
+  },
+  '/services/google-ads': {
+    title: 'Google Ads for Local Businesses | Rank Me Higher',
+    description: 'Google Ads pay off when the click lands on a fast page built to convert. We run campaigns for platform businesses. Start with a free AI-built site.',
   },
   '/services/outbound': {
-    title: 'Outbound Sales | Database Reactivation & Cold Outreach | Rank Me Higher',
-    description: 'Database reactivation and cold outreach. We call your old leads and turn them into new revenue. Outbound sales services from Rank Me Higher.',
+    title: 'Instant Lead Capture & Delivery | Rank Me Higher',
+    description: 'Every site captures leads and texts them to you in seconds — SMS, email, and webhooks included. The $199/mo plan adds a dedicated business number.',
   },
   '/careers': {
-    title: 'Careers at Rank Me Higher | Remote Marketing, Dev & Automation Jobs',
-    description: 'Join Rank Me Higher — we\'re hiring remote talent in media buying, video editing, automation, software engineering, SEO, and sales. Apply now and work with a fast-growing Chicago digital agency.',
+    title: 'Careers at Rank Me Higher | Remote Platform & AI Jobs',
+    description: 'Join the team building the AI platform that runs 40+ local business websites. Remote roles in engineering, marketing, creative, and sales.',
   },
   '/contact': {
-    title: 'Contact Rank Me Higher | Free Consultation | Chicago SEO Agency',
-    description: 'Get in touch with Rank Me Higher for a free consultation. Call (773) 572-4686 or book online. Chicago-based SEO and website agency.',
+    title: 'Contact Rank Me Higher | AI Websites for Local Business',
+    description: 'Text (773) 572-4686 or send a message. Fastest path: take the free website quiz on the homepage — the AI builds your site in minutes.',
   },
   '/localmapbooster': {
-    title: 'Local Map Booster | Google Maps Top 3 in 7 Days | Rank Me Higher',
-    description: 'Get your business into the Google Maps Top 3 within 7 days or you don\'t pay. Complete Google Business Profile optimization from Rank Me Higher.',
+    title: 'Google Business Profile Optimization | Rank Me Higher',
+    description: 'Your Google Business Profile is half of local search. The $149/mo plan pairs your AI-built website with GBP optimization — reviews coming next.',
   },
   '/blog': {
-    title: 'Blog | SEO Tips, Local Marketing & AI Insights | Rank Me Higher',
-    description: 'Expert insights on SEO, local marketing, Google Maps optimization, AI automation, and growing your business online. From the Rank Me Higher team.',
+    title: 'Local SEO & AI Website Insights | Rank Me Higher Blog',
+    description: 'Local SEO strategies, Google Maps ranking tips, and AI website insights — from the team behind the platform running 40+ local business sites.',
   },
 };
 

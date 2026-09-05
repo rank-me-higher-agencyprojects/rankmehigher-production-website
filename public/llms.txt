@@ -1,110 +1,78 @@
 # Rank Me Higher
 
-> Rank Me Higher is a Chicago-based digital marketing agency that builds custom-coded websites, runs SEO campaigns, manages Google Maps optimization, creates content and ad campaigns, and automates lead generation with AI. Founded by Andrius, the agency serves local businesses across the United States.
+> Rank Me Higher is the AI-autonomous growth platform for local businesses. The AI researches your market, plans your website, builds it in minutes with real photos and natural AI imagery, texts you progress, and puts it live. You edit anything by chatting with it. One portal, one subscription. Built in Chicago; 40+ real local business websites run on the platform today.
 
-## What We Do
+## The Offer
 
-Rank Me Higher helps businesses get found online and convert visitors into customers. We don't use templates — every website is custom-coded for speed, SEO, and conversions. Our AI assistant AVA handles calls, chats, and follow-ups 24/7. We guarantee Google Page 1 rankings or you don't pay.
+Get a FREE website that dominates Google — built by AI in minutes. The free build is real: the AI researches your market, builds the complete site, and texts you a live preview link. No card required. Going live on your own domain is a subscription starting at $99/mo.
 
-## Services
+## How It Works (Live Today)
 
-### Custom Website Design & Development
-- URL: https://rankmehigher.com/services/websites
-- Custom-coded websites (no WordPress, no templates)
-- Built for speed, mobile-first, and SEO from day one
-- AI-powered systems for capturing and closing leads 24/7
-- Complete website delivery in 10 business days
-- Includes AVA AI assistant for automated calls and chat
+1. Take the free website quiz at https://rankmehigher.com/#free-website
+2. The AI researches your business, your area, and what customers search for
+3. It plans and builds a complete local-SEO-correct website in minutes — real business photos plus natural AI imagery
+4. You get progress updates by SMS and email, ending with a live preview link
+5. Go live on your custom domain (hosting, SSL handled) with a subscription
+6. Edit anything by chatting with the AI — every change is versioned and revertable
+7. Every lead your site captures is delivered instantly by SMS, email, and webhooks, and logged in your portal
 
-### SEO Services
-- URL: https://rankmehigher.com/services/seo
-- Organic search engine optimization
-- Local SEO and Google Maps optimization
-- Keyword research and on-page optimization
-- Technical SEO audits and fixes
-- Monthly reporting and rank tracking
-- Guaranteed Page 1 Google rankings
+## Pricing
 
-### Local Map Booster
-- URL: https://rankmehigher.com/localmapbooster
-- Google Maps Top 3 ranking in 7 days or you don't pay
-- Google Business Profile optimization
-- Review management and generation
-- Local citation building
-- Map pack dominance strategy
+- **$99/mo** — website live on your domain, hosting, SSL, chat edits, lead capture with instant delivery, client portal
+- **$149/mo** — everything in $99, plus automatic Google Business Profile optimization
+- **$199/mo** — everything in $149, plus review generator with a dedicated business phone number and branded email
 
-### Content & Ads
-- URL: https://rankmehigher.com/services/content-ads
-- Professional video content creation (short-form, VSL, YouTube)
-- Social media content management
-- Google Ads and Meta Ads campaigns
-- High-ROI ad campaigns that fill your calendar
-- Zero-touch content creation
+## Platform Direction (Coming, Not Live Yet)
 
-### Outbound Sales
-- URL: https://rankmehigher.com/services/outbound
-- Database reactivation — we call your old leads
-- Cold outreach campaigns
-- Appointment setting
-- Lead qualification
-- Revenue recovery from existing databases
+- Google rankings tracked inside your portal
+- Request tasks that the AI just does
+- Automatic Google Business Profile optimization
+- Automated review generation
 
-## Key Differentiators
+## Pages
 
-- **Custom Code Only**: No WordPress, no Wix, no templates. Every site is hand-coded for maximum performance.
-- **AI-Powered**: Our AI assistant AVA handles phone calls, website chat, and lead follow-up automatically.
-- **Guaranteed Results**: Page 1 Google rankings guaranteed, or you don't pay. Google Maps Top 3 in 7 days or free.
-- **Fast Delivery**: Complete website and business revamp in 10 business days.
-- **Full-Service Agency**: Websites, SEO, ads, content, and outbound — all under one roof.
+- AI Website Builder: https://rankmehigher.com/services/websites
+- Local SEO (built into every site): https://rankmehigher.com/services/seo
+- Content & Ads: https://rankmehigher.com/services/content-ads
+- Google Ads: https://rankmehigher.com/services/google-ads
+- Lead Capture & Delivery: https://rankmehigher.com/services/outbound
+- Google Business Profile Optimization: https://rankmehigher.com/localmapbooster
+- Contact: https://rankmehigher.com/contact
+- Careers: https://rankmehigher.com/careers
+- Blog: https://rankmehigher.com/blog
 
-## Industries We Serve
+## What "Local-SEO-Correct" Means
 
-- Auto detailing and car care
-- Trucking and logistics
-- HVAC and home services
-- Medical and dental practices
-- Legal services
-- Restaurants and hospitality
-- Real estate
-- E-commerce
-- Construction and trades
-- Any local business wanting to dominate Google
+Every website the AI builds ships with: consistent NAP (name, address, phone) on every page, JSON-LD structured data, honest business hours, dedicated city and service pages, and fast mobile-compact pages.
+
+## Businesses On The Platform
+
+40+ real local businesses run on the platform, including Off-Tint, KleanAF, LTS Mechanical, ProTeamWorks, Thomas Window Cleaning, TruckClinic, ProRepair, and ES Automotive.
 
 ## Contact
 
 - Website: https://rankmehigher.com
-- Contact page: https://rankmehigher.com/contact
-- Phone: (773) 572-4686
-- Location: Chicago, IL, United States
-- Hours: Monday–Friday, 9 AM – 5 PM CT
-
-## Careers
-
-- Careers page: https://rankmehigher.com/careers
-- We hire for: Sales, Marketing, Creative, Software Engineering
-- AI-powered screening process with our assistant AVA
-
-## Blog
-
-- Blog: https://rankmehigher.com/blog
-- Topics: SEO strategies, local marketing tips, Google Maps ranking secrets, website conversion optimization
+- Sign in (existing members): https://websites.rankmehigher.com
+- Phone (SMS): (773) 572-4686 / +17735724686
+- Email: business@rankmehigher.com
+- Location: Chicago & Mundelein, IL, United States
 
 ## FAQs
 
-**How much does a website cost?**
-Pricing varies by project scope. We offer custom packages starting from competitive rates. Contact us for a free consultation.
+**Is the free website really free?**
+Yes. The AI builds the complete site and texts you a live preview link, no card required. You pay only when you put it live on your own domain, from $99/mo.
 
-**How long does it take to build a website?**
-We deliver complete websites in 10 business days, including AI automation setup.
+**How fast is the build?**
+Minutes. Research, plan, build — then the preview link is texted to you.
 
-**Do you guarantee Google rankings?**
-Yes. We guarantee Page 1 Google rankings. If we don't deliver, you don't pay.
+**How do I edit my website?**
+Chat with the AI. Click anything, say the change. Every edit is versioned and revertable.
 
-**What is Local Map Booster?**
-Our Google Maps optimization service that gets your business into the top 3 map results within 7 days, or it's free.
+**Do you handle hosting and domains?**
+Yes. Hosting, SSL, and your custom domain are included in every plan.
 
-**What is AVA?**
-AVA is our AI-powered virtual assistant that handles phone calls, website chat, and lead follow-up for your business 24/7.
+**What happens to leads?**
+They're delivered instantly by SMS and email (webhooks available) and logged in your portal. The $199/mo plan adds a dedicated business phone number.
 
-**Do you work with businesses outside Chicago?**
-Yes, we serve businesses across the entire United States.
+**Do you work outside Chicago?**
+Yes — the platform serves local businesses across the United States.

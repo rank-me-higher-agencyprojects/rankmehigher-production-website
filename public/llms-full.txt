@@ -1,159 +1,150 @@
 # Rank Me Higher — Full Documentation
 
-> Rank Me Higher is a full-service digital marketing agency headquartered in Chicago, Illinois. We specialize in custom-coded websites, search engine optimization (SEO), Google Maps optimization, AI-powered business automation, content creation, paid advertising, and outbound sales. Our mission is to help local businesses dominate their online presence and convert digital traffic into paying customers.
+> Rank Me Higher is the AI-autonomous growth platform for local businesses — think "Lovable + Search Atlas for local business." The AI researches a business's market, plans its website, builds it in minutes with real photos and natural AI imagery, texts the owner progress, and puts the site live. Owners edit anything by chatting with the AI. One portal, one subscription. Built in Chicago; 40+ real local business websites run on the platform today.
 
 ## Company Overview
 
 - **Name**: Rank Me Higher
-- **Type**: Digital Marketing Agency / AI Website Agency
-- **Founded**: 2015
+- **Type**: AI website & local growth platform for local businesses
+- **Founded**: 2015 (agency roots; now a platform)
 - **Founder**: Andrius
-- **Location**: Chicago, IL, United States
-- **Phone**: (773) 572-4686
+- **Location**: Chicago & Mundelein, IL, United States
+- **Phone (SMS)**: (773) 572-4686
 - **Website**: https://rankmehigher.com
-- **Team Size**: 10–50 employees
+- **Member sign-in**: https://websites.rankmehigher.com
 - **Service Area**: United States (nationwide)
-- **Hours**: Monday–Friday, 9:00 AM – 5:00 PM Central Time
-- **Rating**: 5.0 stars (54 reviews)
 
-## Core Philosophy
+## The Core Offer
 
-We believe that most businesses overpay for websites that don't generate leads. Template websites, WordPress sites, and drag-and-drop builders produce slow, bloated pages that Google ignores. We custom-code every website from scratch, optimized for speed, SEO, and conversions. We then layer on AI-powered automation so the website works for the business 24/7 — answering calls, chatting with visitors, and following up on leads automatically.
+**Get a FREE website that dominates Google — built by AI in minutes.**
 
-## Detailed Service Descriptions
+The free build is a real build, not a mockup: the AI researches the market, plans the site, builds it, and texts the owner a live preview link. No credit card required. Going live on the business's own domain requires a subscription (see Pricing).
 
-### 1. Custom Website Design & Development
+## What Is Live Today
+
+1. **AI research → plan → build**: The AI studies the business, its area, and what customers search for, then builds a complete local-SEO-correct website in minutes.
+2. **Real photos + natural AI imagery**: The site uses the business's real photos wherever available, filled out with natural AI imagery matched to the trade — no generic stock photos.
+3. **SMS/email progress updates**: The owner gets texted and emailed as the AI works, ending with a live preview link (with consent; see Privacy).
+4. **Chat editing**: Click any part of the site, say the change, and the AI makes it. Every edit is versioned and revertable.
+5. **Hosting, SSL, custom domain**: All handled by the platform, included in every plan.
+6. **Lead capture with instant delivery**: Every site captures leads and delivers them in seconds by SMS and email (webhooks available), with all leads logged in the client portal.
+7. **One portal, one subscription**: Site, edits, and leads in one place.
+
+## Platform Direction (Coming — Not Live Yet)
+
+- Google rankings tracked inside the portal
+- Request tasks that the AI just does
+- Automatic Google Business Profile optimization
+- Automated review generation
+
+## Pricing
+
+- **$99/mo** — Website live on your domain + hosting + SSL + chat edits + lead capture with instant delivery + client portal
+- **$149/mo** — Everything in $99, plus automatic Google Business Profile optimization
+- **$199/mo** — Everything in $149, plus a review generator with a dedicated business phone number and branded email at your domain
+
+No long-term contracts; cancel anytime. The free preview build costs nothing and requires no card.
+
+## What "Local-SEO-Correct" Means
+
+Every website the AI ships includes, from the first build:
+
+- **Consistent NAP**: name, address, and phone identical on every page
+- **JSON-LD structured data**: schema Google can read for the business, services, and area
+- **Honest hours and real information**: sites that match reality, which Google rewards
+- **City and service pages**: dedicated pages for each service and area served
+- **Fast, mobile-compact pages**: local searches happen on phones; pages are built lean
+
+SEO is not a retainer or an add-on — it is how the platform builds every site.
+
+## Pages / Services
+
+### AI Website Builder (flagship)
 **URL**: https://rankmehigher.com/services/websites
+The AI researches, plans, and builds a complete local business website in minutes, texts the live preview, and handles hosting, SSL, and the domain. Editing is done by chatting with the AI.
 
-We build custom-coded websites — no WordPress, no Wix, no Squarespace, no templates. Every site is hand-coded using modern web technologies for:
-
-- **Speed**: Sites load in under 2 seconds, which Google rewards with higher rankings
-- **Mobile-First Design**: Every site is designed for mobile devices first, then scaled up
-- **SEO Built-In**: Proper heading structure, schema markup, meta tags, semantic HTML, and fast Core Web Vitals
-- **Conversion Optimization**: Strategic CTAs, lead capture forms, and sales funnels
-- **AI Integration**: Every website comes with AVA, our AI assistant that handles phone calls, live chat, and automated follow-up
-
-**Delivery**: Complete website in 10 business days
-**Includes**: Domain setup, hosting, SSL, analytics, AI assistant setup
-
-### 2. SEO Services
+### Local SEO
 **URL**: https://rankmehigher.com/services/seo
+Local SEO is built into every site the AI ships (see "Local-SEO-Correct" above). Platform direction: rankings tracked in the portal.
 
-Our SEO service focuses on getting businesses to Page 1 of Google for the keywords their customers are actually searching. We combine technical SEO, content optimization, and local SEO strategies:
-
-- **On-Page SEO**: Title tags, meta descriptions, header optimization, internal linking, image optimization
-- **Technical SEO**: Site speed, Core Web Vitals, crawlability, indexation, structured data
-- **Local SEO**: Google Business Profile optimization, local citations, NAP consistency, review generation
-- **Content Strategy**: Blog posts, landing pages, and content clusters targeting high-intent keywords
-- **Link Building**: White-hat backlink acquisition from relevant, authoritative sources
-- **Monthly Reporting**: Transparent rank tracking, traffic reports, and ROI analysis
-
-**Guarantee**: Page 1 Google rankings or you don't pay
-
-### 3. Local Map Booster
-**URL**: https://rankmehigher.com/localmapbooster
-
-Our flagship local SEO product focused specifically on Google Maps rankings:
-
-- Get into the Google Maps Top 3 results within 7 days
-- Google Business Profile optimization and management
-- Review generation and reputation management
-- Local citation building across 50+ directories
-- Geo-targeted content and landing pages
-- Competitor analysis and displacement strategy
-
-**Guarantee**: Top 3 Google Maps ranking in 7 days or you don't pay
-
-### 4. Content & Ads
+### Content & Ads
 **URL**: https://rankmehigher.com/services/content-ads
+The website is the asset every ad clicks to. The platform builds pages that convert ad traffic; ad campaigns are run for businesses on the platform, with spend going directly to the ad platforms.
 
-Full-service content creation and paid advertising:
+### Google Ads
+**URL**: https://rankmehigher.com/services/google-ads
+Google search campaigns for platform businesses, landing on AI-built pages made to convert. The recommended order: free website first, ads after.
 
-- **Video Production**: Professional short-form content, VSLs (Video Sales Letters), YouTube videos, and value-added content
-- **Social Media Management**: Content creation, posting, and engagement across platforms
-- **Google Ads**: Search, display, and local service ads management
-- **Meta Ads**: Facebook and Instagram advertising campaigns
-- **Content Strategy**: Editorial calendars, content briefs, and performance tracking
-
-### 5. Outbound Sales
+### Lead Capture & Delivery
 **URL**: https://rankmehigher.com/services/outbound
+Every site captures leads and delivers them instantly by SMS, email, and webhooks; all leads are logged in the portal. The $199/mo plan adds a dedicated business phone number and branded email.
 
-Revenue recovery through database reactivation:
+### Google Business Profile Optimization (Local Map Booster)
+**URL**: https://rankmehigher.com/localmapbooster
+The Google Business Profile is half of local search; the website is the other half. The $149/mo plan pairs the AI-built website with GBP optimization. Platform direction: automatic GBP optimization and automated review generation ($199/mo tier).
 
-- We call your old leads, past customers, and dormant contacts
-- Professional appointment setting
-- Lead qualification and warm handoff
-- CRM integration and tracking
-- Performance-based pricing available
+## Businesses On The Platform
 
-## AI Technology — AVA
+40+ real local businesses run on the platform today, including:
 
-AVA (Advanced Virtual Assistant) is our proprietary AI system integrated into every client's digital presence:
+- Off-Tint
+- KleanAF
+- LTS Mechanical
+- ProTeamWorks
+- Thomas Window Cleaning
+- TruckClinic
+- ProRepair
+- ES Automotive
 
-- **Voice AI**: AVA handles inbound phone calls, qualifies leads, and books appointments 24/7
-- **Chat AI**: Website chatbot that engages visitors, answers questions, and captures contact information
-- **Knowledge Base**: Custom-trained on each client's business, services, pricing, and FAQs
-- **Automated Follow-Up**: Sends follow-up messages to leads who don't convert immediately
-- **Call Transcription**: Every call is transcribed and analyzed for quality and insights
+## Who It's For
 
-## Industries We Serve
-
-Rank Me Higher works with businesses across many industries, including but not limited to:
-
-- Auto detailing, car wash, and automotive services
-- Trucking, logistics, and CDL companies
-- HVAC, plumbing, and home services
-- Medical practices, dental offices, and healthcare
-- Law firms and legal services
-- Restaurants, bars, and hospitality
-- Real estate agents and property management
-- E-commerce and online retail
-- Construction, roofing, and trades
-- Gyms, fitness studios, and wellness
-- Accounting and financial services
-- Any local business seeking Google visibility
+Local service businesses of every trade: auto detailing and tint, cleaning, HVAC and mechanical, trucking services, repair shops, window cleaning, home services, and any local business that needs to be found on Google and never miss a lead.
 
 ## Frequently Asked Questions
 
-**Q: How much does a custom website cost?**
-A: Pricing depends on project scope and requirements. We offer competitive packages for businesses of all sizes. Contact us for a free consultation and custom quote.
+**Q: Is the free website actually free?**
+A: Yes. The AI builds the complete site and texts a live preview link — no card required. Payment starts only when the site goes live on the owner's own domain, from $99/mo.
 
-**Q: How is a custom-coded website different from WordPress?**
-A: Custom-coded websites load 3–5x faster, rank higher on Google, have no plugin vulnerabilities, and are built specifically for your business goals. WordPress sites use generic templates and bloated code that slows performance.
+**Q: How long does the build take?**
+A: Minutes. The AI researches the market, plans the site, and builds it, sending progress updates by text and email along the way.
 
-**Q: How long does it take to build a website?**
-A: We deliver complete, launch-ready websites in 10 business days, including AI assistant setup, SEO configuration, and analytics.
+**Q: How do I change something on my site?**
+A: Chat with the AI — click anything, say the change. Every change is versioned and revertable. No tickets, no waiting on a designer.
 
-**Q: Do you guarantee Google Page 1 rankings?**
-A: Yes. We guarantee your business will rank on Page 1 of Google for targeted keywords. If we fail to deliver, you don't pay.
+**Q: Does it use my real photos?**
+A: Yes, wherever you have them. Gaps are filled with natural AI imagery matched to your trade.
 
-**Q: What is the Local Map Booster?**
-A: Our specialized service that gets your business into the top 3 Google Maps results within 7 days. If we don't achieve this, you pay nothing.
+**Q: Is SEO extra?**
+A: No. Every site ships local-SEO-correct: consistent NAP, JSON-LD schema, honest hours, city/service pages, and fast mobile pages — included in every plan.
 
-**Q: What is AVA?**
-A: AVA is our AI-powered virtual assistant. She handles phone calls, website chat, and lead follow-up for your business 24/7, so you never miss a lead.
+**Q: What happens when someone submits a lead on my site?**
+A: You're texted and emailed the details in seconds, and the lead is logged in your portal. Webhooks can push leads to your CRM. The $199/mo plan adds a dedicated business phone number.
 
-**Q: Do you work with businesses outside of Chicago?**
-A: Yes. While we're based in Chicago, we serve businesses across the entire United States.
+**Q: Do you handle my domain and hosting?**
+A: Yes — hosting, SSL, and custom domain connection are included in every plan.
 
-**Q: Can you help with an existing website?**
-A: Yes. We can optimize existing websites for SEO, speed, and conversions, or we can build you a new custom-coded site.
+**Q: Can I see my Google rankings?**
+A: That's where the platform is going: rankings in your portal. Today, the platform ships a correctly built site and full lead visibility.
 
-**Q: Do you offer monthly plans?**
-A: Yes. We offer ongoing SEO, content, and advertising management plans with transparent monthly reporting.
+**Q: Do you run ads?**
+A: Campaigns are run for businesses on the platform (Meta and Google), landing on their platform-built pages. The website comes first.
+
+**Q: Do you work with businesses outside Chicago?**
+A: Yes — the platform serves local businesses across the United States.
 
 **Q: How do I get started?**
-A: Visit https://rankmehigher.com/contact or call (773) 572-4686 for a free consultation.
+A: Take the free website quiz at https://rankmehigher.com/#free-website — or text (773) 572-4686.
 
 ## Links
 
-- Homepage: https://rankmehigher.com
-- Websites Service: https://rankmehigher.com/services/websites
-- SEO Service: https://rankmehigher.com/services/seo
+- Homepage / free website quiz: https://rankmehigher.com/#free-website
+- AI Website Builder: https://rankmehigher.com/services/websites
+- Local SEO: https://rankmehigher.com/services/seo
 - Content & Ads: https://rankmehigher.com/services/content-ads
-- Ads & Content: https://rankmehigher.com/services/ads-content
-- Outbound Sales: https://rankmehigher.com/services/outbound
-- Local Map Booster: https://rankmehigher.com/localmapbooster
+- Google Ads: https://rankmehigher.com/services/google-ads
+- Lead Capture & Delivery: https://rankmehigher.com/services/outbound
+- Google Business Profile Optimization: https://rankmehigher.com/localmapbooster
 - Contact: https://rankmehigher.com/contact
 - Careers: https://rankmehigher.com/careers
 - Blog: https://rankmehigher.com/blog
+- Member sign-in: https://websites.rankmehigher.com
