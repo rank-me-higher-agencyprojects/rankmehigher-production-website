@@ -924,3 +924,103 @@ select.modal-select {
   .sop-content h2 { font-size: 1rem !important; }
   .sop-content h3 { font-size: 0.9rem !important; }
 }
+
+/* ============================================================
+   Home 2026 redesign — additive marketing tokens & utilities.
+   Everything below is NEW; nothing above was removed/renamed.
+   ============================================================ */
+
+:root {
+  /* Motion tokens */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast: 200ms;
+  --dur-base: 300ms;
+  --dur-slow: 500ms;
+}
+
+@layer components {
+  /* Primary red CTA — the ONE place red is loud. */
+  .btn-cta-primary {
+    @apply inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-semibold text-primary-foreground;
+    transition:
+      transform var(--dur-base) var(--ease-out-expo),
+      box-shadow var(--dur-base) var(--ease-out-expo),
+      background-color var(--dur-fast) ease;
+  }
+  .btn-cta-primary:hover {
+    background-color: hsl(4 84% 59%);
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px -8px hsl(4 84% 55% / 0.55);
+  }
+  .btn-cta-primary:active {
+    transform: scale(0.99);
+  }
+  .btn-cta-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Quiet secondary CTA — hairline ghost. */
+  .btn-cta-ghost {
+    @apply inline-flex h-12 items-center justify-center gap-2 rounded-lg border px-6 text-sm font-medium text-white/80;
+    border-color: hsl(0 0% 100% / 0.12);
+    background: transparent;
+    transition:
+      transform var(--dur-base) var(--ease-out-expo),
+      border-color var(--dur-fast) ease,
+      background-color var(--dur-fast) ease,
+      color var(--dur-fast) ease;
+  }
+  .btn-cta-ghost:hover {
+    border-color: hsl(0 0% 100% / 0.24);
+    background: hsl(0 0% 100% / 0.04);
+    color: hsl(0 0% 100%);
+    transform: scale(1.02);
+  }
+}
+
+/* Editor vignette — highlight ring ping over the screenshot. */
+@keyframes vignette-ring {
+  0% {
+    opacity: 0;
+    transform: scale(1.55);
+  }
+  35% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+}
+
+.animate-vignette-ring {
+  animation: vignette-ring 1.5s var(--ease-out-expo) forwards;
+}
+
+/* Slower, calmer proof ticker (reuses the existing scroll-left keyframes). */
+.animate-scroll-left-slower {
+  animation: scroll-left 80s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll-left-slower {
+    animation-play-state: paused;
+  }
+  .animate-vignette-ring {
+    animation: none;
+    opacity: 0;
+  }
+  .btn-cta-primary:hover,
+  .btn-cta-ghost:hover {
+    transform: none;
+  }
+}

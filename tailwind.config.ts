@@ -78,6 +78,12 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      transitionTimingFunction: {
+        expo: "cubic-bezier(0.16, 1, 0.3, 1)",
+      },
+      maxWidth: {
+        content: "71.25rem", // 1140px — marketing content measure
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
