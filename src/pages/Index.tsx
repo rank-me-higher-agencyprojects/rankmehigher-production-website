@@ -182,7 +182,7 @@ const Index = () => {
           <EditorShowcase />
 
           {/* 4 · THE QUIZ */}
-          <section id="free-website" className="scroll-mt-24 py-24 md:py-32">
+          <section id="free-website" className="scroll-mt-24 py-12 md:py-32">
             <div className="mx-auto max-w-2xl px-6">
               <Reveal>
                 <SectionHeading
@@ -192,14 +192,14 @@ const Index = () => {
                   sub="6 questions. That's everything the AI needs to research your market and build your site. Your live link arrives by text."
                 />
               </Reveal>
-              <Reveal className="mt-10" delay={0.1}>
+              <Reveal className="mt-8 md:mt-10" delay={0.1}>
                 <FreeWebsiteQuiz />
               </Reveal>
             </div>
           </section>
 
           {/* 5 · HOW IT WORKS */}
-          <section id="how-it-works" className="scroll-mt-24 border-t border-white/[0.06] py-24 md:py-32">
+          <section id="how-it-works" className="scroll-mt-24 border-t border-white/[0.06] py-12 md:py-32">
             <div className="mx-auto max-w-content px-6">
               <Reveal>
                 <SectionHeading
@@ -207,7 +207,7 @@ const Index = () => {
                   title="From 6 questions to a live website."
                 />
               </Reveal>
-              <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 md:mt-16 lg:grid-cols-4">
+              <div className="mt-8 grid gap-4 sm:grid-cols-2 md:mt-16 md:gap-x-8 md:gap-y-10 lg:grid-cols-4">
                 {HOW_IT_WORKS.map((step, i) => (
                   <Reveal key={step.n} delay={0.07 * i}>
                     <div className="border-t border-white/[0.08] pt-5">
@@ -222,7 +222,7 @@ const Index = () => {
           </section>
 
           {/* 6 · PROOF — client sites ticker */}
-          <section className="overflow-hidden border-t border-white/[0.06] py-24 md:py-32">
+          <section className="overflow-hidden border-t border-white/[0.06] py-12 md:py-32">
             <div className="mx-auto max-w-content px-6">
               <Reveal>
                 <SectionHeading
@@ -234,7 +234,7 @@ const Index = () => {
               </Reveal>
             </div>
 
-            <Reveal className="mt-12 md:mt-16">
+            <Reveal className="mt-8 md:mt-16">
               <div className="relative">
                 <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-24 bg-gradient-to-r from-background to-transparent" />
                 <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-24 bg-gradient-to-l from-background to-transparent" />
@@ -269,7 +269,7 @@ const Index = () => {
           </section>
 
           {/* 7 · PLATFORM */}
-          <section className="relative overflow-hidden border-t border-white/[0.06] py-24 md:py-32">
+          <section className="relative overflow-hidden border-t border-white/[0.06] py-12 md:py-32">
             {/* Quiet grid texture band */}
             <div
               aria-hidden
@@ -285,7 +285,7 @@ const Index = () => {
                 />
               </Reveal>
 
-              <div className="mt-12 grid gap-4 sm:grid-cols-2 md:mt-16 lg:grid-cols-4">
+              <div className="mt-8 grid gap-4 sm:grid-cols-2 md:mt-16 lg:grid-cols-4">
                 {PLATFORM_LIVE.map((cap, i) => (
                   <Reveal key={cap.title} delay={0.06 * i}>
                     <div className="h-full rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
@@ -312,7 +312,7 @@ const Index = () => {
           </section>
 
           {/* 8 · PRICING */}
-          <section id="pricing" className="scroll-mt-24 border-t border-white/[0.06] py-24 md:py-32">
+          <section id="pricing" className="scroll-mt-24 border-t border-white/[0.06] py-12 md:py-32">
             <div className="mx-auto max-w-content px-6">
               <Reveal>
                 <SectionHeading
@@ -323,7 +323,7 @@ const Index = () => {
                 />
               </Reveal>
 
-              <div className="mx-auto mt-12 grid max-w-4xl items-stretch gap-4 md:mt-16 md:grid-cols-3">
+              <div className="mx-auto mt-8 grid max-w-4xl items-stretch gap-4 md:mt-16 md:grid-cols-3">
                 {/* $99 — emphasized with a border accent, not a shout */}
                 <Reveal className="h-full">
                   <div className="relative flex h-full flex-col rounded-xl border border-primary/40 bg-white/[0.02] p-7">
@@ -410,7 +410,7 @@ const Index = () => {
               </div>
 
               <Reveal delay={0.2}>
-                <p className="mt-10 text-center text-sm text-white/50">
+                <p className="mt-8 text-center text-sm text-white/50 md:mt-10">
                   Every plan starts the same way — <span className="text-white/80">with your free website.</span>
                 </p>
               </Reveal>
@@ -418,13 +418,13 @@ const Index = () => {
           </section>
 
           {/* 9 · FAQ */}
-          <section id="faq" className="scroll-mt-24 border-t border-white/[0.06] py-24 md:py-32">
+          <section id="faq" className="scroll-mt-24 border-t border-white/[0.06] py-12 md:py-32">
             <div className="mx-auto max-w-3xl px-6">
               <Reveal>
                 <SectionHeading center eyebrow="FAQ" title="Frequently asked questions" />
               </Reveal>
 
-              <Reveal className="mt-12 md:mt-16" delay={0.1}>
+              <Reveal className="mt-8 md:mt-16" delay={0.1}>
                 <Accordion type="single" collapsible className="w-full">
                   {FAQ_ITEMS.map((faq, i) => (
                     <AccordionItem key={i} value={`faq-${i}`} className="border-white/[0.08]">
@@ -442,7 +442,7 @@ const Index = () => {
           </section>
 
           {/* 10 · FINAL CTA */}
-          <section className="relative overflow-hidden border-t border-white/[0.06] py-28 md:py-36">
+          <section className="relative overflow-hidden border-t border-white/[0.06] py-12 md:py-36">
             <div
               aria-hidden
               className="pointer-events-none absolute inset-x-0 bottom-0 h-[320px] bg-[radial-gradient(50%_80%_at_50%_100%,hsl(4_84%_55%/0.07),transparent_70%)]"
@@ -453,7 +453,7 @@ const Index = () => {
                 <h2 className="mx-auto mt-6 max-w-2xl font-heading text-[clamp(2rem,4.2vw,3.25rem)] font-bold leading-[1.08] tracking-[-0.025em] text-foreground">
                   Your website is 6 questions away.
                 </h2>
-                <div className="mt-10">
+                <div className="mt-8 md:mt-10">
                   <button onClick={scrollToQuiz} className="btn-cta-primary px-8">
                     Get your free website
                   </button>
