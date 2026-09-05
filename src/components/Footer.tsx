@@ -1,188 +1,130 @@
-import { MapPin, Phone, Mail, Facebook, Instagram, ChevronUp } from "lucide-react";
-import { useState } from "react";
+import { Facebook, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 // TikTok icon (not available in lucide-react)
 const TikTokIcon = ({ className }: { className?: string }) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className={className}
-  >
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
   </svg>
 );
 
-const services = [
+const SERVICES = [
   { label: "Custom Websites", href: "/services/websites" },
   { label: "Local Map Booster", href: "/localmapbooster" },
   { label: "Content & Ads", href: "/services/content-ads" },
   { label: "SEO Services", href: "/services/seo" },
-  { label: "Live Outbound Sales Agents", href: "/services/outbound" },
+  { label: "Outbound Sales Agents", href: "/services/outbound" },
 ];
 
-const Footer = () => {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+const COMPANY = [
+  { label: "Blog", href: "/blog" },
+  { label: "Careers", href: "/careers" },
+  { label: "Contact", href: "/contact" },
+  { label: "Terms & Conditions", href: "/terms" },
+  { label: "Privacy Policy", href: "/privacy" },
+];
 
-  return (
-    <footer id="contact" className="relative bg-background pt-12 pb-6">
-      {/* Navigation */}
-      <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
-        <nav className="flex flex-wrap justify-center gap-6 md:gap-10 mb-8 pb-8 border-b border-border/30">
-          <Link
-            to="/"
-            className="text-sm font-medium tracking-wider transition-colors text-muted-foreground hover:text-primary"
-          >
-            HOME
-          </Link>
+const columnTitle = "font-orbitron text-[10px] font-medium uppercase tracking-[0.22em] text-white/40";
+const columnLink = "block py-1 text-sm text-white/55 transition-colors duration-200 hover:text-foreground";
 
-          {/* Services Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
-          >
-            <button className="flex items-center gap-1 text-sm font-medium tracking-wider transition-colors text-muted-foreground hover:text-primary">
-              SERVICES
-              <ChevronUp className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
-            </button>
-
-            {/* Dropdown - Opens upward */}
-            <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 rounded-xl bg-background border border-border shadow-xl z-50 transition-all duration-200 ${isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'}`}>
-              <div className="py-2">
-                {services.map((service, i) => (
-                  <Link
-                    key={i}
-                    to={service.href}
-                    className="block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-primary/5 transition-colors"
-                  >
-                    {service.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
+const Footer = () => (
+  <footer id="contact" className="border-t border-white/[0.06] bg-background">
+    <div className="mx-auto max-w-content px-6 pb-10 pt-16 md:pt-20">
+      {/* Brand row */}
+      <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+        <div>
+          <div className="flex items-center gap-3">
+            <img src={logo} alt="Rank Me Higher logo" width={28} height={28} className="h-7 w-7 object-contain" />
+            <span className="font-orbitron text-xs font-semibold uppercase tracking-[0.22em] text-foreground">
+              Rank Me Higher
+            </span>
           </div>
-
-          <Link
-            to="/blog"
-            className="text-sm font-medium tracking-wider transition-colors text-muted-foreground hover:text-primary"
-          >
-            BLOG
-          </Link>
-
-          <Link
-            to="/contact"
-            className="text-sm font-medium tracking-wider transition-colors text-muted-foreground hover:text-primary"
-          >
-            CONTACT
-          </Link>
-
-          <Link
-            to="/careers"
-            className="text-sm font-medium tracking-wider transition-colors text-muted-foreground hover:text-primary"
-          >
-            CAREERS
-          </Link>
-        </nav>
-
-        {/* Main Footer Content */}
-        <div className="grid md:grid-cols-2 gap-12 mb-12">
-          {/* Left Column - About */}
-          <div className="space-y-6">
-            <img src={logo} alt="Rank Me Higher logo" width={120} height={40} className="h-10 w-auto" />
-
-            <p className="text-muted-foreground leading-relaxed max-w-md">
-              <strong className="text-foreground">Rank Me Higher</strong> is the AI-autonomous growth platform for local businesses. The AI researches your market, builds your website in minutes, texts you the live link, and you edit anything by chatting with it. One portal, one subscription.
-            </p>
-            <p className="text-muted-foreground leading-relaxed max-w-md text-sm mt-3">
-              <strong className="text-foreground">40+ live local business websites</strong> already run on the platform — and yours is free to see.
-            </p>
-
-            <div className="space-y-2">
-              <a href="https://websites.rankmehigher.com" className="block text-primary hover:underline text-sm">
-                Sign in to your portal
-              </a>
-              <Link to="/terms" className="block text-primary hover:underline text-sm">
-                Terms & Conditions
-              </Link>
-              <Link to="/privacy" className="block text-primary hover:underline text-sm">
-                Privacy Policy
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Column - Contact */}
-          <div className="space-y-6">
-            <h3 className="font-heading font-bold text-lg text-foreground tracking-wider">
-              CONTACT
-            </h3>
-
-            <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                <span className="text-muted-foreground">
-                  1 N State St Ste 1515, Chicago, IL 60602, United States
-                </span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="sms:773-572-4686" className="text-muted-foreground hover:text-primary transition-colors">
-                  (773) 572-4686 <span className="text-xs text-primary/70 font-orbitron ml-1">SMS Only</span>
-                </a>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="mailto:business@rankmehigher.com" className="text-muted-foreground hover:text-primary transition-colors">
-                  business@rankmehigher.com
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 border-t border-border/30">
-          <p className="text-muted-foreground text-sm">
-            Copyright © 2026 Rank Me Higher | All Rights Reserved
+          <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/50">
+            The AI platform for local business. Your website researched, built, and run by AI — edited by chat, from one portal.
           </p>
-
-          {/* Social Icons */}
-          <div className="flex items-center gap-4">
+          <div className="mt-6 flex items-center gap-2">
             <a
               href="https://www.facebook.com/rankmehigherseo"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] text-white/50 transition-colors duration-200 hover:border-white/20 hover:text-foreground"
               aria-label="Facebook"
             >
-              <Facebook className="w-5 h-5" />
+              <Facebook className="h-4 w-4" />
             </a>
             <a
               href="https://instagram.com/rankmehigherseo"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] text-white/50 transition-colors duration-200 hover:border-white/20 hover:text-foreground"
               aria-label="Instagram"
             >
-              <Instagram className="w-5 h-5" />
+              <Instagram className="h-4 w-4" />
             </a>
             <a
               href="https://www.tiktok.com/@rankmehigher"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] text-white/50 transition-colors duration-200 hover:border-white/20 hover:text-foreground"
               aria-label="TikTok"
             >
-              <TikTokIcon className="w-5 h-5" />
+              <TikTokIcon className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 className={columnTitle}>Services</h3>
+          <div className="mt-4 space-y-1">
+            {SERVICES.map((item) => (
+              <Link key={item.href} to={item.href} className={columnLink}>
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className={columnTitle}>Company</h3>
+          <div className="mt-4 space-y-1">
+            {COMPANY.map((item) => (
+              <Link key={item.href} to={item.href} className={columnLink}>
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className={columnTitle}>Contact</h3>
+          <div className="mt-4 space-y-3 text-sm text-white/55">
+            <p className="leading-relaxed">1 N State St Ste 1515, Chicago, IL 60602</p>
+            <a href="sms:773-572-4686" className="block transition-colors duration-200 hover:text-foreground">
+              (773) 572-4686 <span className="text-xs text-white/35">· SMS only</span>
+            </a>
+            <a
+              href="mailto:business@rankmehigher.com"
+              className="block transition-colors duration-200 hover:text-foreground"
+            >
+              business@rankmehigher.com
+            </a>
+            <a
+              href="https://websites.rankmehigher.com"
+              className="block pt-1 text-white/70 transition-colors duration-200 hover:text-foreground"
+            >
+              Sign in to your portal →
             </a>
           </div>
         </div>
       </div>
-    </footer>
-  );
-};
+
+      {/* Bottom bar */}
+      <div className="mt-14 border-t border-white/[0.06] pt-6">
+        <p className="text-xs text-white/35">Copyright © 2026 Rank Me Higher | All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;
