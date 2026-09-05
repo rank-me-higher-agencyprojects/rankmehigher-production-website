@@ -93,13 +93,16 @@ const Footer = () => {
             <img src={logo} alt="Rank Me Higher logo" width={120} height={40} className="h-10 w-auto" />
 
             <p className="text-muted-foreground leading-relaxed max-w-md">
-              <strong className="text-foreground">Rank Me Higher</strong> is a Software & Website Development Marketing Company from Chicago. We take a technology-driven approach to building faster, better-ranking websites that actually generate leads and revenue for local businesses.
+              <strong className="text-foreground">Rank Me Higher</strong> is the AI-autonomous growth platform for local businesses. The AI researches your market, builds your website in minutes, texts you the live link, and you edit anything by chatting with it. One portal, one subscription.
             </p>
             <p className="text-muted-foreground leading-relaxed max-w-md text-sm mt-3">
-              <strong className="text-cyan-400">AVA</strong> is our proprietary website and SEO platform, currently managing <strong className="text-foreground">54 websites</strong> and growing.
+              <strong className="text-foreground">40+ live local business websites</strong> already run on the platform — and yours is free to see.
             </p>
 
             <div className="space-y-2">
+              <a href="https://websites.rankmehigher.com" className="block text-primary hover:underline text-sm">
+                Sign in to your portal
+              </a>
               <Link to="/terms" className="block text-primary hover:underline text-sm">
                 Terms & Conditions
               </Link>
