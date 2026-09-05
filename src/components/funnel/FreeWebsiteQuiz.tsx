@@ -42,7 +42,7 @@ type Phase = "quiz" | "submitting" | "verify" | "verifying" | "success" | "mirro
 const TOTAL_STEPS = 6;
 
 const inputClass =
-  "w-full h-11 px-4 rounded-xl bg-white/5 border border-white/15 text-foreground text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:border-red-500/50 focus:bg-white/[0.07] transition-colors";
+  "w-full h-12 px-4 rounded-lg bg-white/[0.03] border border-white/10 text-foreground text-sm placeholder:text-white/30 focus:outline-none focus:border-primary/50 focus:bg-white/[0.05] transition-colors duration-200";
 
 const readUtm = (): Utm | undefined => {
   try {
@@ -364,15 +364,14 @@ const FreeWebsiteQuiz = () => {
 
   if (phase === "success" || phase === "mirror-success") {
     return (
-      <div className="glass-strong rounded-2xl p-6 lg:p-10 text-center relative overflow-hidden">
-        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-64 h-64 bg-primary/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 lg:p-10 text-center relative overflow-hidden">
         <div className="relative z-10 space-y-4">
-          <div className="mx-auto w-16 h-16 rounded-2xl bg-green-500/15 border border-green-500/30 flex items-center justify-center">
-            <MessageSquare className="w-8 h-8 text-green-400" />
+          <div className="mx-auto w-14 h-14 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center">
+            <MessageSquare className="w-6 h-6 text-green-400" />
           </div>
           {phase === "success" ? (
             <>
-              <h3 className="font-orbitron font-black text-xl lg:text-2xl text-foreground">
+              <h3 className="font-heading font-bold text-xl lg:text-2xl tracking-[-0.01em] text-foreground">
                 📲 Watch your texts — your website is being built right now.
               </h3>
               <p className="text-sm lg:text-base text-muted-foreground max-w-md mx-auto">
@@ -383,9 +382,9 @@ const FreeWebsiteQuiz = () => {
                   href={previewUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-red-500/10 border border-red-500/30 text-white font-bold text-sm font-orbitron hover:bg-red-500/20 hover:border-red-500/50 transition-all duration-300"
+                  className="btn-cta-primary"
                 >
-                  <Globe className="w-4 h-4 text-red-400" />
+                  <Globe className="w-4 h-4" />
                   Your website is live — see it now
                   <ArrowRight className="w-4 h-4" />
                 </a>
@@ -393,7 +392,7 @@ const FreeWebsiteQuiz = () => {
             </>
           ) : (
             <>
-              <h3 className="font-orbitron font-black text-xl lg:text-2xl text-foreground">
+              <h3 className="font-heading font-bold text-xl lg:text-2xl tracking-[-0.01em] text-foreground">
                 Got it — we'll text you shortly.
               </h3>
               <p className="text-sm lg:text-base text-muted-foreground max-w-md mx-auto">
@@ -406,7 +405,7 @@ const FreeWebsiteQuiz = () => {
               href={PORTAL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors font-orbitron"
+              className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-foreground transition-colors duration-200"
             >
               Open the portal
               <ArrowRight className="w-3.5 h-3.5" />
@@ -419,14 +418,13 @@ const FreeWebsiteQuiz = () => {
 
   if (phase === "verify" || phase === "verifying") {
     return (
-      <div className="glass-strong rounded-2xl p-6 lg:p-10 relative overflow-hidden">
-        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-64 h-64 bg-primary/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 lg:p-10 relative overflow-hidden">
         <div className="relative z-10 max-w-sm mx-auto text-center space-y-4">
-          <div className="mx-auto w-14 h-14 rounded-2xl bg-red-500/15 border border-red-500/30 flex items-center justify-center">
-            <Smartphone className="w-7 h-7 text-red-400" />
+          <div className="mx-auto w-14 h-14 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center">
+            <Smartphone className="w-6 h-6 text-primary" />
           </div>
-          <h3 className="font-orbitron font-black text-lg lg:text-xl text-foreground">Check your texts</h3>
-          <p className="text-sm text-muted-foreground">
+          <h3 className="font-heading font-bold text-lg lg:text-xl tracking-[-0.01em] text-foreground">Check your texts</h3>
+          <p className="text-sm text-white/55">
             We sent a 6-digit code to <span className="text-foreground font-bold">{form.phone}</span>. Enter it to start your build.
           </p>
           <form
@@ -450,13 +448,13 @@ const FreeWebsiteQuiz = () => {
               }}
               placeholder="••••••"
               disabled={phase === "verifying"}
-              className="w-full h-14 rounded-xl bg-white/5 border border-white/15 text-center text-2xl tracking-[0.5em] font-orbitron text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-red-500/50 transition-colors disabled:opacity-60"
+              className="w-full h-14 rounded-lg bg-white/[0.03] border border-white/10 text-center text-2xl tracking-[0.5em] font-heading text-foreground placeholder:text-white/25 focus:outline-none focus:border-primary/50 transition-colors duration-200 disabled:opacity-60"
             />
             {apiError && <p className="text-xs text-red-400">{apiError}</p>}
             <button
               type="submit"
               disabled={phase === "verifying" || code.length !== 6}
-              className="w-full px-6 py-3.5 rounded-xl bg-red-500/10 border-2 border-red-500/30 text-white font-bold text-sm font-orbitron hover:bg-red-500/20 hover:border-red-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="btn-cta-primary w-full"
             >
               {phase === "verifying" ? (
                 <>
@@ -495,30 +493,29 @@ const FreeWebsiteQuiz = () => {
   /* ---------- the 6-step quiz ---------- */
 
   return (
-    <div className="glass-strong rounded-2xl p-5 lg:p-8 relative overflow-hidden">
-      <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+    <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 lg:p-8 relative overflow-hidden">
       <div className="relative z-10">
         {/* Step dots */}
         <div className="flex items-center justify-center gap-2 mb-6">
           {Array.from({ length: TOTAL_STEPS }).map((_, i) => (
             <div
               key={i}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                i === step ? "w-8 bg-primary glow-red" : i < step ? "w-4 bg-primary/60" : "w-4 bg-white/10"
+              className={`h-1 rounded-full transition-all duration-300 ${
+                i === step ? "w-8 bg-primary" : i < step ? "w-4 bg-primary/50" : "w-4 bg-white/10"
               }`}
             />
           ))}
         </div>
 
         <div className="flex items-start gap-3 mb-5">
-          <div className="w-10 h-10 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center shrink-0">
-            <StepIcon className="w-5 h-5 text-red-400" />
+          <div className="w-10 h-10 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center shrink-0">
+            <StepIcon className="w-[18px] h-[18px] text-primary" />
           </div>
           <div>
-            <h3 className="font-orbitron font-bold text-base lg:text-lg text-foreground leading-snug">
+            <h3 className="font-heading font-semibold text-base lg:text-lg tracking-[-0.01em] text-foreground leading-snug">
               {stepMeta[step].title}
             </h3>
-            <p className="text-xs text-muted-foreground mt-0.5">{stepMeta[step].hint}</p>
+            <p className="text-xs text-white/45 mt-0.5">{stepMeta[step].hint}</p>
           </div>
         </div>
 
@@ -560,10 +557,10 @@ const FreeWebsiteQuiz = () => {
                     key={chip}
                     type="button"
                     onClick={() => set("industry")(chip)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-orbitron border transition-all duration-200 ${
+                    className={`px-3 py-1.5 rounded-lg text-xs border transition-all duration-200 ${
                       form.industry === chip
-                        ? "bg-red-500/20 border-red-500/50 text-white"
-                        : "bg-white/5 border-white/10 text-muted-foreground hover:border-red-500/30 hover:text-foreground"
+                        ? "bg-primary/15 border-primary/50 text-white"
+                        : "bg-white/[0.03] border-white/10 text-white/55 hover:border-white/25 hover:text-foreground"
                     }`}
                   >
                     {chip}
@@ -604,7 +601,7 @@ const FreeWebsiteQuiz = () => {
                   value={form.region}
                   onChange={(e) => set("region")(e.target.value)}
                   autoComplete="address-level1"
-                  className="h-11 px-3 rounded-xl bg-white/5 border border-white/15 text-sm focus:outline-none focus:border-red-500/50 transition-colors text-foreground [&>option]:bg-background"
+                  className="h-12 px-3 rounded-lg bg-white/[0.03] border border-white/10 text-sm focus:outline-none focus:border-primary/50 transition-colors duration-200 text-foreground [&>option]:bg-background"
                   style={{ color: form.region ? undefined : "hsl(0 0% 65% / 0.6)" }}
                 >
                   <option value="" disabled>
@@ -689,7 +686,7 @@ const FreeWebsiteQuiz = () => {
               <button
                 type="button"
                 onClick={back}
-                className="px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-muted-foreground hover:text-foreground hover:bg-white/10 transition-all duration-300"
+                className="h-12 px-4 rounded-lg bg-white/[0.03] border border-white/10 text-white/55 hover:text-foreground hover:bg-white/[0.06] transition-colors duration-200"
                 aria-label="Back"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -698,33 +695,32 @@ const FreeWebsiteQuiz = () => {
             <button
               type="submit"
               disabled={phase === "submitting"}
-              className="group flex-1 px-6 py-3.5 rounded-xl bg-red-500/10 backdrop-blur-md border-2 border-red-500/40 text-white font-bold text-sm shadow-lg shadow-red-500/20 hover:shadow-red-500/30 hover:bg-red-500/20 hover:border-red-500/50 transition-all duration-300 font-orbitron flex items-center justify-center gap-2 relative overflow-hidden disabled:opacity-60 disabled:cursor-not-allowed"
+              className="group btn-cta-primary flex-1"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/10 to-red-500/0 group-hover:from-red-500/10 group-hover:via-red-500/20 group-hover:to-red-500/10 transition-all duration-500" />
               {phase === "submitting" ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin relative z-10" />
-                  <span className="relative z-10">Sending…</span>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span>Sending…</span>
                 </>
               ) : step === TOTAL_STEPS - 1 ? (
                 <>
-                  <MessageSquare className="w-4 h-4 text-red-400 relative z-10" />
-                  <span className="relative z-10">Build my free website</span>
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Build my free website</span>
                 </>
               ) : (
                 <>
-                  <span className="relative z-10">Continue</span>
-                  <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
+                  <span>Continue</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
                 </>
               )}
             </button>
           </div>
         </form>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 mt-4 pt-3 border-t border-white/5">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 mt-4 pt-3 border-t border-white/[0.06]">
           {["100% free build", "See it live before paying", "No credit card"].map((item) => (
-            <div key={item} className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
-              <CheckCircle2 className="w-3 h-3 text-green-400" />
+            <div key={item} className="flex items-center gap-1.5 text-[11px] text-white/40">
+              <CheckCircle2 className="w-3 h-3 text-white/40" />
               <span>{item}</span>
             </div>
           ))}
