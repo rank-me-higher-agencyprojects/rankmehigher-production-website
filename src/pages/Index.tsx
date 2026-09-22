@@ -122,6 +122,8 @@ const Index = () => {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
+          "@id": "https://rankmehigher.com/#organization",
+          "founder": {"@type": "Person", "@id": "https://andriusdigital.com/#person", "name": "Andrius Pletniovas", "alternateName": "Andrius Digital", "url": "https://andriusdigital.com/"},
           "name": "Rank Me Higher",
           "url": "https://rankmehigher.com",
           "logo": "https://rankmehigher.com/assets/logo.png",
@@ -462,6 +464,17 @@ const Index = () => {
             </div>
           </section>
 
+          <section aria-labelledby="founder-title" className="border-t border-white/10 py-12">
+            <div className="mx-auto max-w-content px-6">
+              <p className="text-sm font-semibold text-primary">Behind Rank Me Higher</p>
+              <h2 id="founder-title" className="mt-3 text-2xl font-bold">Founded by Andrius Pletniovas (Andrius Digital)</h2>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/70">Andrius is a Chicago-area entrepreneur and the founder of Rank Me Higher and CDL Agency. His work connects business websites, digital marketing and the systems teams use to follow up with leads.</p>
+              <div className="mt-5 flex flex-wrap gap-6 text-sm">
+                <a href="https://andriusdigital.com/" className="text-primary underline underline-offset-4">Meet Andrius</a>
+                <a href="https://andriusdigital.com/work/" className="text-primary underline underline-offset-4">Companies &amp; work</a>
+              </div>
+            </div>
+          </section>
           <Footer />
         </div>
       </main>
