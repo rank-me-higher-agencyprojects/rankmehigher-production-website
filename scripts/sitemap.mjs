@@ -6,7 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { canonicalUrl, routes } from "../seo/routes.js";
+import { canonicalUrl, routes, unlistedRoutes } from "../seo/routes.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -18,6 +18,11 @@ function buildDate() {
 
 if (routes.length !== 17) {
   throw new Error(`Expected 17 sitemap routes, found ${routes.length}`);
+}
+for (const hidden of unlistedRoutes) {
+  if (routes.some((route) => route.path === hidden.path)) {
+    throw new Error(`${hidden.path} is unlisted and must not be in the sitemap`);
+  }
 }
 
 const fallback = buildDate();
@@ -55,6 +60,9 @@ ${body}
 
 if (xml.includes("/llms.txt")) {
   throw new Error("Sitemap must not list /llms.txt");
+}
+if (xml.includes("/free-website-audit")) {
+  throw new Error("Sitemap must not list /free-website-audit/");
 }
 if ((xml.match(/<loc>/g) || []).length !== 17) {
   throw new Error("Sitemap must list exactly 17 URLs");

@@ -13,6 +13,17 @@ const __dirname = dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const LEAD_NOTIFY_MAX_BYTES = 8 * 1024;
+
+app.use((req, res, next) => {
+  if (req.method !== 'POST' || req.path !== '/api/lead-notify') return next();
+  const length = Number(req.headers['content-length']);
+  if (Number.isFinite(length) && length > LEAD_NOTIFY_MAX_BYTES) {
+    return res.status(413).json({ error: 'Payload too large' });
+  }
+  next();
+});
+
 app.use(express.json({ limit: '1mb' }));
 
 app.use((req, res, next) => {
@@ -29,6 +40,9 @@ app.use((req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  if (req.path === '/free-website-audit' || req.path === '/free-website-audit/') {
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+  }
   next();
 });
 
@@ -696,6 +710,164 @@ app.post('/api/team-tasks/notify', async (req, res) => {
     console.error('Team tasks notify error:', err);
     res.status(500).json({ error: err.message });
   }
+});
+
+const LEAD_TYPES = new Set(['website_audit', 'contact_form', 'free_website_funnel']);
+const leadNotifyHits = new Map();
+const LEAD_NOTIFY_WINDOW_MS = 10 * 60 * 1000;
+const LEAD_NOTIFY_MAX_HITS = 8;
+
+function plainText(value, max) {
+  return String(value ?? '')
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F\u202A-\u202E\u2066-\u2069]/g, '')
+    .replace(/&/g, '＆')
+    .replace(/</g, '‹')
+    .replace(/>/g, '›')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, max);
+}
+
+function leadClientIp(req) {
+  const forwarded = req.headers['x-forwarded-for'];
+  if (typeof forwarded === 'string' && forwarded.trim()) {
+    return forwarded.split(',')[0].trim().slice(0, 80);
+  }
+  return String(req.socket?.remoteAddress || 'unknown').slice(0, 80);
+}
+
+function leadNotifyAllowed(ip) {
+  const now = Date.now();
+  const recent = (leadNotifyHits.get(ip) || []).filter((at) => now - at < LEAD_NOTIFY_WINDOW_MS);
+  if (recent.length >= LEAD_NOTIFY_MAX_HITS) {
+    leadNotifyHits.set(ip, recent);
+    return false;
+  }
+  recent.push(now);
+  leadNotifyHits.set(ip, recent);
+  if (leadNotifyHits.size > 5000) {
+    for (const [key, times] of leadNotifyHits) {
+      const fresh = times.filter((at) => now - at < LEAD_NOTIFY_WINDOW_MS);
+      if (fresh.length === 0) leadNotifyHits.delete(key);
+      else leadNotifyHits.set(key, fresh);
+    }
+  }
+  return true;
+}
+
+function honeypotTripped(body) {
+  for (const value of [body.hp, body.company_website_url]) {
+    if (value == null || value === false) continue;
+    if (typeof value === 'string') {
+      if (value.trim()) return true;
+      continue;
+    }
+    return true;
+  }
+  return false;
+}
+
+function readLead(body) {
+  if (!body || typeof body !== 'object' || Array.isArray(body)) return null;
+  const type = plainText(body.type, 40);
+  if (!LEAD_TYPES.has(type)) return null;
+  const lead = {
+    type,
+    name: plainText(body.name, 120),
+    business: plainText(body.business, 160),
+    phone: plainText(body.phone, 40),
+    email: plainText(body.email, 160),
+    website: plainText(body.website, 200),
+    city: plainText(body.city, 120),
+    message: plainText(body.message, 500),
+  };
+  if (!lead.name && !lead.business) return null;
+  if (!lead.phone && !lead.email) return null;
+  if (lead.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) return null;
+  if (lead.phone) {
+    const digits = lead.phone.replace(/\D/g, '').length;
+    if (digits < 7) {
+      if (!lead.email) return null;
+      lead.phone = '';
+    }
+  }
+  return lead;
+}
+
+function leadAlertText(lead) {
+  const lines = [`New lead: ${lead.type}`];
+  const add = (label, value) => {
+    if (value) lines.push(`${label}: ${value}`);
+  };
+  add('Name', lead.name);
+  add('Business', lead.business);
+  add('Phone', lead.phone);
+  add('Email', lead.email);
+  add('Website', lead.website);
+  add('City', lead.city);
+  add('Message', lead.message);
+  return lines.join('\n').slice(0, 1500);
+}
+
+function telegramApiBase() {
+  const raw = String(process.env.RMH_TELEGRAM_API_BASE || 'https://api.telegram.org').trim().replace(/\/+$/, '');
+  let parsed;
+  try {
+    parsed = new URL(raw);
+  } catch {
+    return null;
+  }
+  if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return null;
+  if (parsed.username || parsed.password) return null;
+  return parsed.origin;
+}
+
+app.post('/api/lead-notify', async (req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  try {
+    const raw = JSON.stringify(req.body ?? null);
+    if (Buffer.byteLength(raw) > LEAD_NOTIFY_MAX_BYTES) {
+      return res.status(413).json({ error: 'Payload too large' });
+    }
+    if (!leadNotifyAllowed(leadClientIp(req))) {
+      res.setHeader('Retry-After', '600');
+      return res.status(429).json({ error: 'Too many requests' });
+    }
+    if (!req.body || typeof req.body !== 'object' || Array.isArray(req.body)) {
+      return res.status(400).json({ error: 'Invalid lead' });
+    }
+    if (honeypotTripped(req.body)) {
+      return res.status(204).end();
+    }
+    const lead = readLead(req.body);
+    if (!lead) return res.status(400).json({ error: 'Invalid lead' });
+
+    const token = String(process.env.RMH_TELEGRAM_BOT_TOKEN || '').trim();
+    const chatId = String(process.env.RMH_TELEGRAM_CHAT_ID || '').trim();
+    if (!token || !chatId) return res.status(204).end();
+
+    const base = telegramApiBase();
+    if (!base) {
+      console.error('lead notify skipped: telegram api base is not a usable http(s) origin');
+      return res.status(204).end();
+    }
+
+    const endpoint = new URL(`/bot${token}/sendMessage`, `${base}/`);
+    const tgRes = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: leadAlertText(lead),
+      }),
+      signal: AbortSignal.timeout(4000),
+    });
+    await tgRes.body?.cancel().catch(() => {});
+    if (!tgRes.ok) console.error('lead notify delivery failed', tgRes.status);
+  } catch {
+    console.error('lead notify delivery failed');
+  }
+  return res.status(204).end();
 });
 
 // Same rules as dist/_redirects (Cloudflare Pages). Static files win, so a
