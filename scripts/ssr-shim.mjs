@@ -30,5 +30,6 @@ Object.defineProperty(globalThis, "sessionStorage", {
   configurable: true,
 });
 
-// Vite's dev SSR transform emits jsxDEV. React's production jsx-dev-runtime
-// sets that export to undefined, so prerender must not run as production.
+// Production React. The prerender consumes a Vite SSR build (jsx runtime,
+// not jsxDEV), so NODE_ENV=production does not strip the JSX export.
+process.env.NODE_ENV = "production";

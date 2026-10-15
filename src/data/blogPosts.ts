@@ -216,7 +216,7 @@ Uploading photos with embedded geo-location metadata tells Google exactly where 
 - Upload photos regularly — showcase your team, products, storefront, and recent projects.
 - Add descriptive, keyword-rich **alt text** to every image (e.g., “Downtown Chicago coffee shop interior”).
 
-![Geo-tagged photo of a Chicago-based coffee shop interior](/images/blog/placeholder-1.png)
+![Geo-tagged photo of a Chicago-based coffee shop interior](/images/blog/local-business-digital-presence.webp)
 
 ### Google Business Profile Posts: Your Content Powerhouse
 
@@ -362,7 +362,7 @@ Local citations are online mentions of your business name, address, and phone nu
 
 ---
 
-![SEO specialists optimizing Google Business Profile on laptops](/images/blog/placeholder-2.png)  
+![SEO specialists optimizing Google Business Profile on laptops](/images/blog/local-business-digital-presence.webp)  
 *Alt text: Team working on local SEO strategy*
 
 ---
@@ -683,7 +683,7 @@ Whether you’re a local service provider ready to dominate your neighborhood or
 
 ---
 
-![Local SEO vs Organic SEO Infographic](/images/blog/placeholder-1.png "Local SEO vs Organic SEO Infographic")
+![Local SEO vs Organic SEO Infographic](/images/blog/local-business-digital-presence.webp "Local SEO vs Organic SEO Infographic")
 
 *Alt text: Infographic comparing Local SEO and Organic SEO strategies for business growth*
 
@@ -1043,7 +1043,7 @@ Ready to transform your online reputation and turn your happiest customers into 
 
 ---
 
-![Customer leaving a positive review on a smartphone](/images/blog/placeholder-1.png "Customer leaving a positive review on a smartphone")
+![Customer leaving a positive review on a smartphone](/images/blog/local-business-digital-presence.webp "Customer leaving a positive review on a smartphone")
 
 ---
 
@@ -1418,7 +1418,7 @@ Avoid stock photos. Original, high-quality photos build trust and authenticity w
 
 ---
 
-![Google Business Profile Optimization](/images/blog/placeholder-1.png "Optimizing Google Business Profile for Local SEO")
+![Google Business Profile Optimization](/images/blog/local-business-digital-presence.webp "Optimizing Google Business Profile for Local SEO")
     
     
     
@@ -1667,7 +1667,7 @@ Customer reviews remain critical. While AI can analyze and summarize reviews, ge
 
 ---
 
-![AI transforming SEO strategies](https://rankmehigher.com/images/blog/placeholder-1.png)  
+![AI transforming SEO strategies](/images/blog/local-business-digital-presence.webp)  
 *Alt text: Illustration showing AI technology integrated with SEO analytics on a laptop screen.*
 
 ---
@@ -2079,7 +2079,7 @@ Ready to turn your website into your best employee? Contact us today for a free 
 
 ---
 
-![Website Conversion Optimization](/images/blog/placeholder-1.png "Website speed and conversion optimization")
+![Website Conversion Optimization](/images/blog/local-business-digital-presence.webp "Website speed and conversion optimization")
 
 ---
 

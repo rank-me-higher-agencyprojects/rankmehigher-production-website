@@ -3,19 +3,20 @@
  * first byte includes the real body, one H1, a unique title/description,
  * and a self-referencing trailing-slash canonical.
  *
- * Runs after `vite build` and critical-CSS inlining. Uses Vite's SSR loader
- * against the source (no Chrome required on the VPS).
+ * Runs after `vite build` and critical-CSS inlining. Renders with a production
+ * Vite SSR bundle so dev stacks never enter the HTML.
  */
 import "./ssr-shim.mjs";
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
-import { createServer } from "vite";
-import { canonicalUrl, routes } from "../seo/routes.js";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { build } from "vite";
+import { canonicalUrl, renderRedirectsFile, routes } from "../seo/routes.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
-const DIST = path.join(ROOT, "dist");
+const DIST = process.env.DIST ? path.resolve(process.env.DIST) : path.join(ROOT, "dist");
+const SSR_OUT = path.join(ROOT, ".dist-ssr");
 
 function fixFontPreloads(html) {
   const assetsDir = path.join(DIST, "assets");
@@ -180,43 +181,78 @@ function assertPage(report) {
   }
 }
 
+function stripCanonical(html) {
+  return html.replace(/\s*<link\b[^>]*\brel="canonical"[^>]*>/gi, "");
+}
+
+function assertShell(html, label) {
+  if (!html.includes('<div id="root"></div>')) {
+    throw new Error(`${label} is missing an empty <div id="root"></div>`);
+  }
+  if (/rel="canonical"/i.test(html)) {
+    throw new Error(`${label} must not include a canonical`);
+  }
+  if (html.includes("/workspace/") || html.includes("data-stck")) {
+    throw new Error(`${label} leaks a server path`);
+  }
+}
+
+async function loadRenderer() {
+  process.env.NODE_ENV = "production";
+  await import("./ssr-shim.mjs");
+  fs.rmSync(SSR_OUT, { recursive: true, force: true });
+  await build({
+    root: ROOT,
+    mode: "production",
+    logLevel: "warn",
+    build: {
+      ssr: path.join(ROOT, "src/entry-server.tsx"),
+      outDir: SSR_OUT,
+      emptyOutDir: true,
+      sourcemap: false,
+    },
+  });
+  const entry = path.join(SSR_OUT, "entry-server.js");
+  if (!fs.existsSync(entry)) {
+    throw new Error(`SSR bundle missing at ${entry}`);
+  }
+  const bundle = fs.readFileSync(entry, "utf8");
+  if (bundle.includes("jsx-dev-runtime") || bundle.includes("jsxDEV")) {
+    throw new Error("SSR bundle was built with the development JSX runtime");
+  }
+  return import(pathToFileURL(entry).href);
+}
+
 async function run() {
   const shellPath = path.join(DIST, "index.html");
   if (!fs.existsSync(shellPath)) {
-    throw new Error("dist/index.html is missing. Run vite build first.");
+    throw new Error(`${shellPath} is missing. Run vite build first.`);
   }
   const manifest = loadManifest();
-  let template = fixFontPreloads(fs.readFileSync(shellPath, "utf8"));
-  if (!template.includes('<div id="root"></div>')) {
-    throw new Error('dist/index.html is missing <div id="root"></div>');
-  }
+  let template = stripCanonical(fixFontPreloads(fs.readFileSync(shellPath, "utf8")));
+  assertShell(template, "SPA shell");
+  fs.writeFileSync(path.join(DIST, "spa.html"), template);
+  fs.writeFileSync(path.join(DIST, "404.html"), template);
+  fs.writeFileSync(path.join(DIST, "_redirects"), renderRedirectsFile());
 
-  const vite = await createServer({
-    root: ROOT,
-    mode: "production",
-    appType: "custom",
-    logLevel: "warn",
-    server: { middlewareMode: true, hmr: false },
-  });
+  const { render } = await loadRenderer();
 
   const reports = [];
-  try {
-    const { render } = await vite.ssrLoadModule("/src/entry-server.tsx");
-    for (const route of routes) {
-      const { html: appHtml, helmet } = render(route.path);
-      let page = applyHelmet(template, helmet);
-      page = page.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
-      page = rewriteAssetUrls(page, manifest);
-      const report = pageReport(route.path, page);
-      assertPage(report);
-      const file = outFile(route.path);
-      fs.mkdirSync(path.dirname(file), { recursive: true });
-      fs.writeFileSync(file, page);
-      reports.push(report);
-      console.log(`prerendered ${route.path} (${report.words} words)`);
+  for (const route of routes) {
+    const { html: appHtml, helmet } = render(route.path);
+    let page = applyHelmet(template, helmet);
+    page = page.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
+    page = rewriteAssetUrls(page, manifest);
+    if (page.includes("/workspace/") || page.includes("data-stck") || page.includes("/src/assets/")) {
+      throw new Error(`${route.path} leaked a dev path or unbundled /src/assets URL`);
     }
-  } finally {
-    await vite.close();
+    const report = pageReport(route.path, page);
+    assertPage(report);
+    const file = outFile(route.path);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, page);
+    reports.push(report);
+    console.log(`prerendered ${route.path} (${report.words} words)`);
   }
 
   const titles = new Set(reports.map((report) => report.title));

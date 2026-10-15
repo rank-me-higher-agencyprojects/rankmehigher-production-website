@@ -5,7 +5,7 @@ import OpenAI from 'openai';
 import fs from 'fs';
 import path from 'path';
 import multer from 'multer';
-import { routes as seoRoutes } from './seo/routes.js';
+import { matchRedirect, parseRedirects, buildRedirectRules } from './seo/routes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -700,18 +700,22 @@ app.post('/api/team-tasks/notify', async (req, res) => {
   }
 });
 
-// Canonical URLs use a trailing slash. Slashless copies 301 before static
-// file lookup so the sitemap never lists a URL that redirects.
-const CANONICAL_PATHS = new Set(seoRoutes.map((route) => route.path));
+// Same rules as dist/_redirects (Cloudflare Pages). Static files win, so a
+// prerendered /services/websites/index.html is served as itself. Slashless
+// marketing URLs 301 before static lookup.
+function loadRedirectRules() {
+  const file = join(__dirname, 'dist', '_redirects');
+  if (fs.existsSync(file)) return parseRedirects(fs.readFileSync(file, 'utf8'));
+  return buildRedirectRules();
+}
+const redirectRules = loadRedirectRules();
 
 app.use((req, res, next) => {
   if (req.method !== 'GET' && req.method !== 'HEAD') return next();
-  const pathOnly = req.path;
-  if (!pathOnly || pathOnly === '/' || pathOnly.endsWith('/')) return next();
-  const target = `${pathOnly}/`;
-  if (!CANONICAL_PATHS.has(target)) return next();
+  const rule = matchRedirect(redirectRules, req.path);
+  if (!rule || rule.status !== 301) return next();
   const query = req.originalUrl.includes('?') ? req.originalUrl.slice(req.originalUrl.indexOf('?')) : '';
-  return res.redirect(301, `${target}${query}`);
+  return res.redirect(301, `${rule.to}${query}`);
 });
 
 app.use(express.static(join(__dirname, 'dist')));
@@ -724,59 +728,18 @@ app.get('/llms-full.txt', (req, res) => {
   res.type('text/plain').sendFile(join(__dirname, 'dist', 'llms-full.txt'));
 });
 
-// Known public routes (must match React Router paths)
-const KNOWN_ROUTES = new Set([
-  '/', '/localmapbooster', '/services/websites', '/services/seo',
-  '/services/content-ads', '/services/ads-content', '/services/google-ads', '/services/outbound',
-  '/blog', '/contact', '/careers', '/privacy', '/terms',
-  '/auth', '/website-submissions', '/website-submission-confirmation',
-  '/funnel-submissions', '/funnel-submission-confirmation',
-  '/call-center-kpi', '/submissions-dashboard', '/agency-dashboard',
-  '/avaadminpanel', '/team', '/cdl-agency-portal', '/cdl-recruiters',
-  '/cdl-carriers', '/subscriptions', '/website-prompting',
-  '/website-builder', '/website-command-center', '/client-portal',
-  '/client-dashboard', '/reseller-portal', '/ava-voice-calls',
-  '/ava-training', '/task-flow', '/applicant-tracker', '/content-portal',
-  '/manager-portal', '/editor-portal', '/gbpmanagement', '/pto-calendar',
-  '/team-tasks', '/team-access', '/team-portal', '/task-pipeline',
-  '/team-tracker', '/client-sites-tracker',
-]);
-
-// Route prefixes that accept dynamic segments
-const KNOWN_PREFIXES = [
-  '/blog/', '/agency/client/', '/avaseo/', '/avabyrankmehigher/'
-];
-
-function isKnownRoute(pathname) {
-  if (KNOWN_ROUTES.has(pathname)) return true;
-  return KNOWN_PREFIXES.some(prefix => pathname.startsWith(prefix));
-}
+const SPA_SHELL = join(__dirname, 'dist', 'spa.html');
+const NOT_FOUND_PAGE = join(__dirname, 'dist', '404.html');
 
 app.use((req, res) => {
-  const pathname = req.path;
-
-  // Try to serve a pre-rendered HTML file for this route
-  const prerenderedPath = join(__dirname, 'dist', pathname, 'index.html');
-  if (fs.existsSync(prerenderedPath) && pathname !== '/') {
-    return res.sendFile(prerenderedPath);
+  if (req.method !== 'GET' && req.method !== 'HEAD') {
+    return res.status(404).type('text/plain').send('Not found');
   }
-
-  // For the root path, dist/index.html is already pre-rendered
-  if (pathname === '/') {
-    return res.sendFile(join(__dirname, 'dist', 'index.html'));
+  const rule = matchRedirect(redirectRules, req.path);
+  if (rule && rule.status === 200) {
+    return res.status(200).sendFile(SPA_SHELL);
   }
-
-  // Known routes that weren't pre-rendered: serve the SPA shell with 200
-  if (isKnownRoute(pathname)) {
-    return res.sendFile(join(__dirname, 'dist', 'index.html'));
-  }
-
-  // Unknown route: serve 404.html with 404 status, or fallback to SPA shell
-  const notFoundPath = join(__dirname, 'dist', '404.html');
-  if (fs.existsSync(notFoundPath)) {
-    return res.status(404).sendFile(notFoundPath);
-  }
-  return res.status(404).sendFile(join(__dirname, 'dist', 'index.html'));
+  return res.status(404).sendFile(NOT_FOUND_PAGE);
 });
 
 app.listen(PORT, '0.0.0.0', () => {

@@ -1,4 +1,4 @@
-import { Fragment, lazy, Suspense, type ComponentType } from "react";
+import { Fragment, lazy, Suspense, useEffect, useState, type ComponentType } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -78,8 +78,21 @@ const SEOSpiderServiceAreas = lazy(() => import("./pages/seo-spider/ServiceAreas
 const SEOSpiderSettings = lazy(() => import("./pages/seo-spider/Settings"));
 const SEOSpiderAdmin = lazy(() => import("./pages/seo-spider/AdminDashboard"));
 
-// Chatbot - lazy loaded (not needed for first paint)
+// Chatbot - lazy loaded after mount so prerender/hydration never see its Suspense.
 const Chatbot = lazy(() => import("./components/Chatbot"));
+
+function ClientChatbot() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) return null;
+  return (
+    <Suspense fallback={null}>
+      <Chatbot />
+    </Suspense>
+  );
+}
 
 const queryClient = new QueryClient();
 
@@ -314,9 +327,7 @@ const App = ({ routerLocation, helmetContext }: AppProps = {}) => {
                 <Route path="*" element={<NotFound />} />
               </Routes>
       </Suspense>
-      <Suspense fallback={null}>
-        <Chatbot />
-      </Suspense>
+      <ClientChatbot />
     </>
   );
 

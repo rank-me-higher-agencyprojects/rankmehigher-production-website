@@ -128,3 +128,109 @@ export function canonicalUrl(routePath) {
   const withSlash = routePath.endsWith("/") ? routePath : `${routePath}/`;
   return `${SITE_ORIGIN}${withSlash}`;
 }
+
+/**
+ * Client-rendered app routes. They are not prerendered and must not receive
+ * the homepage document. Unknown paths (including unknown blog slugs) are
+ * absent from this list so they fall through to 404.html.
+ */
+export const spaRoutes = [
+  "/auth",
+  "/privacy",
+  "/terms",
+  "/website-submissions",
+  "/website-submission-confirmation",
+  "/funnel-submissions",
+  "/funnel-submission-confirmation",
+  "/call-center-kpi",
+  "/submissions-dashboard",
+  "/agency-dashboard",
+  "/avaadminpanel",
+  "/team",
+  "/cdl-agency-portal",
+  "/cdl-recruiters",
+  "/cdl-carriers",
+  "/subscriptions",
+  "/website-prompting",
+  "/website-builder",
+  "/website-command-center",
+  "/client-portal",
+  "/client-dashboard",
+  "/reseller-portal",
+  "/ava-voice-calls",
+  "/ava-training",
+  "/task-flow",
+  "/applicant-tracker",
+  "/content-portal",
+  "/manager-portal",
+  "/editor-portal",
+  "/gbpmanagement",
+  "/pto-calendar",
+  "/team-tasks",
+  "/team-access",
+  "/team-portal",
+  "/task-pipeline",
+  "/team-tracker",
+  "/client-sites-tracker",
+];
+
+export const spaPrefixes = ["/agency/client", "/avaseo", "/avabyrankmehigher"];
+
+export function buildRedirectRules() {
+  const rules = [];
+  for (const route of routes) {
+    if (route.path === "/") continue;
+    const slashless = route.path.replace(/\/$/, "");
+    rules.push({ from: slashless, to: route.path, status: 301 });
+  }
+  for (const route of spaRoutes) {
+    rules.push({ from: route, to: "/spa.html", status: 200 });
+    rules.push({ from: `${route}/`, to: "/spa.html", status: 200 });
+  }
+  for (const prefix of spaPrefixes) {
+    rules.push({ from: prefix, to: "/spa.html", status: 200 });
+    rules.push({ from: `${prefix}/`, to: "/spa.html", status: 200 });
+    rules.push({ from: `${prefix}/*`, to: "/spa.html", status: 200 });
+  }
+  return rules;
+}
+
+export function renderRedirectsFile() {
+  const lines = [
+    "# Generated from seo/routes.js. Slashless marketing URLs 301 to the",
+    "# trailing-slash page. App routes rewrite to the empty SPA shell.",
+    "# Anything else falls through to 404.html.",
+  ];
+  for (const rule of buildRedirectRules()) {
+    lines.push(`${rule.from} ${rule.to} ${rule.status}`);
+  }
+  return `${lines.join("\n")}\n`;
+}
+
+export function parseRedirects(text) {
+  const rules = [];
+  for (const line of text.split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+    const parts = trimmed.split(/\s+/);
+    if (parts.length < 3) continue;
+    const status = Number(parts[parts.length - 1]);
+    const to = parts[parts.length - 2];
+    const from = parts.slice(0, -2).join(" ");
+    if (!from || !to || !Number.isFinite(status)) continue;
+    rules.push({ from, to, status });
+  }
+  return rules;
+}
+
+export function matchRedirect(rules, pathname) {
+  for (const rule of rules) {
+    if (rule.from.endsWith("/*")) {
+      const prefix = rule.from.slice(0, -2);
+      if (pathname === prefix || pathname.startsWith(`${prefix}/`)) return rule;
+      continue;
+    }
+    if (pathname === rule.from) return rule;
+  }
+  return null;
+}
