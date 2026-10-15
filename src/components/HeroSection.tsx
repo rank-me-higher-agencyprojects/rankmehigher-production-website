@@ -114,8 +114,8 @@ const HeroSection = () => {
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="font-heading font-black text-4xl md:text-5xl lg:text-6xl leading-tight">
+            {/* Main Headline — one H1 lives in the mobile hero; this is the desktop visual copy */}
+            <p className="font-heading font-black text-4xl md:text-5xl lg:text-6xl leading-tight">
               <span className="text-foreground">Hit </span>
               <span className="text-primary">Top 3</span>
               <span className="text-foreground"> On </span>
@@ -123,7 +123,7 @@ const HeroSection = () => {
               <br />
               <span className="text-foreground">Without Spending A Cent </span>
               <span className="text-primary">On Ads</span>
-            </h1>
+            </p>
 
             {/* Subheadline */}
             <h2 className="font-heading font-bold text-2xl md:text-3xl text-foreground">

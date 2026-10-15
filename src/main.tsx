@@ -1,5 +1,5 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 
@@ -52,7 +52,13 @@ try {
     </React.StrictMode>
   );
 
-  createRoot(rootElement).render(app);
+  // Prerendered routes already contain the page inside #root. Hydrate that
+  // markup; an empty shell (dev, or a route we didn't prerender) still mounts.
+  if (rootElement.childElementCount > 0) {
+    hydrateRoot(rootElement, app);
+  } else {
+    createRoot(rootElement).render(app);
+  }
 } catch (error) {
   console.error("Failed to render app:", error);
   const wrapper = document.createElement("div");

@@ -39,7 +39,7 @@ const BlogPost = () => {
   const firstHalf = contentParts.slice(0, midPoint).join("\n\n");
   const secondHalf = contentParts.slice(midPoint).join("\n\n");
 
-  const shareUrl = `https://rankmehigher.com/blog/${post.slug}`;
+  const shareUrl = `https://rankmehigher.com/blog/${post.slug}/`;
   const isoDate = toISODate(post.date);
 
   const handleShare = async () => {
@@ -102,7 +102,7 @@ const BlogPost = () => {
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": "https://rankmehigher.com/blog"
+        "item": "https://rankmehigher.com/blog/"
       },
       {
         "@type": "ListItem",
@@ -149,7 +149,7 @@ const BlogPost = () => {
 
             <div className="flex items-center justify-between mb-5">
               <Link 
-                to="/blog"
+                to="/blog/"
                 className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-red-400 transition-colors"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
@@ -243,7 +243,7 @@ const BlogPost = () => {
                 </div>
               </div>
               <Link
-                to="/blog"
+                to="/blog/"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-muted-foreground hover:text-red-400 hover:border-red-500/30 transition-all"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
@@ -266,7 +266,7 @@ const BlogPost = () => {
                 {relatedPosts.map((relatedPost) => (
                   <Link 
                     key={relatedPost.id}
-                    to={`/blog/${relatedPost.slug}`}
+                    to={`/blog/${relatedPost.slug}/`}
                     className="group flex items-start gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-red-500/20 hover:bg-white/[0.05] transition-all"
                   >
                     <div className="flex-1 min-w-0">

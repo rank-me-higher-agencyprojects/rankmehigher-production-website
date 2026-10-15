@@ -11,7 +11,7 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
   if (featured) {
     return (
       <Link 
-        to={`/blog/${post.slug}`}
+        to={`/blog/${post.slug}/`}
         className="group relative block overflow-hidden rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -61,7 +61,7 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
 
   return (
     <Link 
-      to={`/blog/${post.slug}`}
+      to={`/blog/${post.slug}/`}
       className="group relative block overflow-hidden rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:scale-[1.02]"
     >
       {/* Animated gradient on hover */}

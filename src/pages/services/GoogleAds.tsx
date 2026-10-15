@@ -54,20 +54,20 @@ const GoogleAds = () => {
         <meta property="og:title" content="Google Ads for Local Businesses | Rank Me Higher" />
         <meta property="og:description" content="Google Ads pay off when the click lands on a page built to convert. Start with a free AI-built website." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://rankmehigher.com/services/google-ads" />
+        <meta property="og:url" content="https://rankmehigher.com/services/google-ads/" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Google Ads | Rank Me Higher" />
         <meta name="twitter:description" content="Search campaigns that land on AI-built pages made to convert." />
-        <link rel="canonical" href="https://rankmehigher.com/services/google-ads" />
+        <link rel="canonical" href="https://rankmehigher.com/services/google-ads/" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Google Ads for Local Businesses",
           "provider": { "@type": "Organization", "name": "Rank Me Higher", "url": "https://rankmehigher.com" },
           "description": "Google search campaigns for businesses on the platform, landing on AI-built pages made to convert ad clicks into leads.",
-          "url": "https://rankmehigher.com/services/google-ads",
+          "url": "https://rankmehigher.com/services/google-ads/",
           "areaServed": "United States",
           "serviceType": "Google Ads Management & PPC Advertising"
         })}</script>
@@ -85,7 +85,7 @@ const GoogleAds = () => {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rankmehigher.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Google Ads", "item": "https://rankmehigher.com/services/google-ads" }
+            { "@type": "ListItem", "position": 2, "name": "Google Ads", "item": "https://rankmehigher.com/services/google-ads/" }
           ]
         })}</script>
       </Helmet>
@@ -257,12 +257,12 @@ const GoogleAds = () => {
             </div>
 
             {/* Headline */}
-            <h1 className="text-2xl sm:text-3xl font-black leading-tight font-orbitron mb-[14px] text-center">
+            <p className="text-2xl sm:text-3xl font-black leading-tight font-orbitron mb-[14px] text-center">
               <span className="text-foreground">Google Ads That </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">Actually Convert</span>
               <br />
               <span className="text-foreground text-xl sm:text-2xl">Because The Page Does</span>
-            </h1>
+            </p>
 
             {/* Description */}
             <p className="text-sm text-muted-foreground leading-relaxed mb-5 text-center">
@@ -651,7 +651,7 @@ const GoogleAds = () => {
                       </span>
                     </a>
                     <Link
-                      to="/services/seo"
+                      to="/services/seo/"
                       className="group px-8 py-4 rounded-xl bg-white/5 backdrop-blur-md border-2 border-white/20 text-white font-bold text-base hover:bg-white/10 hover:border-white/30 hover:shadow-lg hover:shadow-white/10 hover:scale-[1.02] transition-all duration-300 font-orbitron flex items-center justify-center gap-2"
                     >
                       See The SEO Built In

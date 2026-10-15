@@ -5,6 +5,7 @@ import OpenAI from 'openai';
 import fs from 'fs';
 import path from 'path';
 import multer from 'multer';
+import { routes as seoRoutes } from './seo/routes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -697,6 +698,20 @@ app.post('/api/team-tasks/notify', async (req, res) => {
     console.error('Team tasks notify error:', err);
     res.status(500).json({ error: err.message });
   }
+});
+
+// Canonical URLs use a trailing slash. Slashless copies 301 before static
+// file lookup so the sitemap never lists a URL that redirects.
+const CANONICAL_PATHS = new Set(seoRoutes.map((route) => route.path));
+
+app.use((req, res, next) => {
+  if (req.method !== 'GET' && req.method !== 'HEAD') return next();
+  const pathOnly = req.path;
+  if (!pathOnly || pathOnly === '/' || pathOnly.endsWith('/')) return next();
+  const target = `${pathOnly}/`;
+  if (!CANONICAL_PATHS.has(target)) return next();
+  const query = req.originalUrl.includes('?') ? req.originalUrl.slice(req.originalUrl.indexOf('?')) : '';
+  return res.redirect(301, `${target}${query}`);
 });
 
 app.use(express.static(join(__dirname, 'dist')));

@@ -105,13 +105,13 @@ const Contact = () => {
         <meta property="og:title" content="Contact Rank Me Higher | AI Websites for Local Business" />
         <meta property="og:description" content="Text (773) 572-4686 or send a message. Fastest path: the free website quiz on the homepage." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://rankmehigher.com/contact" />
+        <meta property="og:url" content="https://rankmehigher.com/contact/" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contact Rank Me Higher" />
         <meta name="twitter:description" content="Text (773) 572-4686 or email business@rankmehigher.com. Or take the free website quiz on the homepage." />
-        <link rel="canonical" href="https://rankmehigher.com/contact" />
+        <link rel="canonical" href="https://rankmehigher.com/contact/" />
         
         {/* Local Business Schema */}
         <script type="application/ld+json">

@@ -110,20 +110,20 @@ const Websites = () => {
         <meta property="og:title" content="AI Website Builder for Local Business | Rank Me Higher" />
         <meta property="og:description" content="The AI researches your market and builds a local-SEO-correct website in minutes, then texts you the live preview. Free build — go live from $99/mo." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://rankmehigher.com/services/websites" />
+        <meta property="og:url" content="https://rankmehigher.com/services/websites/" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AI Website Builder for Local Business | Rank Me Higher" />
         <meta name="twitter:description" content="AI builds your local business website in minutes and texts you the preview. Free build — go live from $99/mo." />
-        <link rel="canonical" href="https://rankmehigher.com/services/websites" />
+        <link rel="canonical" href="https://rankmehigher.com/services/websites/" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "AI Website Builder for Local Business",
           "provider": { "@type": "Organization", "name": "Rank Me Higher", "url": "https://rankmehigher.com" },
           "description": "AI-built local business websites: the AI researches your market, builds a local-SEO-correct site in minutes with real photos, and texts you the live preview. Hosting, SSL, domain, and chat editing included.",
-          "url": "https://rankmehigher.com/services/websites",
+          "url": "https://rankmehigher.com/services/websites/",
           "areaServed": "United States",
           "offers": { "@type": "Offer", "price": "99", "priceCurrency": "USD", "description": "$99/mo — website, hosting, chat edits, portal. Free preview build." },
           "serviceType": "Web Development"
@@ -142,7 +142,7 @@ const Websites = () => {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rankmehigher.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Websites", "item": "https://rankmehigher.com/services/websites" }
+            { "@type": "ListItem", "position": 2, "name": "Websites", "item": "https://rankmehigher.com/services/websites/" }
           ]
         })}</script>
       </Helmet>
