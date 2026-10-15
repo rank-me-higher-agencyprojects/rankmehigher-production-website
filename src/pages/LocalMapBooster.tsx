@@ -26,20 +26,20 @@ const LocalMapBooster = () => {
         <meta property="og:title" content="Google Business Profile Optimization | Rank Me Higher" />
         <meta property="og:description" content="Your Google Business Profile is half of local search. The $149/mo plan pairs your AI-built website with GBP optimization." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://rankmehigher.com/localmapbooster" />
+        <meta property="og:url" content="https://rankmehigher.com/localmapbooster/" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Local Map Booster | Rank Me Higher" />
         <meta name="twitter:description" content="Google Business Profile optimization paired with your AI-built website — the $149/mo plan." />
-        <link rel="canonical" href="https://rankmehigher.com/localmapbooster" />
+        <link rel="canonical" href="https://rankmehigher.com/localmapbooster/" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Local Map Booster — Google Business Profile Optimization",
           "provider": { "@type": "Organization", "name": "Rank Me Higher", "url": "https://rankmehigher.com" },
           "description": "Google Business Profile optimization paired with an AI-built, local-SEO-correct website. Part of the $149/mo plan; the $199/mo plan adds automated review generation with a dedicated business phone.",
-          "url": "https://rankmehigher.com/localmapbooster",
+          "url": "https://rankmehigher.com/localmapbooster/",
           "areaServed": "United States",
           "offers": { "@type": "Offer", "price": "149", "priceCurrency": "USD", "description": "$149/mo — website plus Google Business Profile optimization" },
           "serviceType": "Google Maps Optimization"

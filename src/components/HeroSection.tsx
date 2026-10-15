@@ -1,6 +1,7 @@
 import { ArrowRight, Star, XCircle, CheckCircle } from "lucide-react";
 import { Button } from "./ui/button";
 import heroBackground from "@/assets/hero-background.webp";
+import { WistiaPlayer } from "./WistiaVideo";
 
 const HeroSection = () => {
 
@@ -13,7 +14,6 @@ const HeroSection = () => {
           alt="Rank Me Higher hero background - Local Map Booster service"
           width={1920}
           height={1080}
-          fetchPriority="high"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70" />
@@ -56,11 +56,7 @@ const HeroSection = () => {
           {/* Video - Between headline and subheadline */}
           <div className="animate-fade-in -mx-2 my-2">
             <div className="relative w-full rounded-xl overflow-hidden border border-primary/30 shadow-xl shadow-primary/20">
-              <div 
-                dangerouslySetInnerHTML={{ 
-                  __html: `<style>wistia-player[media-id='k4xdzi49er']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/k4xdzi49er/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="k4xdzi49er" aspect="1.7777777777777777"></wistia-player>` 
-                }} 
-              />
+              <WistiaPlayer mediaId="k4xdzi49er" />
             </div>
           </div>
 
@@ -114,8 +110,8 @@ const HeroSection = () => {
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="font-heading font-black text-4xl md:text-5xl lg:text-6xl leading-tight">
+            {/* Main Headline — one H1 lives in the mobile hero; this is the desktop visual copy */}
+            <p className="font-heading font-black text-4xl md:text-5xl lg:text-6xl leading-tight">
               <span className="text-foreground">Hit </span>
               <span className="text-primary">Top 3</span>
               <span className="text-foreground"> On </span>
@@ -123,7 +119,7 @@ const HeroSection = () => {
               <br />
               <span className="text-foreground">Without Spending A Cent </span>
               <span className="text-primary">On Ads</span>
-            </h1>
+            </p>
 
             {/* Subheadline */}
             <h2 className="font-heading font-bold text-2xl md:text-3xl text-foreground">
@@ -170,12 +166,7 @@ const HeroSection = () => {
                 <div className="absolute inset-0 pointer-events-none z-10 rounded-2xl border border-white/10" />
                 <div className="absolute -inset-px bg-gradient-to-br from-primary/20 via-transparent to-primary/10 pointer-events-none z-10 rounded-2xl" />
                 
-                {/* Wistia Video Embed - Exact embed code */}
-                <div 
-                  dangerouslySetInnerHTML={{ 
-                    __html: `<style>wistia-player[media-id='k4xdzi49er']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/k4xdzi49er/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="k4xdzi49er" aspect="1.7777777777777777"></wistia-player>` 
-                  }} 
-                />
+                <WistiaPlayer mediaId="k4xdzi49er" />
               </div>
             </div>
           </div>

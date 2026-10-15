@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently --kill-others \"node api-server.js\" \"vite\"",
-    "build": "vite build && node scripts/inline-critical-css.mjs && node scripts/inject-route-meta.mjs",
+    "build": "node scripts/build-site.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",

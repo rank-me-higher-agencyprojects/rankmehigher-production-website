@@ -1,30 +1,29 @@
-import { lazy, Suspense } from "react";
+import { Fragment, lazy, Suspense, useEffect, useState, type ComponentType } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { HelmetProvider } from "react-helmet-async";
+import { StaticRouter } from "react-router-dom/server";
+import { HelmetProvider, type HelmetServerState } from "react-helmet-async";
 import { AuthProvider } from "@/contexts/AuthContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import ScrollToTop from "@/components/ScrollToTop";
 
-// Public pages - eagerly loaded (critical for SEO/first paint)
+// Public marketing pages are eager so prerender and hydration share one tree.
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import LocalMapBooster from "./pages/LocalMapBooster";
+import Websites from "./pages/services/Websites";
+import SEO from "./pages/services/SEO";
+import ContentAds from "./pages/services/ContentAds";
+import GoogleAds from "./pages/services/GoogleAds";
+import Outbound from "./pages/services/Outbound";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import Contact from "./pages/Contact";
+import Careers from "./pages/Careers";
 
-// Public pages - lazy loaded (visited less frequently)
-const LocalMapBooster = lazy(() => import("./pages/LocalMapBooster"));
-const Websites = lazy(() => import("./pages/services/Websites"));
-const SEO = lazy(() => import("./pages/services/SEO"));
-
-const ContentAds = lazy(() => import("./pages/services/ContentAds"));
-const GoogleAds = lazy(() => import("./pages/services/GoogleAds"));
-const Outbound = lazy(() => import("./pages/services/Outbound"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
-const Contact = lazy(() => import("./pages/Contact"));
-const Careers = lazy(() => import("./pages/Careers"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const WebsiteSubmissions = lazy(() => import("./pages/WebsiteSubmissions"));
@@ -79,10 +78,41 @@ const SEOSpiderServiceAreas = lazy(() => import("./pages/seo-spider/ServiceAreas
 const SEOSpiderSettings = lazy(() => import("./pages/seo-spider/Settings"));
 const SEOSpiderAdmin = lazy(() => import("./pages/seo-spider/AdminDashboard"));
 
-// Chatbot - lazy loaded (not needed for first paint)
+// Chatbot - lazy loaded after mount so prerender/hydration never see its Suspense.
 const Chatbot = lazy(() => import("./components/Chatbot"));
 
+function ClientChatbot() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) return null;
+  return (
+    <Suspense fallback={null}>
+      <Chatbot />
+    </Suspense>
+  );
+}
+
 const queryClient = new QueryClient();
+
+export type HelmetContext = { helmet?: HelmetServerState };
+
+type AppProps = {
+  /** Set during prerender. The client omits it and uses the browser history. */
+  routerLocation?: string;
+  helmetContext?: HelmetContext;
+};
+
+/** Match both `/path` and `/path/` so the trailing-slash canonical still renders. */
+function routePair(path: string, Component: ComponentType) {
+  return (
+    <Fragment key={path}>
+      <Route path={path} element={<Component />} />
+      <Route path={`${path}/`} element={<Component />} />
+    </Fragment>
+  );
+}
 
 // Minimal loading fallback
 const PageLoader = () => (
@@ -91,31 +121,25 @@ const PageLoader = () => (
   </div>
 );
 
-const App = () => (
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <ScrollToTop />
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
-                {/* Public routes */}
-                <Route path="/" element={<Index />} />
-                <Route path="/auth" element={<Auth />} />
-                <Route path="/localmapbooster" element={<LocalMapBooster />} />
-                <Route path="/services/websites" element={<Websites />} />
-                <Route path="/services/seo" element={<SEO />} />
-                
-                <Route path="/services/content-ads" element={<ContentAds />} />
-                <Route path="/services/google-ads" element={<GoogleAds />} />
-                <Route path="/services/outbound" element={<Outbound />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/careers" element={<Careers />} />
+const App = ({ routerLocation, helmetContext }: AppProps = {}) => {
+  const routerTree = (
+    <>
+      <ScrollToTop />
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          {/* Public routes. Marketing URLs also match their trailing-slash form. */}
+          <Route path="/" element={<Index />} />
+          <Route path="/auth" element={<Auth />} />
+          {routePair("/localmapbooster", LocalMapBooster)}
+          {routePair("/services/websites", Websites)}
+          {routePair("/services/seo", SEO)}
+          {routePair("/services/content-ads", ContentAds)}
+          {routePair("/services/google-ads", GoogleAds)}
+          {routePair("/services/outbound", Outbound)}
+          {routePair("/blog", Blog)}
+          {routePair("/blog/:slug", BlogPost)}
+          {routePair("/contact", Contact)}
+          {routePair("/careers", Careers)}
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/website-submissions" element={<WebsiteSubmissions />} />
@@ -302,15 +326,28 @@ const App = () => (
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
-            </Suspense>
-            <Suspense fallback={null}>
-              <Chatbot />
-            </Suspense>
-          </BrowserRouter>
-        </TooltipProvider>
-      </AuthProvider>
-    </QueryClientProvider>
-  </HelmetProvider>
-);
+      </Suspense>
+      <ClientChatbot />
+    </>
+  );
+
+  return (
+    <HelmetProvider context={helmetContext}>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            {routerLocation != null ? (
+              <StaticRouter location={routerLocation}>{routerTree}</StaticRouter>
+            ) : (
+              <BrowserRouter>{routerTree}</BrowserRouter>
+            )}
+          </TooltipProvider>
+        </AuthProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
+  );
+};
 
 export default App;

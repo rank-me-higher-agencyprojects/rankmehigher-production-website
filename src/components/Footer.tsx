@@ -10,17 +10,17 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 );
 
 const SERVICES = [
-  { label: "Custom Websites", href: "/services/websites" },
-  { label: "Local Map Booster", href: "/localmapbooster" },
-  { label: "Content & Ads", href: "/services/content-ads" },
-  { label: "SEO Services", href: "/services/seo" },
-  { label: "Outbound Sales Agents", href: "/services/outbound" },
+  { label: "Custom Websites", href: "/services/websites/" },
+  { label: "Local Map Booster", href: "/localmapbooster/" },
+  { label: "Content & Ads", href: "/services/content-ads/" },
+  { label: "SEO Services", href: "/services/seo/" },
+  { label: "Outbound Sales Agents", href: "/services/outbound/" },
 ];
 
 const COMPANY = [
-  { label: "Blog", href: "/blog" },
-  { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
+  { label: "Blog", href: "/blog/" },
+  { label: "Careers", href: "/careers/" },
+  { label: "Contact", href: "/contact/" },
   { label: "Terms & Conditions", href: "/terms" },
   { label: "Privacy Policy", href: "/privacy" },
 ];

@@ -5,6 +5,14 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   plugins: [react()],
+  build: {
+    manifest: true,
+  },
+  // react-helmet-async is CJS. Vite SSR externalizes it and then rejects its
+  // named exports. Bundle it so prerender can read HelmetProvider.
+  ssr: {
+    noExternal: ["react-helmet-async"],
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

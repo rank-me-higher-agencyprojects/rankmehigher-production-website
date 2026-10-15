@@ -110,20 +110,20 @@ const SEO = () => {
         <meta property="og:title" content="Local SEO Websites — Rank Higher on Google" />
         <meta property="og:description" content="SEO is built into every site the AI ships: correct NAP, JSON-LD schema, city and service pages, fast mobile pages." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://rankmehigher.com/services/seo" />
+        <meta property="og:url" content="https://rankmehigher.com/services/seo/" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Local SEO Websites | Rank Me Higher" />
         <meta name="twitter:description" content="SEO built into every AI-built site: correct NAP, schema, city/service pages, fast mobile pages." />
-        <link rel="canonical" href="https://rankmehigher.com/services/seo" />
+        <link rel="canonical" href="https://rankmehigher.com/services/seo/" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Local SEO Websites",
           "provider": { "@type": "Organization", "name": "Rank Me Higher", "url": "https://rankmehigher.com" },
           "description": "Local SEO built into every AI-built website: correct NAP, JSON-LD structured data, honest hours, city and service pages, and fast mobile-compact pages.",
-          "url": "https://rankmehigher.com/services/seo",
+          "url": "https://rankmehigher.com/services/seo/",
           "areaServed": "United States",
           "serviceType": "Search Engine Optimization"
         })}</script>
@@ -141,7 +141,7 @@ const SEO = () => {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rankmehigher.com/" },
-            { "@type": "ListItem", "position": 2, "name": "SEO", "item": "https://rankmehigher.com/services/seo" }
+            { "@type": "ListItem", "position": 2, "name": "SEO", "item": "https://rankmehigher.com/services/seo/" }
           ]
         })}</script>
       </Helmet>
