@@ -265,10 +265,8 @@ const BlogPost = () => {
               <Link to="/free-website-audit/" className="text-red-400 underline underline-offset-4">get a free audit of your current site</Link>.
             </p>
             <p className="mt-3 text-sm text-muted-foreground">
-              Websites for <Link to="/websites-for/truck-repair/" className="underline underline-offset-4">truck repair</Link>,{" "}
-              <Link to="/websites-for/roofers/" className="underline underline-offset-4">roofers</Link>,{" "}
-              <Link to="/websites-for/plumbers/" className="underline underline-offset-4">plumbers</Link> and{" "}
-              <Link to="/websites-for/hvac/" className="underline underline-offset-4">HVAC</Link>.
+              Websites for <Link to="/websites-for/truck-repair/" className="underline underline-offset-4">truck repair shops</Link> and{" "}
+              <Link to="/locations/romeoville-il/" className="underline underline-offset-4">Romeoville businesses</Link>.
             </p>
             <a href="/#free-website" className="btn-cta-primary mt-5 inline-flex">Get my free website</a>
           </div>

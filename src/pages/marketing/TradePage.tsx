@@ -84,15 +84,17 @@ const TradePage = ({ slug }: { slug: string }) => {
             </span>
           ))}
         </p>
-        <p className="mt-3 text-sm">
-          Other trades:{" "}
-          {TRADES.filter((t) => t.slug !== trade.slug).map((t, i) => (
-            <span key={t.slug}>
-              {i > 0 && " · "}
-              <Link to={`/websites-for/${t.slug}/`} className="text-primary underline underline-offset-4">{t.name}</Link>
-            </span>
-          ))}
-        </p>
+        {TRADES.filter((t) => t.slug !== trade.slug).length > 0 && (
+          <p className="mt-3 text-sm">
+            Other trades:{" "}
+            {TRADES.filter((t) => t.slug !== trade.slug).map((t, i) => (
+              <span key={t.slug}>
+                {i > 0 && " · "}
+                <Link to={`/websites-for/${t.slug}/`} className="text-primary underline underline-offset-4">{t.name}</Link>
+              </span>
+            ))}
+          </p>
+        )}
       </Section>
 
       <CtaBlock title={`Get your free ${trade.name.toLowerCase()} website`} />

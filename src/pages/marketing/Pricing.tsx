@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import MarketingLayout, { PageHero, Section } from "@/components/marketing/MarketingLayout";
-import { CtaBlock, CtaRow, ReviewProof } from "@/components/marketing/Cta";
+import { CtaBlock, CtaRow } from "@/components/marketing/Cta";
 import { PLANS } from "@/lib/marketing-data";
 
 const PRICING_FAQ = [
@@ -8,7 +8,7 @@ const PRICING_FAQ = [
   { q: "Is there a contract or setup fee?", a: "No contracts and no setup fees. Plans are monthly, starting at $99/mo." },
   { q: "Who owns the site and the domain?", a: "You do. Your business, your content, your photos, your domain. If you ever leave, your domain and your content go with you." },
   { q: "What does \"Soon\" mean on a plan?", a: "Those features are on the roadmap and not yet automated in the portal. We label them so you know exactly what's live today before you choose a plan." },
-  { q: "Can I change plans later?", a: "Every plan starts the same way, with your free website. Text us or book a call if you want to talk through which plan fits." },
+  { q: "Can I change plans later?", a: "Every plan starts the same way, with your free website. Text us if you want to talk through which plan fits." },
 ];
 
 const Pricing = () => (
@@ -75,9 +75,8 @@ const Pricing = () => (
         ))}
       </div>
       <p className="mt-6 text-sm text-white/45">
-        Items marked <strong className="text-white/70">Soon</strong> are on the roadmap and not yet automated in the portal. Everything else is live today.
+        Items marked <strong className="text-white/70">Soon</strong> are on the roadmap and not yet automated in the portal. Everything else is live today. On the $199 plan, the dedicated business phone number and branded email are Soon.
       </p>
-      <ReviewProof />
     </Section>
 
     <Section title="What every plan includes">

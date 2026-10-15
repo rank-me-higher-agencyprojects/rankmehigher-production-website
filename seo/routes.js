@@ -148,13 +148,6 @@ export const routes = [
     priority: "0.7",
   },
   {
-    path: "/about/",
-    source: "src/pages/marketing/About.tsx",
-    lastmod: "2026-10-15",
-    changefreq: "monthly",
-    priority: "0.6",
-  },
-  {
     path: "/examples/",
     source: "src/pages/marketing/Examples.tsx",
     lastmod: "2026-10-15",
@@ -176,56 +169,7 @@ export const routes = [
     priority: "0.8",
   },
   {
-    path: "/websites-for/roofers/",
-    source: "src/lib/marketing-data.ts",
-    lastmod: "2026-10-15",
-    changefreq: "monthly",
-    priority: "0.8",
-  },
-  {
-    path: "/websites-for/plumbers/",
-    source: "src/lib/marketing-data.ts",
-    lastmod: "2026-10-15",
-    changefreq: "monthly",
-    priority: "0.8",
-  },
-  {
-    path: "/websites-for/hvac/",
-    source: "src/lib/marketing-data.ts",
-    lastmod: "2026-10-15",
-    changefreq: "monthly",
-    priority: "0.8",
-  },
-  {
     path: "/locations/romeoville-il/",
-    source: "src/lib/marketing-data.ts",
-    lastmod: "2026-10-15",
-    changefreq: "monthly",
-    priority: "0.7",
-  },
-  {
-    path: "/locations/lockport-il/",
-    source: "src/lib/marketing-data.ts",
-    lastmod: "2026-10-15",
-    changefreq: "monthly",
-    priority: "0.7",
-  },
-  {
-    path: "/locations/lisle-il/",
-    source: "src/lib/marketing-data.ts",
-    lastmod: "2026-10-15",
-    changefreq: "monthly",
-    priority: "0.7",
-  },
-  {
-    path: "/locations/oak-brook-il/",
-    source: "src/lib/marketing-data.ts",
-    lastmod: "2026-10-15",
-    changefreq: "monthly",
-    priority: "0.7",
-  },
-  {
-    path: "/locations/mundelein-il/",
     source: "src/lib/marketing-data.ts",
     lastmod: "2026-10-15",
     changefreq: "monthly",
@@ -249,7 +193,7 @@ export const unlistedRoutes = [
 ];
 
 /** Bump when a route is added or removed; the sitemap build checks it. */
-export const EXPECTED_ROUTE_COUNT = 31;
+export const EXPECTED_ROUTE_COUNT = 23;
 
 export function canonicalUrl(routePath) {
   if (routePath === "/") return `${SITE_ORIGIN}/`;

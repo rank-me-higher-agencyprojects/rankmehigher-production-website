@@ -22,20 +22,12 @@ const SERVICES = [
 
 const TRADES_AREAS = [
   { label: "Truck Repair Websites", href: "/websites-for/truck-repair/" },
-  { label: "Roofer Websites", href: "/websites-for/roofers/" },
-  { label: "Plumber Websites", href: "/websites-for/plumbers/" },
-  { label: "HVAC Websites", href: "/websites-for/hvac/" },
   { label: "Romeoville", href: "/locations/romeoville-il/" },
-  { label: "Lockport", href: "/locations/lockport-il/" },
-  { label: "Lisle", href: "/locations/lisle-il/" },
-  { label: "Oak Brook", href: "/locations/oak-brook-il/" },
-  { label: "Mundelein", href: "/locations/mundelein-il/" },
 ];
 
 const COMPANY = [
   { label: "Pricing", href: "/pricing/" },
   { label: "Examples", href: "/examples/" },
-  { label: "About", href: "/about/" },
   { label: "FAQ", href: "/faq/" },
   { label: "Blog", href: "/blog/" },
   { label: "Careers", href: "/careers/" },

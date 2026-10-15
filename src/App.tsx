@@ -25,7 +25,6 @@ import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import Pricing from "./pages/marketing/Pricing";
 import Faq from "./pages/marketing/Faq";
-import About from "./pages/marketing/About";
 import Examples from "./pages/marketing/Examples";
 import AiWebsiteEditor from "./pages/marketing/AiWebsiteEditor";
 import FreeAudit from "./pages/marketing/FreeAudit";
@@ -154,7 +153,6 @@ const App = ({ routerLocation, helmetContext }: AppProps = {}) => {
           {routePair("/careers", Careers)}
           {routePair("/pricing", Pricing)}
           {routePair("/faq", Faq)}
-          {routePair("/about", About)}
           {routePair("/examples", Examples)}
           {routePair("/ai-website-editor", AiWebsiteEditor)}
           {/* Unlisted: noindex, omitted from the sitemap and the nav. */}

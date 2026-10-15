@@ -7,7 +7,7 @@ import HeroSection from "@/components/home/HeroSection";
 import EditorShowcase from "@/components/home/EditorShowcase";
 import { Eyebrow, Reveal, SectionHeading } from "@/components/home/motion";
 import { Link } from "react-router-dom";
-import { CtaRow, ReviewProof } from "@/components/marketing/Cta";
+import { CtaRow } from "@/components/marketing/Cta";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const scrollToQuiz = () => {
@@ -198,9 +198,6 @@ const Index = () => {
               <Reveal className="mt-8 md:mt-10" delay={0.1}>
                 <FreeWebsiteQuiz />
               </Reveal>
-              <div className="mt-6 flex justify-center">
-                <ReviewProof />
-              </div>
             </div>
           </section>
 
@@ -463,9 +460,6 @@ const Index = () => {
                 <div className="mt-8 md:mt-10">
                   <CtaRow center />
                 </div>
-                <div className="flex justify-center">
-                  <ReviewProof />
-                </div>
               </Reveal>
             </div>
           </section>
@@ -478,19 +472,12 @@ const Index = () => {
                   <p className="text-white/45">By trade</p>
                   <ul className="mt-2 space-y-1.5">
                     <li><Link to="/websites-for/truck-repair/" className="text-white/75 hover:text-primary">Truck repair shop websites</Link></li>
-                    <li><Link to="/websites-for/roofers/" className="text-white/75 hover:text-primary">Websites for roofers</Link></li>
-                    <li><Link to="/websites-for/plumbers/" className="text-white/75 hover:text-primary">Websites for plumbers</Link></li>
-                    <li><Link to="/websites-for/hvac/" className="text-white/75 hover:text-primary">HVAC contractor websites</Link></li>
                   </ul>
                 </div>
                 <div>
                   <p className="text-white/45">By town</p>
                   <ul className="mt-2 space-y-1.5">
                     <li><Link to="/locations/romeoville-il/" className="text-white/75 hover:text-primary">Romeoville</Link></li>
-                    <li><Link to="/locations/lockport-il/" className="text-white/75 hover:text-primary">Lockport</Link></li>
-                    <li><Link to="/locations/lisle-il/" className="text-white/75 hover:text-primary">Lisle</Link></li>
-                    <li><Link to="/locations/oak-brook-il/" className="text-white/75 hover:text-primary">Oak Brook</Link></li>
-                    <li><Link to="/locations/mundelein-il/" className="text-white/75 hover:text-primary">Mundelein</Link></li>
                   </ul>
                 </div>
                 <div>
@@ -500,7 +487,7 @@ const Index = () => {
                     <li><Link to="/ai-website-editor/" className="text-white/75 hover:text-primary">The AI website editor</Link></li>
                     <li><Link to="/pricing/" className="text-white/75 hover:text-primary">Pricing</Link></li>
                     <li><Link to="/free-website-audit/" className="text-white/75 hover:text-primary">Free website audit</Link></li>
-                    <li><Link to="/about/" className="text-white/75 hover:text-primary">About Rank Me Higher</Link></li>
+                    <li><Link to="/faq/" className="text-white/75 hover:text-primary">FAQ</Link></li>
                   </ul>
                 </div>
               </div>

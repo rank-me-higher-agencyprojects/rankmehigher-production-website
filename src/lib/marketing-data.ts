@@ -6,17 +6,7 @@
 
 export const SMS_NUMBER_DISPLAY = "(773) 572-4686";
 export const SMS_HREF = "sms:+17735724686";
-export const CALENDLY_URL = "https://calendly.com/andrius-cdlagency/andrius-digital-asap-meeting";
-export const TRUSTPILOT_URL = "https://www.trustpilot.com/review/rankmehigher.com";
 export const FREE_WEBSITE_HREF = "/#free-website";
-
-/**
- * Trustpilot quotes to show near CTAs. Left empty on purpose: the review text
- * could not be pulled from Trustpilot when this was built, and quotes must be
- * copied word for word from the real reviews (with first name/initial).
- * TODO(Andrius): paste 3 short real Trustpilot quotes here.
- */
-export const TRUSTPILOT_QUOTES: { quote: string; name: string }[] = [];
 
 export type PortfolioItem = {
   name: string;
@@ -148,87 +138,6 @@ export const TRADES: Trade[] = [
     ],
     examples: ["Truck Clinic", "Pro Repair", "LTS Mechanical"],
   },
-  {
-    slug: "roofers",
-    name: "Roofing",
-    plural: "roofers",
-    title: "Websites for Roofers, $99/mo | Rank Me Higher",
-    description:
-      "Roofing contractor websites built by AI and edited by text. Storm, repair and replacement pages, service-area pages and lead forms from $99/mo in Chicagoland.",
-    h1: "Websites for roofers",
-    intro:
-      "Roofing leads come in waves. After a hail storm everyone in the area searches at once, and the roofer whose site loads fast, shows the service area and makes it easy to request an inspection gets the call. The rest of the year, homeowners compare a few roofers carefully before they spend five figures.",
-    pages: [
-      "Separate pages for roof repair, full replacement, storm and hail damage, gutters and siding if you do them",
-      "Service-area pages for the towns you actually work in",
-      "A free inspection request form that texts you the address and photos",
-      "A project gallery you can add to from the job site",
-    ],
-    jobs: [
-      "Turn on a storm-damage banner the morning after hail",
-      "Add finished jobs to the gallery",
-      "Update which shingle lines or warranties you offer",
-    ],
-    chatExamples: [
-      "\"Add a banner: free hail damage inspections in Naperville this week.\"",
-      "\"Add these 4 photos to the gallery as a Lockport tear-off.\"",
-    ],
-    examples: [],
-  },
-  {
-    slug: "plumbers",
-    name: "Plumbing",
-    plural: "plumbers",
-    title: "Websites for Plumbers, $99/mo | Rank Me Higher",
-    description:
-      "Plumber websites built by AI and edited by text. Emergency, drain, water heater and service-area pages with lead forms, from $99/mo in Chicagoland.",
-    h1: "Websites for plumbers",
-    intro:
-      "Most plumbing calls are urgent: a burst pipe, a backed-up drain, no hot water. The customer picks whoever looks available right now. Your site has to say what you fix, where you go and whether you answer at night, before they hit the back button.",
-    pages: [
-      "Emergency plumbing page with your real after-hours policy",
-      "Pages for drain cleaning, water heaters, sewer lines, sump pumps and remodels",
-      "Service-area pages for the suburbs you cover",
-      "A short request form that texts you the problem and address",
-    ],
-    jobs: [
-      "Change your emergency hours for the weekend",
-      "Add a seasonal sump pump or frozen-pipe notice",
-      "Add a new service like tankless installs",
-    ],
-    chatExamples: [
-      "\"Add tankless water heater installation as its own page.\"",
-      "\"Put a frozen pipe warning on the homepage until March.\"",
-    ],
-    examples: [],
-  },
-  {
-    slug: "hvac",
-    name: "HVAC",
-    plural: "HVAC contractors",
-    title: "HVAC Contractor Websites, $99/mo | Rank Me Higher",
-    description:
-      "HVAC websites built by AI and edited by text. Furnace, AC, heat pump and maintenance plan pages with lead forms, from $99/mo for Chicagoland contractors.",
-    h1: "Websites for HVAC contractors",
-    intro:
-      "HVAC demand flips with the weather. In January it's furnaces, in July it's AC, and in between it's tune-ups and replacements. A good HVAC site leads with whatever season it is, explains your maintenance plan and makes booking a visit take less than a minute.",
-    pages: [
-      "Furnace repair and install, AC repair and install, heat pumps, ductwork",
-      "A maintenance plan page explaining what's included",
-      "Service-area pages for each town you cover",
-      "A service request form that texts you the lead",
-    ],
-    jobs: [
-      "Switch the homepage from heating to cooling when the season turns",
-      "Post a tune-up special",
-      "Add rebate or financing info when it changes",
-    ],
-    chatExamples: [
-      "\"Switch the homepage to AC season and add our fall tune-up offer.\"",
-      "\"Add a page for heat pump installs.\"",
-    ],
-    examples: [],
-  },
 ];
 
 export type Suburb = {
@@ -261,79 +170,7 @@ export const SUBURBS: Suburb[] = [
       "Cover the neighboring towns you also serve, like Bolingbrook, Lockport and Plainfield",
     ],
     clients: ["Truck Clinic", "LTS Mechanical"],
-    trades: ["truck-repair", "hvac"],
-  },
-  {
-    slug: "lockport-il",
-    name: "Lockport",
-    county: "Will County",
-    title: "Websites for Lockport, IL Businesses, $99/mo | Rank Me Higher",
-    description:
-      "AI-built websites for Lockport, IL contractors and repair shops. Pro Repair in Lockport runs on Rank Me Higher. Free build, $99/mo when you go live.",
-    h1: "Websites for Lockport businesses",
-    intro:
-      "Lockport businesses serve a mix of homeowners in newer subdivisions and commercial customers along the I-355 and Route 171 corridors. Pro Repair, a Lockport truck repair shop, runs its site on Rank Me Higher.",
-    local: [
-      "Name the areas you serve around Lockport, like Homer Glen, Romeoville and Joliet",
-      "Show homeowners the service area clearly so they know you come to them",
-      "Make your phone and request form easy to hit with one thumb",
-    ],
-    clients: ["Pro Repair"],
-    trades: ["truck-repair", "roofers", "plumbers"],
-  },
-  {
-    slug: "lisle-il",
-    name: "Lisle",
-    county: "DuPage County",
-    title: "Websites for Lisle, IL Businesses, $99/mo | Rank Me Higher",
-    description:
-      "AI-built websites for Lisle, IL service businesses. Off-Tint in Lisle runs on Rank Me Higher. Free build, edit by text, $99/mo when you go live.",
-    h1: "Websites for Lisle businesses",
-    intro:
-      "Lisle is a DuPage County town along I-88 where a lot of customers compare a few local shops before booking. Off-Tint, a Lisle window tint and paint protection shop, runs its site on Rank Me Higher.",
-    local: [
-      "Show finished work with photos, since DuPage buyers compare shops closely",
-      "List the nearby towns you serve, like Naperville, Downers Grove and Woodridge",
-      "Make pricing questions and quote requests easy to send by text",
-    ],
-    clients: ["Off-Tint"],
-    trades: ["roofers", "hvac", "plumbers"],
-  },
-  {
-    slug: "oak-brook-il",
-    name: "Oak Brook",
-    county: "DuPage County",
-    title: "Websites for Oak Brook, IL Businesses, $99/mo | Rank Me Higher",
-    description:
-      "AI-built websites for Oak Brook, IL professional and service firms. QTA Tax in Oak Brook runs on Rank Me Higher. Free build, $99/mo when you go live.",
-    h1: "Websites for Oak Brook businesses",
-    intro:
-      "Oak Brook has a lot of professional firms and office-based service businesses, and their clients research carefully before they call. QTA Tax, an Oak Brook firm of IRS Enrolled Agents, runs its site on Rank Me Higher.",
-    local: [
-      "Explain credentials and specialties clearly, because buyers vet you first",
-      "Give each service and industry you serve its own section",
-      "Put your Oak Brook address and phone where search engines and people both see them",
-    ],
-    clients: ["QTA Tax"],
-    trades: ["hvac", "plumbers", "roofers"],
-  },
-  {
-    slug: "mundelein-il",
-    name: "Mundelein",
-    county: "Lake County",
-    title: "Websites for Mundelein, IL Businesses, $99/mo | Rank Me Higher",
-    description:
-      "AI-built websites for Mundelein and Lake County contractors from Rank Me Higher, which has an office in Mundelein. Free build, $99/mo when you go live.",
-    h1: "Websites for Mundelein businesses",
-    intro:
-      "Rank Me Higher has an office in Mundelein, so Lake County is home turf. Contractors here cover a spread-out area, from Libertyville and Vernon Hills to Grayslake, and customers want to know you actually come to their town.",
-    local: [
-      "Build a service-area page for each Lake County town you really work in",
-      "Show seasonal services, like snow removal or AC tune-ups, at the right time of year",
-      "Make it easy to text you a photo of the problem",
-    ],
-    clients: [],
-    trades: ["roofers", "plumbers", "hvac"],
+    trades: ["truck-repair"],
   },
 ];
 
@@ -367,8 +204,8 @@ export const PLANS = [
     features: [
       { text: "Everything in $149", soon: false },
       { text: "Review generator that grows your reputation", soon: true },
-      { text: "Dedicated business phone number", soon: false },
-      { text: "Branded email for your business", soon: false },
+      { text: "Dedicated business phone number", soon: true },
+      { text: "Branded email for your business", soon: true },
     ],
   },
 ];

@@ -75,15 +75,17 @@ const SuburbPage = ({ slug }: { slug: string }) => {
           AI. <Link to="/pricing/" className="text-primary underline underline-offset-4">See pricing</Link> or{" "}
           <Link to="/free-website-audit/" className="text-primary underline underline-offset-4">get a free audit of your current site</Link>.
         </p>
-        <p className="mt-4 text-sm">
-          Nearby:{" "}
-          {SUBURBS.filter((s) => s.slug !== town.slug).map((s, i) => (
-            <span key={s.slug}>
-              {i > 0 && " · "}
-              <Link to={`/locations/${s.slug}/`} className="text-primary underline underline-offset-4">{s.name}</Link>
-            </span>
-          ))}
-        </p>
+        {SUBURBS.filter((s) => s.slug !== town.slug).length > 0 && (
+          <p className="mt-4 text-sm">
+            Nearby:{" "}
+            {SUBURBS.filter((s) => s.slug !== town.slug).map((s, i) => (
+              <span key={s.slug}>
+                {i > 0 && " · "}
+                <Link to={`/locations/${s.slug}/`} className="text-primary underline underline-offset-4">{s.name}</Link>
+              </span>
+            ))}
+          </p>
+        )}
       </Section>
 
       <CtaBlock title={`Get your free ${town.name} website`} />

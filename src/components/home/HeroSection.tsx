@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import EditorVignette from "./EditorVignette";
 import { EASE, Eyebrow, fadeUp, staggerParent } from "./motion";
-import { BookCallLink, TextUsLink } from "@/components/marketing/Cta";
+import { TextUsLink } from "@/components/marketing/Cta";
 import { SMS_NUMBER_DISPLAY } from "@/lib/marketing-data";
 
 /**
@@ -79,7 +79,6 @@ const HeroSection = ({
               <button onClick={onPrimary} className="btn-cta-primary">
                 Get your free website
               </button>
-              <BookCallLink />
               <button onClick={onSecondary} className="btn-cta-ghost hidden sm:inline-flex">
                 See how it works
               </button>
