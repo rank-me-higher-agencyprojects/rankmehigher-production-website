@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, Star, CheckCircle, XCircle, Play, Video, Megaphone, Target, Users, TrendingUp, Calendar } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Star, CheckCircle, XCircle, Play, Video, Megaphone, Target, Users, TrendingUp, Calendar } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -9,16 +8,6 @@ import {
 } from "@/components/ui/accordion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string }) => void;
-    };
-  }
-}
-
-const CALENDLY_URL = "https://calendly.com/andrius-cdlagency/andrius-digital-asap-meeting";
 
 const painPoints = [
   "Running ads yourself but wasting money on unqualified leads",
@@ -107,21 +96,13 @@ const faqItems = [
 ];
 
 const AdsContent = () => {
-  const openCalendly = () => {
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-    } else {
-      window.open(CALENDLY_URL, '_blank');
-    }
-  };
-
   return (
     <>
       <Helmet>
         <title>Ads & Content for Local Businesses | Meta Ads, Video Production & Funnels | Rank Me Higher</title>
         <meta 
           name="description" 
-          content="Professional content shoots, Meta ad campaigns, and sales funnels that deliver qualified leads. We come to you, create the content, and run the ads. Book your strategy session." 
+          content="Professional content shoots, Meta ad campaigns, and sales funnels that deliver qualified leads. We come to you, create the content, and run the ads." 
         />
       </Helmet>
       
@@ -176,11 +157,6 @@ const AdsContent = () => {
                   <p className="text-muted-foreground leading-relaxed">
                     We come to your location, shoot <span className="font-semibold text-foreground">professional content</span>, build high-converting <span className="font-semibold text-foreground">sales funnels</span>, and run <span className="font-semibold text-foreground">Meta ad campaigns</span> that put qualified leads directly in your pipeline.
                   </p>
-
-                  <Button onClick={openCalendly} variant="hero" size="xl" className="group">
-                    Book Your Strategy Session
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
 
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -316,12 +292,8 @@ const AdsContent = () => {
                 Ready To Scale With Paid Ads?
               </h2>
               <p className="text-muted-foreground text-lg mb-8">
-                Book a strategy session and we'll map out your complete content + ads plan.
+                We'll map out your complete content + ads plan.
               </p>
-              <Button onClick={openCalendly} variant="hero" size="xl" className="group">
-                Book Your Strategy Session
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
               <p className="text-muted-foreground text-sm mt-4">
                 No obligations • Custom strategy • See real campaign examples
               </p>

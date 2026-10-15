@@ -1,5 +1,4 @@
-import { AlertTriangle, ArrowRight } from "lucide-react";
-import { Button } from "./ui/button";
+import { AlertTriangle } from "lucide-react";
 
 const ButWaitSection = () => {
   return (
@@ -66,14 +65,6 @@ const ButWaitSection = () => {
               Services And Start Driving Targeted Visitors To Your Listing And Website To Boost Your Rankings Above Competitors And Generate Consistent Calls And Leads On Autopilot
             </p>
 
-            {/* CTA Button */}
-            <div className="pt-6">
-              <Button variant="hero" size="lg" className="group">
-                BOOK A CALL NOW
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <p className="text-gray-500 text-xs mt-3">*Limited spaces available</p>
-            </div>
           </div>
         </div>
       </div>
