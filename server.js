@@ -16,10 +16,8 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json({ limit: '1mb' }));
 
 app.use((req, res, next) => {
-  const host = req.hostname || req.headers.host;
-  if (host && host.startsWith('www.')) {
-    const newHost = host.replace(/^www\./, '');
-    return res.redirect(301, `https://${newHost}${req.originalUrl}`);
+  if (req.hostname === 'www.rankmehigher.com') {
+    return res.redirect(301, `https://rankmehigher.com${req.originalUrl}`);
   }
   next();
 });
@@ -718,7 +716,32 @@ app.use((req, res, next) => {
   return res.redirect(301, `${rule.to}${query}`);
 });
 
-app.use(express.static(join(__dirname, 'dist')));
+const DIST_DIR = join(__dirname, 'dist');
+const INDEX_PAGE = join(DIST_DIR, 'index.html');
+const SPA_SHELL = join(DIST_DIR, 'spa.html');
+const NOT_FOUND_PAGE = join(DIST_DIR, '404.html');
+
+function isPrivateBuildFile(pathname) {
+  const name = pathname.split('/').filter(Boolean).pop();
+  return name === '_redirects' || name === '_headers';
+}
+
+function sendHtml(res, status, preferred) {
+  const file = fs.existsSync(preferred) ? preferred : INDEX_PAGE;
+  if (!fs.existsSync(file)) {
+    return res.status(status).type('text/plain').send('Not found');
+  }
+  return res.status(status).sendFile(file);
+}
+
+app.use((req, res, next) => {
+  if (isPrivateBuildFile(req.path)) {
+    return res.status(404).type('text/plain').send('Not found');
+  }
+  next();
+});
+
+app.use(express.static(DIST_DIR));
 
 app.get('/llms.txt', (req, res) => {
   res.type('text/plain').sendFile(join(__dirname, 'dist', 'llms.txt'));
@@ -728,18 +751,18 @@ app.get('/llms-full.txt', (req, res) => {
   res.type('text/plain').sendFile(join(__dirname, 'dist', 'llms-full.txt'));
 });
 
-const SPA_SHELL = join(__dirname, 'dist', 'spa.html');
-const NOT_FOUND_PAGE = join(__dirname, 'dist', '404.html');
-
 app.use((req, res) => {
   if (req.method !== 'GET' && req.method !== 'HEAD') {
     return res.status(404).type('text/plain').send('Not found');
   }
+  if (isPrivateBuildFile(req.path)) {
+    return res.status(404).type('text/plain').send('Not found');
+  }
   const rule = matchRedirect(redirectRules, req.path);
   if (rule && rule.status === 200) {
-    return res.status(200).sendFile(SPA_SHELL);
+    return sendHtml(res, 200, SPA_SHELL);
   }
-  return res.status(404).sendFile(NOT_FOUND_PAGE);
+  return sendHtml(res, 404, NOT_FOUND_PAGE);
 });
 
 app.listen(PORT, '0.0.0.0', () => {

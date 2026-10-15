@@ -6,8 +6,9 @@
  * intentionally omitted (it is a text file, not an HTML page, and listing it
  * next to redirecting URLs was a crawl-quality problem).
  *
- * `lastmod` on blog posts is the post's published date from src/data/blogPosts.ts.
- * Every other route uses the git commit date of `source` at sitemap generation.
+ * `lastmod` is committed here so the production build does not need git.
+ * Blog dates are the published dates from src/data/blogPosts.ts. Static pages
+ * use the last source-commit date recorded when the route was added.
  */
 export const SITE_ORIGIN = "https://rankmehigher.com";
 
@@ -15,60 +16,70 @@ export const routes = [
   {
     path: "/",
     source: "src/pages/Index.tsx",
+    lastmod: "2026-09-22",
     changefreq: "weekly",
     priority: "1.0",
   },
   {
     path: "/services/websites/",
     source: "src/pages/services/Websites.tsx",
+    lastmod: "2026-10-15",
     changefreq: "monthly",
     priority: "0.9",
   },
   {
     path: "/services/seo/",
     source: "src/pages/services/SEO.tsx",
+    lastmod: "2026-10-15",
     changefreq: "monthly",
     priority: "0.9",
   },
   {
     path: "/services/outbound/",
     source: "src/pages/services/Outbound.tsx",
+    lastmod: "2026-10-15",
     changefreq: "monthly",
     priority: "0.8",
   },
   {
     path: "/services/content-ads/",
     source: "src/pages/services/ContentAds.tsx",
+    lastmod: "2026-10-15",
     changefreq: "monthly",
     priority: "0.8",
   },
   {
     path: "/services/google-ads/",
     source: "src/pages/services/GoogleAds.tsx",
+    lastmod: "2026-10-15",
     changefreq: "monthly",
     priority: "0.8",
   },
   {
     path: "/localmapbooster/",
     source: "src/pages/LocalMapBooster.tsx",
+    lastmod: "2026-10-15",
     changefreq: "monthly",
     priority: "0.9",
   },
   {
     path: "/contact/",
     source: "src/pages/Contact.tsx",
+    lastmod: "2026-10-15",
     changefreq: "monthly",
     priority: "0.8",
   },
   {
     path: "/careers/",
     source: "src/pages/Careers.tsx",
+    lastmod: "2026-10-15",
     changefreq: "weekly",
     priority: "0.7",
   },
   {
     path: "/blog/",
     source: "src/pages/Blog.tsx",
+    lastmod: "2026-10-15",
     changefreq: "weekly",
     priority: "0.8",
   },
