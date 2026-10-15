@@ -15,6 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { notifyLead } from "@/lib/lead-notify";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,9 +25,19 @@ const Contact = () => {
     phone: '',
     company: '',
     message: '',
-    service: 'general'
+    service: 'general',
+    hp: ''
   });
   const { toast } = useToast();
+
+  const services = [
+    { value: 'general', label: 'General Inquiry' },
+    { value: 'website', label: 'Custom Website Development' },
+    { value: 'seo', label: 'SEO & Local Rankings' },
+    { value: 'google-maps', label: 'Google Maps Optimization' },
+    { value: 'marketing', label: 'Digital Marketing' },
+    { value: 'support', label: 'Existing Client Support' },
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,6 +61,19 @@ const Contact = () => {
 
       if (error) throw error;
 
+      const serviceLabel = services.find((service) => service.value === formData.service)?.label;
+      notifyLead({
+        type: 'contact_form',
+        name: formData.name,
+        business: formData.company,
+        phone: formData.phone,
+        email: formData.email,
+        message: serviceLabel && formData.service !== 'general'
+          ? `${serviceLabel} — ${formData.message}`
+          : formData.message,
+        hp: formData.hp,
+      });
+
       toast({
         title: "Message Sent!",
         description: "We'll get back to you within 24 hours.",
@@ -61,7 +85,8 @@ const Contact = () => {
         phone: '',
         company: '',
         message: '',
-        service: 'general'
+        service: 'general',
+        hp: ''
       });
     } catch (error) {
       toast({
@@ -73,15 +98,6 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
-
-  const services = [
-    { value: 'general', label: 'General Inquiry' },
-    { value: 'website', label: 'Custom Website Development' },
-    { value: 'seo', label: 'SEO & Local Rankings' },
-    { value: 'google-maps', label: 'Google Maps Optimization' },
-    { value: 'marketing', label: 'Digital Marketing' },
-    { value: 'support', label: 'Existing Client Support' },
-  ];
 
   const offices = [
     {
@@ -188,6 +204,16 @@ const Contact = () => {
                   <p className="text-sm text-muted-foreground mb-6">Fill out the form below and we'll get back to you within 24 hours.</p>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
+                    <input
+                      type="text"
+                      name="company_website_url"
+                      value={formData.hp}
+                      onChange={(e) => setFormData({ ...formData, hp: e.target.value })}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="absolute -left-[9999px] top-0 h-0 w-0 opacity-0"
+                    />
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
                         <Label htmlFor="name" className="font-orbitron text-xs">Name *</Label>

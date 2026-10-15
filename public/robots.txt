@@ -25,6 +25,8 @@ Allow: /llms-full.txt
 Allow: /sitemap.xml
 
 # Block all internal/admin pages
+# Unlisted until the live audit-lead test. The page is also noindex.
+Disallow: /free-website-audit
 Disallow: /auth
 Disallow: /website-submissions
 Disallow: /website-submission-confirmation

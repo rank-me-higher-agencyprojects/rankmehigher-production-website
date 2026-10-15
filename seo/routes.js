@@ -2,7 +2,8 @@
  * Public marketing routes for rankmehigher.com.
  *
  * Canonical form is a trailing slash (`/` for the homepage). These 17 URLs are
- * the only entries in the sitemap — each one must return 200. `/llms.txt` is
+ * the only entries in the sitemap — each one must return 200. `unlistedRoutes`
+ * are prerendered too, but they stay out of the sitemap. `/llms.txt` is
  * intentionally omitted (it is a text file, not an HTML page, and listing it
  * next to redirecting URLs was a crawl-quality problem).
  *
@@ -134,6 +135,21 @@ export const routes = [
   },
 ];
 
+/**
+ * Prerendered pages that must not be indexed or listed in the sitemap yet.
+ * /free-website-audit/ is noindex until it is linked after the live lead test.
+ */
+export const unlistedRoutes = [
+  {
+    path: "/free-website-audit/",
+    source: "src/pages/marketing/FreeAudit.tsx",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.5",
+    robots: "noindex, nofollow",
+  },
+];
+
 export function canonicalUrl(routePath) {
   if (routePath === "/") return `${SITE_ORIGIN}/`;
   const withSlash = routePath.endsWith("/") ? routePath : `${routePath}/`;
@@ -189,7 +205,7 @@ export const spaPrefixes = ["/agency/client", "/avaseo", "/avabyrankmehigher"];
 
 export function buildRedirectRules() {
   const rules = [];
-  for (const route of routes) {
+  for (const route of [...routes, ...unlistedRoutes]) {
     if (route.path === "/") continue;
     const slashless = route.path.replace(/\/$/, "");
     rules.push({ from: slashless, to: route.path, status: 301 });

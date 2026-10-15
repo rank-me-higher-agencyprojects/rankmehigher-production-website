@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Building2, CheckCircle2, Globe, Loader2, MapPin, MessageSquare, Smartphone, Sparkles, Wrench } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { notifyLead } from "@/lib/lead-notify";
 
 declare global {
   interface Window {
@@ -233,6 +234,16 @@ const FreeWebsiteQuiz = () => {
 
     // Mirror into the existing lead table no matter what the funnel API does.
     const mirror = mirrorToSupabase();
+    notifyLead({
+      type: "free_website_funnel",
+      business: form.business_name.trim(),
+      phone: form.phone.trim(),
+      email: form.email.trim(),
+      website: form.website.trim(),
+      city: [form.city.trim(), form.region].filter(Boolean).join(", "),
+      message: [form.industry.trim(), form.services.trim()].filter(Boolean).join(" — "),
+      hp: form.hp,
+    });
 
     const payload = buildPayload();
 

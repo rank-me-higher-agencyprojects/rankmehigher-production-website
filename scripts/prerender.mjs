@@ -11,7 +11,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { build } from "vite";
-import { canonicalUrl, renderRedirectsFile, routes } from "../seo/routes.js";
+import { canonicalUrl, renderRedirectsFile, routes, unlistedRoutes } from "../seo/routes.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -238,7 +238,7 @@ async function run() {
   const { render } = await loadRenderer();
 
   const reports = [];
-  for (const route of routes) {
+  for (const route of [...routes, ...unlistedRoutes]) {
     const { html: appHtml, helmet } = render(route.path);
     let page = applyHelmet(template, helmet);
     page = page.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
@@ -248,6 +248,16 @@ async function run() {
     }
     const report = pageReport(route.path, page);
     assertPage(report);
+    if (route.robots && String(route.robots).includes("noindex")) {
+      const robotsMeta = page.match(/<meta\b[^>]*\bname="robots"[^>]*>/gi) || [];
+      const joined = robotsMeta.join(" ");
+      if (robotsMeta.length !== 1 || !/noindex/i.test(joined) || /content="index, follow"/i.test(joined)) {
+        throw new Error(`${route.path} must prerender a single noindex robots meta`);
+      }
+    }
+    if (route.path === "/" && page.includes("/free-website-audit")) {
+      throw new Error("Homepage must not link the unlisted audit page");
+    }
     const file = outFile(route.path);
     fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.writeFileSync(file, page);

@@ -23,6 +23,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
+import FreeAudit from "./pages/marketing/FreeAudit";
 
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
@@ -140,6 +141,8 @@ const App = ({ routerLocation, helmetContext }: AppProps = {}) => {
           {routePair("/blog/:slug", BlogPost)}
           {routePair("/contact", Contact)}
           {routePair("/careers", Careers)}
+          {/* Unlisted: noindex, omitted from the sitemap and the nav. */}
+          {routePair("/free-website-audit", FreeAudit)}
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/website-submissions" element={<WebsiteSubmissions />} />
