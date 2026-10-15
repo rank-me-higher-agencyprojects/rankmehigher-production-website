@@ -1,7 +1,7 @@
 /**
  * Public marketing routes for rankmehigher.com.
  *
- * Canonical form is a trailing slash (`/` for the homepage). These 17 URLs are
+ * Canonical form is a trailing slash (`/` for the homepage). These URLs are
  * the only entries in the sitemap — each one must return 200. `unlistedRoutes`
  * are prerendered too, but they stay out of the sitemap. `/llms.txt` is
  * intentionally omitted (it is a text file, not an HTML page, and listing it
@@ -17,7 +17,7 @@ export const routes = [
   {
     path: "/",
     source: "src/pages/Index.tsx",
-    lastmod: "2026-09-22",
+    lastmod: "2026-10-15",
     changefreq: "weekly",
     priority: "1.0",
   },
@@ -133,6 +133,104 @@ export const routes = [
     changefreq: "monthly",
     priority: "0.7",
   },
+  {
+    path: "/pricing/",
+    source: "src/pages/marketing/Pricing.tsx",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.9",
+  },
+  {
+    path: "/faq/",
+    source: "src/pages/marketing/Faq.tsx",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.7",
+  },
+  {
+    path: "/about/",
+    source: "src/pages/marketing/About.tsx",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.6",
+  },
+  {
+    path: "/examples/",
+    source: "src/pages/marketing/Examples.tsx",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.8",
+  },
+  {
+    path: "/ai-website-editor/",
+    source: "src/pages/marketing/AiWebsiteEditor.tsx",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.8",
+  },
+  {
+    path: "/websites-for/truck-repair/",
+    source: "src/lib/marketing-data.ts",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.8",
+  },
+  {
+    path: "/websites-for/roofers/",
+    source: "src/lib/marketing-data.ts",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.8",
+  },
+  {
+    path: "/websites-for/plumbers/",
+    source: "src/lib/marketing-data.ts",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.8",
+  },
+  {
+    path: "/websites-for/hvac/",
+    source: "src/lib/marketing-data.ts",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.8",
+  },
+  {
+    path: "/locations/romeoville-il/",
+    source: "src/lib/marketing-data.ts",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.7",
+  },
+  {
+    path: "/locations/lockport-il/",
+    source: "src/lib/marketing-data.ts",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.7",
+  },
+  {
+    path: "/locations/lisle-il/",
+    source: "src/lib/marketing-data.ts",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.7",
+  },
+  {
+    path: "/locations/oak-brook-il/",
+    source: "src/lib/marketing-data.ts",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.7",
+  },
+  {
+    path: "/locations/mundelein-il/",
+    source: "src/lib/marketing-data.ts",
+    lastmod: "2026-10-15",
+    changefreq: "monthly",
+    priority: "0.7",
+  },
 ];
 
 /**
@@ -149,6 +247,9 @@ export const unlistedRoutes = [
     robots: "noindex, nofollow",
   },
 ];
+
+/** Bump when a route is added or removed; the sitemap build checks it. */
+export const EXPECTED_ROUTE_COUNT = 31;
 
 export function canonicalUrl(routePath) {
   if (routePath === "/") return `${SITE_ORIGIN}/`;

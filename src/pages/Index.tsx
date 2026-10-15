@@ -6,6 +6,8 @@ import FreeWebsiteQuiz from "@/components/funnel/FreeWebsiteQuiz";
 import HeroSection from "@/components/home/HeroSection";
 import EditorShowcase from "@/components/home/EditorShowcase";
 import { Eyebrow, Reveal, SectionHeading } from "@/components/home/motion";
+import { Link } from "react-router-dom";
+import { CtaRow, ReviewProof } from "@/components/marketing/Cta";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const scrollToQuiz = () => {
@@ -103,19 +105,19 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Free AI-Built Website for Your Local Business | Rank Me Higher</title>
+        <title>$99/mo Websites for Contractors in Chicagoland, Built by AI | Rank Me Higher</title>
         <meta
           name="description"
-          content="Get a free website that dominates Google — built by AI in minutes. Answer 6 quick questions and the AI researches your market, builds your site, and texts you the live link."
+          content="Websites for Chicagoland roofers, plumbers, HVAC and truck repair shops. Built by AI in minutes, edited by chat, $99/mo when you go live. Free build, see it before you pay."
         />
-        <meta property="og:title" content="Free AI-Built Website for Your Local Business | Rank Me Higher" />
+        <meta property="og:title" content="$99/mo Websites for Contractors in Chicagoland, Built by AI | Rank Me Higher" />
         <meta property="og:description" content="Get a free website that dominates Google — built by AI in minutes. The AI researches your market, builds your site, and texts you the live link." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rankmehigher.com/" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Free AI-Built Website for Your Local Business | Rank Me Higher" />
+        <meta name="twitter:title" content="$99/mo Websites for Contractors in Chicagoland, Built by AI | Rank Me Higher" />
         <meta name="twitter:description" content="Get a free website that dominates Google — built by AI in minutes. Answer 6 questions, get the live link by text." />
         <meta name="twitter:image" content="https://rankmehigher.com/assets/logo.png" />
         <link rel="canonical" href="https://rankmehigher.com/" />
@@ -196,6 +198,9 @@ const Index = () => {
               <Reveal className="mt-8 md:mt-10" delay={0.1}>
                 <FreeWebsiteQuiz />
               </Reveal>
+              <div className="mt-6 flex justify-center">
+                <ReviewProof />
+              </div>
             </div>
           </section>
 
@@ -412,7 +417,8 @@ const Index = () => {
 
               <Reveal delay={0.2}>
                 <p className="mt-8 text-center text-sm text-white/50 md:mt-10">
-                  Every plan starts the same way — <span className="text-white/80">with your free website.</span>
+                  Every plan starts the same way — <span className="text-white/80">with your free website.</span>{" "}
+                  <Link to="/pricing/" className="text-primary underline underline-offset-4">Full pricing details</Link>
                 </p>
               </Reveal>
             </div>
@@ -455,11 +461,49 @@ const Index = () => {
                   Your website is 6 questions away.
                 </h2>
                 <div className="mt-8 md:mt-10">
-                  <button onClick={scrollToQuiz} className="btn-cta-primary px-8">
-                    Get your free website
-                  </button>
+                  <CtaRow center />
+                </div>
+                <div className="flex justify-center">
+                  <ReviewProof />
                 </div>
               </Reveal>
+            </div>
+          </section>
+
+          <section aria-labelledby="explore-title" className="border-t border-white/[0.06] py-12 md:py-16">
+            <div className="mx-auto max-w-content px-6">
+              <h2 id="explore-title" className="font-heading text-2xl font-bold tracking-tight text-foreground">Built for your trade and your town</h2>
+              <div className="mt-6 grid gap-6 text-sm md:grid-cols-3">
+                <div>
+                  <p className="text-white/45">By trade</p>
+                  <ul className="mt-2 space-y-1.5">
+                    <li><Link to="/websites-for/truck-repair/" className="text-white/75 hover:text-primary">Truck repair shop websites</Link></li>
+                    <li><Link to="/websites-for/roofers/" className="text-white/75 hover:text-primary">Websites for roofers</Link></li>
+                    <li><Link to="/websites-for/plumbers/" className="text-white/75 hover:text-primary">Websites for plumbers</Link></li>
+                    <li><Link to="/websites-for/hvac/" className="text-white/75 hover:text-primary">HVAC contractor websites</Link></li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-white/45">By town</p>
+                  <ul className="mt-2 space-y-1.5">
+                    <li><Link to="/locations/romeoville-il/" className="text-white/75 hover:text-primary">Romeoville</Link></li>
+                    <li><Link to="/locations/lockport-il/" className="text-white/75 hover:text-primary">Lockport</Link></li>
+                    <li><Link to="/locations/lisle-il/" className="text-white/75 hover:text-primary">Lisle</Link></li>
+                    <li><Link to="/locations/oak-brook-il/" className="text-white/75 hover:text-primary">Oak Brook</Link></li>
+                    <li><Link to="/locations/mundelein-il/" className="text-white/75 hover:text-primary">Mundelein</Link></li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-white/45">Learn more</p>
+                  <ul className="mt-2 space-y-1.5">
+                    <li><Link to="/examples/" className="text-white/75 hover:text-primary">Client examples &amp; case studies</Link></li>
+                    <li><Link to="/ai-website-editor/" className="text-white/75 hover:text-primary">The AI website editor</Link></li>
+                    <li><Link to="/pricing/" className="text-white/75 hover:text-primary">Pricing</Link></li>
+                    <li><Link to="/free-website-audit/" className="text-white/75 hover:text-primary">Free website audit</Link></li>
+                    <li><Link to="/about/" className="text-white/75 hover:text-primary">About Rank Me Higher</Link></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </section>
 

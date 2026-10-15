@@ -779,7 +779,7 @@ And what kind of services are you looking into? Just so they know what you're af
           bottom: `${position.y}px`,
           cursor: isDragging ? 'grabbing' : 'grab'
         }}
-        className="fixed z-50 group"
+        className="fixed z-50 group mb-16 md:mb-0"
         onMouseDown={handleMouseDown}
         onTouchStart={handleTouchStart}
       >

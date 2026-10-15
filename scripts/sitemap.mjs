@@ -6,7 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { canonicalUrl, routes, unlistedRoutes } from "../seo/routes.js";
+import { EXPECTED_ROUTE_COUNT, canonicalUrl, routes, unlistedRoutes } from "../seo/routes.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -16,8 +16,11 @@ function buildDate() {
   return new Date().toISOString().slice(0, 10);
 }
 
-if (routes.length !== 17) {
-  throw new Error(`Expected 17 sitemap routes, found ${routes.length}`);
+if (routes.length !== EXPECTED_ROUTE_COUNT) {
+  throw new Error(`Expected ${EXPECTED_ROUTE_COUNT} sitemap routes, found ${routes.length}`);
+}
+if (new Set(routes.map((r) => r.path)).size !== routes.length) {
+  throw new Error("Duplicate route paths in seo/routes.js");
 }
 for (const hidden of unlistedRoutes) {
   if (routes.some((route) => route.path === hidden.path)) {
@@ -64,8 +67,8 @@ if (xml.includes("/llms.txt")) {
 if (xml.includes("/free-website-audit")) {
   throw new Error("Sitemap must not list /free-website-audit/");
 }
-if ((xml.match(/<loc>/g) || []).length !== 17) {
-  throw new Error("Sitemap must list exactly 17 URLs");
+if ((xml.match(/<loc>/g) || []).length !== EXPECTED_ROUTE_COUNT) {
+  throw new Error(`Sitemap must list exactly ${EXPECTED_ROUTE_COUNT} URLs`);
 }
 
 fs.writeFileSync(OUT, xml);
