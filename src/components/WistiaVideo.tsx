@@ -26,15 +26,18 @@ const WistiaVideo = ({ videoId = "k4xdzi49er", isMobile = false, aspectRatio = "
   useEffect(() => {
     if (!wistiaContainerRef.current) return;
 
-    // Clear any existing content
-    wistiaContainerRef.current.innerHTML = "";
-
-    // Create wistia-player element safely
     const player = document.createElement("wistia-player");
     player.setAttribute("media-id", sanitizedVideoId);
     player.setAttribute("aspect", aspectValue);
+    player.style.position = "absolute";
+    player.style.inset = "0";
+    player.style.width = "100%";
+    player.style.height = "100%";
 
     wistiaContainerRef.current.appendChild(player);
+    return () => {
+      player.remove();
+    };
   }, [sanitizedVideoId, aspectValue]);
 
   useEffect(() => {
@@ -96,18 +99,15 @@ const WistiaVideo = ({ videoId = "k4xdzi49er", isMobile = false, aspectRatio = "
 
         {/* Main Video Frame */}
         <div className="relative z-10 rounded-xl overflow-hidden border border-primary/30 shadow-xl shadow-primary/20">
-          <style>{`
-            wistia-player[media-id='${sanitizedVideoId}']:not(:defined) {
-              background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${sanitizedVideoId}/swatch');
-              display: block;
-              filter: blur(5px);
-              padding-top: ${paddingTop};
-            }
-            wistia-player[media-id='${sanitizedVideoId}'] {
-              display: block;
-            }
-          `}</style>
-          <div ref={wistiaContainerRef} />
+          <div
+            ref={wistiaContainerRef}
+            style={{
+              position: "relative",
+              width: "100%",
+              paddingTop,
+              background: `center / cover no-repeat url('https://fast.wistia.com/embed/medias/${sanitizedVideoId}/swatch')`,
+            }}
+          />
         </div>
       </div>
     );
@@ -118,18 +118,15 @@ const WistiaVideo = ({ videoId = "k4xdzi49er", isMobile = false, aspectRatio = "
     return (
       <div className="relative w-full">
         <div className="relative rounded-xl overflow-hidden shadow-lg">
-          <style>{`
-            wistia-player[media-id='${sanitizedVideoId}']:not(:defined) {
-              background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${sanitizedVideoId}/swatch');
-              display: block;
-              filter: blur(5px);
-              padding-top: ${paddingTop};
-            }
-            wistia-player[media-id='${sanitizedVideoId}'] {
-              display: block;
-            }
-          `}</style>
-          <div ref={wistiaContainerRef} />
+          <div
+            ref={wistiaContainerRef}
+            style={{
+              position: "relative",
+              width: "100%",
+              paddingTop,
+              background: `center / cover no-repeat url('https://fast.wistia.com/embed/medias/${sanitizedVideoId}/swatch')`,
+            }}
+          />
         </div>
       </div>
     );
@@ -148,18 +145,15 @@ const WistiaVideo = ({ videoId = "k4xdzi49er", isMobile = false, aspectRatio = "
         <div className="absolute inset-0 pointer-events-none z-10 rounded-2xl border border-white/10" />
         <div className="absolute -inset-px bg-gradient-to-br from-primary/20 via-transparent to-primary/10 pointer-events-none z-10 rounded-2xl" />
 
-        <style>{`
-          wistia-player[media-id='${sanitizedVideoId}']:not(:defined) {
-            background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/${sanitizedVideoId}/swatch');
-            display: block;
-            filter: blur(5px);
-            padding-top: ${paddingTop};
-          }
-          wistia-player[media-id='${sanitizedVideoId}'] {
-            display: block;
-          }
-        `}</style>
-        <div ref={wistiaContainerRef} />
+        <div
+          ref={wistiaContainerRef}
+          style={{
+            position: "relative",
+            width: "100%",
+            paddingTop,
+            background: `center / cover no-repeat url('https://fast.wistia.com/embed/medias/${sanitizedVideoId}/swatch')`,
+          }}
+        />
       </div>
     </div>
   );

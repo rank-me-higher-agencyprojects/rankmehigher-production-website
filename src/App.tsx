@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState, type ReactNode } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { AuthProvider } from "@/contexts/AuthContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import ScrollToTop from "@/components/ScrollToTop";
+import { RoutePage } from "@/prerender/RoutePage";
 
 // Public pages - eagerly loaded (critical for SEO/first paint)
 import Index from "./pages/Index";
@@ -91,31 +92,51 @@ const PageLoader = () => (
   </div>
 );
 
-const App = () => (
-  <HelmetProvider>
+// Chatbot touches the network and is a large lazy chunk. Rendering it only
+// after mount keeps the prerendered HTML free of an unfinished Suspense
+// boundary, so hydration does not have to recover that boundary on the client.
+function ClientOnly({ children }: { children: ReactNode }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) return null;
+  return children;
+}
+
+export function AppProviders({ children }: { children: ReactNode }) {
+  return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          <BrowserRouter>
-            <ScrollToTop />
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
+          {children}
+        </TooltipProvider>
+      </AuthProvider>
+    </QueryClientProvider>
+  );
+}
+
+export function AppRoutes() {
+  return (
+    <>
+      <ScrollToTop />
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
                 {/* Public routes */}
                 <Route path="/" element={<Index />} />
                 <Route path="/auth" element={<Auth />} />
-                <Route path="/localmapbooster" element={<LocalMapBooster />} />
-                <Route path="/services/websites" element={<Websites />} />
-                <Route path="/services/seo" element={<SEO />} />
-                
-                <Route path="/services/content-ads" element={<ContentAds />} />
-                <Route path="/services/google-ads" element={<GoogleAds />} />
-                <Route path="/services/outbound" element={<Outbound />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/careers" element={<Careers />} />
+                <Route path="/localmapbooster" element={<RoutePage id="/localmapbooster" lazy={LocalMapBooster} />} />
+                <Route path="/services/websites" element={<RoutePage id="/services/websites" lazy={Websites} />} />
+                <Route path="/services/seo" element={<RoutePage id="/services/seo" lazy={SEO} />} />
+                <Route path="/services/content-ads" element={<RoutePage id="/services/content-ads" lazy={ContentAds} />} />
+                <Route path="/services/google-ads" element={<RoutePage id="/services/google-ads" lazy={GoogleAds} />} />
+                <Route path="/services/outbound" element={<RoutePage id="/services/outbound" lazy={Outbound} />} />
+                <Route path="/blog" element={<RoutePage id="/blog" lazy={Blog} />} />
+                <Route path="/blog/:slug" element={<RoutePage id="/blog/:slug" lazy={BlogPost} />} />
+                <Route path="/contact" element={<RoutePage id="/contact" lazy={Contact} />} />
+                <Route path="/careers" element={<RoutePage id="/careers" lazy={Careers} />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/website-submissions" element={<WebsiteSubmissions />} />
@@ -303,13 +324,22 @@ const App = () => (
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
-            <Suspense fallback={null}>
-              <Chatbot />
-            </Suspense>
-          </BrowserRouter>
-        </TooltipProvider>
-      </AuthProvider>
-    </QueryClientProvider>
+            <ClientOnly>
+              <Suspense fallback={null}>
+                <Chatbot />
+              </Suspense>
+            </ClientOnly>
+    </>
+  );
+}
+
+const App = () => (
+  <HelmetProvider>
+    <AppProviders>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </AppProviders>
   </HelmetProvider>
 );
 

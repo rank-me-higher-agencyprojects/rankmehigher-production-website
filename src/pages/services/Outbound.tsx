@@ -116,20 +116,20 @@ const Outbound = () => {
         <meta property="og:title" content="Instant Lead Capture & Delivery | Rank Me Higher" />
         <meta property="og:description" content="Every site captures leads and texts them to you in seconds — SMS, email, and webhooks included." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://rankmehigher.com/services/outbound" />
+        <meta property="og:url" content="https://rankmehigher.com/services/outbound/" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Instant Lead Delivery | Rank Me Higher" />
         <meta name="twitter:description" content="Leads texted to you in seconds. SMS, email, webhooks — plus a dedicated business number on the $199 plan." />
-        <link rel="canonical" href="https://rankmehigher.com/services/outbound" />
+        <link rel="canonical" href="https://rankmehigher.com/services/outbound/" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Lead Capture & Instant Delivery",
           "provider": { "@type": "Organization", "name": "Rank Me Higher", "url": "https://rankmehigher.com" },
           "description": "Every AI-built website captures leads and delivers them instantly by SMS, email, and webhooks. The $199/mo plan adds a dedicated business phone number and branded email.",
-          "url": "https://rankmehigher.com/services/outbound",
+          "url": "https://rankmehigher.com/services/outbound/",
           "areaServed": "United States",
           "serviceType": "Lead Management"
         })}</script>
@@ -147,7 +147,7 @@ const Outbound = () => {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rankmehigher.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Lead Delivery", "item": "https://rankmehigher.com/services/outbound" }
+            { "@type": "ListItem", "position": 2, "name": "Lead Delivery", "item": "https://rankmehigher.com/services/outbound/" }
           ]
         })}</script>
       </Helmet>

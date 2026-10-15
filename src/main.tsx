@@ -1,6 +1,7 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App.tsx";
+import { preloadPublicRoute } from "./prerender/preload";
 import "./index.css";
 
 // Error boundary component
@@ -38,10 +39,16 @@ class ErrorBoundary extends React.Component<
   }
 }
 
-try {
+async function boot() {
   const rootElement = document.getElementById("root");
   if (!rootElement) {
     throw new Error("Root element not found");
+  }
+
+  const prerendered =
+    rootElement.childElementCount > 0 || (rootElement.textContent || "").trim().length > 0;
+  if (prerendered) {
+    await preloadPublicRoute(window.location.pathname);
   }
 
   const app = (
@@ -52,8 +59,14 @@ try {
     </React.StrictMode>
   );
 
-  createRoot(rootElement).render(app);
-} catch (error) {
+  if (prerendered) {
+    hydrateRoot(rootElement, app);
+  } else {
+    createRoot(rootElement).render(app);
+  }
+}
+
+function showBootError(error: unknown) {
   console.error("Failed to render app:", error);
   const wrapper = document.createElement("div");
   wrapper.setAttribute("style", "padding: 20px; font-family: sans-serif; color: white; background: #0a0a0a; min-height: 100vh;");
@@ -74,3 +87,5 @@ try {
 
   document.body.replaceChildren(wrapper);
 }
+
+boot().catch(showBootError);

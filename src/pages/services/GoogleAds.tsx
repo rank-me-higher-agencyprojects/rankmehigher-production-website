@@ -54,20 +54,20 @@ const GoogleAds = () => {
         <meta property="og:title" content="Google Ads for Local Businesses | Rank Me Higher" />
         <meta property="og:description" content="Google Ads pay off when the click lands on a page built to convert. Start with a free AI-built website." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://rankmehigher.com/services/google-ads" />
+        <meta property="og:url" content="https://rankmehigher.com/services/google-ads/" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Google Ads | Rank Me Higher" />
         <meta name="twitter:description" content="Search campaigns that land on AI-built pages made to convert." />
-        <link rel="canonical" href="https://rankmehigher.com/services/google-ads" />
+        <link rel="canonical" href="https://rankmehigher.com/services/google-ads/" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Google Ads for Local Businesses",
           "provider": { "@type": "Organization", "name": "Rank Me Higher", "url": "https://rankmehigher.com" },
           "description": "Google search campaigns for businesses on the platform, landing on AI-built pages made to convert ad clicks into leads.",
-          "url": "https://rankmehigher.com/services/google-ads",
+          "url": "https://rankmehigher.com/services/google-ads/",
           "areaServed": "United States",
           "serviceType": "Google Ads Management & PPC Advertising"
         })}</script>
@@ -85,7 +85,7 @@ const GoogleAds = () => {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rankmehigher.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Google Ads", "item": "https://rankmehigher.com/services/google-ads" }
+            { "@type": "ListItem", "position": 2, "name": "Google Ads", "item": "https://rankmehigher.com/services/google-ads/" }
           ]
         })}</script>
       </Helmet>
@@ -122,7 +122,7 @@ const GoogleAds = () => {
 
                   {/* H1 + description */}
                   <div className="space-y-4">
-                    <h1 className="text-4xl xl:text-5xl 2xl:text-6xl font-black leading-[1.1] font-orbitron tracking-tight">
+                    <p className="text-4xl xl:text-5xl 2xl:text-6xl font-black leading-[1.1] font-orbitron tracking-tight">
                       <span className="text-foreground">Google Ads That</span>
                       <br />
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-red-500 to-primary animate-gradient-x">
@@ -130,7 +130,7 @@ const GoogleAds = () => {
                       </span>
                       <br />
                       <span className="text-foreground text-3xl xl:text-4xl 2xl:text-5xl">Because The Page Does</span>
-                    </h1>
+                    </p>
                     <p className="text-base xl:text-lg text-muted-foreground max-w-xl leading-relaxed">
                       Search ads put you at the top of Google today — but they pay off only when the click lands on a <strong>fast page built to convert</strong>. The AI builds that page free, in minutes. Then we run <strong>search campaigns</strong> for platform businesses.
                     </p>

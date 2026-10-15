@@ -39,7 +39,7 @@ const BlogPost = () => {
   const firstHalf = contentParts.slice(0, midPoint).join("\n\n");
   const secondHalf = contentParts.slice(midPoint).join("\n\n");
 
-  const shareUrl = `https://rankmehigher.com/blog/${post.slug}`;
+  const shareUrl = `https://rankmehigher.com/blog/${post.slug}/`;
   const isoDate = toISODate(post.date);
 
   const handleShare = async () => {
@@ -59,7 +59,7 @@ const BlogPost = () => {
   // BlogPosting schema
   const blogPostingSchema = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": ["BlogPosting", "Article"],
     "headline": post.title,
     "description": post.excerpt,
     "author": {
@@ -96,13 +96,13 @@ const BlogPost = () => {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://rankmehigher.com"
+        "item": "https://rankmehigher.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": "https://rankmehigher.com/blog"
+        "item": "https://rankmehigher.com/blog/"
       },
       {
         "@type": "ListItem",

@@ -408,13 +408,13 @@ const Careers = () => {
         <meta property="og:title" content="Careers at Rank Me Higher | Remote Marketing, Dev & Automation Jobs" />
         <meta property="og:description" content="Join Rank Me Higher — we're hiring remote talent in media buying, video editing, automation, software engineering, SEO, and sales. Apply now." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://rankmehigher.com/careers" />
+        <meta property="og:url" content="https://rankmehigher.com/careers/" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Careers at Rank Me Higher | Remote Jobs" />
         <meta name="twitter:description" content="We're hiring remote talent in media buying, video editing, automation, software engineering, SEO, and sales. Apply now." />
-        <link rel="canonical" href="https://rankmehigher.com/careers" />
+        <link rel="canonical" href="https://rankmehigher.com/careers/" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ItemList",

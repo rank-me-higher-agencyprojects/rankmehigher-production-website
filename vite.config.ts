@@ -10,6 +10,10 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  ssr: {
+    // CJS packages whose named exports the prerender (SSR) load needs.
+    noExternal: ["react-helmet-async"],
+  },
   server: {
     host: '0.0.0.0',
     port: 5000,

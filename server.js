@@ -732,13 +732,31 @@ const KNOWN_PREFIXES = [
   '/blog/', '/agency/client/', '/avaseo/', '/avabyrankmehigher/'
 ];
 
+function normalizePathname(pathname) {
+  if (pathname.length > 1 && pathname.endsWith('/')) return pathname.slice(0, -1);
+  return pathname;
+}
+
 function isKnownRoute(pathname) {
-  if (KNOWN_ROUTES.has(pathname)) return true;
-  return KNOWN_PREFIXES.some(prefix => pathname.startsWith(prefix));
+  const normalized = normalizePathname(pathname);
+  if (KNOWN_ROUTES.has(normalized)) return true;
+  return KNOWN_PREFIXES.some(prefix => normalized.startsWith(prefix));
+}
+
+// Empty-root SPA document. The prerendered homepage lives in dist/index.html,
+// so private/app routes must not fall back to that file or they would hydrate
+// the marketing homepage.
+function spaShellPath() {
+  const shell = join(__dirname, 'dist', '_shell.html');
+  return fs.existsSync(shell) ? shell : join(__dirname, 'dist', 'index.html');
 }
 
 app.use((req, res) => {
   const pathname = req.path;
+
+  // express.static (above) already served dist/<route>/index.html for the
+  // trailing-slash URL, and 301s a slashless directory request onto it.
+  // These branches cover routes that were not prerendered.
 
   // Try to serve a pre-rendered HTML file for this route
   const prerenderedPath = join(__dirname, 'dist', pathname, 'index.html');
@@ -753,7 +771,7 @@ app.use((req, res) => {
 
   // Known routes that weren't pre-rendered: serve the SPA shell with 200
   if (isKnownRoute(pathname)) {
-    return res.sendFile(join(__dirname, 'dist', 'index.html'));
+    return res.sendFile(spaShellPath());
   }
 
   // Unknown route: serve 404.html with 404 status, or fallback to SPA shell
@@ -761,7 +779,7 @@ app.use((req, res) => {
   if (fs.existsSync(notFoundPath)) {
     return res.status(404).sendFile(notFoundPath);
   }
-  return res.status(404).sendFile(join(__dirname, 'dist', 'index.html'));
+  return res.status(404).sendFile(spaShellPath());
 });
 
 app.listen(PORT, '0.0.0.0', () => {

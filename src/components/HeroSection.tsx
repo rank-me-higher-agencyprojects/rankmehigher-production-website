@@ -1,6 +1,58 @@
+import { useEffect, useRef } from "react";
 import { ArrowRight, Star, XCircle, CheckCircle } from "lucide-react";
 import { Button } from "./ui/button";
-import heroBackground from "@/assets/hero-background.webp";
+
+const HERO_VIDEO_ID = "k4xdzi49er";
+
+// Poster is in the first paint so prerender and hydration match. The player
+// mounts after hydration — a <style> tag in the body gets hoisted by critical
+// CSS inlining and would mismatch the client.
+function HeroWistia() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = ref.current;
+    if (!container) return;
+
+    const player = document.createElement("wistia-player");
+    player.setAttribute("media-id", HERO_VIDEO_ID);
+    player.setAttribute("aspect", "1.7777777777777777");
+    player.style.position = "absolute";
+    player.style.inset = "0";
+    player.style.width = "100%";
+    player.style.height = "100%";
+    container.appendChild(player);
+
+    const sources: Array<[string, string]> = [
+      ["https://fast.wistia.com/player.js", ""],
+      [`https://fast.wistia.com/embed/${HERO_VIDEO_ID}.js`, "module"],
+    ];
+    for (const [src, type] of sources) {
+      if (document.querySelector(`script[src="${src}"]`)) continue;
+      const script = document.createElement("script");
+      script.src = src;
+      script.async = true;
+      if (type) script.type = type;
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      player.remove();
+    };
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        position: "relative",
+        width: "100%",
+        paddingTop: "56.25%",
+        background: `center / cover no-repeat url('https://fast.wistia.com/embed/medias/${HERO_VIDEO_ID}/swatch')`,
+      }}
+    />
+  );
+}
 
 const HeroSection = () => {
 
@@ -9,7 +61,7 @@ const HeroSection = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img 
-          src={heroBackground} 
+          src="/assets/hero-background.webp" 
           alt="Rank Me Higher hero background - Local Map Booster service"
           width={1920}
           height={1080}
@@ -56,11 +108,7 @@ const HeroSection = () => {
           {/* Video - Between headline and subheadline */}
           <div className="animate-fade-in -mx-2 my-2">
             <div className="relative w-full rounded-xl overflow-hidden border border-primary/30 shadow-xl shadow-primary/20">
-              <div 
-                dangerouslySetInnerHTML={{ 
-                  __html: `<style>wistia-player[media-id='k4xdzi49er']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/k4xdzi49er/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="k4xdzi49er" aspect="1.7777777777777777"></wistia-player>` 
-                }} 
-              />
+              <HeroWistia />
             </div>
           </div>
 
@@ -115,7 +163,7 @@ const HeroSection = () => {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-heading font-black text-4xl md:text-5xl lg:text-6xl leading-tight">
+            <p className="font-heading font-black text-4xl md:text-5xl lg:text-6xl leading-tight">
               <span className="text-foreground">Hit </span>
               <span className="text-primary">Top 3</span>
               <span className="text-foreground"> On </span>
@@ -123,7 +171,7 @@ const HeroSection = () => {
               <br />
               <span className="text-foreground">Without Spending A Cent </span>
               <span className="text-primary">On Ads</span>
-            </h1>
+            </p>
 
             {/* Subheadline */}
             <h2 className="font-heading font-bold text-2xl md:text-3xl text-foreground">
@@ -171,11 +219,7 @@ const HeroSection = () => {
                 <div className="absolute -inset-px bg-gradient-to-br from-primary/20 via-transparent to-primary/10 pointer-events-none z-10 rounded-2xl" />
                 
                 {/* Wistia Video Embed - Exact embed code */}
-                <div 
-                  dangerouslySetInnerHTML={{ 
-                    __html: `<style>wistia-player[media-id='k4xdzi49er']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/k4xdzi49er/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style><wistia-player media-id="k4xdzi49er" aspect="1.7777777777777777"></wistia-player>` 
-                  }} 
-                />
+                <HeroWistia />
               </div>
             </div>
           </div>

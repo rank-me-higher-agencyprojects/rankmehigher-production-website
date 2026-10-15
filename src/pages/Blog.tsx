@@ -29,18 +29,18 @@ const Blog = () => {
         <meta property="og:title" content="Local SEO & AI Website Insights | Rank Me Higher Blog" />
         <meta property="og:description" content="Local SEO strategies, Google Maps ranking tips, and AI website insights from the team behind the platform." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://rankmehigher.com/blog" />
+        <meta property="og:url" content="https://rankmehigher.com/blog/" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="SEO Blog | Rank Me Higher" />
         <meta name="twitter:description" content="SEO strategies, local marketing tips, and Google Maps ranking secrets." />
-        <link rel="canonical" href="https://rankmehigher.com/blog" />
+        <link rel="canonical" href="https://rankmehigher.com/blog/" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Blog",
           "name": "Rank Me Higher Blog",
-          "url": "https://rankmehigher.com/blog",
+          "url": "https://rankmehigher.com/blog/",
           "description": "Local SEO strategies, Google Maps ranking tips, and AI website insights from the team behind the Rank Me Higher platform.",
           "publisher": { "@type": "Organization", "name": "Rank Me Higher", "url": "https://rankmehigher.com" }
         })}</script>

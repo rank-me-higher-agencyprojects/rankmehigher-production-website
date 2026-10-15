@@ -1,7 +1,5 @@
 import { ArrowRight, XCircle } from "lucide-react";
 import { Button } from "./ui/button";
-import ernestWindowsTeam from "@/assets/ernest-windows-team.png";
-// import ernestWindowsTeam from "@/assets/ernest-windows-team.png";
 
 const painPoints = [
   { text: "No time, no interest, confusion about online marketing" },

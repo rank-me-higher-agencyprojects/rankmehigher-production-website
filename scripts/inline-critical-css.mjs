@@ -16,10 +16,8 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, '..', 'dist');
 
-async function run() {
-  const htmlPath = path.join(DIST, 'index.html');
+export async function inlineCriticalCss(htmlPath) {
   const html = fs.readFileSync(htmlPath, 'utf-8');
-
   const critters = new Critters({
     path: DIST,
     // Inline critical CSS and async-load the rest via media=print pattern
@@ -30,8 +28,7 @@ async function run() {
     pruneSource: false,
     // Compress the inlined CSS
     compress: true,
-    // Log what's happening
-    logLevel: 'info',
+    logLevel: 'warn',
   });
 
   let result = await critters.process(html);
@@ -43,19 +40,19 @@ async function run() {
   );
 
   fs.writeFileSync(htmlPath, result);
+}
 
-  // Also process 404.html if it exists
+async function run() {
+  await inlineCriticalCss(path.join(DIST, 'index.html'));
   const notFoundPath = path.join(DIST, '404.html');
-  if (fs.existsSync(notFoundPath)) {
-    const notFoundHtml = fs.readFileSync(notFoundPath, 'utf-8');
-    const notFoundResult = await critters.process(notFoundHtml);
-    fs.writeFileSync(notFoundPath, notFoundResult);
-  }
-
+  if (fs.existsSync(notFoundPath)) await inlineCriticalCss(notFoundPath);
   console.log('✅ Critical CSS inlined successfully');
 }
 
-run().catch(err => {
-  console.error('Critical CSS inlining failed:', err);
-  process.exit(1);
-});
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isDirectRun) {
+  run().catch(err => {
+    console.error('Critical CSS inlining failed:', err);
+    process.exit(1);
+  });
+}

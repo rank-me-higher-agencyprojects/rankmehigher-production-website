@@ -1,6 +1,5 @@
 import { Facebook, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.png";
 
 // TikTok icon (not available in lucide-react)
 const TikTokIcon = ({ className }: { className?: string }) => (
@@ -35,7 +34,7 @@ const Footer = () => (
       <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
           <div className="flex items-center gap-3">
-            <img src={logo} alt="Rank Me Higher logo" width={28} height={28} className="h-7 w-7 object-contain" />
+            <img src="/assets/logo.png" alt="Rank Me Higher logo" width={28} height={28} className="h-7 w-7 object-contain" />
             <span className="font-orbitron text-xs font-semibold uppercase tracking-[0.22em] text-foreground">
               Rank Me Higher
             </span>

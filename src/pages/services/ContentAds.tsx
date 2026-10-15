@@ -55,20 +55,20 @@ const ContentAds = () => {
         <meta property="og:title" content="Content & Ads That Land On Pages Built To Convert" />
         <meta property="og:description" content="Your website is the asset every ad clicks to. The AI builds pages that convert ad traffic; ads amplify what already works." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://rankmehigher.com/services/content-ads" />
+        <meta property="og:url" content="https://rankmehigher.com/services/content-ads/" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Content & Ads | Rank Me Higher" />
         <meta name="twitter:description" content="Ads only work when the page converts. The AI builds the page; ads amplify it." />
-        <link rel="canonical" href="https://rankmehigher.com/services/content-ads" />
+        <link rel="canonical" href="https://rankmehigher.com/services/content-ads/" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Content & Ads",
           "provider": { "@type": "Organization", "name": "Rank Me Higher", "url": "https://rankmehigher.com" },
           "description": "AI-built landing pages that convert ad traffic, plus ad campaigns run for businesses on the platform. The website is the asset; ads amplify it.",
-          "url": "https://rankmehigher.com/services/content-ads",
+          "url": "https://rankmehigher.com/services/content-ads/",
           "areaServed": "United States",
           "serviceType": "Content Marketing & Advertising"
         })}</script>
@@ -86,7 +86,7 @@ const ContentAds = () => {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rankmehigher.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Content & Ads", "item": "https://rankmehigher.com/services/content-ads" }
+            { "@type": "ListItem", "position": 2, "name": "Content & Ads", "item": "https://rankmehigher.com/services/content-ads/" }
           ]
         })}</script>
       </Helmet>
@@ -123,7 +123,7 @@ const ContentAds = () => {
 
                   {/* H1 + description */}
                   <div className="space-y-4">
-                    <h1 className="text-4xl xl:text-5xl 2xl:text-6xl font-black leading-[1.1] font-orbitron tracking-tight">
+                    <p className="text-4xl xl:text-5xl 2xl:text-6xl font-black leading-[1.1] font-orbitron tracking-tight">
                       <span className="text-foreground">Ads Only Work When</span>
                       <br />
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-red-500 to-primary animate-gradient-x">
@@ -131,7 +131,7 @@ const ContentAds = () => {
                       </span>
                       <br />
                       <span className="text-foreground text-3xl xl:text-4xl 2xl:text-5xl">We Build That Page.</span>
-                    </h1>
+                    </p>
                     <p className="text-base xl:text-lg text-muted-foreground max-w-xl leading-relaxed">
                       Your website is the asset every ad clicks to. The AI builds <strong>fast, honest pages</strong> with <strong>real business photos</strong> and <strong>instant lead capture</strong> — then ads amplify what already converts. We run campaigns for businesses on the platform.
                     </p>
