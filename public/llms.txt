@@ -1,6 +1,6 @@
 # Rank Me Higher
 
-> Rank Me Higher is the AI-autonomous growth platform for local businesses. The AI researches your market, plans your website, builds it in minutes with real photos and natural AI imagery, texts you progress, and puts it live. You edit anything by chatting with it. One portal, one subscription. Built in Chicago; 40+ real local business websites run on the platform today.
+> Rank Me Higher is the AI-autonomous growth platform for local businesses. The AI researches your market, plans your website, builds it in minutes with real photos and natural AI imagery, texts you progress, and puts it live. You edit anything by chatting with it. One portal, one subscription. Built in Chicago.
 
 ## The Offer
 
@@ -47,7 +47,7 @@ Every website the AI builds ships with: consistent NAP (name, address, phone) on
 
 ## Businesses On The Platform
 
-40+ real local businesses run on the platform, including Off-Tint, KleanAF, LTS Mechanical, ProTeamWorks, Thomas Window Cleaning, TruckClinic, ProRepair, and ES Automotive.
+Published examples are Truck Clinic in Romeoville and QTA Tax in Oak Brook.
 
 ## Contact
 

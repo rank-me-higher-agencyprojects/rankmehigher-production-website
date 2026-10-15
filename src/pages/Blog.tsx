@@ -25,7 +25,7 @@ const Blog = () => {
     <>
       <Helmet>
         <title>Local SEO & AI Website Insights | Rank Me Higher Blog</title>
-        <meta name="description" content="Local SEO strategies, Google Maps ranking tips, and AI website insights — from the team behind the platform running 40+ local business sites." />
+        <meta name="description" content="Local SEO strategies, Google Maps ranking tips, and AI website insights from the Rank Me Higher team." />
         <meta property="og:title" content="Local SEO & AI Website Insights | Rank Me Higher Blog" />
         <meta property="og:description" content="Local SEO strategies, Google Maps ranking tips, and AI website insights from the team behind the platform." />
         <meta property="og:type" content="website" />
@@ -81,7 +81,7 @@ const Blog = () => {
                     </span>
                   </h1>
                   <p className="text-sm text-muted-foreground max-w-md mx-auto lg:mx-0">
-                    Local SEO and AI website insights from the team whose platform runs <strong>40+ local business sites</strong> today.
+                    Local SEO and AI website insights from the Rank Me Higher team.
                   </p>
                 </div>
 

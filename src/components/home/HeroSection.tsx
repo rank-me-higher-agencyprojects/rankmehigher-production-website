@@ -10,12 +10,10 @@ import { EASE, Eyebrow, fadeUp, staggerParent } from "./motion";
  * desktop-only layer behind the frame.
  */
 
-/** Published facts only: 40+ live sites, since 2015. */
+/** Published fact: Rank Me Higher has been in business since 2024. */
 const TrustRow = () => (
   <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/[0.08] pt-4 text-xs text-white/50">
-    <span>40+ live websites</span>
-    <span aria-hidden className="h-3 w-px bg-white/15" />
-    <span>Since 2015</span>
+    <span>Since 2024</span>
   </div>
 );
 

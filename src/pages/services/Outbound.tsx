@@ -78,7 +78,7 @@ const howItWorks = [
 const results = [
   { metric: "Seconds", label: "From Submit To Your Phone" },
   { metric: "3", label: "Delivery Channels: SMS, Email, Webhook" },
-  { metric: "40+", label: "Local Sites Capturing Leads Today" },
+  { metric: "$99", label: "Per month when you go live" },
 ];
 
 const faqItems = [

@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, Star, CheckCircle, XCircle, Play, Search, TrendingUp, MapPin, BarChart3, Target, Repeat } from "lucide-react";
+import { ArrowRight, CheckCircle, XCircle, Play, Search, TrendingUp, MapPin, BarChart3, Target, Repeat } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -94,7 +94,7 @@ const faqItems = [
   },
   {
     question: "Does this really work for local businesses?",
-    answer: "40+ real local businesses run on the platform today — Off-Tint, KleanAF, LTS Mechanical, ProTeamWorks, Thomas Window Cleaning, TruckClinic, ProRepair, ES Automotive and more. Same build process, same local SEO foundation.",
+    answer: "Same build process, same local SEO foundation, on every site the platform builds.",
   },
 ];
 
@@ -164,16 +164,6 @@ const SEO = () => {
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left Column - Text */}
                 <div className="space-y-6">
-                  <div className="flex items-center gap-2">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                      ))}
-                    </div>
-                    <span className="text-muted-foreground text-sm">
-                      40+ Local Business Sites Built This Way
-                    </span>
-                  </div>
 
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <XCircle className="w-5 h-5 text-primary flex-shrink-0" />
