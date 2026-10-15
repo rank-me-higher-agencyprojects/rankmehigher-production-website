@@ -102,7 +102,7 @@ const AdsContent = () => {
         <title>Ads & Content for Local Businesses | Meta Ads, Video Production & Funnels | Rank Me Higher</title>
         <meta 
           name="description" 
-          content="Professional content shoots, Meta ad campaigns, and sales funnels that deliver qualified leads. We come to you, create the content, and run the ads. Book your strategy session." 
+          content="Professional content shoots, Meta ad campaigns, and sales funnels that deliver qualified leads. We come to you, create the content, and run the ads." 
         />
       </Helmet>
       

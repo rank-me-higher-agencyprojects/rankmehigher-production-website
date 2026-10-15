@@ -1,5 +1,4 @@
-import { ArrowRight, Star, XCircle, CheckCircle } from "lucide-react";
-import { Button } from "./ui/button";
+import { Star, XCircle, CheckCircle } from "lucide-react";
 import heroBackground from "@/assets/hero-background.webp";
 import { WistiaPlayer } from "./WistiaVideo";
 
@@ -71,12 +70,6 @@ const HeroSection = () => {
             Local Map Booster optimizes your Google Business Profile — the only <span className="font-bold text-foreground">AI SEO</span> tool that delivers results this fast.
           </p>
 
-          {/* CTA Button */}
-          <Button variant="hero" size="lg" className="group w-full animate-fade-in">
-            Book A Call
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-
           {/* Trust Badge */}
           <div className="flex items-start gap-2 animate-fade-in">
             <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
@@ -134,14 +127,6 @@ const HeroSection = () => {
               <p className="leading-relaxed">
                 Local Map Booster Optimizes Your Google Business Profile And Drives Real Human Activity — The Signals Google Uses To Rank You Higher On Maps. The Only <span className="font-bold text-foreground">AI SEO</span> Tool That Delivers Results This Fast.
               </p>
-            </div>
-
-            {/* CTA Button */}
-            <div className="pt-4">
-              <Button variant="hero" size="xl" className="group">
-                Book A Call
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
             </div>
 
             {/* Trust Badge */}

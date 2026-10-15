@@ -1,5 +1,4 @@
-import { ArrowRight, CheckCircle } from "lucide-react";
-import { Button } from "./ui/button";
+import { CheckCircle } from "lucide-react";
 
 const promiseCards = [
   {
@@ -74,14 +73,6 @@ const OurPromiseSection = () => {
           ))}
         </div>
 
-        {/* CTA Button */}
-        <div className="mb-16">
-          <Button variant="hero" size="lg" className="group">
-            BOOK A CALL
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </div>
-
         {/* Detailed Promise Section */}
         <div className="space-y-8">
           <div className="space-y-2">
@@ -113,13 +104,6 @@ const OurPromiseSection = () => {
             ))}
           </div>
 
-          {/* Final CTA */}
-          <div className="pt-4">
-            <Button variant="hero" size="lg" className="group">
-              BOOK A CALL & GET YOUR LOCAL SEO PLAN
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
         </div>
       </div>
     </section>
