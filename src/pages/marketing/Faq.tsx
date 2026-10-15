@@ -9,7 +9,7 @@ const GROUPS: { title: string; items: { q: string; a: string }[] }[] = [
     items: [
       { q: "Is it really free?", a: "Yes. The AI researches your market, plans your pages and builds your complete website for free. You get a live preview link by text and see the whole thing before paying anything. You only pay when you claim it and put it live on your domain." },
       { q: "How is it built so fast?", a: "The AI knows what a local site needs to rank on Google: the right structure, real service pages and correct local SEO. It researches your market, plans your site, writes the content and builds it in minutes, not weeks." },
-      { q: "What if I already have a website?", a: "The AI studies what you have and builds you a faster site, then your domain moves over when you're ready. If you'd rather start with a review of your current site, request a free website audit." },
+      { q: "What if I already have a website?", a: "The AI studies what you have and builds you a faster site, then your domain moves over when you're ready." },
     ],
   },
   {

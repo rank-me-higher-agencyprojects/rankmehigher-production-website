@@ -19,16 +19,7 @@ export type PortfolioItem = {
 /** The client sites already listed on the homepage marquee. */
 export const PORTFOLIO: PortfolioItem[] = [
   { name: "Truck Clinic", trade: "Truck Repair", city: "Romeoville, IL", img: "/truckclinic.webp", url: "https://truckclinic.com/" },
-  { name: "Off-Tint", trade: "PPF & Tinting", city: "Lisle, IL", img: "/off-tint-screenshot.webp", url: "https://off-tint.com/" },
   { name: "QTA Tax", trade: "Tax & Accounting", city: "Oak Brook, IL", img: "/images/portfolio-qtatax.webp", url: "https://qtatax.com/" },
-  { name: "Pro Repair", trade: "Truck Repair", city: "Lockport, IL", img: "/images/portfolio-pro-repair.webp" },
-  { name: "LTS Mechanical", trade: "Truck Repair", city: "Romeoville, IL", img: "/images/portfolio-lts-mechanical.webp" },
-  { name: "XXII Century", trade: "Trucking", city: "Chicago, IL", img: "/goxxii.webp" },
-  { name: "Midwest Express", trade: "Trucking", city: "Chicago, IL", img: "/images/portfolio-midwest-express.webp" },
-  { name: "Property Refresh", trade: "Maid Service", city: "Chicago, IL", img: "/images/portfolio-property-refresh-maids.webp" },
-  { name: "Chicago Valley", trade: "Video Production", city: "Chicago, IL", img: "/images/portfolio-chicago-valley.webp" },
-  { name: "Klean AF", trade: "Cleaning", city: "San Diego, CA", img: "/kleanaf.webp" },
-  { name: "Paddock Parking", trade: "Storage Yard", city: "Phoenix, AZ", img: "/images/portfolio-paddock-parking.webp" },
 ];
 
 export type CaseStudy = {
@@ -62,21 +53,6 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Trust points drivers care about: a written quote before work starts and a 65+ person team",
     ],
     source: "truckclinic.com",
-  },
-  {
-    id: "off-tint",
-    name: "Off-Tint",
-    trade: "Window tint & paint protection film",
-    city: "Lisle, IL",
-    url: "https://off-tint.com/",
-    img: "/off-tint-screenshot.webp",
-    business:
-      "An automotive film and protection shop in Lisle offering window tinting, paint protection film (PPF), ceramic coating and interior detailing.",
-    onTheSite: [
-      "Services covered: window tinting, paint protection film (PPF), ceramic coating and interior detailing",
-      "Built on the same platform and local-SEO structure as every Rank Me Higher site",
-    ],
-    source: "Rank Me Higher client records",
   },
   {
     id: "qta-tax",
@@ -117,7 +93,7 @@ export const TRADES: Trade[] = [
     plural: "truck repair shops",
     title: "Truck Repair Shop Websites, $99/mo | Rank Me Higher",
     description:
-      "Websites for diesel and commercial truck repair shops in Chicagoland. Built by AI, edited by text, from $99/mo. See Truck Clinic, Pro Repair and LTS Mechanical.",
+      "Websites for diesel and commercial truck repair shops in Chicagoland. Built by AI, edited by text, from $99/mo. See Truck Clinic.",
     h1: "Websites for truck repair shops",
     intro:
       "Drivers and fleet managers with a truck down are searching on a phone, often from the shoulder of I-55 or I-80. They need your number, your hours, the services you handle and proof you're real, in about five seconds. That is what a truck repair site has to do, and it's what we build.",
@@ -136,7 +112,7 @@ export const TRADES: Trade[] = [
       "\"We now do DOT inspections on Saturdays, add that to the DOT page.\"",
       "\"Add a banner: closed Thanksgiving, open Friday 7am.\"",
     ],
-    examples: ["Truck Clinic", "Pro Repair", "LTS Mechanical"],
+    examples: ["Truck Clinic"],
   },
 ];
 
@@ -160,16 +136,16 @@ export const SUBURBS: Suburb[] = [
     county: "Will County",
     title: "Websites for Romeoville, IL Businesses, $99/mo | Rank Me Higher",
     description:
-      "AI-built websites for Romeoville contractors and truck repair shops. Truck Clinic and LTS Mechanical run on Rank Me Higher. Free build, $99/mo to go live.",
+      "AI-built websites for Romeoville contractors and truck repair shops. Truck Clinic runs on Rank Me Higher. Free build, $99/mo to go live.",
     h1: "Websites for Romeoville businesses",
     intro:
-      "Romeoville sits on I-55 with a heavy concentration of logistics, warehousing and truck service businesses. Two Romeoville truck repair shops already run their sites on Rank Me Higher, so we know what searches like \"truck repair near I-55\" need to see.",
+      "Romeoville sits on I-55 with a heavy concentration of logistics, warehousing and truck service businesses. Truck Clinic, a Romeoville truck repair shop, already runs its site on Rank Me Higher, so we know what searches like \"truck repair near I-55\" need to see.",
     local: [
       "Mention the I-55 exits and roads drivers actually use to reach you",
       "Spell out truck parking, bay count and hours, which fleet customers check first",
       "Cover the neighboring towns you also serve, like Bolingbrook, Lockport and Plainfield",
     ],
-    clients: ["Truck Clinic", "LTS Mechanical"],
+    clients: ["Truck Clinic"],
     trades: ["truck-repair"],
   },
 ];

@@ -486,7 +486,6 @@ const Index = () => {
                     <li><Link to="/examples/" className="text-white/75 hover:text-primary">Client examples &amp; case studies</Link></li>
                     <li><Link to="/ai-website-editor/" className="text-white/75 hover:text-primary">The AI website editor</Link></li>
                     <li><Link to="/pricing/" className="text-white/75 hover:text-primary">Pricing</Link></li>
-                    <li><Link to="/free-website-audit/" className="text-white/75 hover:text-primary">Free website audit</Link></li>
                     <li><Link to="/faq/" className="text-white/75 hover:text-primary">FAQ</Link></li>
                   </ul>
                 </div>

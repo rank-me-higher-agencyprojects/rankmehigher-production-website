@@ -33,8 +33,8 @@ export const CtaBlock = ({ title = "See your free website before you pay anythin
       </div>
       <p className="mt-6 text-sm text-white/45">
         Or compare <Link to="/pricing/" className="underline underline-offset-4 hover:text-white/80">plans and pricing</Link>, see{" "}
-        <Link to="/examples/" className="underline underline-offset-4 hover:text-white/80">real client sites</Link>, or get a{" "}
-        <Link to="/free-website-audit/" className="underline underline-offset-4 hover:text-white/80">free audit of your current site</Link>.
+        <Link to="/examples/" className="underline underline-offset-4 hover:text-white/80">real client sites</Link>, or{" "}
+        <Link to="/contact/" className="underline underline-offset-4 hover:text-white/80">contact us</Link>.
       </p>
     </div>
   </section>

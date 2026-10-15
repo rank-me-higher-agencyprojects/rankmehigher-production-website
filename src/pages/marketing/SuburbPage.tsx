@@ -73,7 +73,7 @@ const SuburbPage = ({ slug }: { slug: string }) => {
           Answer 6 questions about your business. The AI researches {town.name} and your competitors, writes your pages and builds the site, then
           texts you the live link. You see the whole thing free. $99/mo when you put it live, and after that you change anything by chatting with the
           AI. <Link to="/pricing/" className="text-primary underline underline-offset-4">See pricing</Link> or{" "}
-          <Link to="/free-website-audit/" className="text-primary underline underline-offset-4">get a free audit of your current site</Link>.
+          <a href="/#free-website" className="text-primary underline underline-offset-4">get your free website</a>.
         </p>
         {SUBURBS.filter((s) => s.slug !== town.slug).length > 0 && (
           <p className="mt-4 text-sm">

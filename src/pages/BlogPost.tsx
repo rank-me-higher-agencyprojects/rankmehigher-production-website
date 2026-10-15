@@ -260,9 +260,8 @@ const BlogPost = () => {
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               Rank Me Higher builds contractors and local businesses a complete website with AI, free to preview and $99/mo when it goes live.
               You edit it by chatting with the AI. See <Link to="/pricing/" className="text-red-400 underline underline-offset-4">pricing</Link>,{" "}
-              <Link to="/examples/" className="text-red-400 underline underline-offset-4">real client sites</Link>,{" "}
-              <Link to="/ai-website-editor/" className="text-red-400 underline underline-offset-4">how the AI editor works</Link>, or{" "}
-              <Link to="/free-website-audit/" className="text-red-400 underline underline-offset-4">get a free audit of your current site</Link>.
+              <Link to="/examples/" className="text-red-400 underline underline-offset-4">real client sites</Link>, or{" "}
+              <Link to="/ai-website-editor/" className="text-red-400 underline underline-offset-4">how the AI editor works</Link>.
             </p>
             <p className="mt-3 text-sm text-muted-foreground">
               Websites for <Link to="/websites-for/truck-repair/" className="underline underline-offset-4">truck repair shops</Link> and{" "}

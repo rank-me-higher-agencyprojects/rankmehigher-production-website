@@ -17,7 +17,6 @@ const SERVICES = [
   { label: "SEO Services", href: "/services/seo/" },
   { label: "Outbound Sales Agents", href: "/services/outbound/" },
   { label: "AI Website Editor", href: "/ai-website-editor/" },
-  { label: "Free Website Audit", href: "/free-website-audit/" },
 ];
 
 const TRADES_AREAS = [
