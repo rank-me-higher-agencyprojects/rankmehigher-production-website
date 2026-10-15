@@ -28,7 +28,7 @@ Think about it: when you search for a local business, how often do you scroll pa
 
 This isn’t just about visibility — it’s about **dominating your local market** and turning searchers into paying customers. The businesses that master Google Maps optimization don’t just get leads; they grow sustainably, build brand trust, and fend off competitors. In fact, businesses featured in the Google 3-Pack receive up to **700% more clicks and calls** than those buried in regular search results or on directories.
 
-Over the past decade, we’ve seen Google Maps evolve from a simple navigation tool into a full-fledged local search engine with its own ranking algorithm, user interface, and engagement metrics. With the rise of mobile search, voice assistants, and “near me” queries, the importance of Google Maps has skyrocketed.
+Google Maps has evolved from a simple navigation tool into a full-fledged local search engine with its own ranking algorithm, user interface, and engagement metrics. With the rise of mobile search, voice assistants, and “near me” queries, the importance of Google Maps has skyrocketed.
 
 ### The Changing Landscape of Local Search in 2025
 
@@ -2139,7 +2139,7 @@ By implementing these website must-haves, your service business will stand out i
 
 ## The Template Era Is Over: Why It’s Time to Move On
 
-Let’s cut to the chase — for the last decade, local businesses have been told a simple story: *“Just pick a template, drag and drop some blocks, and your website will be ready in 20 minutes.”* Platforms like Wix, Squarespace, and WordPress page builders popularized this no-code revolution and made website creation accessible to anyone.
+Let’s cut to the chase — local businesses have long been told a simple story: *“Just pick a template, drag and drop some blocks, and your website will be ready in 20 minutes.”* Platforms like Wix, Squarespace, and WordPress page builders popularized this no-code revolution and made website creation accessible to anyone.
 
 And for many, it worked. For a while.
 

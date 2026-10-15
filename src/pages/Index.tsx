@@ -131,7 +131,7 @@ const Index = () => {
           "address": { "@type": "PostalAddress", "streetAddress": "1 N State St Ste 1515", "addressLocality": "Chicago", "addressRegion": "IL", "postalCode": "60602", "addressCountry": "US" },
           "telephone": "+17735724686",
           "sameAs": ["https://www.facebook.com/rankmehigherseo", "https://instagram.com/rankmehigherseo", "https://www.tiktok.com/@rankmehigher", "https://agencies.semrush.com/rank-me-higher/"],
-          "foundingDate": "2015",
+          "foundingDate": "2024",
           "numberOfEmployees": { "@type": "QuantitativeValue", "value": "10-50" },
           "serviceArea": { "@type": "Place", "name": "United States" }
         })}</script>
