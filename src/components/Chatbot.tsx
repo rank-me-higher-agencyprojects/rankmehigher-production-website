@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
-import { X, Send, User, Sparkles, PhoneOff, MessageSquare, Calendar, Brain, GripVertical, Gift } from "lucide-react";
+import { X, Send, User, Sparkles, PhoneOff, MessageSquare, Brain, GripVertical, Gift } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import AvaAvatar from "@/components/agency/AvaAvatar";
 
@@ -100,14 +100,6 @@ const useDraggable = (initialPosition: { x: number; y: number }) => {
   return { position, isDragging, handleMouseDown, handleTouchStart, shouldAllowClick };
 };
 
-// Declare Calendly global type
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string }) => void;
-    };
-  }
-}
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { ScrollArea } from "./ui/scroll-area";
@@ -182,16 +174,7 @@ const ENGAGEMENT_INTERVALS = [2 * 60 * 1000, 3.5 * 60 * 1000, 5 * 60 * 1000]; //
 
 const AVA_INTRO = `Hey! 👋 How can I help you today?`;
 
-const CALENDLY_URL = "https://calendly.com/andrius-cdlagency/andrius-digital-asap-meeting";
 const LEAD_MAGNET_URL = "https://rankmehigher.com/?qualify=true";
-
-const openCalendly = () => {
-  if (window.Calendly) {
-    window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-  } else {
-    window.open(CALENDLY_URL, '_blank');
-  }
-};
 
 const openLeadMagnet = () => {
   window.open(LEAD_MAGNET_URL, '_blank');
@@ -974,15 +957,7 @@ And what kind of services are you looking into? Just so they know what you're af
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                   </button>
 
-                  {/* Bottom action buttons */}
                   <div className="flex items-center gap-3">
-                    <button
-                      onClick={openCalendly}
-                      className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-cyan-500/30 text-white/50 hover:text-white text-xs transition-all"
-                    >
-                      <Calendar className="w-3.5 h-3.5" />
-                      <span>Book a Call</span>
-                    </button>
                     <button
                       onClick={openLeadMagnet}
                       className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20 hover:border-cyan-500/40 text-cyan-400/70 hover:text-cyan-300 text-xs transition-all"
@@ -1085,25 +1060,16 @@ And what kind of services are you looking into? Just so they know what you're af
                       End Call
                     </button>
 
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => {
-                          endVoiceCall();
-                          setShowTextMode(true);
-                        }}
-                        className="flex-1 flex items-center justify-center gap-1.5 h-8 rounded-lg bg-transparent hover:bg-white/5 border border-white/10 hover:border-cyan-500/30 text-white/40 hover:text-white text-xs transition-all"
-                      >
-                        <MessageSquare className="w-3.5 h-3.5" />
-                        Text mode
-                      </button>
-                      <button
-                        onClick={openCalendly}
-                        className="flex-1 flex items-center justify-center gap-1.5 h-8 rounded-lg bg-transparent hover:bg-cyan-500/5 border border-cyan-500/15 hover:border-cyan-500/30 text-cyan-400/50 hover:text-cyan-300 text-xs transition-all"
-                      >
-                        <Calendar className="w-3.5 h-3.5" />
-                        Book a call
-                      </button>
-                    </div>
+                    <button
+                      onClick={() => {
+                        endVoiceCall();
+                        setShowTextMode(true);
+                      }}
+                      className="w-full flex items-center justify-center gap-1.5 h-8 rounded-lg bg-transparent hover:bg-white/5 border border-white/10 hover:border-cyan-500/30 text-white/40 hover:text-white text-xs transition-all"
+                    >
+                      <MessageSquare className="w-3.5 h-3.5" />
+                      Text mode
+                    </button>
                   </div>
                 </div>
               )}
@@ -1199,13 +1165,6 @@ And what kind of services are you looking into? Just so they know what you're af
                       >
                         <Sparkles className="w-3 h-3" />
                         Menu
-                      </button>
-                      <button
-                        onClick={openCalendly}
-                        className="flex items-center gap-1 px-3 py-1 rounded-md bg-white/5 hover:bg-white/10 border border-white/5 text-white/40 hover:text-white text-[11px] transition-all"
-                      >
-                        <Calendar className="w-3 h-3" />
-                        Book Call
                       </button>
                       <button
                         onClick={openLeadMagnet}
@@ -1355,13 +1314,6 @@ And what kind of services are you looking into? Just so they know what you're af
                       >
                         <Sparkles className="w-3 h-3" />
                         Menu
-                      </button>
-                      <button
-                        onClick={openCalendly}
-                        className="flex items-center gap-1 px-3 py-1 rounded-md bg-white/5 hover:bg-white/10 border border-white/5 text-white/40 hover:text-white text-[11px] transition-all"
-                      >
-                        <Calendar className="w-3 h-3" />
-                        Book Call
                       </button>
                       <button
                         onClick={openLeadMagnet}

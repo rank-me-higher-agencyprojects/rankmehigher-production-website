@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, Star, CheckCircle, XCircle, Play, Phone, Users, Calendar, DollarSign, RefreshCw, Headphones } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Star, CheckCircle, XCircle, Play, Phone, Users, Calendar, DollarSign, RefreshCw, Headphones } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -9,16 +8,6 @@ import {
 } from "@/components/ui/accordion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string }) => void;
-    };
-  }
-}
-
-const CALENDLY_URL = "https://calendly.com/andrius-cdlagency/andrius-digital-asap-meeting";
 
 const painPoints = [
   "You have a database of past customers who never came back",
@@ -117,14 +106,6 @@ const faqItems = [
 ];
 
 const Outbound = () => {
-  const openCalendly = () => {
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-    } else {
-      window.open(CALENDLY_URL, '_blank');
-    }
-  };
-
   return (
     <>
       <Helmet>
@@ -188,11 +169,6 @@ const Outbound = () => {
                   <p className="text-muted-foreground leading-relaxed">
                     Your past customers already trust you. Our <span className="font-semibold text-foreground">trained live agents</span> call them, remind them it's time for service, and <span className="font-semibold text-foreground">book appointments directly to your calendar</span>. You just show up and do the work.
                   </p>
-
-                  <Button onClick={openCalendly} variant="hero" size="xl" className="group">
-                    Book Your Strategy Call
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
 
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -346,12 +322,8 @@ const Outbound = () => {
                 Ready To Reactivate Your Customer Database?
               </h2>
               <p className="text-muted-foreground text-lg mb-8">
-                Book a call and we'll show you exactly how many past customers we can bring back — with guaranteed ROI.
+                We'll show you exactly how many past customers we can bring back — with guaranteed ROI.
               </p>
-              <Button onClick={openCalendly} variant="hero" size="xl" className="group">
-                Book Your Strategy Call
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
               <p className="text-muted-foreground text-sm mt-4">
                 Deploy in 2 days • Live human agents • Guaranteed ROI
               </p>

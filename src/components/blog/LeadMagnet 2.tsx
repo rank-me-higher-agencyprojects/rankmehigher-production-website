@@ -1,4 +1,4 @@
-import { ArrowRight, Phone, Sparkles, Calendar } from "lucide-react";
+import { Phone, Sparkles } from "lucide-react";
 
 const LeadMagnet = () => {
   return (
@@ -26,18 +26,6 @@ const LeadMagnet = () => {
         </p>
         
         <div className="flex flex-wrap justify-center gap-4">
-          <button 
-            onClick={() => window.open('https://calendly.com/andrius-cdlagency/andrius-digital-asap-meeting', '_blank')}
-            className="group relative px-8 py-4 rounded-2xl bg-red-500/10 backdrop-blur-md border border-red-500/30 text-white font-bold text-base shadow-lg hover:shadow-2xl hover:shadow-red-500/30 hover:bg-red-500/20 hover:border-red-500/50 hover:scale-[1.02] transition-all duration-300 font-orbitron overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/10 to-red-500/0 group-hover:from-red-500/10 group-hover:via-red-500/20 group-hover:to-red-500/10 transition-all duration-500" />
-            <div className="relative flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-red-400" />
-              <span>Book a Call Today</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </button>
-          
           <a 
             href="tel:773-572-4686" 
             className="group relative px-8 py-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/20 text-white font-bold text-base hover:bg-white/10 hover:border-white/30 hover:scale-[1.02] transition-all duration-300 font-orbitron overflow-hidden"

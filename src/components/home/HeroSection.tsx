@@ -10,24 +10,9 @@ import { EASE, Eyebrow, fadeUp, staggerParent } from "./motion";
  * desktop-only layer behind the frame.
  */
 
-/** Published facts only: Trustpilot 5.0 / 54 reviews, 40+ live sites, since 2015. */
+/** Published facts only: 40+ live sites, since 2015. */
 const TrustRow = () => (
   <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/[0.08] pt-4 text-xs text-white/50">
-    <a
-      href="https://www.trustpilot.com/review/rankmehigher.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex items-center gap-2 transition-colors hover:text-white/80"
-    >
-      <span aria-hidden className="text-[11px] tracking-[0.15em] text-amber-300/70">
-        ★★★★★
-      </span>
-      <span>
-        <span className="font-semibold text-white/80">5.0</span> — 54 client reviews
-      </span>
-      <span className="text-white/35 transition-colors group-hover:text-white/60">Trustpilot</span>
-    </a>
-    <span aria-hidden className="hidden h-3 w-px bg-white/15 sm:block" />
     <span>40+ live websites</span>
     <span aria-hidden className="h-3 w-px bg-white/15" />
     <span>Since 2015</span>

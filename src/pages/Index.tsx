@@ -130,7 +130,7 @@ const Index = () => {
           "description": "The AI-autonomous growth platform for local businesses. The AI researches your market, builds a local-SEO-correct website in minutes, texts you the live link, and you edit anything by chatting with it. One portal, one subscription.",
           "address": { "@type": "PostalAddress", "streetAddress": "1 N State St Ste 1515", "addressLocality": "Chicago", "addressRegion": "IL", "postalCode": "60602", "addressCountry": "US" },
           "telephone": "+17735724686",
-          "sameAs": ["https://www.facebook.com/rankmehigherseo", "https://instagram.com/rankmehigherseo", "https://www.tiktok.com/@rankmehigher", "https://www.trustpilot.com/review/rankmehigher.com", "https://agencies.semrush.com/rank-me-higher/"],
+          "sameAs": ["https://www.facebook.com/rankmehigherseo", "https://instagram.com/rankmehigherseo", "https://www.tiktok.com/@rankmehigher", "https://agencies.semrush.com/rank-me-higher/"],
           "foundingDate": "2015",
           "numberOfEmployees": { "@type": "QuantitativeValue", "value": "10-50" },
           "serviceArea": { "@type": "Place", "name": "United States" }
@@ -153,8 +153,7 @@ const Index = () => {
           "url": "https://rankmehigher.com",
           "priceRange": "$$",
           "openingHours": "Mo-Fr 09:00-17:00",
-          "sameAs": ["https://www.facebook.com/rankmehigherseo", "https://instagram.com/rankmehigherseo", "https://www.tiktok.com/@rankmehigher", "https://www.trustpilot.com/review/rankmehigher.com", "https://agencies.semrush.com/rank-me-higher/"],
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "54", "bestRating": "5", "worstRating": "1" }
+          "sameAs": ["https://www.facebook.com/rankmehigherseo", "https://instagram.com/rankmehigherseo", "https://www.tiktok.com/@rankmehigher", "https://agencies.semrush.com/rank-me-higher/"]
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

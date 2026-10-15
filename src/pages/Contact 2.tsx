@@ -10,7 +10,6 @@ import {
   ArrowRight, 
   CheckCircle2, 
   MessageSquare,
-  Calendar,
   Globe,
   Shield
 } from "lucide-react";
@@ -382,7 +381,7 @@ const Contact = () => {
                 </div>
 
                 {/* Quick Actions */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   <a
                     href="tel:773-572-4686"
                     className="group p-6 rounded-2xl bg-red-500/10 backdrop-blur-md border border-red-500/30 hover:bg-red-500/20 hover:border-red-500/50 transition-all text-center"
@@ -391,14 +390,6 @@ const Contact = () => {
                     <p className="font-orbitron font-bold text-foreground text-sm">Call Now</p>
                     <p className="text-xs text-muted-foreground">Instant response</p>
                   </a>
-                  <button
-                    onClick={() => window.open('https://calendly.com/andrius-cdlagency/andrius-digital-asap-meeting', '_blank')}
-                    className="group p-6 rounded-2xl bg-cyan-500/10 backdrop-blur-md border border-cyan-500/30 hover:bg-cyan-500/20 hover:border-cyan-500/50 transition-all text-center"
-                  >
-                    <Calendar className="w-8 h-8 text-cyan-400 mx-auto mb-2" />
-                    <p className="font-orbitron font-bold text-foreground text-sm">Book a Call</p>
-                    <p className="text-xs text-muted-foreground">Schedule meeting</p>
-                  </button>
                 </div>
               </div>
             </div>
@@ -418,7 +409,7 @@ const Contact = () => {
                 Two Locations to <span className="text-primary">Serve You</span>
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Strategically located in Chicago and Mundelein to serve businesses across Illinois and beyond. Visit us or schedule a virtual consultation.
+                Strategically located in Chicago and Mundelein to serve businesses across Illinois and beyond.
               </p>
             </div>
 

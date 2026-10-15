@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { ArrowRight, Globe, Search, MapPin, Phone, Megaphone, Play, Instagram, Mail, Calendar, Star, CheckCircle2, Sparkles, Brain } from "lucide-react";
+import { ArrowRight, Globe, Search, MapPin, Phone, Megaphone, Play, Instagram, Mail, Star, CheckCircle2, Sparkles, Brain } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FuturisticWrapper from "@/components/ui/FuturisticWrapper";
@@ -52,17 +52,6 @@ const services = [
   },
 ];
 
-// Declare Calendly global type
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string }) => void;
-    };
-  }
-}
-
-const CALENDLY_URL = "https://calendly.com/andrius-cdlagency/andrius-digital-asap-meeting";
-
 const Index = () => {
   const [isAvaDialogOpen, setIsAvaDialogOpen] = useState(false);
   const [isQualifyDialogOpen, setIsQualifyDialogOpen] = useState(false);
@@ -82,14 +71,6 @@ const Index = () => {
     googleBusinessProfile: ''
   });
   const { toast } = useToast();
-
-  const openCalendly = () => {
-    if (window.Calendly) {
-      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-    } else {
-      window.open(CALENDLY_URL, '_blank');
-    }
-  };
 
   const handleWaitlistSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -265,16 +246,6 @@ const Index = () => {
                         <span>Free Website Qualification</span>
                       </div>
                     </button>
-                    <button
-                      onClick={openCalendly}
-                      className="group relative px-7 py-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/20 text-white font-bold text-base hover:bg-white/10 hover:border-white/30 hover:shadow-lg hover:shadow-white/10 hover:scale-[1.02] transition-all duration-300 font-orbitron overflow-hidden"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 group-hover:from-white/5 group-hover:via-white/10 group-hover:to-white/5 transition-all duration-500" />
-                      <span className="relative flex items-center justify-center gap-2">
-                        Book a Call
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                      </span>
-                    </button>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-border/40">
@@ -382,16 +353,6 @@ const Index = () => {
                 <span className="relative z-10">See If You Qualify</span>
               </button>
               
-              <button
-                onClick={openCalendly}
-                className="group w-full px-5 py-[14px] rounded-xl bg-white/5 backdrop-blur-md border-2 border-white/20 text-white font-bold text-sm hover:bg-white/10 hover:border-white/30 hover:shadow-lg hover:shadow-white/10 active:scale-[0.98] transition-all duration-300 font-orbitron flex items-center justify-center gap-2 relative overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 group-hover:from-white/5 group-hover:via-white/10 group-hover:to-white/5 transition-all duration-500" />
-                <span className="relative z-10 flex items-center gap-2">
-                  Book a Call
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </button>
             </div>
 
             {/* Trust Badge - Simple */}
