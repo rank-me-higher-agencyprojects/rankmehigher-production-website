@@ -232,8 +232,8 @@ const GoogleAds = () => {
                       <div className="text-xs text-muted-foreground">Lead To Your Phone</div>
                     </div>
                     <div className="p-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 text-center">
-                      <div className="text-2xl font-bold text-green-400 font-orbitron">40+</div>
-                      <div className="text-xs text-muted-foreground">Sites On The Platform</div>
+                      <div className="text-2xl font-bold text-green-400 font-orbitron">$99</div>
+                      <div className="text-xs text-muted-foreground">Per month to go live</div>
                     </div>
                   </div>
                 </div>
@@ -338,7 +338,7 @@ const GoogleAds = () => {
             {/* Trust badge */}
             <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
               <CheckCircle2 className="w-3.5 h-3.5 text-green-400" />
-              <span className="font-orbitron">Running 40+ real local business websites</span>
+              <span className="font-orbitron">Local business websites, built on one platform</span>
             </div>
           </section>
 

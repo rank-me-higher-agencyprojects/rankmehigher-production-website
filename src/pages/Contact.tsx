@@ -309,7 +309,7 @@ const Contact = () => {
                   <div className="space-y-2.5">
                     {[
                       "AI builds your website in minutes, free",
-                      "40+ local businesses on the platform",
+                      "See your website before you pay",
                       "Edit anything by chatting with the AI",
                       "Leads texted to you in seconds",
                       "Chicago-based, meet us in person",
@@ -387,7 +387,7 @@ const Contact = () => {
                 </p>
 
                 <p>
-                  <strong className="text-foreground">40+ real local businesses</strong> already run on the platform — Off-Tint, KleanAF, LTS Mechanical, ProTeamWorks, Thomas Window Cleaning, TruckClinic, ProRepair, ES Automotive and more. Plans start at <strong className="text-foreground">$99/mo</strong>; $149/mo adds Google Business Profile optimization, and $199/mo adds a review generator with a dedicated business phone and branded email.
+                  Plans start at <strong className="text-foreground">$99/mo</strong>; $149/mo adds Google Business Profile optimization, and $199/mo adds a review generator with a dedicated business phone and branded email.
                 </p>
 
                 <p>
@@ -397,7 +397,7 @@ const Contact = () => {
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                 {[
-                  { label: "Sites on the Platform", value: "40+" },
+                  { label: "Founded", value: "2024" },
                   { label: "To See Your Site", value: "$0" },
                   { label: "Build Time", value: "Minutes" },
                   { label: "Starting Plan", value: "$99/mo" }

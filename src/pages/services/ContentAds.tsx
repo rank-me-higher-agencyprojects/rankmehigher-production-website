@@ -117,7 +117,7 @@ const ContentAds = () => {
                       ))}
                     </div>
                     <span className="text-sm text-muted-foreground font-orbitron">
-                      <span className="text-foreground font-bold">40+ local business sites</span> run on the <span className="text-primary font-bold">platform</span>
+                      Ads land on <span className="text-foreground font-bold">pages built to convert</span>
                     </span>
                   </div>
 
@@ -225,8 +225,8 @@ const ContentAds = () => {
                   {/* Three stat cards — exact structure from homepage */}
                   <div className="grid grid-cols-3 gap-3">
                     <div className="p-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 text-center">
-                      <div className="text-2xl font-bold text-green-400 font-orbitron">40+</div>
-                      <div className="text-xs text-muted-foreground">Live Business Sites</div>
+                      <div className="text-2xl font-bold text-green-400 font-orbitron">$99</div>
+                      <div className="text-xs text-muted-foreground">When you go live</div>
                     </div>
                     <div className="p-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 text-center">
                       <div className="text-2xl font-bold text-primary font-orbitron">Minutes</div>
@@ -253,7 +253,7 @@ const ContentAds = () => {
                 ))}
               </div>
               <span className="text-sm text-muted-foreground font-orbitron">
-                <span className="text-foreground font-bold">40+ sites</span> on the <span className="text-primary font-bold">platform</span>
+                Ads land on <span className="text-foreground font-bold">pages built to convert</span>
               </span>
             </div>
 
@@ -339,7 +339,7 @@ const ContentAds = () => {
             {/* Trust badge */}
             <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
               <CheckCircle2 className="w-3.5 h-3.5 text-green-400" />
-              <span className="font-orbitron">Running 40+ real local business websites</span>
+              <span className="font-orbitron">Local business websites, built on one platform</span>
             </div>
           </section>
 
@@ -397,7 +397,7 @@ const ContentAds = () => {
                   Most agencies sell you ads first and ask questions later. We do it in order: the AI builds your <strong className="text-foreground">website</strong> — free, in minutes — with <strong className="text-foreground">local SEO</strong> and <strong className="text-foreground">lead capture</strong> built in. Ads come after, landing on a page that actually converts.
                 </p>
                 <p className="text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                  Off-Tint, KleanAF, LTS Mechanical, ProTeamWorks, TruckClinic and <strong className="text-foreground">40+ other local businesses</strong> already run on the platform.
+                  Local businesses already run their sites on the platform.
                 </p>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, Star, CheckCircle, XCircle, Play, Globe, Bot, Zap, Clock, Shield, MessageSquare } from "lucide-react";
+import { ArrowRight, CheckCircle, XCircle, Play, Globe, Bot, Zap, Clock, Shield, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -82,7 +82,7 @@ const faqItems = [
   },
   {
     question: "How can an AI build a real website in minutes?",
-    answer: "The platform already runs 40+ real local business websites — Off-Tint, KleanAF, LTS Mechanical, ProTeamWorks, Thomas Window Cleaning, TruckClinic and more. The AI follows the same playbook every time: research your market, plan the pages, build with correct local SEO, then text you the result. It's not a template — it's a build, done fast.",
+    answer: "The AI follows the same playbook every time: research your market, plan the pages, build with correct local SEO, then text you the result. It's not a template — it's a build, done fast.",
   },
   {
     question: "What if I want to change something?",
@@ -165,18 +165,6 @@ const Websites = () => {
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left Column - Text */}
                 <div className="space-y-6">
-                  {/* Star Rating */}
-                  <div className="flex items-center gap-2">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                      ))}
-                    </div>
-                    <span className="text-muted-foreground text-sm">
-                      40+ Local Businesses Run On The Platform
-                    </span>
-                  </div>
-
                   {/* Pain Point */}
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <XCircle className="w-5 h-5 text-primary flex-shrink-0" />
@@ -281,7 +269,7 @@ const Websites = () => {
                   What The AI Builds Into <span className="text-primary">Every Website</span>
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Not a template — a researched, local-SEO-correct build that runs 40+ real businesses today.
+                  Not a template — a researched, local-SEO-correct build.
                 </p>
               </div>
 

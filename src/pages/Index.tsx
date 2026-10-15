@@ -31,7 +31,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How is it built so fast?",
-    a: "The platform already runs 40+ live local business websites, so the AI knows exactly what a local site needs to rank on Google: the right structure, real service pages, correct local SEO. It researches your market, plans your site, writes the content, and builds it — in minutes, not weeks.",
+    a: "The AI knows exactly what a local site needs to rank on Google: the right structure, real service pages, correct local SEO. It researches your market, plans your site, writes the content, and builds it — in minutes, not weeks.",
   },
   {
     q: "What happens after I claim it?",
@@ -106,7 +106,7 @@ const Index = () => {
         <title>Free AI-Built Website for Your Local Business | Rank Me Higher</title>
         <meta
           name="description"
-          content="Get a free website that dominates Google — built by AI in minutes. Answer 6 quick questions and the AI researches your market, builds your site, and texts you the live link. 40+ local businesses already run on Rank Me Higher."
+          content="Get a free website that dominates Google — built by AI in minutes. Answer 6 quick questions and the AI researches your market, builds your site, and texts you the live link."
         />
         <meta property="og:title" content="Free AI-Built Website for Your Local Business | Rank Me Higher" />
         <meta property="og:description" content="Get a free website that dominates Google — built by AI in minutes. The AI researches your market, builds your site, and texts you the live link." />
@@ -230,7 +230,7 @@ const Index = () => {
                   center
                   eyebrow="Proof"
                   title="These businesses already run on Rank Me Higher"
-                  sub="40+ live local business websites — researched, built, and run by the platform."
+                  sub="Researched, built, and run on the platform."
                 />
               </Reveal>
             </div>
