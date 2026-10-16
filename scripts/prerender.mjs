@@ -160,6 +160,7 @@ function pageReport(routePath, html) {
     titleCount: count(html, /<title\b/gi),
     descriptionCount: count(html, /name="description"/gi),
     words: words.length,
+    faqPages: faqPages(html).length,
   };
 }
 
@@ -201,11 +202,29 @@ function isHomepageFaq(faq) {
   return names.length === HOMEPAGE_FAQ_QUESTIONS.length && HOMEPAGE_FAQ_QUESTIONS.every((name, index) => names[index] === name);
 }
 
+function visibleText(html) {
+  return innerText(html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ").replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " "));
+}
+
+function questionNames(faq) {
+  return (faq.mainEntity || []).map((question) => question && question.name).filter(Boolean);
+}
+
 function assertFaqPlacement(routePath, html) {
   const faqs = faqPages(html);
+  if (faqs.length > 1) {
+    throw new Error(`${routePath} has ${faqs.length} FAQPages; at most one is allowed`);
+  }
+  const visible = visibleText(html);
+  for (const faq of faqs) {
+    const missing = questionNames(faq).filter((name) => !visible.includes(name));
+    if (missing.length) {
+      throw new Error(`${routePath} FAQPage questions are not visible on the page: ${missing.join(" | ")}`);
+    }
+  }
   const homepageFaq = faqs.some(isHomepageFaq);
   if (routePath === "/") {
-    if (!homepageFaq) throw new Error("Homepage is missing its FAQPage");
+    if (faqs.length !== 1 || !homepageFaq) throw new Error("Homepage must have exactly its own FAQPage");
   } else if (homepageFaq) {
     throw new Error(`${routePath} includes the homepage FAQPage`);
   }
@@ -213,9 +232,11 @@ function assertFaqPlacement(routePath, html) {
     if (faqs.length !== 1) {
       throw new Error(`/services/seo/ should have exactly one FAQPage, found ${faqs.length}`);
     }
-    const names = (faqs[0].mainEntity || []).map((question) => question.name);
-    if (!names.includes("Do I pay extra for SEO?")) {
-      throw new Error("/services/seo/ FAQPage is missing its own questions");
+    const names = questionNames(faqs[0]);
+    const matchesVisibleFaq = names.some((name) => visible.includes(name));
+    const matchesKnownQuestion = names.includes("Do I pay extra for local SEO?") || names.includes("Do I pay extra for SEO?");
+    if (!matchesVisibleFaq && !matchesKnownQuestion) {
+      throw new Error("/services/seo/ FAQPage does not match the visible FAQ");
     }
   }
 }
@@ -243,19 +264,21 @@ function stripCanonical(html) {
 }
 
 /**
- * index.html is the shell for every route, and it still carries the homepage
- * FAQPage plus a ProfessionalService catalog (prices, founding year, ranking
- * guarantees). On /services/seo/ the only FAQPage must be the one rendered
- * with the visible questions, and those catalog claims must not ship.
- * Helmet JSON-LD is marked data-rh and is left in place. Other routes are
- * untouched.
+ * Shell JSON-LD lives in index.html and is copied onto every route. Helmet
+ * JSON-LD is marked data-rh and is left in place.
+ *
+ * A shell FAQPage is the homepage block. Drop it on every route so /pricing/
+ * and /blog/ cannot inherit it; the homepage FAQ is the Helmet copy on /.
+ * /services/seo/ also drops the shell ProfessionalService (prices, founding
+ * year, and any catalog claims), matching the SEO-page strip from #9. The
+ * only FAQPage left there is the one rendered with the visible questions.
  */
-function stripShellSchemaForSeo(html) {
+function stripShellSchema(html, routePath) {
   return html.replace(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi, (full, attrs, body) => {
     if (/data-rh/i.test(attrs)) return full;
     if (!/application\/ld\+json/i.test(attrs)) return full;
     if (/"@type"\s*:\s*"FAQPage"/.test(body)) return "";
-    if (/"@type"\s*:\s*"ProfessionalService"/.test(body)) return "";
+    if (routePath === "/services/seo/" && /"@type"\s*:\s*"ProfessionalService"/.test(body)) return "";
     return full;
   });
 }
@@ -321,9 +344,7 @@ async function run() {
     if (page.includes("/workspace/") || page.includes("data-stck") || page.includes("/src/assets/")) {
       throw new Error(`${route.path} leaked a dev path or unbundled /src/assets URL`);
     }
-    if (route.path === "/services/seo/") {
-      page = stripShellSchemaForSeo(page);
-    }
+    page = stripShellSchema(page, route.path);
     const report = pageReport(route.path, page);
     assertPage(report);
     assertFaqPlacement(route.path, page);
@@ -341,7 +362,7 @@ async function run() {
     fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.writeFileSync(file, page);
     reports.push(report);
-    console.log(`prerendered ${route.path} (${report.words} words)`);
+    console.log(`prerendered ${route.path} (${report.words} words, ${report.faqPages} FAQPage)`);
   }
 
   const titles = new Set(reports.map((report) => report.title));
@@ -349,10 +370,10 @@ async function run() {
     throw new Error("Titles are not unique across prerendered routes");
   }
 
-  console.log("\n| Route | Title | H1 | Canonical | Words |");
-  console.log("| --- | --- | --- | --- | ---: |");
+  console.log("\n| Route | Title | H1 | Canonical | Words | FAQPages |");
+  console.log("| --- | --- | --- | --- | ---: | ---: |");
   for (const report of reports) {
-    console.log(`| ${report.route} | ${report.title.replace(/\|/g, "\\|")} | ${report.h1.replace(/\|/g, "\\|")} | ${report.canonical} | ${report.words} |`);
+    console.log(`| ${report.route} | ${report.title.replace(/\|/g, "\\|")} | ${report.h1.replace(/\|/g, "\\|")} | ${report.canonical} | ${report.words} | ${report.faqPages} |`);
   }
 }
 
