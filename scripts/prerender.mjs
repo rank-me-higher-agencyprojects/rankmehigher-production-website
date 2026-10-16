@@ -163,6 +163,53 @@ function pageReport(routePath, html) {
   };
 }
 
+function jsonLdBlocks(html) {
+  const blocks = [];
+  const re = /<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
+  let match;
+  while ((match = re.exec(html))) {
+    try {
+      blocks.push(JSON.parse(match[1]));
+    } catch {
+      throw new Error("Invalid JSON-LD block");
+    }
+  }
+  return blocks;
+}
+
+function flattenNodes(data) {
+  if (Array.isArray(data)) return data.flatMap(flattenNodes);
+  if (data && Array.isArray(data["@graph"])) return data["@graph"];
+  return data ? [data] : [];
+}
+
+function faqPages(html) {
+  return jsonLdBlocks(html).flatMap((data) => flattenNodes(data).filter((node) => node["@type"] === "FAQPage"));
+}
+
+function isHomepageFaq(faq) {
+  return (faq.mainEntity || []).some((question) => question && question.name === "Is it really free?");
+}
+
+function assertFaqPlacement(routePath, html) {
+  const faqs = faqPages(html);
+  const homepageFaq = faqs.some(isHomepageFaq);
+  if (routePath === "/") {
+    if (!homepageFaq) throw new Error("Homepage is missing its FAQPage");
+  } else if (homepageFaq) {
+    throw new Error(`${routePath} includes the homepage FAQPage`);
+  }
+  if (routePath === "/services/seo/") {
+    if (faqs.length !== 1) {
+      throw new Error(`/services/seo/ should have exactly one FAQPage, found ${faqs.length}`);
+    }
+    const names = (faqs[0].mainEntity || []).map((question) => question.name);
+    if (!names.includes("Do I pay extra for SEO?")) {
+      throw new Error("/services/seo/ FAQPage is missing its own questions");
+    }
+  }
+}
+
 function assertPage(report) {
   const expected = canonicalUrl(report.route);
   const problems = [];
@@ -269,6 +316,7 @@ async function run() {
     }
     const report = pageReport(route.path, page);
     assertPage(report);
+    assertFaqPlacement(route.path, page);
     if (route.robots && String(route.robots).includes("noindex")) {
       const robotsMeta = page.match(/<meta\b[^>]*\bname="robots"[^>]*>/gi) || [];
       const joined = robotsMeta.join(" ");
