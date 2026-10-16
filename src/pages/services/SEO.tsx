@@ -1,379 +1,282 @@
-import { Helmet } from "react-helmet-async";
-import { ArrowRight, CheckCircle, XCircle, Play, Search, TrendingUp, MapPin, BarChart3, Target, Repeat } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
+import MarketingLayout, { Bullets, PageHero, Section } from "@/components/marketing/MarketingLayout";
+import { CtaRow } from "@/components/marketing/Cta";
 
-const SIGN_IN_URL = "https://websites.rankmehigher.com";
-
-const painPoints = [
-  "You paid an SEO retainer for months and can't point to a result",
-  "Your website has the wrong hours, old phone number, or no schema at all",
-  "Competitors with worse work show up first on Google",
-  "Nobody can tell you what the agency actually did last month",
-];
-
-const features = [
+const FAQ = [
   {
-    icon: MapPin,
-    title: "Correct NAP Everywhere",
-    description: "Name, address, phone — consistent on every page, exactly how Google wants it.",
+    q: "Do I pay extra for local SEO?",
+    a: "No. Local SEO is not an add-on retainer. It is how every website on the platform is built. Correct name, address, and phone, JSON-LD schema, honest hours, city and service pages, and fast mobile pages are part of the build. What each plan includes is on the pricing page.",
   },
   {
-    icon: Search,
-    title: "JSON-LD Schema Built In",
-    description: "Structured data on every page so Google understands your business, services, and area.",
+    q: "Is this a monthly SEO retainer?",
+    a: "No. There is no monthly SEO retainer. A local SEO company usually sells ongoing monthly work on top of a site. Here the technical local SEO is done in the first build, and you keep the site accurate by chatting with the AI when hours, services, or towns change.",
   },
   {
-    icon: Target,
-    title: "City & Service Pages",
-    description: "Dedicated pages for what you do and where you do it — the pages local searches actually land on.",
+    q: "How is this different from hiring a local SEO company?",
+    a: "A local SEO company typically sells monthly work on top of a site that was often built wrong: the wrong hours, an old phone number, or no schema at all. The platform builds the site right in the first place. The technical local SEO most agencies bill months for is done in the first build, automatically.",
   },
   {
-    icon: TrendingUp,
-    title: "Honest Hours & Real Info",
-    description: "Real hours, real services, real photos. Google rewards sites that match reality.",
+    q: "What does local-SEO-correct mean?",
+    a: "Consistent name, address, and phone on every page. JSON-LD structured data a search engine can read. Honest business hours. Dedicated pages for each service and each city you serve. Fast, mobile-compact pages. That is the checklist every site on the platform ships with.",
   },
   {
-    icon: BarChart3,
-    title: "Fast, Mobile-Compact Pages",
-    description: "Pages built lean so they load fast on a phone — where nearly all local searches happen.",
+    q: "Will I see rankings in my portal?",
+    a: "Rankings in your portal are coming soon. The site labels them Soon: they are on the roadmap and are not live in the portal today. Today you get the local-SEO-correct website, chat editing with versioned changes you can revert, and the leads the site captures.",
   },
   {
-    icon: Repeat,
-    title: "Rankings In Your Portal (Coming)",
-    description: "The platform's direction: watch your Google rankings inside the same portal your site lives in.",
+    q: "Is Google Business Profile optimization included?",
+    a: "Your Google Business Profile is the other half of local search, next to the website. That half is LocalMapBooster, not a separate retainer. Automatic, hands-free Google Business Profile optimization is labeled coming soon, the same way review generation is labeled coming soon. The website half is in every build.",
+  },
+  {
+    q: "Can I change hours, services, or towns later?",
+    a: "Yes. Open your portal, click the part of the site you want to change, and say it in plain words. Contractors ask for things like a new closing time, a service added to the list, or another town added to the area they serve. Every edit is versioned, so you can revert it.",
+  },
+  {
+    q: "Who are these local SEO services for?",
+    a: "Local businesses, especially the contractors and trades the rest of the site is written for: Chicagoland roofers, plumbers, HVAC companies, and truck repair shops. The same local SEO foundation is on every site the platform builds. Rank Me Higher has offices in downtown Chicago and in Mundelein.",
   },
 ];
 
-const timeline = [
-  {
-    month: "Minutes",
-    title: "Your Site Ships SEO-Correct",
-    description: "The AI builds your website with clean NAP, JSON-LD schema, honest hours, and city/service pages from the first build. No retrofitting.",
-  },
-  {
-    month: "Week 1",
-    title: "Google Finds The Real You",
-    description: "A fast, correct, consistent site gives Google exactly what it needs to index and trust your business.",
-  },
-  {
-    month: "Ongoing",
-    title: "Your Site Stays Correct",
-    description: "Change your hours or services by chatting with the AI — the site and its schema stay in sync with reality.",
-  },
-  {
-    month: "Next",
-    title: "The Platform Does More",
-    description: "Where it's headed: rankings in your portal, automatic Google Business Profile optimization, and automated review generation.",
-  },
+const BUILT_IN = [
+  "Correct name, address, and phone on every page, written the same way",
+  "JSON-LD structured data for the business, the services, and the area",
+  "Honest hours that match how the business actually opens",
+  "A page for each service you offer and each city you serve",
+  "Fast, mobile-compact pages, built lean for a phone",
+  "Real services and real photos, with natural AI imagery only where a photo is missing",
 ];
 
-const faqItems = [
-  {
-    question: "Do I pay extra for SEO?",
-    answer: "No. SEO isn't a retainer here — it's how every website on the platform is built. Correct NAP, JSON-LD schema, honest hours, city and service pages, and fast mobile pages are part of the build, covered by your plan from $99/mo.",
-  },
-  {
-    question: "How is this different from hiring an SEO agency?",
-    answer: "An agency sells you monthly work on top of a site that was often built wrong. The platform builds the site right in the first place — the technical local SEO most agencies bill months for is done in the first build, automatically.",
-  },
-  {
-    question: "What exactly does 'local-SEO-correct' mean?",
-    answer: "Consistent name, address, and phone on every page. JSON-LD structured data Google can read. Honest business hours. Dedicated pages for each service and city you serve. Fast, mobile-compact pages. That's the checklist Google actually cares about for local businesses — and every site ships with it.",
-  },
-  {
-    question: "Will I be able to see my rankings?",
-    answer: "That's where the platform is going: rankings tracked inside your portal, next to your site and your leads. Today you get a correctly built site and full visibility into every lead it captures.",
-  },
-  {
-    question: "Does this really work for local businesses?",
-    answer: "Same build process, same local SEO foundation, on every site the platform builds.",
-  },
+const COMING_SOON = [
+  "Rankings in your portal",
+  "Google Business Profile auto-optimization, the hands-free version",
+  "Review generation",
+  "Task requests such as adding a seasonal page, automated inside the portal",
 ];
 
-const SEO = () => {
-  return (
-    <>
-      <Helmet>
-        <title>Local SEO Websites — Rank Higher on Google | Rank Me Higher</title>
-        <meta
-          name="description"
-          content="SEO isn't a retainer here — it's built into every site the AI ships: correct NAP, JSON-LD, honest hours, city and service pages, fast mobile pages."
-        />
-        <meta property="og:title" content="Local SEO Websites — Rank Higher on Google" />
-        <meta property="og:description" content="SEO is built into every site the AI ships: correct NAP, JSON-LD schema, city and service pages, fast mobile pages." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://rankmehigher.com/services/seo/" />
-        <meta property="og:site_name" content="Rank Me Higher" />
-        <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Local SEO Websites | Rank Me Higher" />
-        <meta name="twitter:description" content="SEO built into every AI-built site: correct NAP, schema, city/service pages, fast mobile pages." />
-        <link rel="canonical" href="https://rankmehigher.com/services/seo/" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Service",
-          "name": "Local SEO Websites",
-          "provider": { "@type": "Organization", "name": "Rank Me Higher", "url": "https://rankmehigher.com" },
-          "description": "Local SEO built into every AI-built website: correct NAP, JSON-LD structured data, honest hours, city and service pages, and fast mobile-compact pages.",
-          "url": "https://rankmehigher.com/services/seo/",
-          "areaServed": "United States",
-          "serviceType": "Search Engine Optimization"
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": faqItems.map(item => ({
-            "@type": "Question",
-            "name": item.question,
-            "acceptedAnswer": { "@type": "Answer", "text": item.answer }
-          }))
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rankmehigher.com/" },
-            { "@type": "ListItem", "position": 2, "name": "SEO", "item": "https://rankmehigher.com/services/seo/" }
-          ]
-        })}</script>
-      </Helmet>
+const SEO = () => (
+  <MarketingLayout
+    path="/services/seo/"
+    title="Local SEO Services for Small Businesses | Rank Me Higher"
+    description="Local SEO services for small businesses are built into every website: correct NAP, JSON-LD, honest hours, city and service pages, plus LocalMapBooster."
+    crumbs={[{ name: "Local SEO", path: "/services/seo/" }]}
+    schema={[
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Local SEO services for small businesses",
+        serviceType: "Local SEO",
+        url: "https://rankmehigher.com/services/seo/",
+        areaServed: "Chicagoland, IL",
+        provider: { "@type": "Organization", name: "Rank Me Higher", url: "https://rankmehigher.com" },
+        description:
+          "Local SEO built into every AI-built website: correct NAP, JSON-LD structured data, honest hours, city and service pages, and fast mobile pages. Google Business Profile optimization is LocalMapBooster. This is not a monthly SEO retainer.",
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: FAQ.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a },
+        })),
+      },
+    ]}
+  >
+    <PageHero
+      eyebrow="Local SEO"
+      h1="Built-in local SEO for small businesses"
+      sub="Local SEO here is not a monthly retainer. It is how every website is built: correct name, address, and phone, JSON-LD schema, honest hours, city and service pages, and fast mobile pages. Google Business Profile work is LocalMapBooster. Rankings in the portal are coming soon."
+    >
+      <CtaRow />
+    </PageHero>
 
-      <main className="min-h-screen bg-background relative overflow-hidden">
-        {/* Ambient Light Overlays */}
-        <div className="fixed inset-0 pointer-events-none z-0">
-          <div className="absolute left-0 top-0 w-1/3 h-full bg-gradient-to-r from-primary/15 via-primary/5 to-transparent" />
-          <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-primary/15 via-primary/5 to-transparent" />
-          <div className="absolute -top-32 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-          <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+    <Section id="local-seo" title="Local SEO services for small businesses">
+      <div className="max-w-3xl space-y-4 leading-relaxed">
+        <p>
+          If you run a small business, the searches that matter name a trade and a place. A roofer, a plumber, an HVAC company, or a truck repair shop in the Chicago area needs a website that states the real business: what you do, where you work, how to reach you, and when you are open. That is what these local SEO services are. They are built into the website. They are not sold as a separate monthly SEO retainer on top of it.
+        </p>
+        <p>
+          The AI follows the same playbook on every site. It researches your market, plans the pages, writes the content, and builds the site in minutes, not weeks. You answer 6 questions, then the live preview arrives by text. You see the whole site before you pay anything. You only pay when you claim it and put it on your domain. What the plans include is on the{" "}
+          <Link to="/pricing/" className="text-primary underline underline-offset-4">pricing page</Link>.
+          The website itself is covered on the{" "}
+          <Link to="/services/websites/" className="text-primary underline underline-offset-4">AI-built websites</Link>{" "}
+          page: real business photos where you have them, natural AI imagery where you do not, lead capture, hosting, and a portal where you edit by chat.
+        </p>
+        <p>
+          Rank Me Higher is based in the Chicago area, with an office downtown at 1 N State St and another in Mundelein. The pages on this site talk to Chicagoland contractors and trades. The local SEO foundation is the same on every site the platform builds, whether the business is in a suburb like Romeoville or in a Chicago neighborhood. The way to start is the same as the rest of the site: text us, or get the free website. The homepage describes that quiz as 60 seconds, with no sales call.
+        </p>
+        <p>
+          People searching for SEO services, a local SEO company, or SEO services near me are usually trying to tell two things apart. One is a retainer: monthly work, often on a site that already has the wrong hours, an old phone number, or no schema. The other is a site that ships with those basics done. This page is the second one. If you want the checklist in one line, it is name, address, and phone; JSON-LD; honest hours; city and service pages; and fast pages on a phone.
+        </p>
+        <p>
+          After the site is live, you keep it true by talking to the AI. Open the portal, click the part that changed, and say the change the way you would text a person. Every edit is versioned, so you can revert anything. That matters for local SEO because hours, services, and towns are not frozen on launch day. A Saturday you start opening, a service you add, or a town you stop driving to should show up on the site as the business, not as a ticket waiting on an agency.
+        </p>
+      </div>
+    </Section>
+
+    <Section title="What a local SEO company does vs. what's built into your site">
+      <div className="max-w-3xl space-y-4 leading-relaxed">
+        <p>
+          A local SEO company usually sells monthly work. The frustration this site already names is specific: you paid an SEO retainer for months and cannot point to a result; the website has the wrong hours, an old phone number, or no schema at all; and nobody can tell you what the agency actually did last month. Competitors with a weaker operation can still be easier to find when your own site does not state the business clearly. The platform's answer is not another retainer. It builds the site right in the first place. The technical local SEO most agencies bill months for is done in the first build, automatically.
+        </p>
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="rounded-xl border border-white/[0.08] p-5">
+            <h3 className="font-medium text-foreground">What a local SEO company typically sells</h3>
+            <div className="mt-3 text-sm">
+              <Bullets
+                items={[
+                  "Monthly work on top of a website that already exists",
+                  "A retainer you keep paying after the launch",
+                  "Repair work when hours, the phone number, or schema were wrong from the start",
+                  "Monthly work you may not be able to point to on the site itself",
+                ]}
+              />
+            </div>
+          </div>
+          <div className="rounded-xl border border-primary/40 p-5">
+            <h3 className="font-medium text-foreground">What's built into your site</h3>
+            <div className="mt-3 text-sm">
+              <Bullets
+                items={[
+                  "Correct NAP, JSON-LD, honest hours, and city and service pages from the first build",
+                  "Fast, mobile-compact pages",
+                  "No monthly SEO retainer",
+                  "Edits by chat when the business changes, each one versioned and revertable",
+                ]}
+              />
+            </div>
+          </div>
         </div>
+        <p>
+          Read that as a scope, not a ranking promise. Rank Me Higher does not guarantee a map position, a page-one placement, or a number of leads. The same build process and the same local SEO foundation go on every site. What you can inspect before you pay is the preview: the pages, the phone number, the hours, and the services, on your phone.
+        </p>
+        <p>
+          The split also explains what is not live. Rankings inside the client portal are coming soon. Automatic Google Business Profile optimization and review generation are labeled Soon on the site. They are on the roadmap and are not yet automated. Here each piece is named separately, and the only piece in every website is the on-site foundation.
+        </p>
+      </div>
+    </Section>
 
-        <div className="relative z-10">
-          <Navbar />
+    <Section title="What local-SEO-correct means on the build">
+      <div className="max-w-3xl space-y-4 leading-relaxed">
+        <p>
+          "Local-SEO-correct" is a checklist, not a slogan. It is the set of facts a local site has to get right so a person and a search engine are looking at the same business. Every site the AI ships is built to that checklist. Nothing on the list is a separate retainer.
+        </p>
+        <Bullets items={BUILT_IN} />
+        <p>
+          <strong className="font-medium text-foreground">Name, address, and phone.</strong> NAP is the name, address, and phone number, written the same way everywhere it appears on the site. Local search compares those details with the rest of the web. If the website shows one number and the truck, the door, or the Google listing shows another, the business looks like two businesses. The build puts one NAP on the pages from the start, including the pages a customer lands on from a phone.
+        </p>
+        <p>
+          <strong className="font-medium text-foreground">JSON-LD schema.</strong> JSON-LD is structured data in the page, so a search engine can read the business, the services, and the area. The platform builds that structured data into the site, in the first build, rather than leaving it for a later project.
+        </p>
+        <p>
+          <strong className="font-medium text-foreground">Honest hours.</strong> Hours on the site should match the hours a customer would find if they drove over. A default schedule, a holiday that was never updated, or a Saturday you do not actually work is a local SEO problem because it is a false statement about the business. You can change hours by chat. The kind of request already used as an example on the editor page is plain: change the hours to 7 to 5 and add Saturday mornings. The edit is saved as a version. If it was wrong, you roll it back.
+        </p>
+        <p>
+          <strong className="font-medium text-foreground">Fast mobile pages.</strong> Pages are built lean so they load fast on a phone. That is where a local search happens: a homeowner in a driveway, a driver on I-55, someone comparing two shops before they call. They need the number, the hours, and the services without waiting on a heavy page. The build is mobile-compact for that reason. It is not a separate speed project after the design is done.
+        </p>
+        <p>
+          <strong className="font-medium text-foreground">Real information.</strong> Real services, real hours, and real photos. The AI uses your business photos where you have them and fills gaps with natural AI imagery that matches the trade. No stock photos of models in hard hats. The point of the checklist is that the site matches the business. A page that invents a service you do not offer, or a town you do not serve, is not local SEO. It is a mismatch.
+        </p>
+      </div>
+    </Section>
 
-          {/* Hero Section */}
-          <section className="relative pt-24 lg:pt-32 pb-16 lg:pb-24">
-            <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                {/* Left Column - Text */}
-                <div className="space-y-6">
+    <Section title="Local SEO near you: city and service pages">
+      <div className="max-w-3xl space-y-4 leading-relaxed">
+        <p>
+          City and service pages are the pages local searches actually land on. A service page is one job you do. A city page is one place you serve. Together they answer the query a person types: the trade, the town, and whether you are a real option today. The AI plans those pages from the market it researches, instead of leaving every service in one long homepage.
+        </p>
+        <p>
+          You can see the pattern on this website, as page types rather than as someone else's results. The{" "}
+          <Link to="/locations/romeoville-il/" className="text-primary underline underline-offset-4">Romeoville page</Link>{" "}
+          is a city page. It treats Romeoville as a place with roads and neighbors: the I-55 corridor, and towns a shop there also serves, such as Bolingbrook, Lockport, and Plainfield. It talks about the details a local customer checks, including hours. The{" "}
+          <Link to="/websites-for/truck-repair/" className="text-primary underline underline-offset-4">truck repair websites</Link>{" "}
+          page is a trade page. It spells out one page per service, a location page with the yard and the hours, and a form that texts the lead to you. Those two URLs are examples of how a city page and a service page are shaped. They are not a report of any customer's rankings.
+        </p>
+        <p>
+          On your site the same idea is specific to your work. A truck shop might need a page for engines, brakes, DOT inspections, or trailer repair. An HVAC company might need a page for installs and a page for repairs. A plumber might need the towns on the route, not every town in the county. The editor examples already published are the kind of follow-up a contractor sends: add trailer repair to the services list, add Bolingbrook to the areas we serve, put a banner up when you are closed for a holiday. You say it in the portal. The AI makes the change. You can revert it.
+        </p>
+        <p>
+          "Near you" only works when it is true. A city page for a town you do not serve does not help a customer, and it does not make the NAP or the hours more believable. The Romeoville guidance on this site is to cover neighboring towns you also serve, and to spell out the practical details those customers check. The same limit belongs on every build. Local SEO near you means the cities and the services on the site are the ones the business will actually answer the phone for.
+        </p>
+        <p>
+          Service pages and city pages are also where the other on-site pieces show up together. The phone number on a service page should be the same phone number as the homepage. The hours on a city page should be the hours on the door. The schema should describe the same services the page lists. When those match, the site is local-SEO-correct in the ordinary sense: a person who searched near them lands on a page about that service in that area, with the phone number and a way to send a lead, and nothing on the page contradicts the business.
+        </p>
+      </div>
+    </Section>
 
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <XCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-sm">
-                      Tired of paying an SEO retainer with nothing to show?
-                    </span>
-                  </div>
+    <Section title="Google Business Profile optimization">
+      <div className="max-w-3xl space-y-4 leading-relaxed">
+        <p>
+          Your Google Business Profile is half of local search. Your website is the other half. The website half is this page: NAP, JSON-LD, honest hours, city and service pages, and fast mobile pages, on every build. The profile half is what customers see on Google Maps: the name, the categories, the hours, the photos, and the services on the listing. Those two halves have to describe the same business. A website that says one set of hours and a profile that says another is the same class of problem as an old phone number on the site.
+        </p>
+        <p>
+          That profile work is{" "}
+          <Link to="/localmapbooster/" className="text-primary underline underline-offset-4">Google Business Profile optimization</Link>{" "}
+          through LocalMapBooster. It is part of the platform, next to the website, not a monthly SEO retainer sold on its own. Which plan includes it is on the{" "}
+          <Link to="/pricing/" className="text-primary underline underline-offset-4">pricing page</Link>.
+          Read LocalMapBooster for how the profile side is described, and read pricing for what is included and what is still marked Soon.
+        </p>
+        <p>
+          These items are labeled coming soon. They are on the roadmap and are not yet automated in the portal:
+        </p>
+        <Bullets items={COMING_SOON} />
+        <p>
+          Google Business Profile auto-optimization, the hands-free version, is the Soon item. Review generation is labeled Soon as well. Rankings in the portal are labeled Soon. They are not something you can already watch inside the portal.
+        </p>
+        <p>
+          What you can use today is the website half, plus the portal controls that are already live: edit anything by chat, with every change versioned; hosting, domain, and SSL handled when you put the site on your domain; and leads from your forms delivered to you. The profile side stays with LocalMapBooster, and the automatic version of that work stays marked coming soon. Local SEO services, on this page, are the on-site checklist. They are not a promise that a map listing will move.
+        </p>
+      </div>
+    </Section>
 
-                  <h1 className="font-heading font-black text-3xl md:text-4xl lg:text-5xl leading-tight">
-                    <span className="text-primary">Local SEO</span>
-                    <span className="text-foreground"> Built Into </span>
-                    <span className="text-primary">Every Website</span>
-                  </h1>
+    <Section title="How local SEO happens on your site">
+      <div className="max-w-3xl space-y-4 leading-relaxed">
+        <p>
+          <strong className="font-medium text-foreground">In the first build.</strong> The AI researches the market, plans the pages, and ships the site with clean NAP, JSON-LD schema, honest hours, and city and service pages. There is no retrofitting project and no retainer required before those pieces exist. You judge them on the live preview that arrives by text.
+        </p>
+        <p>
+          <strong className="font-medium text-foreground">When you go live.</strong> The domain is connected, with hosting and SSL handled, and the portal opens. The site a customer can find is the same site you already looked at: the services, the towns, the phone number, and the hours. Nothing here promises a date when a ranking will appear, or a position it will appear in.
+        </p>
+        <p>
+          <strong className="font-medium text-foreground">When the business changes.</strong> Hours, services, photos, and towns stay editable by chat. A change that belongs on the site belongs in the portal, not in a monthly email to an agency. Because every edit is versioned, a bad change does not have to stay up.
+        </p>
+        <p>
+          <strong className="font-medium text-foreground">What is next, and not live.</strong> Rankings in the portal, automatic Google Business Profile optimization, and automated review generation. Those three are labeled coming soon. They are not included in the description of the site you get today. The local SEO that is included is the checklist on this page.
+        </p>
+      </div>
+    </Section>
 
-                  <h2 className="font-heading font-bold text-xl md:text-2xl text-foreground">
-                    Not A Retainer — It's How The AI Builds
-                  </h2>
+    <Section title="Frequently asked questions">
+      <dl className="max-w-3xl space-y-6">
+        {FAQ.map((item) => (
+          <div key={item.q}>
+            <dt className="font-medium text-foreground">{item.q}</dt>
+            <dd className="mt-1 leading-relaxed">{item.a}</dd>
+          </div>
+        ))}
+      </dl>
+      <p className="mt-6 max-w-3xl text-sm leading-relaxed">
+        More answers about the free build, chat editing, and what "Soon" means are on the{" "}
+        <Link to="/faq/" className="text-primary underline underline-offset-4">FAQ</Link>.
+        Plan details are on the{" "}
+        <Link to="/pricing/" className="text-primary underline underline-offset-4">pricing page</Link>.
+      </p>
+    </Section>
 
-                  <p className="text-muted-foreground leading-relaxed">
-                    Every site the AI ships is <span className="font-semibold text-foreground">local-SEO-correct from the first build</span>: clean NAP, JSON-LD schema, honest hours, city and service pages, and <span className="font-semibold text-foreground">fast mobile-compact pages</span> that rank higher on Google.
-                  </p>
-
-                  <Button asChild variant="hero" size="xl" className="group">
-                    <a href="/#free-website">
-                      Get my free website
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                  </Button>
-
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <p className="text-muted-foreground text-sm">
-                      SEO included in every build • From $99/mo • Already a member? <a href={SIGN_IN_URL} className="underline hover:text-primary">Sign in</a>
-                    </p>
-                  </div>
-                </div>
-
-                {/* Right Column - Video */}
-                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-red-900/20 border border-primary/20 shadow-2xl">
-                  <div className="aspect-video relative">
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/80">
-                      <div className="text-center">
-                        <button className="group relative">
-                          <div className="absolute inset-0 bg-primary rounded-full blur-xl opacity-50 group-hover:opacity-80 transition-opacity" />
-                          <div className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-primary to-red-600 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-                            <Play className="w-8 h-8 lg:w-10 lg:h-10 text-white ml-1" fill="white" />
-                          </div>
-                        </button>
-                        <p className="mt-4 text-white/80 text-sm lg:text-base font-medium">
-                          Watch: SEO Baked Into The Build
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Pain Points Section */}
-          <section className="py-16 lg:py-24 bg-card/30">
-            <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
-              <div className="text-center mb-12">
-                <h2 className="font-heading font-black text-2xl md:text-3xl lg:text-4xl text-foreground mb-4">
-                  Sound <span className="text-primary">Familiar?</span>
-                </h2>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                {painPoints.map((point, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-3 p-4 rounded-xl bg-background/50 border border-border/50"
-                  >
-                    <XCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <p className="text-foreground">{point}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="text-center mt-8">
-                <p className="text-muted-foreground text-lg">
-                  A correctly built site fixes this — <span className="font-bold text-primary">from day one</span>.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Features Section */}
-          <section className="py-16 lg:py-24">
-            <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
-              <div className="text-center mb-12">
-                <h2 className="font-heading font-black text-2xl md:text-3xl lg:text-4xl text-foreground mb-4">
-                  What's In Every <span className="text-primary">Local-SEO-Correct Build</span>
-                </h2>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
-                  The checklist agencies bill months for — done automatically by the AI, in the first build.
-                </p>
-              </div>
-
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {features.map((feature, index) => (
-                  <div
-                    key={index}
-                    className="p-6 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-red-600 flex items-center justify-center mb-4">
-                      <feature.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="font-heading font-bold text-lg text-foreground mb-2">
-                      {feature.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {feature.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Timeline Section */}
-          <section className="py-16 lg:py-24 bg-card/30">
-            <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
-              <div className="text-center mb-12">
-                <h2 className="font-heading font-black text-2xl md:text-3xl lg:text-4xl text-foreground mb-4">
-                  How Your SEO <span className="text-primary">Happens</span>
-                </h2>
-                <p className="text-muted-foreground">
-                  Honest about what's live today and where the platform is going.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                {timeline.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex gap-6 p-6 rounded-2xl bg-background/50 border border-border/50 hover:border-primary/30 transition-all"
-                  >
-                    <div className="flex-shrink-0 px-4 py-2 rounded-lg bg-gradient-to-br from-primary to-red-600">
-                      <span className="font-heading font-bold text-white text-sm">{item.month}</span>
-                    </div>
-                    <div>
-                      <h3 className="font-heading font-bold text-lg text-foreground mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* CTA Section */}
-          <section className="py-16 lg:py-24">
-            <div className="container mx-auto px-4 lg:px-8 max-w-3xl text-center">
-              <h2 className="font-heading font-black text-2xl md:text-3xl lg:text-4xl text-foreground mb-6">
-                Start With A Site Google Can Actually Rank
-              </h2>
-              <p className="text-muted-foreground text-lg mb-8">
-                Take the free website quiz. The AI builds your local-SEO-correct site in minutes and texts you the live preview — see it before you pay anything.
-              </p>
-              <Button asChild variant="hero" size="xl" className="group">
-                <a href="/#free-website">
-                  Get my free website
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </Button>
-              <p className="text-muted-foreground text-sm mt-4">
-                Free build • SEO included • Already a member? <a href={SIGN_IN_URL} className="underline hover:text-primary">Sign in</a>
-              </p>
-            </div>
-          </section>
-
-          {/* FAQ Section */}
-          <section className="py-16 lg:py-24 bg-card/30">
-            <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
-              <div className="text-center mb-12">
-                <h2 className="font-heading font-black text-2xl md:text-3xl lg:text-4xl text-foreground">
-                  Frequently Asked <span className="text-primary">Questions</span>
-                </h2>
-              </div>
-
-              <Accordion type="single" collapsible className="space-y-4">
-                {faqItems.map((item, index) => (
-                  <AccordionItem
-                    key={index}
-                    value={`item-${index}`}
-                    className="border border-primary/50 rounded-lg px-6 bg-background/50 data-[state=open]:border-primary"
-                  >
-                    <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-5">
-                      {item.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground pb-5">
-                      {item.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </section>
-
-          <Footer />
+    <section className="border-t border-white/[0.06] py-14 md:py-20">
+      <div className="mx-auto max-w-content px-6 text-center">
+        <h2 className="mx-auto max-w-2xl font-heading text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+          See your free website before you pay anything
+        </h2>
+        <p className="mx-auto mt-4 max-w-xl leading-relaxed text-white/60">
+          Answer the questions and the AI builds the site, with local SEO in the build. The live link arrives by text. Text us if you want to ask something first.
+        </p>
+        <div className="mt-8">
+          <CtaRow center />
         </div>
-      </main>
-    </>
-  );
-};
+      </div>
+    </section>
+  </MarketingLayout>
+);
 
 export default SEO;
