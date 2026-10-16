@@ -185,6 +185,24 @@ function stripCanonical(html) {
   return html.replace(/\s*<link\b[^>]*\brel="canonical"[^>]*>/gi, "");
 }
 
+/**
+ * index.html is the shell for every route, and it still carries the homepage
+ * FAQPage plus a ProfessionalService catalog (prices, founding year, ranking
+ * guarantees). On /services/seo/ the only FAQPage must be the one rendered
+ * with the visible questions, and those catalog claims must not ship.
+ * Helmet JSON-LD is marked data-rh and is left in place. Other routes are
+ * untouched.
+ */
+function stripShellSchemaForSeo(html) {
+  return html.replace(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi, (full, attrs, body) => {
+    if (/data-rh/i.test(attrs)) return full;
+    if (!/application\/ld\+json/i.test(attrs)) return full;
+    if (/"@type"\s*:\s*"FAQPage"/.test(body)) return "";
+    if (/"@type"\s*:\s*"ProfessionalService"/.test(body)) return "";
+    return full;
+  });
+}
+
 function assertShell(html, label) {
   if (!html.includes('<div id="root"></div>')) {
     throw new Error(`${label} is missing an empty <div id="root"></div>`);
@@ -245,6 +263,9 @@ async function run() {
     page = rewriteAssetUrls(page, manifest);
     if (page.includes("/workspace/") || page.includes("data-stck") || page.includes("/src/assets/")) {
       throw new Error(`${route.path} leaked a dev path or unbundled /src/assets URL`);
+    }
+    if (route.path === "/services/seo/") {
+      page = stripShellSchemaForSeo(page);
     }
     const report = pageReport(route.path, page);
     assertPage(report);
