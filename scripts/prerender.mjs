@@ -187,8 +187,18 @@ function faqPages(html) {
   return jsonLdBlocks(html).flatMap((data) => flattenNodes(data).filter((node) => node["@type"] === "FAQPage"));
 }
 
+const HOMEPAGE_FAQ_QUESTIONS = [
+  "Is it really free?",
+  "Who owns the website?",
+  "What if I already have a website?",
+  "How is it built so fast?",
+  "What happens after I claim it?",
+  "Can I change things myself?",
+];
+
 function isHomepageFaq(faq) {
-  return (faq.mainEntity || []).some((question) => question && question.name === "Is it really free?");
+  const names = (faq.mainEntity || []).map((question) => question && question.name);
+  return names.length === HOMEPAGE_FAQ_QUESTIONS.length && HOMEPAGE_FAQ_QUESTIONS.every((name, index) => names[index] === name);
 }
 
 function assertFaqPlacement(routePath, html) {
