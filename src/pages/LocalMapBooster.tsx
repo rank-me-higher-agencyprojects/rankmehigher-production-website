@@ -82,7 +82,7 @@ const LocalMapBooster = () => {
                   Part Of One Platform, <span className="text-primary">One Subscription</span>
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-4">
-                  Your Google Business Profile is half of local search — your website is the other half. The on-site half is our <a href="/services/seo/" className="font-semibold text-foreground underline hover:text-primary">local SEO services</a>, built into every website. The <span className="font-semibold text-foreground">$149/mo plan</span> pairs your AI-built, local-SEO-correct website with Google Business Profile optimization, so both halves pull in the same direction.
+                  Your Google Business Profile is half of local search — your website is the other half. The on-site half follows <a href="/services/seo/" className="font-semibold text-foreground underline hover:text-primary">our approach to local search</a>, built into every website. The <span className="font-semibold text-foreground">$149/mo plan</span> pairs your AI-built, local-SEO-correct website with Google Business Profile optimization, so both halves pull in the same direction.
                 </p>
                 <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-6">
                   What's live today: GBP optimization done for you on the $149 plan. Where the platform is going: <span className="font-semibold text-foreground">automatic</span> profile optimization, and automated review generation — the $199/mo plan adds the review generator with a dedicated business phone and branded email.
