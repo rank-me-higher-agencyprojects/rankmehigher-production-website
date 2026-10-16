@@ -1,6 +1,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 import EditorVignette from "./EditorVignette";
 import { EASE, Eyebrow, fadeUp, staggerParent } from "./motion";
+import { TextUsLink } from "@/components/marketing/Cta";
+import { SMS_NUMBER_DISPLAY } from "@/lib/marketing-data";
 
 /**
  * Two-column hero: the copy owns the left, the product owns the right.
@@ -52,34 +54,32 @@ const HeroSection = ({
             animate="visible"
           >
             <motion.div variants={fadeUp}>
-              <Eyebrow>The AI platform for local business</Eyebrow>
+              <Eyebrow>For contractors &amp; trades in Chicagoland</Eyebrow>
             </motion.div>
 
-            <motion.h1
-              variants={fadeUp}
-              className="mt-4 font-heading text-[clamp(2.625rem,4.5vw,3.5rem)] font-extrabold leading-[1.05] tracking-[-0.03em] text-foreground md:mt-6"
-            >
-              Your website.
+            {/* The H1 is the LCP element: render it visible from the first byte (no opacity animation). */}
+            <h1 className="mt-4 font-heading text-[clamp(2.375rem,4.2vw,3.375rem)] font-extrabold leading-[1.05] tracking-[-0.03em] text-foreground md:mt-6">
+              $99/mo websites for contractors.
               <br />
               Built by AI.
               <br />
               <span className="text-white/55">Edited by chat.</span>
-            </motion.h1>
+            </h1>
 
             <motion.p
               variants={fadeUp}
               className="mt-4 max-w-[480px] text-[15px] leading-relaxed text-white/60 md:mt-6 md:text-base"
             >
-              Answer 6 questions. The AI researches your market, writes your pages, and builds a
-              complete local-SEO website — your live link arrives by text in minutes. See the whole
-              site before you pay anything.
+              Roofers, plumbers, HVAC, truck repair: answer 6 questions and the AI builds your
+              complete local-SEO website, then texts you the live link. After that you control your
+              site and your traffic by talking to the AI. See the whole site before you pay anything.
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-6 flex flex-wrap items-center gap-3 md:mt-8">
               <button onClick={onPrimary} className="btn-cta-primary">
                 Get your free website
               </button>
-              <button onClick={onSecondary} className="btn-cta-ghost">
+              <button onClick={onSecondary} className="btn-cta-ghost hidden sm:inline-flex">
                 See how it works
               </button>
             </motion.div>
@@ -88,7 +88,8 @@ const HeroSection = ({
               variants={fadeUp}
               className="mt-4 text-[11px] tracking-wide text-white/45 md:mt-5 md:text-xs"
             >
-              Free build · Live preview by text · $99/mo when you go live
+              Free build · Live preview by text · $99/mo when you go live ·{" "}
+              <TextUsLink className="underline underline-offset-2 hover:text-white/80" label={`Text ${SMS_NUMBER_DISPLAY}`} /> (SMS only)
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-5 md:mt-8">

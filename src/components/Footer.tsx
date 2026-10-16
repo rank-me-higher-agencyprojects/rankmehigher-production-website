@@ -1,6 +1,7 @@
 import { Facebook, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
+import { StickyMobileBar } from "@/components/marketing/Cta";
 
 // TikTok icon (not available in lucide-react)
 const TikTokIcon = ({ className }: { className?: string }) => (
@@ -15,9 +16,18 @@ const SERVICES = [
   { label: "Content & Ads", href: "/services/content-ads/" },
   { label: "SEO Services", href: "/services/seo/" },
   { label: "Outbound Sales Agents", href: "/services/outbound/" },
+  { label: "AI Website Editor", href: "/ai-website-editor/" },
+];
+
+const TRADES_AREAS = [
+  { label: "Truck Repair Websites", href: "/websites-for/truck-repair/" },
+  { label: "Romeoville", href: "/locations/romeoville-il/" },
 ];
 
 const COMPANY = [
+  { label: "Pricing", href: "/pricing/" },
+  { label: "Examples", href: "/examples/" },
+  { label: "FAQ", href: "/faq/" },
   { label: "Blog", href: "/blog/" },
   { label: "Careers", href: "/careers/" },
   { label: "Contact", href: "/contact/" },
@@ -29,7 +39,7 @@ const columnTitle = "font-orbitron text-[10px] font-medium uppercase tracking-[0
 const columnLink = "block py-1 text-sm text-white/55 transition-colors duration-200 hover:text-foreground";
 
 const Footer = () => (
-  <footer id="contact" className="border-t border-white/[0.06] bg-background">
+  <footer id="contact" className="border-t border-white/[0.06] bg-background pb-16 md:pb-0">
     <div className="mx-auto max-w-content px-6 pb-10 pt-16 md:pt-20">
       {/* Brand row */}
       <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
@@ -119,11 +129,23 @@ const Footer = () => (
         </div>
       </div>
 
+      <div className="mt-12">
+        <h3 className={columnTitle}>Websites by trade &amp; town</h3>
+        <div className="mt-4 flex flex-wrap gap-x-5 gap-y-1">
+          {TRADES_AREAS.map((item) => (
+            <Link key={item.href} to={item.href} className={columnLink}>
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+
       {/* Bottom bar */}
       <div className="mt-14 border-t border-white/[0.06] pt-6">
         <p className="text-xs text-white/35">Copyright © 2026 Rank Me Higher | All Rights Reserved</p>
       </div>
     </div>
+    <StickyMobileBar />
   </footer>
 );
 

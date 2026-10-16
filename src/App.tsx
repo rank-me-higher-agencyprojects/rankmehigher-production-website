@@ -23,7 +23,17 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
+import Pricing from "./pages/marketing/Pricing";
+import Faq from "./pages/marketing/Faq";
+import Examples from "./pages/marketing/Examples";
+import AiWebsiteEditor from "./pages/marketing/AiWebsiteEditor";
 import FreeAudit from "./pages/marketing/FreeAudit";
+import TradePage from "./pages/marketing/TradePage";
+import SuburbPage from "./pages/marketing/SuburbPage";
+import { SUBURBS, TRADES } from "./lib/marketing-data";
+
+const tradeRoutes = TRADES.map((t) => [`/websites-for/${t.slug}`, () => <TradePage slug={t.slug} />] as const);
+const suburbRoutes = SUBURBS.map((s) => [`/locations/${s.slug}`, () => <SuburbPage slug={s.slug} />] as const);
 
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
@@ -141,8 +151,14 @@ const App = ({ routerLocation, helmetContext }: AppProps = {}) => {
           {routePair("/blog/:slug", BlogPost)}
           {routePair("/contact", Contact)}
           {routePair("/careers", Careers)}
+          {routePair("/pricing", Pricing)}
+          {routePair("/faq", Faq)}
+          {routePair("/examples", Examples)}
+          {routePair("/ai-website-editor", AiWebsiteEditor)}
           {/* Unlisted: noindex, omitted from the sitemap and the nav. */}
           {routePair("/free-website-audit", FreeAudit)}
+          {tradeRoutes.map(([path, C]) => routePair(path, C))}
+          {suburbRoutes.map(([path, C]) => routePair(path, C))}
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/website-submissions" element={<WebsiteSubmissions />} />

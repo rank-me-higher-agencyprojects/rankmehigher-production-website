@@ -5,10 +5,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const PORTAL_URL = "https://websites.rankmehigher.com";
 
-const NAV_LINKS = [
+const NAV_LINKS: { label: string; id?: string; href?: string }[] = [
   { label: "How it works", id: "how-it-works" },
-  { label: "Pricing", id: "pricing" },
-  { label: "FAQ", id: "faq" },
+  { label: "Examples", href: "/examples/" },
+  { label: "Pricing", href: "/pricing/" },
+  { label: "FAQ", href: "/faq/" },
 ];
 
 const Navbar = ({ onOpenLeadMagnet }: { onOpenLeadMagnet?: () => void }) => {
@@ -65,15 +66,21 @@ const Navbar = ({ onOpenLeadMagnet }: { onOpenLeadMagnet?: () => void }) => {
 
           {/* Desktop links */}
           <div className="hidden items-center gap-8 md:flex">
-            {NAV_LINKS.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => goToSection(link.id)}
-                className="text-sm text-white/60 transition-colors duration-200 hover:text-foreground"
-              >
-                {link.label}
-              </button>
-            ))}
+            {NAV_LINKS.map((link) =>
+              link.href ? (
+                <Link key={link.label} to={link.href} className="text-sm text-white/60 transition-colors duration-200 hover:text-foreground">
+                  {link.label}
+                </Link>
+              ) : (
+                <button
+                  key={link.label}
+                  onClick={() => goToSection(link.id!)}
+                  className="text-sm text-white/60 transition-colors duration-200 hover:text-foreground"
+                >
+                  {link.label}
+                </button>
+              )
+            )}
           </div>
 
           {/* Desktop CTAs */}
@@ -117,15 +124,21 @@ const Navbar = ({ onOpenLeadMagnet }: { onOpenLeadMagnet?: () => void }) => {
             className="border-t border-white/[0.06] bg-background/95 backdrop-blur-xl md:hidden"
           >
             <div className="mx-auto flex max-w-content flex-col px-6 py-4">
-              {NAV_LINKS.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => goToSection(link.id)}
-                  className="py-3 text-left text-sm text-white/70 transition-colors hover:text-foreground"
-                >
-                  {link.label}
-                </button>
-              ))}
+              {NAV_LINKS.map((link) =>
+                link.href ? (
+                  <Link key={link.label} to={link.href} onClick={() => setIsMenuOpen(false)} className="py-3 text-left text-sm text-white/70 transition-colors hover:text-foreground">
+                    {link.label}
+                  </Link>
+                ) : (
+                  <button
+                    key={link.label}
+                    onClick={() => goToSection(link.id!)}
+                    className="py-3 text-left text-sm text-white/70 transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </button>
+                )
+              )}
               <a
                 href={PORTAL_URL}
                 onClick={() => setIsMenuOpen(false)}

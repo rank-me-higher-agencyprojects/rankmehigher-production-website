@@ -254,6 +254,23 @@ const BlogPost = () => {
           </div>
         </article>
 
+        <aside className="relative z-10 border-t border-white/10 py-10" aria-labelledby="blog-cta-title">
+          <div className="container mx-auto max-w-2xl px-4">
+            <h2 id="blog-cta-title" className="font-orbitron text-sm font-bold text-foreground">Want this done for you?</h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Rank Me Higher builds contractors and local businesses a complete website with AI, free to preview and $99/mo when it goes live.
+              You edit it by chatting with the AI. See <Link to="/pricing/" className="text-red-400 underline underline-offset-4">pricing</Link>,{" "}
+              <Link to="/examples/" className="text-red-400 underline underline-offset-4">real client sites</Link>, or{" "}
+              <Link to="/ai-website-editor/" className="text-red-400 underline underline-offset-4">how the AI editor works</Link>.
+            </p>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Websites for <Link to="/websites-for/truck-repair/" className="underline underline-offset-4">truck repair shops</Link> and{" "}
+              <Link to="/locations/romeoville-il/" className="underline underline-offset-4">Romeoville businesses</Link>.
+            </p>
+            <a href="/#free-website" className="btn-cta-primary mt-5 inline-flex">Get my free website</a>
+          </div>
+        </aside>
+
         {relatedPosts.length > 0 && (
           <section className="py-10 border-t border-white/10 relative z-10">
             <div className="container mx-auto px-4 max-w-2xl">
