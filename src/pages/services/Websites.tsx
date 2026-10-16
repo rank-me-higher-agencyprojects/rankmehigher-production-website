@@ -269,7 +269,7 @@ const Websites = () => {
                   What The AI Builds Into <span className="text-primary">Every Website</span>
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Not a template — a researched, local-SEO-correct build.
+                  Not a template — a researched, local-SEO-correct build. See <a href="/services/seo/" className="underline hover:text-primary">how we handle SEO on every build</a>.
                 </p>
               </div>
 

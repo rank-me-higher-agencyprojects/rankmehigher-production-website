@@ -596,7 +596,7 @@ Top-performing businesses don’t pick sides — they integrate both local and o
   Balance geo-targeted keywords with more general ones that attract wider audiences.
 
 - **Internal Linking:**  
-  Link blog posts to your key service pages like [SEO services](https://rankmehigher.com/services/seo) to guide visitors toward conversion.
+  Link blog posts to your key service pages like [SEO services](/services/seo/) to guide visitors toward conversion.
 
 ### Step 3: Build Quality Backlinks
 
@@ -1017,7 +1017,7 @@ A robust review profile is not a standalone goal—it’s a foundational pillar 
 
 ### SEO Optimization
 
-Positive reviews send trust signals to search engines, boosting local rankings. Pairing review generation with professional [SEO Optimization services](/services/seo) amplifies your visibility.
+Positive reviews send trust signals to search engines, boosting local rankings. Pairing review generation with professional [SEO Optimization services](/services/seo/) amplifies your visibility.
 
 ### Website Development
 
@@ -1387,7 +1387,7 @@ Fixing these Google Business Profile mistakes can be daunting and time-consuming
 
 Focus on what you do best — running your business — and let us handle the local SEO details that drive customers.
 
-Learn more about our [Local Map Booster service](/services/seo) or combine it with our [Website Development](/services/websites) and [Content & Ads](/services/content-ads) offerings for maximum impact.
+The website side of this is [SEO built into your website](/services/seo/). Learn more about our [Local Map Booster service](/localmapbooster/), or combine it with our [Website Development](/services/websites) and [Content & Ads](/services/content-ads) offerings for maximum impact.
 
 ---
 
@@ -1512,7 +1512,7 @@ Adapting your SEO for voice search involves a few crucial tactics:
 
 A Chicago restaurant client of ours revamped their website with voice search in mind by adding a detailed FAQ covering common customer queries like “Do you offer gluten-free options?” and “What are your hours on weekends?” They also optimized their Google Business Profile with accurate hours, photos, and menu details. Within three months, they saw a 50% increase in calls and reservations attributed to voice queries.
 
-Learn more about our [local SEO services](/services/seo#local-seo), designed to help businesses capture high-intent voice searches and dominate their local markets.
+Learn more about our [local SEO services](/services/seo/), designed to help businesses capture high-intent voice searches and dominate their local markets.
 
 ---
 
@@ -2228,7 +2228,7 @@ On a custom-coded site, SEO is **built into the foundation** — making it easie
 > **Example:**  
 > A Chicago law firm rebuilt their site with custom code focused on on-page SEO best practices and schema markup. Within 30 days, their local map pack rankings improved, and organic traffic increased by 120%.
 
-For more on how we integrate SEO into custom code, check out our detailed [SEO services](/services/seo).
+For more on how we integrate SEO into custom code, check out our detailed [SEO services](/services/seo/).
 
 ---
 
