@@ -72,6 +72,8 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
 ];
 
+export type TradeFaq = { q: string; a: string };
+
 export type Trade = {
   slug: string;
   name: string;
@@ -84,6 +86,10 @@ export type Trade = {
   jobs: string[];
   chatExamples: string[];
   examples: string[];
+  /** Visible questions. When set, the trade page emits one FAQPage schema. */
+  faqs?: TradeFaq[];
+  /** Service JSON-LD description. Falls back to `description`. */
+  serviceDescription?: string;
 };
 
 export const TRADES: Trade[] = [
@@ -93,26 +99,67 @@ export const TRADES: Trade[] = [
     plural: "truck repair shops",
     title: "Truck Repair Shop Websites, $99/mo | Rank Me Higher",
     description:
-      "Websites for diesel and commercial truck repair shops in Chicagoland. Built by AI, edited by text, from $99/mo. See Truck Clinic.",
-    h1: "Websites for truck repair shops",
+      "Truck repair shop websites and diesel repair website design for Chicagoland shops. Built by AI, edited by text, from $99/mo. See Truck Clinic in Romeoville.",
+    h1: "Truck repair shop websites",
     intro:
-      "Drivers and fleet managers with a truck down are searching on a phone, often from the shoulder of I-55 or I-80. They need your number, your hours, the services you handle and proof you're real, in about five seconds. That is what a truck repair site has to do, and it's what we build.",
+      "Drivers and fleet managers with a truck down are searching on a phone, often from the shoulder of I-55 or I-80. They need the number, the hours, the services the shop actually handles, and proof the shop is real, in about five seconds. That is the job of a truck repair shop website, and it is what we build for shops in Chicagoland.",
     pages: [
-      "One page per service: engine, brakes, DPF/DEF, DOT inspections, trailer repair, electrical, diagnostics",
-      "A fleet maintenance page for companies with 5+ trucks",
-      "A location page with your yard, exit, truck parking and hours",
+      "One page per service you actually perform: engine, brakes, DOT inspections, trailer repair, electrical, and diagnostics",
+      "A fleet maintenance page for companies that send trucks on a schedule",
+      "A location page with the yard, the highway exit, truck parking, and hours",
       "A quote or callback form that texts the lead to you",
     ],
     jobs: [
-      "Post a holiday schedule or after-hours number",
-      "Add a new service like reefer repair or mobile road service",
+      "Post a holiday schedule or an after-hours note",
+      "Add a service you have started offering, such as trailer repair",
       "Swap in new shop photos from your phone",
     ],
     chatExamples: [
-      "\"We now do DOT inspections on Saturdays, add that to the DOT page.\"",
-      "\"Add a banner: closed Thanksgiving, open Friday 7am.\"",
+      "\"We now do DOT inspections on Saturdays. Add that to the DOT page.\"",
+      "\"Add a banner: closed Thanksgiving, open Friday at 7am.\"",
+      "\"Replace the yard photo with this one from the lot.\"",
     ],
     examples: ["Truck Clinic"],
+    serviceDescription:
+      "AI-built websites for truck repair and diesel repair shops in Chicagoland. Service pages for the work the shop performs, a fleet page, a location page with hours and truck access, and a form that texts the lead to the shop. The preview is free. $99/mo when the site goes live on your domain. Local SEO is part of the website build, not a monthly retainer, and this is not a ranking guarantee.",
+    faqs: [
+      {
+        q: "How much does a truck repair shop website cost?",
+        a: "The build is free. You see the whole site before you pay anything. $99 a month when you put it live on your domain, with hosting, SSL, lead capture, and the chat editor. $149 a month is the plan that adds Google Business Profile work through LocalMapBooster. $199 a month adds a review generator, a dedicated business phone, and branded email. Automatic Google Business Profile optimization, the review generator, the dedicated phone, and branded email are labeled Soon: they are on the roadmap and are not automated in the portal today. No contracts and no setup fees.",
+      },
+      {
+        q: "What is included in the website?",
+        a: "A page for each service the shop actually performs, a fleet page when you work with companies that run trucks, a location page with the yard, the exit, truck parking, and hours, and a quote or callback form that texts the lead to you. The site uses your real services and your real photos where you have them. Hosting, SSL, and the portal are included when you go live on the $99 plan. Rankings inside the portal are labeled Soon. They are not a chart you can open in the portal today.",
+      },
+      {
+        q: "How fast is a truck repair website built?",
+        a: "You answer 6 questions. The AI researches the market, plans the pages, and builds the site in minutes, not weeks. The live preview arrives by text, and you look at it on your phone before you pay anything. There is no sales call in that step. Going live on your domain happens after you claim the site. Nothing here promises a date when a ranking will appear.",
+      },
+      {
+        q: "Can the site include a fleet maintenance page?",
+        a: "Yes, when fleet work is something the shop actually does. A fleet page is for the company that sends trucks on a schedule, not for a one-time owner-operator with a check-engine light. It can say what maintenance you take, who the request should reach, and how the lead gets to you by text. If you do not do fleet accounts, leave the page off. A page for work you do not perform sends the wrong truck to your yard.",
+      },
+      {
+        q: "Can I have a page for DOT inspections?",
+        a: "Yes, if your shop performs DOT inspections. It is an ordinary service page: what you inspect, the hours you offer it, and how a driver or a fleet manager asks for it. The same pattern fits engine repair, brakes, trailer repair, electrical, and diagnostics. The page should describe the inspection service you offer. It should not promise that a truck will pass.",
+      },
+      {
+        q: "How do I change hours, a holiday closure, or a service?",
+        a: "Open your portal, click the part of the site that changed, and say it in plain words. A Saturday you start offering DOT inspections, a Thanksgiving closure, or a service you have added is the kind of edit the chat editor is for. Every edit is versioned, so you can revert it. You do not email a designer and wait for the change.",
+      },
+      {
+        q: "How is this different from hiring a web designer?",
+        a: "A designer often quotes a custom project, then charges again when the hours, a service, or a photo needs to change. Here you see a full preview for free, the live site starts at $99 a month, and you change it by chatting with the AI. You own the domain and the content. If you leave, they go with you. The comparison is about how the site gets built and edited. It is not a promise that the site will outrank a shop that hired a designer.",
+      },
+      {
+        q: "Is local SEO a separate monthly retainer?",
+        a: "No. There is no monthly SEO retainer. Local SEO on the website, meaning the name, address, and phone, JSON-LD, honest hours, and service pages, is part of the build. Google Business Profile work sits with LocalMapBooster, not with a second retainer. This page does not guarantee a map position, a page-one placement, or a number of leads.",
+      },
+      {
+        q: "How do leads reach me, and can I cancel?",
+        a: `The quote or callback form texts the lead to you. That text goes to the shop, on the number you use for leads. It is separate from our line, ${SMS_NUMBER_DISPLAY}, which is SMS only and is how you text Rank Me Higher. Plans are monthly, with no contract, and you can cancel anytime. If you leave, your domain and your content go with you.`,
+      },
+    ],
   },
 ];
 
