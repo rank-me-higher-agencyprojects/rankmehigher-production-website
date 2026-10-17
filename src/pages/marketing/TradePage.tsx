@@ -1,34 +1,88 @@
+import type { ComponentType } from "react";
 import { Link } from "react-router-dom";
 import MarketingLayout, { PageHero, Section, Bullets } from "@/components/marketing/MarketingLayout";
 import { CtaBlock, CtaRow } from "@/components/marketing/Cta";
-import { PORTFOLIO, SUBURBS, TRADES } from "@/lib/marketing-data";
+import { CASE_STUDIES, PORTFOLIO, SUBURBS, TRADES, type Trade, type TradeFaq } from "@/lib/marketing-data";
+import TruckRepairSections from "./trade-content/TruckRepairSections";
 
-const TradePage = ({ slug }: { slug: string }) => {
-  const trade = TRADES.find((t) => t.slug === slug)!;
-  const path = `/websites-for/${trade.slug}/`;
+const ORIGIN = "https://rankmehigher.com";
+
+/** Rich bodies for trades that have outgrown the short template. */
+const RICH_BODIES: Partial<Record<string, ComponentType<{ trade: Trade }>>> = {
+  "truck-repair": TruckRepairSections,
+};
+
+const serviceSchema = (trade: Trade, path: string) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: trade.h1,
+  serviceType: "Website design",
+  url: `${ORIGIN}${path}`,
+  description: trade.serviceDescription ?? trade.description,
+  provider: { "@id": `${ORIGIN}/#organization` },
+  areaServed: "Chicagoland, IL",
+  offers: {
+    "@type": "Offer",
+    price: "99",
+    priceCurrency: "USD",
+    url: `${ORIGIN}/pricing/`,
+    description: "Free preview. $99/mo when the site goes live on your domain.",
+  },
+});
+
+/** Visible answers may contain [label](/path/) links. Schema text is the same words. */
+const faqPlainText = (answer: string) => answer.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+
+const FaqAnswer = ({ text }: { text: string }) => {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return (
+    <>
+      {parts.map((part, i) => {
+        const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (!match) return <span key={i}>{part}</span>;
+        return (
+          <Link key={i} to={match[2]} className="text-primary underline underline-offset-4">
+            {match[1]}
+          </Link>
+        );
+      })}
+    </>
+  );
+};
+
+const faqSchema = (faqs: TradeFaq[]) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: faqPlainText(item.a) },
+  })),
+});
+
+const TradeFaqList = ({ faqs }: { faqs: TradeFaq[] }) => (
+  <Section title="Frequently asked questions">
+    <dl className="max-w-3xl space-y-6">
+      {faqs.map((item) => (
+        <div key={item.q}>
+          <dt className="font-medium text-foreground">{item.q}</dt>
+          <dd className="mt-1 leading-relaxed">
+            <FaqAnswer text={item.a} />
+          </dd>
+        </div>
+      ))}
+    </dl>
+    <p className="mt-6 max-w-3xl text-sm leading-relaxed">
+      More answers about the free build, chat editing, and what &quot;Soon&quot; means are in the{" "}
+      <Link to="/faq/" className="text-primary underline underline-offset-4">full answer list</Link>.
+    </p>
+  </Section>
+);
+
+const ShortTradeBody = ({ trade }: { trade: Trade }) => {
   const examples = PORTFOLIO.filter((p) => trade.examples.includes(p.name));
   return (
-    <MarketingLayout
-      path={path}
-      title={trade.title}
-      description={trade.description}
-      crumbs={[{ name: trade.h1, path }]}
-      schema={[
-        {
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: trade.h1,
-          serviceType: "Website design",
-          provider: { "@id": "https://rankmehigher.com/#organization" },
-          areaServed: "Chicagoland, IL",
-          offers: { "@type": "Offer", price: "99", priceCurrency: "USD" },
-        },
-      ]}
-    >
-      <PageHero eyebrow={`${trade.name} websites · Chicagoland`} h1={trade.h1} sub={trade.intro}>
-        <CtaRow />
-      </PageHero>
-
+    <>
       <Section title={`What the AI builds for ${trade.plural}`}>
         <Bullets items={trade.pages} />
       </Section>
@@ -48,16 +102,24 @@ const TradePage = ({ slug }: { slug: string }) => {
       {examples.length > 0 ? (
         <Section title={`${trade.name} sites already on Rank Me Higher`}>
           <div className="grid gap-5 sm:grid-cols-3">
-            {examples.map((p) => (
-              <figure key={p.name} className="overflow-hidden rounded-xl border border-white/[0.08]">
-                <img src={p.img} alt={`${p.name} website`} loading="lazy" decoding="async" width={640} height={400} className="aspect-[16/10] w-full object-cover object-top" />
-                <figcaption className="p-3 text-sm"><span className="text-foreground">{p.name}</span> · {p.city}</figcaption>
-              </figure>
-            ))}
+            {examples.map((p) => {
+              const study = CASE_STUDIES.find((c) => c.name === p.name);
+              return (
+                <figure key={p.name} className="overflow-hidden rounded-xl border border-white/[0.08]">
+                  <img src={p.img} alt={`${p.name} website`} loading="lazy" decoding="async" width={640} height={400} className="aspect-[16/10] w-full object-cover object-top" />
+                  <figcaption className="p-3 text-sm">
+                    <span className="text-foreground">{p.name}</span> · {p.city}
+                    {study && (
+                      <>
+                        {" · "}
+                        <Link to={`/examples/#${study.id}`} className="text-primary underline underline-offset-4">Case study</Link>
+                      </>
+                    )}
+                  </figcaption>
+                </figure>
+              );
+            })}
           </div>
-          <p className="mt-4 text-sm">
-            Read the <Link to="/examples/#truck-clinic" className="text-primary underline underline-offset-4">Truck Clinic case study</Link>.
-          </p>
         </Section>
       ) : (
         <Section title="See what we've built">
@@ -96,6 +158,32 @@ const TradePage = ({ slug }: { slug: string }) => {
           </p>
         )}
       </Section>
+    </>
+  );
+};
+
+const TradePage = ({ slug }: { slug: string }) => {
+  const trade = TRADES.find((t) => t.slug === slug)!;
+  const path = `/websites-for/${trade.slug}/`;
+  const RichBody = RICH_BODIES[trade.slug];
+  const schema = [
+    serviceSchema(trade, path),
+    ...(trade.faqs && trade.faqs.length > 0 ? [faqSchema(trade.faqs)] : []),
+  ];
+  return (
+    <MarketingLayout
+      path={path}
+      title={trade.title}
+      description={trade.description}
+      crumbs={[{ name: trade.h1, path }]}
+      schema={schema}
+    >
+      <PageHero eyebrow={`${trade.name} websites · Chicagoland`} h1={trade.h1} sub={trade.intro}>
+        <CtaRow />
+      </PageHero>
+
+      {RichBody ? <RichBody trade={trade} /> : <ShortTradeBody trade={trade} />}
+      {trade.faqs && trade.faqs.length > 0 && <TradeFaqList faqs={trade.faqs} />}
 
       <CtaBlock title={`Get your free ${trade.name.toLowerCase()} website`} />
     </MarketingLayout>

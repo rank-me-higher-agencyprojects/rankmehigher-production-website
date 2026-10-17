@@ -163,8 +163,8 @@ export const routes = [
   },
   {
     path: "/websites-for/truck-repair/",
-    source: "src/lib/marketing-data.ts",
-    lastmod: "2026-10-15",
+    source: "src/pages/marketing/TradePage.tsx",
+    lastmod: "2026-10-17",
     changefreq: "monthly",
     priority: "0.8",
   },

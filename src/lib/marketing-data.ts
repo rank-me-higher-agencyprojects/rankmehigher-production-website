@@ -72,6 +72,8 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
 ];
 
+export type TradeFaq = { q: string; a: string };
+
 export type Trade = {
   slug: string;
   name: string;
@@ -84,6 +86,10 @@ export type Trade = {
   jobs: string[];
   chatExamples: string[];
   examples: string[];
+  /** Visible questions. When set, the trade page emits one FAQPage schema. */
+  faqs?: TradeFaq[];
+  /** Service JSON-LD description. Falls back to `description`. */
+  serviceDescription?: string;
 };
 
 export const TRADES: Trade[] = [
@@ -93,26 +99,67 @@ export const TRADES: Trade[] = [
     plural: "truck repair shops",
     title: "Truck Repair Shop Websites, $99/mo | Rank Me Higher",
     description:
-      "Websites for diesel and commercial truck repair shops in Chicagoland. Built by AI, edited by text, from $99/mo. See Truck Clinic.",
-    h1: "Websites for truck repair shops",
+      "Websites for diesel and commercial truck repair shops in Chicagoland. Built by AI, edited by text, $99/mo when live. See Truck Clinic in Romeoville.",
+    h1: "Truck repair shop websites",
     intro:
-      "Drivers and fleet managers with a truck down are searching on a phone, often from the shoulder of I-55 or I-80. They need your number, your hours, the services you handle and proof you're real, in about five seconds. That is what a truck repair site has to do, and it's what we build.",
+      "Drivers and fleet managers with a truck down are on a phone, often from the shoulder of I-55 or I-80. They need the number, the hours, and the services the shop actually handles. That is what we build for shops in Chicagoland.",
     pages: [
-      "One page per service: engine, brakes, DPF/DEF, DOT inspections, trailer repair, electrical, diagnostics",
-      "A fleet maintenance page for companies with 5+ trucks",
-      "A location page with your yard, exit, truck parking and hours",
+      "One page per service you actually perform: engine, brakes, DOT inspections, trailer repair, electrical, and diagnostics",
+      "A fleet maintenance page for companies that send trucks on a schedule",
+      "A location page with the yard, the highway exit, truck parking, and hours",
       "A quote or callback form that texts the lead to you",
     ],
     jobs: [
-      "Post a holiday schedule or after-hours number",
-      "Add a new service like reefer repair or mobile road service",
+      "Post a holiday schedule or an after-hours note",
+      "Add a service you have started offering, such as trailer repair",
       "Swap in new shop photos from your phone",
     ],
     chatExamples: [
-      "\"We now do DOT inspections on Saturdays, add that to the DOT page.\"",
-      "\"Add a banner: closed Thanksgiving, open Friday 7am.\"",
+      "\"We now do DOT inspections on Saturdays. Add that to the DOT page.\"",
+      "\"Add a banner: closed Thanksgiving, open Friday at 7am.\"",
+      "\"Replace the yard photo with this one from the lot.\"",
     ],
     examples: ["Truck Clinic"],
+    serviceDescription:
+      "AI-built websites for truck repair and diesel shops in Chicagoland. Service pages for the work the shop performs, a fleet page, a location page with hours and truck access, and a form that sends the lead to the shop. The preview is free. $99 a month when the site goes live on your domain.",
+    faqs: [
+      {
+        q: "How much does a truck repair shop website cost?",
+        a: "The preview is free. The live site is $99 a month, in the pricing section on this page. [Other plans](/pricing/) are listed separately.",
+      },
+      {
+        q: "What is included in the website?",
+        a: "The pages listed above, plus hosting and the chat editor when you go live. Anything else is on the [pricing page](/pricing/).",
+      },
+      {
+        q: "How fast is a truck repair website built?",
+        a: "Minutes, not weeks. The preview link arrives by text. Putting the site on your domain comes after you claim it.",
+      },
+      {
+        q: "Can the site include a fleet maintenance page?",
+        a: "Yes, when companies send you trucks on a schedule. Leave it off if you do not run fleet accounts.",
+      },
+      {
+        q: "Can I have a page for DOT inspections?",
+        a: "Yes, if the shop performs them. Describe the inspection and the hours. Do not promise that a truck will pass.",
+      },
+      {
+        q: "How do I change hours, a holiday closure, or a service?",
+        a: "Open the portal, click the part that changed, and say it in a sentence. You can revert the edit if the wording is wrong.",
+      },
+      {
+        q: "How is this different from hiring a web designer?",
+        a: "Later changes are chat edits instead of another project invoice. The live site is $99 a month, and your domain and content stay yours if you leave.",
+      },
+      {
+        q: "Is local SEO a separate monthly retainer?",
+        a: "No. It is part of the website. The local SEO section on this page says what that includes.",
+      },
+      {
+        q: "How do leads reach me, and can I cancel?",
+        a: `The form sends the request to the shop number you use for leads. That number is separate from our line, ${SMS_NUMBER_DISPLAY}, which is SMS only. The plan is monthly, you can cancel anytime, and your domain and content go with you.`,
+      },
+    ],
   },
 ];
 
