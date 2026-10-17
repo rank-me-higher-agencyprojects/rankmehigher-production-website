@@ -30,13 +30,33 @@ const serviceSchema = (trade: Trade, path: string) => ({
   },
 });
 
+/** Visible answers may contain [label](/path/) links. Schema text is the same words. */
+const faqPlainText = (answer: string) => answer.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+
+const FaqAnswer = ({ text }: { text: string }) => {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return (
+    <>
+      {parts.map((part, i) => {
+        const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (!match) return <span key={i}>{part}</span>;
+        return (
+          <Link key={i} to={match[2]} className="text-primary underline underline-offset-4">
+            {match[1]}
+          </Link>
+        );
+      })}
+    </>
+  );
+};
+
 const faqSchema = (faqs: TradeFaq[]) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: faqs.map((item) => ({
     "@type": "Question",
     name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
+    acceptedAnswer: { "@type": "Answer", text: faqPlainText(item.a) },
   })),
 });
 
@@ -46,7 +66,9 @@ const TradeFaqList = ({ faqs }: { faqs: TradeFaq[] }) => (
       {faqs.map((item) => (
         <div key={item.q}>
           <dt className="font-medium text-foreground">{item.q}</dt>
-          <dd className="mt-1 leading-relaxed">{item.a}</dd>
+          <dd className="mt-1 leading-relaxed">
+            <FaqAnswer text={item.a} />
+          </dd>
         </div>
       ))}
     </dl>
