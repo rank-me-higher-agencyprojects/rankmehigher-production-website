@@ -8,8 +8,9 @@
  * next to redirecting URLs was a crawl-quality problem).
  *
  * `lastmod` is committed here so the production build does not need git.
- * Blog dates are the published dates from src/data/blogPosts.ts. Static pages
- * use the last source-commit date recorded when the route was added.
+ * Blog dates start as the published dates from src/data/blogPosts.ts and are
+ * bumped when that page's copy changes. Static pages use the last source-commit
+ * date recorded when the route was added or its copy last changed.
  */
 export const SITE_ORIGIN = "https://rankmehigher.com";
 
@@ -24,7 +25,7 @@ export const routes = [
   {
     path: "/services/websites/",
     source: "src/pages/services/Websites.tsx",
-    lastmod: "2026-10-15",
+    lastmod: "2026-10-18",
     changefreq: "monthly",
     priority: "0.9",
   },
@@ -45,7 +46,7 @@ export const routes = [
   {
     path: "/services/content-ads/",
     source: "src/pages/services/ContentAds.tsx",
-    lastmod: "2026-10-15",
+    lastmod: "2026-10-18",
     changefreq: "monthly",
     priority: "0.8",
   },
@@ -73,7 +74,7 @@ export const routes = [
   {
     path: "/careers/",
     source: "src/pages/Careers.tsx",
-    lastmod: "2026-10-15",
+    lastmod: "2026-10-18",
     changefreq: "weekly",
     priority: "0.7",
   },
@@ -87,49 +88,49 @@ export const routes = [
   {
     path: "/blog/google-maps-ranking-2025/",
     source: "src/data/blogPosts.ts",
-    lastmod: "2025-12-20",
+    lastmod: "2026-10-18",
     changefreq: "monthly",
     priority: "0.7",
   },
   {
     path: "/blog/local-seo-vs-organic-seo/",
     source: "src/data/blogPosts.ts",
-    lastmod: "2025-12-15",
+    lastmod: "2026-10-18",
     changefreq: "monthly",
     priority: "0.7",
   },
   {
     path: "/blog/review-generation-strategies/",
     source: "src/data/blogPosts.ts",
-    lastmod: "2025-12-10",
+    lastmod: "2026-10-18",
     changefreq: "monthly",
     priority: "0.7",
   },
   {
     path: "/blog/google-business-profile-mistakes/",
     source: "src/data/blogPosts.ts",
-    lastmod: "2025-12-05",
+    lastmod: "2026-10-18",
     changefreq: "monthly",
     priority: "0.7",
   },
   {
     path: "/blog/ai-seo-future/",
     source: "src/data/blogPosts.ts",
-    lastmod: "2025-11-28",
+    lastmod: "2026-10-18",
     changefreq: "monthly",
     priority: "0.7",
   },
   {
     path: "/blog/service-business-website-tips/",
     source: "src/data/blogPosts.ts",
-    lastmod: "2025-11-20",
+    lastmod: "2026-10-18",
     changefreq: "monthly",
     priority: "0.7",
   },
   {
     path: "/blog/custom-coded-websites-local-businesses-2026/",
     source: "src/data/blogPosts.ts",
-    lastmod: "2026-02-18",
+    lastmod: "2026-10-18",
     changefreq: "monthly",
     priority: "0.7",
   },
