@@ -113,7 +113,7 @@ This helps Google display your profile for a wider range of relevant searches wh
 
 ### Step 3: Add Compelling Photos and Videos
 
-- Google has reported that online business listings with photos get [42% more requests for directions and 35% more clicks](https://smallbusiness.googleblog.com/2015/11/tis-season-to-showcase-your-business.html) than listings without photos.
+- Photos of the storefront, team, products, and recent work give people something to judge before they click or visit. A listing that is only text is harder to picture.
 - Upload high-quality images of your storefront, team, products, and recent projects.
 - Use photos to tell your brand story and build trust.
 - Don’t forget videos — short clips showcasing your services or behind-the-scenes footage can enhance engagement.
@@ -223,7 +223,7 @@ Uploading photos with embedded geo-location metadata tells Google exactly where 
 Many businesses overlook GBP posts, but they’re a goldmine for signaling activity and engaging customers.
 
 - Post weekly updates about new offers, events, or company news.
-- Use strong calls-to-action like “Book Now” or “Call Today.”
+- Use strong calls-to-action like “Contact us” or “Call Today.”
 - Include relevant keywords naturally in your posts to boost relevance.
 - Incorporate images, videos, or links to your website.
 
@@ -326,7 +326,7 @@ If you want help putting the checklist into practice, start with that service.
 
 Ranking #1 on Google Maps is no longer a nice-to-have; it’s a *must-have* for local business success. Follow this comprehensive guide to build a strong foundation, leverage advanced strategies, and track your progress for continuous improvement.
 
-If you want expert help, check out our [SEO services](https://rankmehigher.com/services/seo) or schedule a consultation today.
+If you want expert help, check out our [SEO services](https://rankmehigher.com/services/seo) or [contact us](/contact/).
 
 ---
 
@@ -450,7 +450,7 @@ Local SEO zeroes in on helping your business appear in location-based searches. 
 
 Imagine you own a pizza restaurant in downtown Chicago. When someone nearby searches “best pizza near me” or “Chicago deep dish pizza,” you want your business to show up immediately. That’s what local SEO is all about — putting your business in front of customers ready to buy, in your geographic area.
 
-Local SEO captures high-intent traffic — people who are often just minutes away and ready to make a purchase or book a service. This makes it one of the highest-converting forms of SEO.
+Local SEO captures high-intent traffic — people who are often just minutes away and ready to make a purchase or hire someone. This makes it one of the highest-converting forms of SEO.
 
 ### Key Components of Local SEO
 
@@ -568,7 +568,7 @@ Top-performing businesses don’t pick sides — they integrate both local and o
 ### Step 1: Nail Your Local SEO Foundation
 
 - **Optimize Your Google Business Profile:**  
-  Ensure your profile has complete and accurate information: business hours, address, phone number, website URL, high-quality photos, and regular posts showcasing promotions or events. Use all available features like Q&A and booking buttons if applicable.  
+  Ensure your profile has complete and accurate information: business hours, address, phone number, website URL, high-quality photos, and regular posts showcasing promotions or events. Use all available features like Q&A and the contact buttons Google offers.  
   *Example:* A Chicago dentist regularly posts about new services and health tips on their Google Business Profile, engaging local prospects.
 
 - **Build Local Citations:**  
@@ -639,7 +639,7 @@ Most local searches happen on mobile. If your site isn’t mobile-friendly, you�
 
 ### Not Verifying Google Business Profile
 
-An unverified or incomplete profile misses out on key features like Google Posts, Q&A, and booking options.
+An unverified or incomplete profile misses out on key features like Google Posts and Q&A.
 
 ---
 
@@ -741,7 +741,7 @@ If you want a partner that knows how to blend these strategies effectively, [Ran
 ---
 
 *Ready to take your SEO to the next level?*  
-[Get your free SEO consultation today](https://rankmehigher.com/contact) and start dominating your market!
+[Contact us](/contact/) and start dominating your market!
     
     `,
     category: "SEO Strategy",
@@ -761,7 +761,7 @@ If you want a partner that knows how to blend these strategies effectively, [Ran
 
 ## Why Generating Authentic Reviews Is Hard
 
-Online reviews are the public version of word-of-mouth. In [BrightLocal's 2014 Local Consumer Review Survey](https://www.brightlocal.com/research/local-consumer-review-survey-2014/), 88% of consumers said they trust online reviews as much as personal recommendations. Many businesses still struggle to get a steady stream of genuine reviews.
+Online reviews are the public version of word-of-mouth. In [BrightLocal's 2026 Local Consumer Review Survey](https://www.brightlocal.com/research/local-consumer-review-survey/), the share of consumers who trust online reviews as much as personal recommendations is 49%. Many businesses still struggle to get a steady stream of genuine reviews.
 
 Why?
 
@@ -792,7 +792,7 @@ Consider this:
 | Industry            | Ideal Timing for Review Request                                      |
 |---------------------|---------------------------------------------------------------------|
 | Landscaping         | Immediately after project completion with visible results           |
-| Dental Clinic       | Right after a comfortable procedure or consultation                 |
+| Dental Clinic       | Right after a comfortable procedure or visit                        |
 | E-commerce          | Upon delivery confirmation or product satisfaction check            |
 | Software as a Service (SaaS) | After a successful onboarding or milestone achievement        |
 | Fitness Centers     | After a personal training session or fitness assessment             |
@@ -1204,7 +1204,7 @@ Yet, many businesses either never post or post inconsistently. This is a missed 
 
 - **Signals Activity to Google:** Active profiles rank better.  
 - **Engages Browsers:** Posts with images and offers capture attention.  
-- **Drives Website Traffic and Conversions:** Include calls to action like “Book Now” or “Learn More.”
+- **Drives Website Traffic and Conversions:** Include calls to action like “Contact us” or “Learn More.”
 
 ### What to Post and How Often (Actionable Posting Plan)
 
@@ -1215,7 +1215,7 @@ Yet, many businesses either never post or post inconsistently. This is a missed 
   - Highlight team members (e.g., “Meet Sarah, our lead project manager”)  
   - Seasonal tips (e.g., “Fall gutter cleaning tips”)  
 - **Visuals:** Use high-quality photos or videos to boost engagement.  
-- **Calls to Action:** Use clear CTAs like “Call us today,” “Book online,” or “Visit our website.”
+- **Calls to Action:** Use clear CTAs like “Call us today,” “Contact us,” or “Visit our website.”
 
 ### Step-by-Step: How to Create a Google Business Profile Post
 
@@ -1320,7 +1320,7 @@ Many businesses either leave this blank or write generic, vague descriptions tha
 1. **Clearly Explain What You Do:** Start with your core services.  
 2. **Highlight Unique Selling Points (USPs):** What makes your business stand out? Experience, certifications, guarantees?  
 3. **Mention Service Area:** Include cities or neighborhoods you serve for local SEO relevance.  
-4. **Include a Call to Action:** Invite users to call, visit your website, or book a consultation.  
+4. **Include a Call to Action:** Invite users to call, visit your website, or contact you.  
 5. **Use Natural Keywords:** Include relevant local keywords without keyword stuffing.
 
 ### Sample Business Description
@@ -1617,7 +1617,7 @@ With AI Overviews potentially reducing clicks for some informational queries, ev
 - **Use Clear Calls-to-Action (CTAs):** Guide visitors toward desired actions with prominent, persuasive CTAs.
 - **Implement A/B Testing:** Continuously refine user interface and content based on data-driven insights.
 
-Need expert help adapting your SEO strategy to the AI era? Explore our [SEO consulting services](/services/seo#consulting) for tailored solutions.
+Need expert help adapting your SEO strategy to the AI era? Explore our [SEO services](/services/seo) or [contact us](/contact/).
 
 ---
 
@@ -1719,7 +1719,7 @@ Load speed is more than just a user experience factor — it’s a critical SEO 
 
 ### The Impact of Speed on Conversion Rates
 
-A faster page keeps more of the people who were ready to call or book. Speed is part of the job, not a polish item you add later.
+A faster page keeps more of the people who were ready to call or send a message. Speed is part of the job, not a polish item you add later.
 
 ### How to Achieve Lightning-Fast Load Speeds
 
@@ -1783,7 +1783,7 @@ A roofing contractor can redesign its site mobile-first and put emergency servic
 
 ### Why CTAs Are Your Website’s Conversion Engines
 
-Your website’s ultimate goal is to convert visitors into leads and customers. Without clear, compelling calls-to-action (CTAs), even highly interested visitors might leave without taking any next step. Think of CTAs as signposts guiding your visitors on what to do next — whether it’s calling, booking, or requesting a quote.
+Your website’s ultimate goal is to convert visitors into leads and customers. Without clear, compelling calls-to-action (CTAs), even highly interested visitors might leave without taking any next step. Think of CTAs as signposts guiding your visitors on what to do next — whether it’s calling, messaging, or requesting a quote.
 
 ### Examples of Effective CTAs for Service Businesses
 
@@ -1791,11 +1791,9 @@ Your website’s ultimate goal is to convert visitors into leads and customers. 
 
 - **Get a Quote:** Instant quote forms or calculators provide quick estimates, capturing lead information while offering value.
 
-- **Schedule Service:** Online booking tools streamline appointment setting, reducing friction and administrative burden.
+- **Contact Us:** A short form or a clear contact link lets someone ask for service without hunting for a phone number.
 
 - **Chat With Us:** Live chat CTAs invite visitors to ask questions or get immediate help.
-
-- **Request a Free Consultation:** Offering a no-obligation consultation lowers barriers and positions your business as approachable.
 
 ### Best Practices for CTA Placement and Design
 
@@ -1803,7 +1801,7 @@ Your website’s ultimate goal is to convert visitors into leads and customers. 
 
 - **Contrasting Colors:** Use colors that stand out from your site’s palette but complement your branding to draw attention.
 
-- **Action-Oriented Language:** Use verbs that inspire immediate action, e.g., “Book Your Free Inspection,” “Call Today,” or “Get Your Estimate Now.”
+- **Action-Oriented Language:** Use verbs that inspire immediate action, e.g., “Contact us,” “Call Today,” or “Get Your Estimate Now.”
 
 - **Reduce Choices:** Avoid overwhelming visitors with multiple CTAs on one page. Focus on one or two clear actions per page.
 
@@ -1987,7 +1985,7 @@ Customers today expect immediate responses. When visitors have questions, hesita
 ### Examples of Effective Chat Use
 
 - An HVAC company uses chatbots to schedule emergency service calls instantly.
-- A legal service firm uses live chat to answer the first questions someone has before booking a consultation.
+- A legal service firm uses live chat to answer the first questions someone has before they contact the firm.
 
 ### Tools to Consider
 
@@ -2062,7 +2060,7 @@ Our [content and ads services](/services/content-ads) are data-driven, ensuring 
 
 Your website is often the first—and sometimes only—impression your potential customers get of your business. If your site isn’t fast, mobile-friendly, trustworthy, and optimized for conversions, you’re missing out on customers every single day.
 
-Implementing these 10 must-haves turns a brochure site into a page that can take a call, a form, or a booking at any hour. For a plumber, landscaper, HVAC company, or any other service business, these are the basics of a site people can use.
+Implementing these 10 must-haves turns a brochure site into a page that can take a call or a form at any hour. For a plumber, landscaper, HVAC company, or any other service business, these are the basics of a site people can use.
 
 ---
 
@@ -2070,7 +2068,7 @@ Implementing these 10 must-haves turns a brochure site into a page that can take
 
 At [Rank Me Higher](https://rankmehigher.com), we specialize in creating websites tailored for local service businesses in Chicago and beyond. Our sites are fast, mobile-optimized, and designed to maximize conversions.
 
-Ready to turn your website into your best employee? Contact us today for a free consultation or learn more about our [web development services](/services/websites) and [SEO strategies](/services/seo). Let’s build a website that works as hard as you do.
+Ready to turn your website into your best employee? [Contact us](/contact/), or learn more about our [web development services](/services/websites) and [SEO strategies](/services/seo). Let’s build a website that works as hard as you do.
 
 ---
 
@@ -2090,7 +2088,7 @@ Focus on creating **service area pages**, implementing **local schema markup**, 
 
 ### Do I really need live chat on my website?
 
-Yes. Instant communication options like live chat or text widgets increase engagement and lead capture, especially for service businesses where questions often arise before booking. Live chat can differentiate you from competitors and speed up the sales process.
+Yes. Instant communication options like live chat or text widgets increase engagement and lead capture, especially for service businesses where questions often arise before someone gets in touch. Live chat can differentiate you from competitors and speed up the sales process.
 
 ### What analytics should I track for my website?
 
@@ -2138,7 +2136,7 @@ Let’s cut to the chase — local businesses have long been told a simple story
 
 And for many, it worked. For a while.
 
-But here’s the brutal truth nobody tells you: that $30/month template website? It’s the exact same site as the dentist down the street, the plumber two towns over, and tens of thousands of other businesses running the same theme. You’re blending in, not standing out.
+But here’s the brutal truth nobody tells you: that template website is the exact same site as the dentist down the street, the plumber two towns over, and tens of thousands of other businesses running the same theme. You’re blending in, not standing out.
 
 Fast forward to 2026. Google’s algorithm is smarter, faster, and more ruthless than ever. Your customers expect lightning-fast load times, flawless mobile experiences, and personalized interactions. Meanwhile, your competitors—those who are actually growing—have figured out something game-changing:
 
@@ -2216,7 +2214,7 @@ For more on how we integrate SEO into custom code, check out our detailed [SEO s
 
 ### 3. Conversion-Optimized From Day One — Turning Visitors Into Customers
 
-A local business site has one job: get the visitor to call, book, or request a quote. A custom-coded site is built around that action. The layout, the form, and the button are chosen for that path.
+A local business site has one job: get the visitor to call, message, or request a quote. A custom-coded site is built around that action. The layout, the form, and the button are chosen for that path.
 
 **Conversion-focused design and development includes:**
 
@@ -2229,7 +2227,7 @@ A local business site has one job: get the visitor to call, book, or request a q
 Unlike template builders, which offer generic “contact form widgets,” we build **conversion systems** tailored to your unique customer journey.
 
 > **Example:**  
-> A dental practice can add a virtual smile preview and a short booking flow so a visitor can see the service and request a consultation without hunting through the site.
+> A dental practice can add a virtual smile preview and a short form so a visitor can see the service and contact the practice without hunting through the site.
 
 Learn more about optimizing conversions with our [Content & Ads services](/services/content-ads).
 
@@ -2274,7 +2272,7 @@ For local businesses handling customer information, appointments, or payments, t
 
 Every template builder hits a brick wall when it comes to complex or unique features.
 
-Want a custom booking flow, a dynamic pricing calculator, or an AI-powered intake form? You’ll likely be told:
+Want a custom quote form, a dynamic pricing calculator, or an AI-powered intake form? You’ll likely be told:
 
 - “That’s not possible on our platform.”
 - “You need to pay for a premium plugin.”
@@ -2286,8 +2284,8 @@ Custom code removes these limitations completely.
 
 - A roofing company’s **real-time project tracker** clients can access anytime to check job status
 - A restaurant’s **dynamic menu system** updating availability and pricing in real-time
-- A law firm’s **AI-powered lead qualification form** that collects the facts an attorney needs before a consult
-- A dental practice’s **virtual smile preview tool** that lets a visitor see the service before booking
+- A law firm’s **AI-powered lead qualification form** that collects the facts an attorney needs before a call
+- A dental practice’s **virtual smile preview tool** that lets a visitor see the service before they get in touch
 
 These custom features aren’t “nice extras.” They’re **competitive advantages** that template users simply can’t replicate.
 
@@ -2298,7 +2296,7 @@ These custom features aren’t “nice extras.” They’re **competitive advant
 The digital landscape is evolving faster than ever:
 
 - Google’s AI Overviews are reshaping search
-- Core Web Vitals are now strict ranking requirements
+- Core Web Vitals are a ranking signal
 - Mobile-first indexing is standard
 - AI chatbots have become expected
 - Voice search optimization is crucial for local SEO
@@ -2317,22 +2315,9 @@ This agility keeps you ahead of the curve and your competitors.
 
 ---
 
-## The Real Cost: Breaking Down the Numbers
+## What It Costs
 
-**Custom websites are expensive, right?** Not necessarily. Let’s compare real costs over a 5-year period.
-
-| Expense Category            | Template Website (Annual)            | Custom-Coded Website (Annualized)    |
-|----------------------------|------------------------------------|-------------------------------------|
-| Platform subscription       | $300 - $600                        | N/A                                 |
-| Premium theme/license       | $60 - $200                        | N/A                                 |
-| Essential plugins           | $200 - $500                       | N/A                                 |
-| Maintenance & updates       | $1,200 - $2,400                   | $600 - $1,200                       |
-| Fixing breakages            | $500 - $1,500                     | Included in maintenance             |
-| One-time build cost         | N/A                              | $2,500 - $5,000 (amortized $500–$1,000/year) |
-| Hosting                    | Shared, included in subscription   | $0 - $20/month ($0 - $240/year)     |
-| **Total Annual Cost**       | **$2,260 - $5,200**               | **$1,100 - $2,440**                  |
-
-**Bottom line:** These ranges are illustrations of how platform fees, plugins, and repairs can add up. They are not a quote, and they are not a promise of leads or rankings.
+Template platform fees, plugins, and repairs add up over time. A Rank Me Higher site is a free build and $99/mo when it is live. See the plans on our [pricing page](/pricing/).
 
 ---
 
@@ -2358,10 +2343,10 @@ If you’re nodding to any of these, a custom-coded website is the smart investm
 
 Switching to a custom-coded website doesn’t have to be overwhelming. Here’s how we make it simple and efficient:
 
-### 1. Discovery Call
+### 1. Contact
 
 We start by understanding your business, customers, and goals, so the site is planned around the calls and forms you want.  
-[Book your free consultation here](/contact)
+[Contact us](/contact/)
 
 ### 2. Strategy & Wireframing
 
@@ -2402,7 +2387,7 @@ A custom-coded site is built to give a local business:
 
 The template era served its purpose. But in 2026, **custom code is the competitive edge** that will dominate your local market.
 
-**Ready to see what a custom-coded website can do for your business?** [Get your free consultation today](/contact) and we’ll show you exactly how much performance—and revenue—you’re leaving on the table.
+**Ready to see what a custom-coded website can do for your business?** [Contact us](/contact/) and we’ll show you exactly how much performance—and revenue—you’re leaving on the table.
 
 ---
 
@@ -2414,7 +2399,7 @@ A custom-coded website is built from scratch using programming languages tailore
 
 ### How much does a custom-coded website cost compared to templates?
 
-While the upfront cost of a custom site is higher, when amortized over several years, custom sites are actually cheaper to maintain and deliver higher ROI due to better performance and conversions.
+A Rank Me Higher site is a free build and $99/mo when it is live. Template fees, plugins, and repairs are what add up on a rented platform. See [pricing](/pricing/).
 
 ### Will a custom-coded website improve my Google rankings?
 
