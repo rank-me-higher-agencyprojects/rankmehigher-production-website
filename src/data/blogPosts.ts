@@ -17,8 +17,8 @@ export const blogPosts: BlogPost[] = [
   {
     id: "1",
     slug: "google-maps-ranking-2025",
-    title: "How to Rank #1 on Google Maps in 2025: The Complete Guide",
-    excerpt: "Discover the proven strategies that helped 500+ businesses dominate their local market and appear in the coveted Google 3-Pack.",
+    title: "How to Rank #1 on Google Maps: A Guide",
+    excerpt: "Learn how to rank #1 on Google Maps with a complete Google Business Profile, reviews, citations, and local pages that belong in the map pack.",
     content: `
 ## Why Google Maps Ranking Matters More Than Ever in 2025
 
@@ -379,8 +379,8 @@ For expert help in ranking #1 on Google Maps in 2025, visit our [SEO services pa
   {
     id: "2",
     slug: "local-seo-vs-organic-seo",
-    title: "Local SEO vs Organic SEO: Which One Does Your Business Need?",
-    excerpt: "Understanding the difference could be the key to doubling your leads. Here's the breakdown every business owner needs to read.",
+    title: "Local SEO vs Organic SEO: Which You Need",
+    excerpt: "Local SEO vs organic SEO: which one your business needs, when to use both, and how map-pack rankings differ from the classic organic blue links.",
     content: `
 
 ## The Great SEO Debate: Local SEO vs Organic SEO
@@ -397,7 +397,7 @@ Organic SEO, sometimes called traditional SEO, focuses on optimizing your websit
 
 ### Why Organic SEO Matters
 
-Organic SEO is the backbone of sustainable online visibility. When you rank organically, you’re tapping into a global or national audience actively searching for what you offer. Unlike paid ads that stop working when the budget runs out, organic traffic can provide a steady stream of qualified visitors over time — if done right.
+Organic SEO is the backbone of sustainable online visibility. When you rank organically, you’re tapping into a global or national audience actively searching for what you offer. Unlike [Google Ads for local businesses](/services/google-ads/), which stop working when the budget runs out, organic traffic can provide a steady stream of qualified visitors over time — if done right.
 
 For example, a Chicago-based e-commerce company selling custom furniture wants to rank for terms like “modern office desks” or “ergonomic chairs.” Their customers might be scattered across the country or even internationally, so focusing on local SEO alone won’t cut it. Organic SEO helps them capture that broad audience.
 
@@ -754,8 +754,8 @@ If you want a partner that knows how to blend these strategies effectively, [Ran
   {
     id: "3",
     slug: "review-generation-strategies",
-    title: "5 Review Generation Strategies That Actually Work in 2025",
-    excerpt: "Stop begging for reviews. These ethical strategies will have customers lining up to share their experience.",
+    title: "5 Review Generation Strategies That Work",
+    excerpt: "Five review generation strategies that work: ask at the right moment, follow up by text and email, and make it easy for happy customers to reply.",
     content: `
 
 
@@ -1091,8 +1091,8 @@ Ready to take your review game to the next level? Contact [Rank Me Higher](https
   {
     id: "4",
     slug: "google-business-profile-mistakes",
-    title: "7 Google Business Profile Mistakes Killing Your Rankings",
-    excerpt: "You might be sabotaging your own visibility without knowing it. Here are the most common GBP mistakes we see.",
+    title: "7 Google Business Profile Mistakes",
+    excerpt: "Seven Google Business Profile mistakes that hide a local business, from the wrong category and thin photos to skipped reviews and service areas.",
     content: `
 
 
@@ -1431,8 +1431,8 @@ Avoid stock photos. Original, high-quality photos build trust and authenticity w
   {
     id: "5",
     slug: "ai-seo-future",
-    title: "How AI is Changing SEO (And What Smart Businesses Are Doing About It)",
-    excerpt: "AI isn't replacing SEO—it's transforming it. Here's how forward-thinking businesses are staying ahead.",
+    title: "How AI Is Changing SEO for Businesses",
+    excerpt: "How AI is changing SEO for businesses: what AI Overviews change about rankings, and how to keep pages specific, useful, and worth citing in search.",
     content: `
 
 
@@ -1695,8 +1695,8 @@ Ready to rank higher in 2025 and beyond?
   {
     id: "6",
     slug: "service-business-website-tips",
-    title: "10 Website Must-Haves for Service Businesses in 2025",
-    excerpt: "Your website is your 24/7 salesperson. Make sure it's working hard for you with these essential elements.",
+    title: "10 Service Business Website Must-Haves",
+    excerpt: "Ten service business website must-haves: fast mobile pages, clear calls to action, local SEO, real photos, and lead capture that works on a phone.",
     content: `
 
 
@@ -2129,8 +2129,8 @@ By implementing these website must-haves, your service business will stand out i
   {
     id: "7",
     slug: "custom-coded-websites-local-businesses-2026",
-    title: "Why Custom-Coded Web Apps Are the Way to Build Websites in 2026",
-    excerpt: "Template builders had their moment. In 2026, local businesses that want to dominate search results, convert more visitors, and actually own their digital presence are switching to custom-coded web applications. Here's why — and what it means for your bottom line.",
+    title: "Custom-Coded Websites Win in 2026",
+    excerpt: "Why custom-coded websites win in 2026 for local businesses: faster pages, cleaner structure for search, and a site you actually own instead of a template.",
     content: `
 
 

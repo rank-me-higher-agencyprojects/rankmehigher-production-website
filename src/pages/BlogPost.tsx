@@ -41,6 +41,7 @@ const BlogPost = () => {
 
   const shareUrl = `https://rankmehigher.com/blog/${post.slug}/`;
   const isoDate = toISODate(post.date);
+  const pageTitle = `${post.title} | Rank Me Higher`;
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -116,17 +117,17 @@ const BlogPost = () => {
   return (
     <>
       <Helmet>
-        <title>{post.title} | Rank Me Higher Blog</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={post.excerpt} />
         <meta name="author" content={post.author} />
-        <meta property="og:title" content={post.title} />
+        <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={shareUrl} />
         <meta property="og:site_name" content="Rank Me Higher" />
         {post.image && <meta property="og:image" content={`https://rankmehigher.com${post.image}`} />}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={post.excerpt} />
         {post.image && <meta name="twitter:image" content={`https://rankmehigher.com${post.image}`} />}
         <meta property="article:published_time" content={isoDate} />

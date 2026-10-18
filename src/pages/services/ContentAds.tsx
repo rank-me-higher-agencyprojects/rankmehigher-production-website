@@ -489,7 +489,7 @@ const ContentAds = () => {
                     <div className="p-3 rounded-xl bg-white/5 border border-white/10">
                       <h4 className="font-orbitron font-bold text-xs text-foreground mb-1">Where Ads Fit In</h4>
                       <p className="text-xs text-muted-foreground leading-relaxed mb-2">
-                        Once your site is live and converting, ads become a volume dial. We run campaigns for platform businesses on Meta and Google — landing on your platform-built pages, with every lead delivered to your phone in seconds. Campaigns are scoped per business.
+                        Once your site is live and converting, ads become a volume dial. We run campaigns for platform businesses on Meta, plus <a href="/services/google-ads/" className="underline hover:text-primary">paid search management</a> — landing on your platform-built pages, with every lead delivered to your phone in seconds. Campaigns are scoped per business.
                       </p>
                     </div>
                     <div className="p-3 rounded-xl bg-cyan-500/5 border border-cyan-500/20">
