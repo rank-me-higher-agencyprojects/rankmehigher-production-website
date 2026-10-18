@@ -11,7 +11,7 @@ const Examples = () => {
   return (
   <MarketingLayout
     path="/examples/"
-    title="Website Examples: Real Client Sites in Chicagoland | Rank Me Higher"
+    title="Website Examples: Real Client Sites | Rank Me Higher"
     description="Real websites running on Rank Me Higher: Truck Clinic in Romeoville and QTA Tax in Oak Brook."
     crumbs={[{ name: "Examples", path: "/examples/" }]}
     schema={[

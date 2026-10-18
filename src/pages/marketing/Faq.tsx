@@ -40,7 +40,7 @@ const GROUPS: { title: string; items: { q: string; a: string }[] }[] = [
 const Faq = () => (
   <MarketingLayout
     path="/faq/"
-    title="FAQ: Free AI Websites, Editing by Chat, Pricing | Rank Me Higher"
+    title="FAQ: Free AI Websites, Chat & Pricing | Rank Me Higher"
     description="Answers about Rank Me Higher: how the free AI-built website works, editing your site by chat, $99/mo pricing, ownership, and which features are live versus coming soon."
     crumbs={[{ name: "FAQ", path: "/faq/" }]}
     schema={[

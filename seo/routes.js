@@ -18,7 +18,7 @@ export const routes = [
   {
     path: "/",
     source: "src/pages/Index.tsx",
-    lastmod: "2026-10-15",
+    lastmod: "2026-10-18",
     changefreq: "weekly",
     priority: "1.0",
   },
@@ -144,14 +144,14 @@ export const routes = [
   {
     path: "/faq/",
     source: "src/pages/marketing/Faq.tsx",
-    lastmod: "2026-10-15",
+    lastmod: "2026-10-18",
     changefreq: "monthly",
     priority: "0.7",
   },
   {
     path: "/examples/",
     source: "src/pages/marketing/Examples.tsx",
-    lastmod: "2026-10-15",
+    lastmod: "2026-10-18",
     changefreq: "monthly",
     priority: "0.8",
   },
@@ -172,7 +172,7 @@ export const routes = [
   {
     path: "/locations/romeoville-il/",
     source: "src/lib/marketing-data.ts",
-    lastmod: "2026-10-15",
+    lastmod: "2026-10-18",
     changefreq: "monthly",
     priority: "0.7",
   },

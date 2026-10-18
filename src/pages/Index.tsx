@@ -105,19 +105,19 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>$99/mo Websites for Contractors in Chicagoland, Built by AI | Rank Me Higher</title>
+        <title>$99/mo Websites for Chicagoland Contractors | Rank Me Higher</title>
         <meta
           name="description"
           content="Websites for Chicagoland roofers, plumbers, HVAC and truck repair shops. Built by AI in minutes, edited by chat, $99/mo when you go live. Free build, see it before you pay."
         />
-        <meta property="og:title" content="$99/mo Websites for Contractors in Chicagoland, Built by AI | Rank Me Higher" />
+        <meta property="og:title" content="$99/mo Websites for Chicagoland Contractors | Rank Me Higher" />
         <meta property="og:description" content="Get a free website that dominates Google — built by AI in minutes. The AI researches your market, builds your site, and texts you the live link." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rankmehigher.com/" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="$99/mo Websites for Contractors in Chicagoland, Built by AI | Rank Me Higher" />
+        <meta name="twitter:title" content="$99/mo Websites for Chicagoland Contractors | Rank Me Higher" />
         <meta name="twitter:description" content="Get a free website that dominates Google — built by AI in minutes. Answer 6 questions, get the live link by text." />
         <meta name="twitter:image" content="https://rankmehigher.com/assets/logo.png" />
         <link rel="canonical" href="https://rankmehigher.com/" />

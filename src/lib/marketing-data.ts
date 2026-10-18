@@ -181,7 +181,7 @@ export const SUBURBS: Suburb[] = [
     slug: "romeoville-il",
     name: "Romeoville",
     county: "Will County",
-    title: "Websites for Romeoville, IL Businesses, $99/mo | Rank Me Higher",
+    title: "Websites for Romeoville, IL Businesses | Rank Me Higher",
     description:
       "AI-built websites for Romeoville contractors and truck repair shops. Truck Clinic runs on Rank Me Higher. Free build, $99/mo to go live.",
     h1: "Websites for Romeoville businesses",
