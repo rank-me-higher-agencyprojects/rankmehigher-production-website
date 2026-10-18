@@ -20,24 +20,24 @@ export const blogPosts: BlogPost[] = [
     title: "How to Rank #1 on Google Maps: A Guide",
     excerpt: "Learn how to rank #1 on Google Maps with a complete Google Business Profile, reviews, citations, and local pages that belong in the map pack.",
     content: `
-## Why Google Maps Ranking Matters More Than Ever in 2025
+## Why Google Maps Ranking Matters
 
-Local search is no longer just an option for small businesses — it’s the *battlefield* where success or failure is decided. In 2025, over **46% of all Google searches have local intent**, meaning nearly half of all searchers are looking for services or products close to them. This shift makes ranking high on Google Maps, especially in the coveted **Google 3-Pack**, absolutely critical.
+Local search is where a lot of buying decisions start. People looking for a service nearby often choose from the map results, so ranking in the **Google 3-Pack** is how those searches turn into calls.
 
 Think about it: when you search for a local business, how often do you scroll past the map results? Rarely, right? Those top three listings get the majority of clicks, calls, and foot traffic. If your business isn’t there, you’re missing out on a massive chunk of potential customers who are ready to buy **right now**.
 
-This isn’t just about visibility — it’s about **dominating your local market** and turning searchers into paying customers. The businesses that master Google Maps optimization don’t just get leads; they grow sustainably, build brand trust, and fend off competitors. In fact, businesses featured in the Google 3-Pack receive up to **700% more clicks and calls** than those buried in regular search results or on directories.
+Showing up there is about turning nearby searchers into customers. The businesses that keep their Google Business Profile accurate, active, and easy to contact are the ones people can actually choose.
 
 Google Maps has evolved from a simple navigation tool into a full-fledged local search engine with its own ranking algorithm, user interface, and engagement metrics. With the rise of mobile search, voice assistants, and “near me” queries, the importance of Google Maps has skyrocketed.
 
-### The Changing Landscape of Local Search in 2025
+### How Local Search Behaves on a Phone
 
-- **Mobile dominance**: Over 60% of local searches happen on mobile devices, where map results take up the majority of the visible screen.
+- **Phones**: On a phone, the map takes up most of the screen, so the three listings there are what people see first.
 - **Voice search growth**: Smart assistants like Google Assistant and Siri often pull from Google Maps data to answer local queries.
 - **Increased competition**: More businesses are investing in local SEO, meaning the bar to rank #1 is higher than ever.
 - **User behavior shifts**: Customers expect instant, accurate information — and Google rewards businesses that deliver it.
 
-If you want to win in 2025, your business **must** appear in the Google Maps 3-Pack. The good news? The strategies that work have been tested on 500+ businesses — and we’re about to share them all.
+If you want those calls, your business has to be eligible to appear in the Google Maps 3-Pack. The rest of this guide is the work: profile, reviews, citations, and the website behind them.
 
 ---
 
@@ -113,7 +113,7 @@ This helps Google display your profile for a wider range of relevant searches wh
 
 ### Step 3: Add Compelling Photos and Videos
 
-- Businesses with photos on their GBP receive **42% more requests for directions** and **35% more click-throughs to their websites**.
+- Google has reported that online business listings with photos get [42% more requests for directions and 35% more clicks](https://smallbusiness.googleblog.com/2015/11/tis-season-to-showcase-your-business.html) than listings without photos.
 - Upload high-quality images of your storefront, team, products, and recent projects.
 - Use photos to tell your brand story and build trust.
 - Don’t forget videos — short clips showcasing your services or behind-the-scenes footage can enhance engagement.
@@ -124,7 +124,7 @@ This helps Google display your profile for a wider range of relevant searches wh
 
 Here’s the inside scoop that most “SEO experts” won’t share: **Customer reviews are the #1 ranking factor for local search.** But it’s not just about quantity — it’s about quality, recency, and relevance.
 
-### Why Reviews Matter More Than Ever in 2025
+### Why Reviews Matter
 
 - Google uses reviews as a **trust signal** to rank businesses.
 - Reviews influence **click-through rates** — higher ratings and positive feedback attract more customers.
@@ -138,7 +138,7 @@ Here’s the inside scoop that most “SEO experts” won’t share: **Customer 
 3. **Recency:** Fresh reviews show Google your business is alive and trustworthy.
 4. **Keywords in Reviews:** Reviews that naturally mention your services and location (e.g., “great Chicago roofing company”) boost your relevance for those terms.
 
-### How to Ethically Get More Reviews: Our Proven System
+### How to Ethically Get More Reviews
 
 Getting reviews shouldn’t feel pushy or spammy. Here’s how to make it natural and effective:
 
@@ -204,7 +204,7 @@ Make sure your NAP is **exactly the same** on every citation. Even small differe
 
 ---
 
-## Advanced Strategies to Rank #1 on Google Maps in 2025
+## Advanced Strategies for Google Maps
 
 Once you’ve nailed the basics, it’s time to level up with these cutting-edge tactics designed for 2025 and beyond.
 
@@ -302,7 +302,7 @@ Implementing these strategies consistently and correctly takes time, expertise, 
 ### What Does a Local SEO Expert Bring to the Table?
 
 - Deep knowledge of Google’s local ranking factors and algorithm updates.
-- Experience optimizing hundreds of Google Business Profiles.
+- A repeatable process for categories, photos, reviews, and posts.
 - Systems to generate and manage reviews ethically.
 - Tools and processes for citation building and cleanup.
 - Ability to perform detailed competitor analysis and uncover new opportunities.
@@ -318,11 +318,11 @@ Our **Local Map Booster service** offers:
 - Advanced local SEO tactics
 - Monthly performance reporting
 
-We’ve helped over 500 businesses dominate their local markets — and we’re ready to help you too.
+If you want help putting the checklist into practice, start with that service.
 
 ---
 
-## Ready to Dominate Your Local Market in 2025?
+## Ready to Work on Your Local Visibility?
 
 Ranking #1 on Google Maps is no longer a nice-to-have; it’s a *must-have* for local business success. Follow this comprehensive guide to build a strong foundation, leverage advanced strategies, and track your progress for continuous improvement.
 
@@ -367,7 +367,7 @@ Local citations are online mentions of your business name, address, and phone nu
 
 ---
 
-For expert help in ranking #1 on Google Maps in 2025, visit our [SEO services page](https://rankmehigher.com/services/seo) or [contact us](https://rankmehigher.com/contact) today!
+For help with the work in this guide, visit our [SEO services page](https://rankmehigher.com/services/seo) or [contact us](https://rankmehigher.com/contact).
     `,
     category: "Local SEO",
     author: "Ernest",
@@ -519,7 +519,7 @@ For example, a Chicago plumber competes against other Chicago plumbers, not a na
 
 ### 2. Higher Intent Traffic
 
-Local searchers often have immediate purchase intent. According to Google, 76% of people who conduct a local search on their smartphone visit a business within 24 hours, and 28% of those searches result in a purchase. This means local SEO traffic converts better than non-local.
+Local searchers often have immediate purchase intent. Google reported that [76% of people who search for something nearby on their smartphone visit a related business within a day, and 28% of those searches result in a purchase](https://blog.google/products-and-platforms/products/ads/the-year-of-supershopper/). That is why local SEO traffic is often closer to a buying decision than a general informational visit.
 
 ### 3. Faster Ranking Improvements
 
@@ -673,9 +673,9 @@ SEO is ongoing. Stale content loses rankings. Refresh and expand existing pages 
 
 At [Rank Me Higher](https://rankmehigher.com/services/seo), we specialize in both local and organic SEO strategies tailored to your business goals. We understand Chicago’s competitive market and know how to get your business visible to the right audience at the right time.
 
-Our proven approach starts with building strong local SEO foundations for immediate impact, then layering in organic SEO to capture broader traffic and build lasting authority.
+The work starts with the local SEO foundation, then adds organic SEO for broader traffic and longer-term authority.
 
-We also offer complementary services like [web development](https://rankmehigher.com/services/websites), [content marketing](https://rankmehigher.com/services/content-ads), and [outbound marketing](https://rankmehigher.com/services/outbound) to create a holistic growth strategy that drives measurable results.
+We also offer [web development](https://rankmehigher.com/services/websites), [content marketing](https://rankmehigher.com/services/content-ads), and [outbound marketing](https://rankmehigher.com/services/outbound).
 
 Whether you’re a local service provider ready to dominate your neighborhood or a brand aiming for national reach, we have the expertise and tools to take your SEO to the next level.
 
@@ -703,7 +703,7 @@ Absolutely. Most successful businesses combine both strategies. Local SEO attrac
 
 ### How long does it take to see results from local SEO?
 
-Local SEO improvements can often be seen within a few weeks to a couple of months, especially through Google Business Profile optimization and citation building.
+There is no fixed timeline. Google Business Profile details, reviews, and citations are the usual starting point, and any movement depends on the market and the competition.
 
 ---
 
@@ -759,9 +759,9 @@ If you want a partner that knows how to blend these strategies effectively, [Ran
     content: `
 
 
-## Understanding the Review Problem in 2025: Why Generating Authentic Reviews Is Harder Than Ever
+## Why Generating Authentic Reviews Is Hard
 
-In 2025, online reviews have solidified their status as the modern-day equivalent of word-of-mouth marketing. Consumers rely heavily on reviews to make informed purchasing decisions, with studies showing that **88% of consumers trust online reviews as much as personal recommendations**. But despite this overwhelming trust, many businesses struggle to generate consistent, genuine reviews.
+Online reviews are the public version of word-of-mouth. In [BrightLocal's 2014 Local Consumer Review Survey](https://www.brightlocal.com/research/local-consumer-review-survey-2014/), 88% of consumers said they trust online reviews as much as personal recommendations. Many businesses still struggle to get a steady stream of genuine reviews.
 
 Why?
 
@@ -769,9 +769,9 @@ Because the digital landscape has evolved. Customers are savvier and more cautio
 
 The real challenge is: **how do you ethically and effectively encourage your customers to share their experiences in a way that feels natural, convenient, and valuable to them?**
 
-At [Rank Me Higher](https://rankmehigher.com), a Chicago-based [web development and SEO agency](/services/seo), we’ve mastered this balancing act. We help businesses ask for reviews through strategies rooted in customer experience and transparency. Our approach is tailored for 2025’s digital environment where authenticity reigns supreme.
+[Rank Me Higher](https://rankmehigher.com) is a Chicago-based [web development and SEO agency](/services/seo). The strategies below ask for reviews through the customer experience, and they stay inside the rules against incentives and gating.
 
-In this comprehensive guide, we’ll dive deep into five proven review generation strategies that work in 2025 and beyond. Each section includes actionable steps, real-world examples, and best practices so you can build and scale your online reputation sustainably.
+This guide covers five review generation strategies. Each section includes steps and examples you can run without buying reviews or filtering out unhappy customers.
 
 ---
 
@@ -811,13 +811,13 @@ Consider this:
 
 ### Why Personalization Boosts Review Rates
 
-Personalized messages show customers you remember their unique experience and value their opinion. A generic, mass-sent request feels impersonal and less compelling. Personalization can increase response rates by up to 50%, according to marketing studies.
+Personalized messages show customers you remember their job and value their opinion. A generic, mass-sent request is easier to ignore. Name the service you just finished.
 
 ---
 
 ## Strategy 2: The QR Code Follow-Up – Seamlessly Bridge Offline Interactions to Online Reviews
 
-### Why QR Codes Remain a Review Generation Powerhouse in 2025
+### Why QR Codes Still Work for Review Requests
 
 Despite being around for years, QR codes have surged in popularity because they offer a simple, frictionless way to drive offline customers online. With smartphones ubiquitous, scanning a QR code is effortless and instantaneous, connecting physical experiences directly to your review page.
 
@@ -848,7 +848,7 @@ A roofing company can put QR codes on invoices and vehicle magnets so customers 
 
 ### Why SMS Outperforms Email and Phone Calls for Review Generation
 
-Text messaging boasts a staggering **98% open rate**, with most texts read within 3 minutes. Compared to email (20-30% open rates) and phone calls (often ignored), SMS offers immediacy and directness that few channels can match.
+A text shows up on the phone the customer already uses, which makes it easier to see than an email buried in an inbox or a call they do not pick up.
 
 ### Crafting an Effective 3-Step SMS Sequence to Generate Reviews
 
@@ -935,7 +935,7 @@ Don’t make customers hunt for your review page—provide a clickable URL that 
 - Use your brand’s colors, fonts, and logo.
 - Include testimonials or social proof to inspire trust.
 - Add a clear call-to-action (CTA) button, e.g., “Leave a Review.”
-- Optimize emails for mobile devices—over 60% of emails are opened on phones.
+- Optimize emails for mobile devices, since many people read email on a phone.
 
 ---
 
@@ -945,7 +945,7 @@ Don’t make customers hunt for your review page—provide a clickable URL that 
 
 Customers remember how you make them feel. When you surprise them with thoughtful gestures, they naturally want to share their positive experience with others. This emotional connection can be far more powerful than any scripted review request.
 
-### Proven Ways to Surprise and Delight Your Customers
+### Ways to Surprise and Delight Your Customers
 
 - **Handwritten Thank You Notes:** Personalized notes express genuine appreciation and stand out in a digital world.
 - **Unexpected Small Gifts:** Coupons, samples, or branded merchandise (e.g., mugs, keychains) create memorable moments.
@@ -964,7 +964,7 @@ After the surprise, a simple, genuine ask feels natural:
 
 ---
 
-## What NOT to Do: Avoid These Common Review Generation Pitfalls in 2025
+## What NOT to Do: Review Generation Pitfalls
 
 ### 1. Never Offer Incentives for Reviews
 
@@ -1033,7 +1033,7 @@ Combining review generation with strategic outbound campaigns ensures you reach 
 
 ## Conclusion: Build Your Ethical, Scalable Review Pipeline Starting Today
 
-In 2025, the era of begging for reviews is over. Customers want authentic, transparent interactions that respect their time and experience. By mastering the five strategies outlined here—**perfect timing asks, QR code follow-ups, SMS sequences, email nurture campaigns, and surprise & delight tactics**—you can build a sustainable pipeline of genuine reviews.
+Begging for reviews is a weak plan. Customers respond to a clear, honest ask that respects their time. The five strategies above—**timing, QR codes, SMS, email, and a genuine extra**—are ways to ask without paying for reviews or hiding unhappy customers.
 
 At [Rank Me Higher](https://rankmehigher.com), we specialize in implementing these strategies and automating the process so Chicago businesses like yours can focus on what they do best—delivering exceptional products and services.
 
@@ -1101,7 +1101,7 @@ Ready to take your review game to the next level? Contact [Rank Me Higher](https
 
 If you own a local business, your Google Business Profile (GBP) is arguably your most powerful tool for attracting nearby customers and dominating local search results. It’s the digital storefront that prospective customers see when they search for services or products “near me.” But here’s the kicker: many businesses unknowingly sabotage their own local SEO rankings by making simple yet critical mistakes on their GBP.
 
-At Rank Me Higher, we’ve audited over 1,000 Google Business Profiles, and the patterns are clear — certain mistakes repeatedly kill local search rankings. The good news? These errors are fixable, and the fixes often produce noticeable ranking improvements within just a few weeks.
+The same mistakes show up over and over. They are fixable. This guide covers the seven that most often keep a profile out of local results.
 
 If you want to dominate local search, increase foot traffic, and get more customers knocking on your door, this guide is for you. We’ll dive deep into the **7 Google Business Profile mistakes killing your rankings**, show you exactly how to fix them, and share pro tips that few businesses know.
 
@@ -1325,7 +1325,7 @@ Many businesses either leave this blank or write generic, vague descriptions tha
 
 ### Sample Business Description
 
-“At Chicago Roofing Pros, we specialize in residential and commercial roof repairs and replacements throughout the Chicago metro area. With over 15 years of experience, our certified team delivers quality workmanship, affordable pricing, and excellent customer service. Call us today for a free roof inspection!”
+“Chicago Roofing Pros handles residential and commercial roof repairs and replacements throughout the Chicago metro area. Call us to schedule a roof inspection.”
 
 ### Tips for Optimization
 
@@ -1401,7 +1401,7 @@ No. Google only allows one primary category per profile, but you can add multipl
 Update your address immediately in your GBP dashboard and all online listings. Use posts and your website to notify customers and avoid confusion.
 
 ### How long does it take to see ranking improvements after fixing GBP mistakes?  
-Typically, you can expect to see ranking improvements within 2-6 weeks after implementing key fixes. Keep in mind that ongoing optimization is essential for sustained results.
+There is no fixed timeline. Fix the mistakes in this guide, then keep the profile current. How fast anything moves depends on the market and who else is competing.
 
 ### Is it okay to use stock photos on my profile?  
 Avoid stock photos. Original, high-quality photos build trust and authenticity with customers far better than generic images.
@@ -1438,13 +1438,13 @@ Avoid stock photos. Original, high-quality photos build trust and authenticity w
 
 
 
-## The AI Revolution in Search: What It Means for SEO in 2025
+## The AI Revolution in Search: What It Means for SEO
 
-2025 marks one of the most transformative years in the history of search engine optimization (SEO). Artificial Intelligence (AI) has moved far beyond its early stages of experimentation and hype; it now fundamentally drives how users discover information, how search engines rank content, and how businesses compete in the crowded online marketplace. From Google’s innovative AI Overviews to the conversational prowess of ChatGPT-powered interfaces, AI’s influence on search is tangible and profound.
+Artificial intelligence now shapes how people discover information, how search engines assemble results, and how businesses compete. Google’s AI Overviews and chat-style interfaces are part of that shift.
 
 But here’s the truth: AI isn’t here to kill SEO. It’s here to evolve it. The old tactics of keyword stuffing and backlink spamming are obsolete, replaced by a sophisticated ecosystem where AI and human expertise must coexist. Businesses that recognize this shift and adapt their strategies will not only survive—they will thrive.
 
-At [Rank Me Higher](https://rankmehigher.com), a Chicago-based web development and SEO agency, we’ve witnessed firsthand how AI reshapes SEO strategies and delivers superior outcomes. This comprehensive guide dives deep into the ways AI is changing SEO, what remains unchanged, and practical ways smart businesses are capitalizing on these trends.
+[Rank Me Higher](https://rankmehigher.com) is a Chicago-based web development and SEO agency. This guide covers how AI is changing SEO, what has not changed, and practical steps a business can take.
 
 ---
 
@@ -1526,7 +1526,7 @@ AI content creation tools like ChatGPT can generate text rapidly, but they canno
 
 - **Avoiding Thin or Spammy Content:** AI-generated content without added value can be penalized. Thin content that lacks depth or originality damages rankings and brand reputation.
 
-### Best Practices for Content Creation in 2025
+### Best Practices for Content Creation
 
 To build content that aligns with E-E-A-T:
 
@@ -1629,7 +1629,7 @@ While many businesses panic about AI disrupting SEO, the reality is that AI open
 - **More Authenticity:** AI can generate content, but it can’t replicate genuine human connection, storytelling, or nuanced expertise.
 - **Deeper Customer Relationships:** AI tools automate routine tasks, freeing time to focus on meaningful engagement and relationship-building.
 
-At Rank Me Higher, we embrace AI as a powerful tool to amplify human creativity and insight—not as a replacement. Our hybrid approach blends cutting-edge AI technology with proven, real-world strategies to deliver measurable SEO and web development results.
+At Rank Me Higher, AI is a tool used alongside human editing. It does not replace a review of the facts, the local details, or the page a customer actually reads.
 
 ---
 
@@ -1672,14 +1672,11 @@ Customer reviews remain critical. While AI can analyze and summarize reviews, ge
 
 ## Conclusion: Stay Ahead by Embracing AI Without Losing Your Human Edge
 
-The SEO landscape in 2025 is defined by AI’s revolutionary impact—transforming how search engines understand queries, deliver results, and how users interact with content. But rather than viewing AI as a threat, smart businesses see it as a powerful ally.
+Search is changing as AI summarizes more answers and people ask longer questions. The businesses that hold up are the ones with real expertise, a real local presence, and pages people can trust.
 
-By embracing AI tools to enhance data analysis, content optimization, and user experience, while doubling down on authentic expertise, local presence, and trust, you position your brand to dominate the new search frontier.
+AI tools can help with research and drafts. They do not replace first-hand experience, accurate business details, or a site that is easy to use.
 
-If you want to future-proof your SEO and web development efforts with a partner who understands both cutting-edge technology and human connection, let’s talk. At [Rank Me Higher](https://rankmehigher.com), we harness AI as a force multiplier—not a replacement—and combine it with proven strategies to deliver measurable, sustainable results.
-
-Ready to rank higher in 2025 and beyond?  
-[Contact us today](/contact) to get started.
+If you want help with the SEO and website work in this guide, [contact Rank Me Higher](/contact).
     
     
     
@@ -1702,13 +1699,13 @@ Ready to rank higher in 2025 and beyond?
 
 
 
-## Your Website is Your Best Employee in 2025
+## Your Website is Your Best Employee
 
 In today’s digital-first world, your website isn’t just a digital brochure — it’s your hardest working, most reliable employee that never clocks out. For service businesses, this translates into a 24/7 salesperson that can attract, engage, and convert visitors into paying customers around the clock. Yet, shockingly, most service business websites are missing critical elements that cost them leads and revenue every single day.
 
-If your website isn’t optimized to meet customer expectations in 2025, you’re effectively leaving money on the table. The online landscape is more competitive than ever, with more businesses vying for attention and customers becoming increasingly discerning. Your site needs to work smarter, faster, and more effectively to stand out.
+If your website is slow, hard to use on a phone, or missing a clear way to get in touch, you are losing the people who were ready to call. More businesses are competing for that same search, and customers leave when the page does not answer them.
 
-In this comprehensive guide, we break down the **10 must-have website features for service businesses in 2025** — elements that not only improve user experience but also boost your Google rankings, increase conversions, and establish trust with your audience. We’ll dive deep into each feature with examples, actionable tips, and insights to help you build a website that truly works as hard as you do.
+This guide covers **10 website features for service businesses**: the pieces that make the site usable, trustworthy, and possible to find. Each section includes examples and steps.
 
 ---
 
@@ -1716,13 +1713,13 @@ In this comprehensive guide, we break down the **10 must-have website features f
 
 ### Why Load Speed Is Your Website’s Foundation
 
-Imagine walking into a store and having to wait several minutes for a salesperson to notice you before you can even browse the shelves. Frustrating, right? That’s exactly how your website visitors feel when your page takes too long to load. Studies show that if your website takes more than three seconds to load, you risk losing upwards of 40% of potential visitors. That’s nearly half your prospects bouncing before they engage with your content.
+Imagine walking into a store and having to wait several minutes for a salesperson to notice you before you can even browse the shelves. A slow website creates the same problem. Google's mobile speed study found that [53% of visits are likely to be abandoned if pages take longer than 3 seconds to load](https://blog.google/products/admanager/the-need-for-mobile-speed/).
 
 Load speed is more than just a user experience factor — it’s a critical SEO ranking signal. Google uses page speed as a ranking factor, especially on mobile searches. If your competitors’ websites load faster, they’ll outrank you, siphoning off valuable traffic and leads.
 
 ### The Impact of Speed on Conversion Rates
 
-Conversion rates correlate directly with site speed. For example, Walmart found that for every 1 second improvement in page load time, conversions increased by 2%. Amazon reported that a 100-millisecond delay cost them 1% in sales. These numbers prove that speed isn’t just a nice-to-have; it’s a business imperative.
+A faster page keeps more of the people who were ready to call or book. Speed is part of the job, not a polish item you add later.
 
 ### How to Achieve Lightning-Fast Load Speeds
 
@@ -1748,7 +1745,7 @@ A plumbing company can speed up its homepage by moving to faster hosting, compre
 
 ### The Mobile Revolution Is Here to Stay
 
-Mobile devices now drive over 60% of all web traffic globally, and the trend is only increasing. For service businesses, this is especially significant since customers frequently search for services “on the go,” using smartphones during commutes, lunch breaks, or while running errands.
+In September 2026, [Statcounter](https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet/worldwide) measured 58.99% of worldwide web traffic from mobile phones, 39.26% from desktop, and 1.76% from tablets. For service businesses, that matters because customers often search on a phone while they are already out.
 
 Google has shifted to **mobile-first indexing**, meaning the mobile version of your site is what their algorithms primarily evaluate for rankings. If your mobile site is clunky, slow, or difficult to navigate, your SEO and user engagement will suffer.
 
@@ -2003,7 +2000,7 @@ Customers today expect immediate responses. When visitors have questions, hesita
 
 ## 9. SSL Certificate: Secure Your Website and Your Reputation
 
-### Why SSL Is Non-Negotiable in 2025
+### Why SSL Is Non-Negotiable
 
 If your website URL doesn’t start with “https://,” you’re sending the wrong message to visitors and search engines alike. SSL (Secure Sockets Layer) encrypts data transmitted between your site and users, protecting sensitive information.
 
@@ -2065,7 +2062,7 @@ Our [content and ads services](/services/content-ads) are data-driven, ensuring 
 
 Your website is often the first—and sometimes only—impression your potential customers get of your business. If your site isn’t fast, mobile-friendly, trustworthy, and optimized for conversions, you’re missing out on customers every single day.
 
-Implementing these 10 must-haves will transform your website from a static brochure into a powerful marketing tool that attracts, engages, and converts visitors 24/7. Whether you’re a plumber, landscaper, HVAC technician, or any other service provider, these elements are non-negotiable for thriving in 2025’s digital marketplace.
+Implementing these 10 must-haves turns a brochure site into a page that can take a call, a form, or a booking at any hour. For a plumber, landscaper, HVAC company, or any other service business, these are the basics of a site people can use.
 
 ---
 
@@ -2083,7 +2080,7 @@ Ready to turn your website into your best employee? Contact us today for a free 
 
 ## Frequently Asked Questions
 
-### What is the most important feature for a service business website in 2025?
+### What is the most important feature for a service business website?
 
 While all features are important, **mobile-first design and fast load speed** top the list because the majority of users access sites via mobile and expect instant results. Without these, your site will underperform both in SEO and user engagement.
 
@@ -2180,24 +2177,11 @@ This analogy isn’t just about looks. It affects **site speed**, **search engin
 
 ### 1. Speed That Actually Moves the Needle
 
-Google’s 2025 Core Web Vitals update made it crystal clear: **page speed is a major ranking factor.** Sites scoring below 90 on Google’s PageSpeed Insights are buried deep in search results.
+Page speed is a ranking signal. Google uses Core Web Vitals to judge whether a page loads quickly enough to use. A PageSpeed Insights score is a lab hint, not a line that gets a site buried at 90.
 
-Here’s a real-world comparison between template builders and custom-coded sites:
+Template builders often ship extra CSS, plugin scripts, and libraries the page never uses. A custom page can load only the markup, images, and scripts that page needs, which is why it is usually lighter.
 
-| Metric                | Template Builder  | Custom-Coded Site |
-|-----------------------|-------------------|-------------------|
-| PageSpeed Score       | 35-65             | 95-100            |
-| Load Time             | 4-8 seconds       | Under 1 second    |
-| First Contentful Paint| 3.2 seconds       | 0.4 seconds       |
-| Total Page Size       | 3-8 MB            | 200-500 KB        |
-
-**Why the difference?**
-
-Template builders load dozens of unnecessary plugins, generic CSS frameworks, jQuery libraries, and tracking scripts. These render-blocking assets slow everything down, and because the platform has to accommodate every possible use case, bloat is baked in.
-
-Custom-coded websites load **only what’s necessary** — optimized images, minified code, and scripts loaded asynchronously. This means faster rendering, less data consumption, and a better user experience.
-
-**The impact:** A visitor who waits more than 3 seconds is 53% more likely to bounce. In a competitive market, those lost visitors are lost revenue.
+Google's mobile speed study found that [53% of visits are likely to be abandoned if pages take longer than 3 seconds to load](https://blog.google/products/admanager/the-need-for-mobile-speed/). Those are visits you do not get back.
 
 > **Example:**  
 > A plumbing company can move off a template builder onto a site that loads only the code that page needs, so the mobile page is lighter and the tap-to-call button is available sooner.
@@ -2232,9 +2216,7 @@ For more on how we integrate SEO into custom code, check out our detailed [SEO s
 
 ### 3. Conversion-Optimized From Day One — Turning Visitors Into Customers
 
-The average local business website converts at a dismal **2.35%** — meaning for every 100 visitors, only 2-3 take action.
-
-A custom-coded site is built around the action you want a visitor to take. The layout, the form, and the button are chosen for that path.
+A local business site has one job: get the visitor to call, book, or request a quote. A custom-coded site is built around that action. The layout, the form, and the button are chosen for that path.
 
 **Conversion-focused design and development includes:**
 
@@ -2275,9 +2257,7 @@ This turns your website from a monthly subscription expense into a **digital ass
 
 ### 5. Security Without the Plugin Headaches
 
-WordPress powers around 40% of the web but is responsible for nearly **90% of hacked CMS websites** due to plugin vulnerabilities.
-
-Most WordPress sites run 20-30 plugins, each needing constant updates and sometimes conflicting with each other. Every plugin is a potential entry point for hackers.
+WordPress sites are a common target because an outdated plugin is a frequent way in. A long list of plugins means more updates, more conflicts, and more code you did not write.
 
 **Custom-coded sites drastically reduce the attack surface:**
 
@@ -2302,7 +2282,7 @@ Want a custom booking flow, a dynamic pricing calculator, or an AI-powered intak
 
 Custom code removes these limitations completely.
 
-**Examples from our clients:**
+**Features a custom site can include:**
 
 - A roofing company’s **real-time project tracker** clients can access anytime to check job status
 - A restaurant’s **dynamic menu system** updating availability and pricing in real-time
@@ -2352,9 +2332,7 @@ This agility keeps you ahead of the curve and your competitors.
 | Hosting                    | Shared, included in subscription   | $0 - $20/month ($0 - $240/year)     |
 | **Total Annual Cost**       | **$2,260 - $5,200**               | **$1,100 - $2,440**                  |
 
-**Bottom line:** Custom-coded sites cost less over time and deliver dramatically better performance and results.
-
-When you factor in increased leads, better Google rankings, and reduced downtime, the ROI is undeniable.
+**Bottom line:** These ranges are illustrations of how platform fees, plugins, and repairs can add up. They are not a quote, and they are not a promise of leads or rankings.
 
 ---
 
@@ -2382,7 +2360,7 @@ Switching to a custom-coded website doesn’t have to be overwhelming. Here’s 
 
 ### 1. Discovery Call
 
-We start by understanding your business, customers, and goals. This ensures the site is designed to deliver results, not just look pretty.  
+We start by understanding your business, customers, and goals, so the site is planned around the calls and forms you want.  
 [Book your free consultation here](/contact)
 
 ### 2. Strategy & Wireframing
@@ -2454,7 +2432,7 @@ Absolutely. Custom code is flexible and scalable, allowing you to add or modify 
 
 ## People Also Read
 
-- [How to Rank #1 on Google Maps in 2025](/blog/google-maps-ranking-2025)  
+- [How to Rank #1 on Google Maps](/blog/google-maps-ranking-2025)  
 - [Local SEO vs Organic SEO: What’s Best for Your Business?](/blog/local-seo-vs-organic-seo)  
 - [The Ultimate Guide to Website Conversion Optimization](/blog/website-conversion-optimization)
 
