@@ -403,16 +403,16 @@ const Careers = () => {
   return (
     <>
       <Helmet>
-        <title>Careers: Remote Marketing, Dev & Automation | Rank Me Higher</title>
+        <title>Careers: Marketing, Dev and Automation | Rank Me Higher</title>
         <meta name="description" content="Careers at Rank Me Higher include remote marketing, dev, and automation jobs. Apply for media buying, video, software, SEO, and sales roles." />
-        <meta property="og:title" content="Careers: Remote Marketing, Dev & Automation | Rank Me Higher" />
+        <meta property="og:title" content="Careers: Marketing, Dev and Automation | Rank Me Higher" />
         <meta property="og:description" content="Careers at Rank Me Higher include remote marketing, dev, and automation jobs. Apply for media buying, video, software, SEO, and sales roles." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rankmehigher.com/careers/" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Careers: Remote Marketing, Dev & Automation | Rank Me Higher" />
+        <meta name="twitter:title" content="Careers: Marketing, Dev and Automation | Rank Me Higher" />
         <meta name="twitter:description" content="Careers at Rank Me Higher include remote marketing, dev, and automation jobs. Apply for media buying, video, software, SEO, and sales roles." />
         <link rel="canonical" href="https://rankmehigher.com/careers/" />
         <script type="application/ld+json">{JSON.stringify({
