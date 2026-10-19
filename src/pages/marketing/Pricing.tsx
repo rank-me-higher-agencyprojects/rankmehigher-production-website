@@ -94,6 +94,7 @@ const Pricing = () => (
       </ul>
       <p className="mt-6 text-sm">
         Curious how editing by chat works? See the <Link to="/ai-website-editor/" className="text-primary underline underline-offset-4">AI website editor</Link>.
+        {" "}See <Link to="/services/websites/" className="text-primary underline underline-offset-4">how the AI builds your website</Link> for the path from the quiz to a live site.
       </p>
     </Section>
 

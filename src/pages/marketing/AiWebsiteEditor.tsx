@@ -45,6 +45,10 @@ const AiWebsiteEditor = () => (
           </li>
         ))}
       </ol>
+      <p className="mt-6 text-sm leading-relaxed">
+        The chat editor is how you change a site after it is built. The build itself is the{" "}
+        <Link to="/services/websites/" className="text-primary underline underline-offset-4">AI website builder</Link>.
+      </p>
     </Section>
 
     <Section title="Things contractors actually ask it to do">
