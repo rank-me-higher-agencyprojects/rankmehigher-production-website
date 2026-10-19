@@ -144,7 +144,7 @@ export const routes = [
   {
     path: "/faq/",
     source: "src/pages/marketing/Faq.tsx",
-    lastmod: "2026-10-18",
+    lastmod: "2026-10-19",
     changefreq: "monthly",
     priority: "0.7",
   },
