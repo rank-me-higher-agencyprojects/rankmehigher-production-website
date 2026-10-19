@@ -69,7 +69,8 @@ const Faq = () => (
     <Section>
       <p className="text-sm">
         See <Link to="/pricing/" className="text-primary underline underline-offset-4">pricing</Link> or{" "}
-        <Link to="/examples/" className="text-primary underline underline-offset-4">client examples</Link>.
+        <Link to="/examples/" className="text-primary underline underline-offset-4">client examples</Link>, or{" "}
+        <Link to="/contact/" className="text-primary underline underline-offset-4">send us a message</Link>.
       </p>
     </Section>
     <CtaBlock />

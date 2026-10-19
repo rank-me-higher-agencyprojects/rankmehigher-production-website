@@ -543,7 +543,8 @@ const Websites = () => {
                 <p>
                   If you ever leave, your domain and your content go with you. See{" "}
                   <Link to="/pricing/" className="underline hover:text-primary">pricing</Link>{" "}
-                  for what each monthly plan includes.
+                  for what each monthly plan includes. Questions about a website for your trade?{" "}
+                  <Link to="/contact/" className="underline hover:text-primary">Reach our team</Link>.
                 </p>
                 <div className="grid gap-4 md:grid-cols-3">
                   {PLANS.map((plan) => (
