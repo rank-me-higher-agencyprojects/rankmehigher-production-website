@@ -25,7 +25,7 @@ export const routes = [
   {
     path: "/services/websites/",
     source: "src/pages/services/Websites.tsx",
-    lastmod: "2026-10-18",
+    lastmod: "2026-10-19",
     changefreq: "monthly",
     priority: "0.9",
   },
@@ -137,7 +137,7 @@ export const routes = [
   {
     path: "/pricing/",
     source: "src/pages/marketing/Pricing.tsx",
-    lastmod: "2026-10-15",
+    lastmod: "2026-10-19",
     changefreq: "monthly",
     priority: "0.9",
   },
@@ -158,7 +158,7 @@ export const routes = [
   {
     path: "/ai-website-editor/",
     source: "src/pages/marketing/AiWebsiteEditor.tsx",
-    lastmod: "2026-10-15",
+    lastmod: "2026-10-19",
     changefreq: "monthly",
     priority: "0.8",
   },
