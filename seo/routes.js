@@ -158,7 +158,7 @@ export const routes = [
   {
     path: "/ai-website-editor/",
     source: "src/pages/marketing/AiWebsiteEditor.tsx",
-    lastmod: "2026-10-19",
+    lastmod: "2026-10-21",
     changefreq: "monthly",
     priority: "0.8",
   },
