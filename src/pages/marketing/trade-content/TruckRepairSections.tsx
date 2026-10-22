@@ -23,6 +23,10 @@ const TruckRepairSections = ({ trade }: { trade: Trade }) => {
             Hours have to be the hours on the door. A shop that opens at 7, a shop that takes DOT inspections on Saturday, and a shop that is closed Thanksgiving all have to say so. A holiday still listed as a normal Monday sends someone to a locked gate. Truck parking, the highway exit, and an after-hours note belong on the location page.
           </p>
           <p>
+            A page someone can use on a phone, a number they can tap, and hours that match the door are what{" "}
+            <Link to="/blog/service-business-website-tips/" className="text-primary underline underline-offset-4">any service business site needs</Link>.
+          </p>
+          <p>
             Name the exit. Say whether a tractor and a trailer can park on the lot, or whether the trailer has to be dropped first. If the shop does not run roadside or mobile service, say that, so nobody waits on the shoulder for a truck you are not sending.
           </p>
         </div>
@@ -167,6 +171,9 @@ const TruckRepairSections = ({ trade }: { trade: Trade }) => {
             <Link to="/localmapbooster/" className="text-primary underline underline-offset-4">LocalMapBooster</Link>.
             The shop keeps the number it already answers, on the site and on the listing. Our text line is how you reach us, and it is SMS only. Which plan includes what is on the{" "}
             <Link to="/pricing/" className="text-primary underline underline-offset-4">pricing page</Link>.
+            Reviews on that listing start with{" "}
+            <Link to="/blog/review-generation-strategies/" className="text-primary underline underline-offset-4">asking after the work is done</Link>
+            , while the visit is still easy to remember.
           </p>
           <p>
             The on-site work is part of the website, not a monthly SEO retainer, and it does not guarantee a map position, a page-one placement, or a number of calls.

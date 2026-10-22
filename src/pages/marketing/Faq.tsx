@@ -67,7 +67,13 @@ const Faq = () => (
       </Section>
     ))}
     <Section>
-      <p className="text-sm">
+      <p className="max-w-3xl leading-relaxed">
+        The on-site work in these answers is local search, which is a different job from the ordinary blue links.{" "}
+        <Link to="/blog/local-seo-vs-organic-seo/" className="text-primary underline underline-offset-4">How local search differs from ordinary organic rankings</Link>{" "}
+        spells that out. The listing next to the site has its own failure modes:{" "}
+        <Link to="/blog/google-business-profile-mistakes/" className="text-primary underline underline-offset-4">listing errors that keep a Google Business Profile from matching the website</Link>.
+      </p>
+      <p className="mt-4 text-sm">
         See <Link to="/pricing/" className="text-primary underline underline-offset-4">pricing</Link> or{" "}
         <Link to="/examples/" className="text-primary underline underline-offset-4">client examples</Link>, or{" "}
         <Link to="/contact/" className="text-primary underline underline-offset-4">send us a message</Link>.

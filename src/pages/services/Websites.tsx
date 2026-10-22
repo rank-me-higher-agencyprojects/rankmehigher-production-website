@@ -397,11 +397,13 @@ const Websites = () => {
                   Research comes before the site is written. The AI studies your business, your trade, and your area, including what customers search for. It is aimed at the right structure, real service pages, and correct local SEO: the same name, address, and phone, JSON-LD schema, honest hours, and pages for the services and cities you serve.
                 </p>
                 <p>
-                  If you already have a website, the AI studies what you have and builds you a new site. Your domain moves over when you are ready. The result is a build for that business. It is not a template with the business name dropped into someone else's layout.
+                  If you already have a website, the AI studies what you have and builds you a new site. Your domain moves over when you are ready. The result is a build for that business. It is not{" "}
+                  <Link to="/blog/custom-coded-websites-local-businesses-2026/" className="underline hover:text-primary">a template with the business name dropped into someone else's layout</Link>.
                 </p>
                 <h3 className="font-heading font-bold text-xl text-foreground pt-2">Plans pages, copy, photos, and structure</h3>
                 <p>
-                  After the research, the AI plans the site as one piece: which pages exist, what they say, which photos they use, and how the structure is organized. A local site needs a page for the work you actually do and a clear way for a customer to reach you. Your real business photos are used where you have them. Where a photo is missing, the gap is filled with natural AI imagery that matches the trade. The AI writes that content.
+                  After the research, the AI plans the site as one piece: which pages exist, what they say, which photos they use, and how the structure is organized. A local site needs a page for the work you actually do and{" "}
+                  <Link to="/blog/service-business-website-tips/" className="underline hover:text-primary">a clear way for a customer to reach you</Link>. Your real business photos are used where you have them. Where a photo is missing, the gap is filled with natural AI imagery that matches the trade. The AI writes that content.
                 </p>
                 <h3 className="font-heading font-bold text-xl text-foreground pt-2">Builds the site</h3>
                 <p>
