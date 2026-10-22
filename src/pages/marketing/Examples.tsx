@@ -72,6 +72,11 @@ const Examples = () => {
     ))}
 
     <Section title="Websites by trade and town">
+      <p className="mb-4 max-w-3xl leading-relaxed">
+        A shared template and a site written for one local business are different builds.{" "}
+        <Link to="/blog/custom-coded-websites-local-businesses-2026/" className="text-primary underline underline-offset-4">Why that difference shows up in 2026</Link>{" "}
+        is the comparison for owners weighing the two.
+      </p>
       <p className="text-sm leading-relaxed">
         <Link to="/websites-for/truck-repair/" className="text-primary underline underline-offset-4">Truck repair</Link>
         {" · "}

@@ -148,7 +148,9 @@ const SEO = () => (
           </div>
         </div>
         <p>
-          Read that as a scope, not a ranking promise. Rank Me Higher does not guarantee a map position, a page-one placement, or a number of leads. The same build process and the same local SEO foundation go on every site. What you can inspect before you pay is the preview: the pages, the phone number, the hours, and the services, on your phone.
+          Read that as a scope, not a ranking promise. Rank Me Higher does not guarantee a map position, a page-one placement, or a number of leads. A map position and a page-one placement are different results. The split is{" "}
+          <Link to="/blog/local-seo-vs-organic-seo/" className="text-primary underline underline-offset-4">local SEO and the ordinary organic results</Link>.
+          The same build process and the same local SEO foundation go on every site. What you can inspect before you pay is the preview: the pages, the phone number, the hours, and the services, on your phone.
         </p>
         <p>
           The split also explains what is not live. Rankings inside the client portal are coming soon. Automatic Google Business Profile optimization and review generation are labeled Soon on the site. They are on the roadmap and are not yet automated. Here each piece is named separately, and the only piece in every website is the on-site foundation.
@@ -207,7 +209,9 @@ const SEO = () => (
     <Section title="Google Business Profile optimization">
       <div className="max-w-3xl space-y-4 leading-relaxed">
         <p>
-          Your Google Business Profile is half of local search. Your website is the other half. The website half is this page: NAP, JSON-LD, honest hours, city and service pages, and fast mobile pages, on every build. The profile half is what customers see on Google Maps: the name, the categories, the hours, the photos, and the services on the listing. Those two halves have to describe the same business. A website that says one set of hours and a profile that says another is the same class of problem as an old phone number on the site.
+          Your Google Business Profile is half of local search. Your website is the other half. The website half is this page: NAP, JSON-LD, honest hours, city and service pages, and fast mobile pages, on every build. The profile half is{" "}
+          <Link to="/blog/google-maps-ranking-2025/" className="text-primary underline underline-offset-4">what customers see on Google Maps</Link>
+          : the name, the categories, the hours, the photos, and the services on the listing. Those two halves have to describe the same business. A website that says one set of hours and a profile that says another is the same class of problem as an old phone number on the site.
         </p>
         <p>
           That profile work is{" "}

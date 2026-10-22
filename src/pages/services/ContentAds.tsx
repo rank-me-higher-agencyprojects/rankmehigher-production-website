@@ -394,7 +394,7 @@ const ContentAds = () => {
                   The Website Is <span className="text-cyan-400">The Asset</span>
                 </h3>
                 <p className="text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-3">
-                  Most agencies sell you ads first and ask questions later. We do it in order: the AI builds your <strong className="text-foreground">website</strong> — free, in minutes — with <strong className="text-foreground">local SEO</strong> and <strong className="text-foreground">lead capture</strong> built in. Ads come after, landing on a page that actually converts.
+                  Most agencies sell you ads first and ask questions later. We do it in order: the AI builds your <strong className="text-foreground">website</strong> — free, in minutes — with <strong className="text-foreground">local SEO</strong> and <strong className="text-foreground">lead capture</strong> built in. Ads come after, landing on a page that actually converts. Search also places <a href="/blog/ai-seo-future/" className="underline hover:text-primary">an AI summary above the links</a>, so the page underneath still has to be specific.
                 </p>
                 <p className="text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                   Local businesses already run their sites on the platform.

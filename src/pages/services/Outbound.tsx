@@ -297,7 +297,7 @@ const Outbound = () => {
                   How Your Leads Are <span className="text-primary">Handled</span>
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  From the moment someone hits submit to the moment you call them back.
+                  From the moment someone hits submit to the moment you call them back. The visit before that submit depends on <a href="/blog/ai-seo-future/" className="underline hover:text-primary">how search assembles those results</a>.
                 </p>
               </div>
 

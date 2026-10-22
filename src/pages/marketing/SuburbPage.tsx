@@ -32,6 +32,12 @@ const SuburbPage = ({ slug }: { slug: string }) => {
 
       <Section title={`What a ${town.name} business site needs`}>
         <Bullets items={town.local} />
+        {town.slug === "romeoville-il" && (
+          <p className="mt-4 max-w-3xl leading-relaxed">
+            Hours, the roads drivers use, and the towns you serve should match the Google listing. A mismatch is one of the{" "}
+            <Link to="/blog/google-business-profile-mistakes/" className="text-primary underline underline-offset-4">usual Google Business Profile errors</Link>.
+          </p>
+        )}
       </Section>
 
       {clients.length > 0 && (
