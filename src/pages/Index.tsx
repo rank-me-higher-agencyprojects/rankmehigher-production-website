@@ -414,7 +414,8 @@ const Index = () => {
 
               <Reveal delay={0.2}>
                 <p className="mt-8 text-center text-sm text-white/50 md:mt-10">
-                  Every plan starts the same way — <span className="text-white/80">with your free website.</span>{" "}
+                  Every plan starts the same way — <span className="text-white/80">with your free website</span>, with{" "}
+                  <Link to="/services/seo/" className="text-primary underline underline-offset-4">local SEO services</Link> built in.{" "}
                   <Link to="/pricing/" className="text-primary underline underline-offset-4">Full pricing details</Link>
                 </p>
               </Reveal>
