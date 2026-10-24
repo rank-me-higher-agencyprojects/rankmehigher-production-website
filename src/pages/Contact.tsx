@@ -445,13 +445,13 @@ const Contact = () => {
                 A page that names a service you do not offer, or a town you will not go to, disagrees with the business. Hours on the site should be the hours a customer would find if they drove over. A later hours change is a chat edit. One request already used as the example is to change the hours to 7 to 5 and add Saturday mornings.
               </p>
               <p>
-                People write when a website was built years ago and never updated, when a web designer quoted thousands of dollars and months of waiting, or when every small edit means emailing someone and waiting days. After the free build, you send the next change from the portal and the AI makes it. Waiting on a web designer means that change sits on someone else's project, and the change after that is another request. A DIY builder means you learn that builder and do the work yourself. Chat editing is included with the website plan.
+                People write when a website was built years ago and never updated, when a web designer quoted thousands of dollars and months of waiting, or when a small edit means emailing someone and waiting. After the free build, the next change is a sentence in the portal. A DIY builder means you learn that builder and do the work yourself. Chat editing is included with the website plan.
               </p>
               <p>
                 Existing clients sign in at websites.rankmehigher.com for those edits. The form includes Existing Client Support for a question from a current client.
               </p>
               <p>
-                Some things you might ask for are labeled Soon. Rankings in the portal, a task request such as adding a page for spring specials, automatic Google Business Profile optimization, review generation, a dedicated business phone number, and branded email are on the roadmap and are not automated in the portal yet. Ask about them if you want to know where they stand. Do not treat them as switched on.
+                Some things you might ask for are labeled Soon. Rankings in the portal, a task request such as adding a page for spring specials, automatic Google Business Profile optimization, review generation, a dedicated business phone number, and branded email are on the roadmap and are not automated in the portal yet.
               </p>
             </div>
           </div>
@@ -580,7 +580,7 @@ const Contact = () => {
               <p>
                 <strong className="text-foreground">A website.</strong> The{" "}
                 <Link to="/services/websites/" className="text-primary underline underline-offset-4">AI website builder for contractors</Link>{" "}
-                ships a local-SEO-correct site: the same name, address, and phone, JSON-LD schema, honest hours, and pages for the services and the cities you serve. JSON-LD is structured data in the page so a search engine can read the business, the services, and the area. It is in the first build, not a later project. Pages are built lean so they load on a phone, which is where a local search usually happens. Speed is part of the build, not a separate project after the design.
+                ships a local-SEO-correct site: the same name, address, and phone, JSON-LD schema, honest hours, and pages for the services and the cities you serve. Pages are built lean so they load on a phone, which is where a local search usually happens.
               </p>
               <p>
                 <strong className="text-foreground">Edits after the site is up.</strong> The{" "}
@@ -590,7 +590,7 @@ const Contact = () => {
               <p>
                 <strong className="text-foreground">Local SEO.</strong>{" "}
                 <Link to="/services/seo/" className="text-primary underline underline-offset-4">Local SEO services</Link>{" "}
-                on this platform are the on-site checklist in the first build, not a monthly SEO retainer. Rank Me Higher does not guarantee a map position, a page-one placement, or a number of leads. A map position and a page-one placement are different results. Say in the message which of those you are asking about.
+                on this platform are the on-site checklist in the first build, not a monthly SEO retainer. Rank Me Higher does not guarantee a map position, a page-one placement, or a number of leads. A map position and a page-one placement are different results.
               </p>
               <p>
                 <strong className="text-foreground">Google Business Profile.</strong> The listing is the other half of local search. The website is the half above.{" "}
@@ -600,7 +600,7 @@ const Contact = () => {
               <p>
                 <strong className="text-foreground">Google Ads.</strong>{" "}
                 <Link to="/services/google-ads/" className="text-primary underline underline-offset-4">Google Ads for local businesses</Link>{" "}
-                are a supporting layer for businesses on the platform. Search ads can put a business at the top of Google today. The local SEO built into the site earns visibility over time. They use the same pages, so the website is built first. We run Google campaigns for businesses on the platform. Ad spend goes directly to Google. If you want ads, say whether a site already exists.
+                are a supporting layer for businesses on the platform. The website is built first, so the click has a page to land on. We run Google campaigns for those businesses. Ad spend goes directly to Google. If you want ads, say whether a site already exists.
               </p>
               <p>
                 <strong className="text-foreground">Plans.</strong> Plans start at $99/mo for the website. $149/mo adds Google Business Profile optimization. $199/mo adds a review generator. There are no contracts and no setup fees. What each plan includes is on{" "}
