@@ -67,7 +67,7 @@ export const routes = [
   {
     path: "/contact/",
     source: "src/pages/Contact.tsx",
-    lastmod: "2026-10-15",
+    lastmod: "2026-10-24",
     changefreq: "monthly",
     priority: "0.8",
   },
