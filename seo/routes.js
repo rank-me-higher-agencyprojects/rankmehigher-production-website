@@ -32,7 +32,7 @@ export const routes = [
   {
     path: "/services/seo/",
     source: "src/pages/services/SEO.tsx",
-    lastmod: "2026-10-22",
+    lastmod: "2026-10-26",
     changefreq: "monthly",
     priority: "0.9",
   },

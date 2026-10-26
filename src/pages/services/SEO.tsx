@@ -35,6 +35,10 @@ const FAQ = [
     q: "Who are these local SEO services for?",
     a: "Local businesses, especially the contractors and trades the rest of the site is written for: Chicagoland roofers, plumbers, HVAC companies, and truck repair shops. The same local SEO foundation is on every site the platform builds. Rank Me Higher has offices in downtown Chicago and in Mundelein.",
   },
+  {
+    q: "Do you offer local SEO services near me in Chicago and Mundelein?",
+    a: "Yes. Every website built for a Chicago or Mundelein area business gets the local SEO on this page in the first build, and its city pages cover only the towns you actually serve.",
+  },
 ];
 
 const BUILT_IN = [
@@ -56,8 +60,8 @@ const COMING_SOON = [
 const SEO = () => (
   <MarketingLayout
     path="/services/seo/"
-    title="Local SEO Services for Small Businesses | Rank Me Higher"
-    description="Local SEO services for small businesses are built into every website: correct NAP, JSON-LD, honest hours, city and service pages, plus LocalMapBooster."
+    title="Local SEO Company for Small Businesses | Rank Me Higher"
+    description="A local SEO company built into your website for small businesses in Chicago and Mundelein: correct NAP, JSON-LD, honest hours, city and service pages."
     crumbs={[{ name: "Local SEO", path: "/services/seo/" }]}
     schema={[
       {
@@ -84,8 +88,8 @@ const SEO = () => (
   >
     <PageHero
       eyebrow="Local SEO"
-      h1="Built-in local SEO for small businesses"
-      sub="Local SEO here is not a monthly retainer. It is how every website is built: correct name, address, and phone, JSON-LD schema, honest hours, city and service pages, and fast mobile pages. Google Business Profile work is LocalMapBooster. Rankings in the portal are coming soon."
+      h1="A local SEO company built into your website"
+      sub="Rank Me Higher is a local SEO company for small businesses in Chicago, Mundelein and the North Shore that builds the local SEO into the website itself. Local SEO here is not a monthly retainer. It is how every website is built: correct name, address, and phone, JSON-LD schema, honest hours, city and service pages, and fast mobile pages. Google Business Profile work is LocalMapBooster. Rankings in the portal are coming soon."
     >
       <CtaRow />
     </PageHero>
