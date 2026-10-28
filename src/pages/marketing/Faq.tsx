@@ -124,6 +124,11 @@ const Faq = () => (
         spells that out. The listing next to the site has its own failure modes:{" "}
         <Link to="/blog/google-business-profile-mistakes/" className="text-primary underline underline-offset-4">listing errors that keep a Google Business Profile from matching the website</Link>.
       </p>
+      <p className="mt-4 max-w-3xl leading-relaxed">
+        If you are deciding what the free build should include, these{" "}
+        <Link to="/blog/service-business-website-tips/" className="text-primary underline underline-offset-4">website tips for service businesses</Link>{" "}
+        cover the pages and contact paths customers expect.
+      </p>
       <p className="mt-4 text-sm">
         See <Link to="/pricing/" className="text-primary underline underline-offset-4">pricing</Link> or{" "}
         <Link to="/examples/" className="text-primary underline underline-offset-4">client examples</Link>, or{" "}

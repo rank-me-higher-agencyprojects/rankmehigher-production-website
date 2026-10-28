@@ -77,6 +77,11 @@ const Examples = () => {
         <Link to="/blog/custom-coded-websites-local-businesses-2026/" className="text-primary underline underline-offset-4">Why that difference shows up in 2026</Link>{" "}
         is the comparison for owners weighing the two.
       </p>
+      <p className="mb-4 max-w-3xl leading-relaxed">
+        Truck Clinic and QTA Tax are service businesses, so the same{" "}
+        <Link to="/blog/service-business-website-tips/" className="text-primary underline underline-offset-4">website tips for service businesses</Link>{" "}
+        apply: a fast page, a clear service, and a way to call.
+      </p>
       <p className="text-sm leading-relaxed">
         <Link to="/websites-for/truck-repair/" className="text-primary underline underline-offset-4">Truck repair</Link>
         {" · "}

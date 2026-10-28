@@ -736,7 +736,7 @@ SEO costs vary depending on the scope, competition, and services needed. Local S
 
 The answer isn’t “local SEO vs organic SEO” — it’s understanding how to use both. For most local service businesses, start with local SEO to reach nearby customers. Once the map results are in good shape, invest in organic SEO to build authority and attract broader traffic.
 
-If you want a partner that knows how to blend these strategies, [Rank Me Higher](https://rankmehigher.com/contact) can help.
+If you want a partner that knows how to blend these strategies, [Rank Me Higher](https://rankmehigher.com/contact/) can help.
 
 ---
 
@@ -768,7 +768,7 @@ Because the digital landscape has evolved. Customers are savvier and more cautio
 
 The real challenge is: **how do you ethically and effectively encourage your customers to share their experiences in a way that feels natural, convenient, and valuable to them?**
 
-[Rank Me Higher](https://rankmehigher.com) is a Chicago-based [web development and SEO agency](/services/seo/). The strategies below ask for reviews through the customer experience, and they stay inside the rules against incentives and gating.
+[Rank Me Higher](https://rankmehigher.com/) is a Chicago-based [web development and SEO agency](/services/seo/). The strategies below ask for reviews through the customer experience, and they stay inside the rules against incentives and gating.
 
 This guide covers five review generation strategies. Each section includes steps and examples you can run without buying reviews or filtering out unhappy customers.
 
@@ -887,7 +887,7 @@ _Example:_
 
 ### Automation Tools to Streamline SMS Review Requests
 
-Managing SMS sequences manually is time-consuming. Tools like [Twilio](https://www.twilio.com/), [Podium](https://www.podium.com/), and [Birdeye](https://birdeye.com/) offer automation that integrates with CRM systems. At Rank Me Higher, we incorporate SMS automation into our [outbound marketing services](/services/outbound) to maximize efficiency and scale seamlessly.
+Managing SMS sequences manually is time-consuming. Tools like [Twilio](https://www.twilio.com/), [Podium](https://www.podium.com/), and [Birdeye](https://birdeye.com/) offer automation that integrates with CRM systems. At Rank Me Higher, we incorporate SMS automation into our [outbound marketing services](/services/outbound/) to maximize efficiency and scale seamlessly.
 
 ---
 
@@ -1022,11 +1022,11 @@ Highlighting reviews prominently on your website increases conversions. We build
 
 ### Content Marketing and Ads
 
-Leveraging genuine customer testimonials in your content and paid ads enhances credibility and click-through rates. Our [content and ad services](/services/content-ads) help maximize this impact.
+Leveraging genuine customer testimonials in your content and paid ads enhances credibility and click-through rates. Our [content and ad services](/services/content-ads/) help maximize this impact.
 
 ### Outbound Marketing
 
-Combining review generation with strategic outbound campaigns ensures you reach and convert your ideal customers. Our [outbound marketing](/services/outbound) integrates review requests seamlessly into your outreach.
+Combining review generation with strategic outbound campaigns ensures you reach and convert your ideal customers. Our [outbound marketing](/services/outbound/) integrates review requests seamlessly into your outreach.
 
 ---
 
@@ -1382,7 +1382,7 @@ Fixing these Google Business Profile mistakes can be daunting and time-consuming
 
 Focus on what you do best — running your business — and let us handle the local SEO details that drive customers.
 
-The website side of this is [SEO built into your website](/services/seo/). Learn more about our [Local Map Booster service](/localmapbooster/), or combine it with our [Website Development](/services/websites/) and [Content & Ads](/services/content-ads) offerings for maximum impact.
+The website side of this is [SEO built into your website](/services/seo/). Learn more about our [Local Map Booster service](/localmapbooster/), or combine it with our [Website Development](/services/websites/) and [Content & Ads](/services/content-ads/) offerings for maximum impact.
 
 ---
 
@@ -1441,7 +1441,7 @@ Artificial intelligence now shapes how people discover information, how search e
 
 But here’s the truth: AI isn’t here to kill SEO. It’s here to evolve it. The old tactics of keyword stuffing and backlink spamming are obsolete, replaced by a sophisticated ecosystem where AI and human expertise must coexist. Businesses that recognize this shift and adapt their strategies will not only survive—they will thrive.
 
-[Rank Me Higher](https://rankmehigher.com) is a Chicago-based web development and SEO agency. This guide covers how AI is changing SEO, what has not changed, and practical steps a business can take.
+[Rank Me Higher](https://rankmehigher.com/) is a Chicago-based web development and SEO agency. This guide covers how AI is changing SEO, what has not changed, and practical steps a business can take.
 
 ---
 
@@ -1541,7 +1541,7 @@ To build content that aligns with E-E-A-T:
 
 A financial advisory firm can overhaul its blog with in-depth guides written by certified financial planners, add client testimonials, and link to trusted financial institutions. That is what E-E-A-T is asking for: real expertise, named authors, and sources a reader can check.
 
-Our [content marketing and ads services](/services/content-ads) focus on crafting high-quality, human-centered content that builds authority and drives conversions—combining AI efficiency with human authenticity.
+Our [content marketing and ads services](/services/content-ads/) focus on crafting high-quality, human-centered content that builds authority and drives conversions—combining AI efficiency with human authenticity.
 
 ---
 
@@ -1565,7 +1565,7 @@ Amid a flood of AI-generated content, consumers gravitate towards brands that fe
 
 Fast-loading, mobile-optimized websites with clean code and intuitive navigation remain essential. AI may enhance content discovery, but user experience is still king for conversions and retention.
 
-Our [outbound marketing services](/services/outbound) help you build authentic customer relationships rooted in trust and transparency, complementing your SEO efforts.
+Our [outbound marketing services](/services/outbound/) help you build authentic customer relationships rooted in trust and transparency, complementing your SEO efforts.
 
 ---
 
@@ -1673,7 +1673,7 @@ Search is changing as AI summarizes more answers and people ask longer questions
 
 AI tools can help with research and drafts. They do not replace first-hand experience, accurate business details, or a site that is easy to use.
 
-If you want help with the SEO and website work in this guide, [contact Rank Me Higher](/contact).
+If you want help with the SEO and website work in this guide, [contact Rank Me Higher](/contact/).
     
     
     
@@ -2049,7 +2049,7 @@ You can’t improve what you don’t measure. Analytics provide invaluable insig
 
 ### How Rank Me Higher Helps You Leverage Analytics
 
-Our [content and ads services](/services/content-ads) are data-driven, ensuring every campaign and website update is backed by solid analytics to maximize ROI.
+Our [content and ads services](/services/content-ads/) are data-driven, ensuring every campaign and website update is backed by solid analytics to maximize ROI.
 
 ---
 
@@ -2063,7 +2063,7 @@ Implementing these 10 must-haves turns a brochure site into a page that can take
 
 ## Need Help Building a Website That Works?
 
-At [Rank Me Higher](https://rankmehigher.com), we specialize in creating websites tailored for local service businesses in Chicago and beyond. Our sites are fast, mobile-optimized, and designed to maximize conversions.
+At [Rank Me Higher](https://rankmehigher.com/), we specialize in creating websites tailored for local service businesses in Chicago and beyond. Our sites are fast, mobile-optimized, and designed to maximize conversions.
 
 Ready to turn your website into your best employee? [Contact us](/contact/), or learn more about our [web development services](/services/websites/) and [SEO strategies](/services/seo/). Let’s build a website that works as hard as you do.
 
@@ -2226,7 +2226,7 @@ Unlike template builders, which offer generic “contact form widgets,” we bui
 > **Example:**  
 > A dental practice can add a virtual smile preview and a short form so a visitor can see the service and contact the practice without hunting through the site.
 
-Learn more about optimizing conversions with our [Content & Ads services](/services/content-ads).
+Learn more about optimizing conversions with our [Content & Ads services](/services/content-ads/).
 
 ---
 
@@ -2414,8 +2414,8 @@ Absolutely. Custom code is flexible and scalable, allowing you to add or modify 
 
 ## People Also Read
 
-- [How to Rank #1 on Google Maps](/blog/google-maps-ranking-2025)  
-- [Local SEO vs Organic SEO: What’s Best for Your Business?](/blog/local-seo-vs-organic-seo)  
+- [How to Rank #1 on Google Maps](/blog/google-maps-ranking-2025/)  
+- [Local SEO vs Organic SEO: What’s Best for Your Business?](/blog/local-seo-vs-organic-seo/)  
 - [The Ultimate Guide to Website Conversion Optimization](/blog/website-conversion-optimization)
 
 ---
