@@ -80,6 +80,16 @@ const PLATFORM_SOON = [
   { title: "Review generation", line: "Automated review requests that grow your reputation." },
 ];
 
+const BRAND_SAME_AS = [
+  "https://www.facebook.com/rankmehigherseo",
+  "https://www.instagram.com/rankmehigherseo",
+  "https://www.tiktok.com/@rankmehigher",
+  "https://maps.google.com/?cid=14153927830747453310",
+  "https://maps.google.com/?cid=15016400436715193105",
+];
+
+const HOME_TITLE = "Rank Me Higher | $99/mo Contractor Websites in Chicago";
+
 const Index = () => {
   // Inner pages deep-link to /#free-website with plain <a> tags; the anchor
   // renders client-side after the browser's own fragment scroll has already
@@ -105,19 +115,19 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>$99/mo Websites for Chicagoland Contractors | Rank Me Higher</title>
+        <title>{HOME_TITLE}</title>
         <meta
           name="description"
-          content="Websites for Chicagoland roofers, plumbers, HVAC and truck repair shops. Built by AI in minutes, edited by chat, $99/mo when you go live. Free build, see it before you pay."
+          content="Rank Me Higher builds websites for Chicagoland roofers, plumbers, HVAC and truck repair shops. Built by AI in minutes, edited by chat, $99/mo to go live."
         />
-        <meta property="og:title" content="$99/mo Websites for Chicagoland Contractors | Rank Me Higher" />
+        <meta property="og:title" content={HOME_TITLE} />
         <meta property="og:description" content="Get a free website that dominates Google — built by AI in minutes. The AI researches your market, builds your site, and texts you the live link." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rankmehigher.com/" />
         <meta property="og:image" content="https://rankmehigher.com/assets/logo.png" />
         <meta property="og:site_name" content="Rank Me Higher" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="$99/mo Websites for Chicagoland Contractors | Rank Me Higher" />
+        <meta name="twitter:title" content={HOME_TITLE} />
         <meta name="twitter:description" content="Get a free website that dominates Google — built by AI in minutes. Answer 6 questions, get the live link by text." />
         <meta name="twitter:image" content="https://rankmehigher.com/assets/logo.png" />
         <link rel="canonical" href="https://rankmehigher.com/" />
@@ -127,27 +137,81 @@ const Index = () => {
           "@id": "https://rankmehigher.com/#organization",
           "founder": {"@type": "Person", "@id": "https://andriusdigital.com/#person", "name": "Andrius Pletniovas", "alternateName": "Andrius Digital", "url": "https://andriusdigital.com/"},
           "name": "Rank Me Higher",
+          "alternateName": ["RankMeHigher", "Rank Me Higher Chicago"],
           "url": "https://rankmehigher.com",
           "logo": "https://rankmehigher.com/assets/logo.png",
+          "image": "https://rankmehigher.com/assets/logo.png",
           "description": "The AI-autonomous growth platform for local businesses. The AI researches your market, builds a local-SEO-correct website in minutes, texts you the live link, and you edit anything by chatting with it. One portal, one subscription.",
           "address": { "@type": "PostalAddress", "streetAddress": "1 N State St Ste 1515", "addressLocality": "Chicago", "addressRegion": "IL", "postalCode": "60602", "addressCountry": "US" },
+          "geo": { "@type": "GeoCoordinates", "latitude": 41.8781, "longitude": -87.6298 },
           "telephone": "+17735724686",
-          "sameAs": ["https://www.facebook.com/rankmehigherseo", "https://instagram.com/rankmehigherseo", "https://www.tiktok.com/@rankmehigher", "https://agencies.semrush.com/rank-me-higher/"],
+          "sameAs": BRAND_SAME_AS,
           "foundingDate": "2024",
           "numberOfEmployees": { "@type": "QuantitativeValue", "value": "10-50" },
-          "serviceArea": { "@type": "Place", "name": "United States" }
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "name": "Rank Me Higher",
-          "url": "https://rankmehigher.com",
-          "description": "AI website builder for local businesses. Get a free AI-built website that ranks on Google — live in minutes, edited by chat, run from one portal.",
-          "publisher": { "@type": "Organization", "name": "Rank Me Higher" }
+          "serviceArea": { "@type": "Place", "name": "United States" },
+          "areaServed": { "@type": "Country", "name": "United States" },
+          "serviceType": ["AI Website Builder", "Free Website for Local Business", "Local SEO", "Google Maps Optimization", "AI Website Development", "Google Business Profile Optimization", "Review Generation", "Content Marketing", "Google Ads Management"],
+          "priceRange": "$$",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Website plans",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Website",
+                "price": "99",
+                "priceCurrency": "USD",
+                "url": "https://rankmehigher.com/pricing/",
+                "priceSpecification": { "@type": "UnitPriceSpecification", "price": "99", "priceCurrency": "USD", "unitCode": "MON" },
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Website",
+                  "description": "Your website. The preview build is free. You pay when you claim it and put it live on your domain.",
+                  "url": "https://rankmehigher.com/pricing/"
+                }
+              },
+              {
+                "@type": "Offer",
+                "name": "Website + GBP",
+                "price": "149",
+                "priceCurrency": "USD",
+                "url": "https://rankmehigher.com/pricing/",
+                "priceSpecification": { "@type": "UnitPriceSpecification", "price": "149", "priceCurrency": "USD", "unitCode": "MON" },
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Website + GBP",
+                  "description": "Everything in $99. Automatic Google Business Profile optimization is on the roadmap for this plan and is not automated in the portal yet.",
+                  "url": "https://rankmehigher.com/pricing/"
+                }
+              },
+              {
+                "@type": "Offer",
+                "name": "Website + GBP + Reviews",
+                "price": "199",
+                "priceCurrency": "USD",
+                "url": "https://rankmehigher.com/pricing/",
+                "priceSpecification": { "@type": "UnitPriceSpecification", "price": "199", "priceCurrency": "USD", "unitCode": "MON" },
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Website + GBP + Reviews",
+                  "description": "Everything in $149. The review generator, dedicated business phone number, and branded email are on the roadmap for this plan and are not automated in the portal yet.",
+                  "url": "https://rankmehigher.com/pricing/"
+                }
+              }
+            ]
+          }
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
+          "@id": "https://rankmehigher.com/#localbusiness",
+          "parentOrganization": { "@id": "https://rankmehigher.com/#organization" },
           "name": "Rank Me Higher",
           "image": "https://rankmehigher.com/assets/logo.png",
           "telephone": "+17735724686",
@@ -155,7 +219,7 @@ const Index = () => {
           "url": "https://rankmehigher.com",
           "priceRange": "$$",
           "openingHours": "Mo-Fr 09:00-17:00",
-          "sameAs": ["https://www.facebook.com/rankmehigherseo", "https://instagram.com/rankmehigherseo", "https://www.tiktok.com/@rankmehigher", "https://agencies.semrush.com/rank-me-higher/"]
+          "sameAs": BRAND_SAME_AS
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
