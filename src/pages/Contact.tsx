@@ -198,9 +198,10 @@ const Contact = () => {
             "priceRange": "$$",
             "sameAs": [
               "https://www.facebook.com/rankmehigherseo",
-              "https://instagram.com/rankmehigherseo",
+              "https://www.instagram.com/rankmehigherseo",
               "https://www.tiktok.com/@rankmehigher",
-              "https://agencies.semrush.com/rank-me-higher/"
+              "https://maps.google.com/?cid=14153927830747453310",
+              "https://maps.google.com/?cid=15016400436715193105"
             ]
           })}
         </script>
