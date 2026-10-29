@@ -140,22 +140,72 @@ const Index = () => {
           "alternateName": ["RankMeHigher", "Rank Me Higher Chicago"],
           "url": "https://rankmehigher.com",
           "logo": "https://rankmehigher.com/assets/logo.png",
+          "image": "https://rankmehigher.com/assets/logo.png",
           "description": "The AI-autonomous growth platform for local businesses. The AI researches your market, builds a local-SEO-correct website in minutes, texts you the live link, and you edit anything by chatting with it. One portal, one subscription.",
           "address": { "@type": "PostalAddress", "streetAddress": "1 N State St Ste 1515", "addressLocality": "Chicago", "addressRegion": "IL", "postalCode": "60602", "addressCountry": "US" },
+          "geo": { "@type": "GeoCoordinates", "latitude": 41.8781, "longitude": -87.6298 },
           "telephone": "+17735724686",
           "sameAs": BRAND_SAME_AS,
           "foundingDate": "2024",
           "numberOfEmployees": { "@type": "QuantitativeValue", "value": "10-50" },
-          "serviceArea": { "@type": "Place", "name": "United States" }
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "@id": "https://rankmehigher.com/#website",
-          "name": "Rank Me Higher",
-          "url": "https://rankmehigher.com",
-          "description": "AI website builder for local businesses. Get a free AI-built website that ranks on Google — live in minutes, edited by chat, run from one portal.",
-          "publisher": { "@id": "https://rankmehigher.com/#organization" }
+          "serviceArea": { "@type": "Place", "name": "United States" },
+          "areaServed": { "@type": "Country", "name": "United States" },
+          "serviceType": ["AI Website Builder", "Free Website for Local Business", "Local SEO", "Google Maps Optimization", "AI Website Development", "Google Business Profile Optimization", "Review Generation", "Content Marketing", "Google Ads Management"],
+          "priceRange": "$$",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Website plans",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Website",
+                "price": "99",
+                "priceCurrency": "USD",
+                "url": "https://rankmehigher.com/pricing/",
+                "priceSpecification": { "@type": "UnitPriceSpecification", "price": "99", "priceCurrency": "USD", "unitCode": "MON" },
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Website",
+                  "description": "Your website. The preview build is free. You pay when you claim it and put it live on your domain.",
+                  "url": "https://rankmehigher.com/pricing/"
+                }
+              },
+              {
+                "@type": "Offer",
+                "name": "Website + GBP",
+                "price": "149",
+                "priceCurrency": "USD",
+                "url": "https://rankmehigher.com/pricing/",
+                "priceSpecification": { "@type": "UnitPriceSpecification", "price": "149", "priceCurrency": "USD", "unitCode": "MON" },
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Website + GBP",
+                  "description": "Everything in $99. Automatic Google Business Profile optimization is on the roadmap for this plan and is not automated in the portal yet.",
+                  "url": "https://rankmehigher.com/pricing/"
+                }
+              },
+              {
+                "@type": "Offer",
+                "name": "Website + GBP + Reviews",
+                "price": "199",
+                "priceCurrency": "USD",
+                "url": "https://rankmehigher.com/pricing/",
+                "priceSpecification": { "@type": "UnitPriceSpecification", "price": "199", "priceCurrency": "USD", "unitCode": "MON" },
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Website + GBP + Reviews",
+                  "description": "Everything in $149. The review generator, dedicated business phone number, and branded email are on the roadmap for this plan and are not automated in the portal yet.",
+                  "url": "https://rankmehigher.com/pricing/"
+                }
+              }
+            ]
+          }
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

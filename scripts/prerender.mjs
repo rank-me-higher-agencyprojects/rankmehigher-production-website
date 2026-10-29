@@ -269,16 +269,19 @@ function stripCanonical(html) {
  *
  * A shell FAQPage is the homepage block. Drop it on every route so /pricing/
  * and /blog/ cannot inherit it; the homepage FAQ is the Helmet copy on /.
- * /services/seo/ also drops the shell ProfessionalService (prices, founding
+ * /services/seo/ drops the shell ProfessionalService (prices, founding
  * year, and any catalog claims), matching the SEO-page strip from #9. The
  * only FAQPage left there is the one rendered with the visible questions.
+ * / drops that same shell ProfessionalService because the homepage Helmet
+ * Organization already uses @id #organization and carries the catalog.
+ * The shell WebSite stays; the homepage does not emit a second one.
  */
 function stripShellSchema(html, routePath) {
   return html.replace(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi, (full, attrs, body) => {
     if (/data-rh/i.test(attrs)) return full;
     if (!/application\/ld\+json/i.test(attrs)) return full;
     if (/"@type"\s*:\s*"FAQPage"/.test(body)) return "";
-    if (routePath === "/services/seo/" && /"@type"\s*:\s*"ProfessionalService"/.test(body)) return "";
+    if ((routePath === "/services/seo/" || routePath === "/") && /"@type"\s*:\s*"ProfessionalService"/.test(body)) return "";
     return full;
   });
 }
