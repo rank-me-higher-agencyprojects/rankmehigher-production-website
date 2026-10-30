@@ -22,6 +22,27 @@ function toISODate(displayDate: string): string {
   }
 }
 
+/** Builds a stable anchor id from heading text, e.g. "Can’t Ignore" -> "cant-ignore". */
+function headingId(children: React.ReactNode): string {
+  const text = (function flatten(node: React.ReactNode): string {
+    if (typeof node === "string" || typeof node === "number") return String(node);
+    if (Array.isArray(node)) return node.map(flatten).join("");
+    if (node && typeof node === "object" && "props" in node) {
+      return flatten((node as { props: { children?: React.ReactNode } }).props.children);
+    }
+    return "";
+  })(children);
+  return text
+    .toLowerCase()
+    .replace(/[’']/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+const markdownComponents = {
+  h2: ({ children }: { children?: React.ReactNode }) => <h2 id={headingId(children)}>{children}</h2>,
+};
+
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find(p => p.slug === slug);
@@ -41,7 +62,8 @@ const BlogPost = () => {
 
   const shareUrl = `https://rankmehigher.com/blog/${post.slug}/`;
   const isoDate = toISODate(post.date);
-  const pageTitle = `${post.title} | Rank Me Higher`;
+  const modifiedIsoDate = post.dateModified ?? isoDate;
+  const pageTitle = `${post.seoTitle ?? post.title} | Rank Me Higher`;
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -69,7 +91,7 @@ const BlogPost = () => {
       "url": "https://rankmehigher.com"
     },
     "datePublished": isoDate,
-    "dateModified": isoDate,
+    "dateModified": modifiedIsoDate,
     "publisher": {
       "@type": "Organization",
       "name": "Rank Me Higher",
@@ -131,6 +153,7 @@ const BlogPost = () => {
         <meta name="twitter:description" content={post.excerpt} />
         {post.image && <meta name="twitter:image" content={`https://rankmehigher.com${post.image}`} />}
         <meta property="article:published_time" content={isoDate} />
+        <meta property="article:modified_time" content={modifiedIsoDate} />
         <meta property="article:author" content={post.author} />
         <meta property="article:section" content={post.category} />
         <link rel="canonical" href={shareUrl} />
@@ -224,13 +247,13 @@ const BlogPost = () => {
             )}
 
             <div className="blog-content">
-              <ReactMarkdown>{firstHalf}</ReactMarkdown>
+              <ReactMarkdown components={markdownComponents}>{firstHalf}</ReactMarkdown>
             </div>
 
             <LeadMagnet />
 
             <div className="blog-content">
-              <ReactMarkdown>{secondHalf}</ReactMarkdown>
+              <ReactMarkdown components={markdownComponents}>{secondHalf}</ReactMarkdown>
             </div>
 
             <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
