@@ -7,6 +7,10 @@ export interface BlogPost {
   category: string;
   author: string;
   date: string;
+  /** Optional ISO date (YYYY-MM-DD) of the last substantive update. */
+  dateModified?: string;
+  /** Optional <title> text (before " | Rank Me Higher") when it should differ from the H1. */
+  seoTitle?: string;
   readTime: string;
   featured: boolean;
   trending: boolean;
@@ -17,9 +21,25 @@ export const blogPosts: BlogPost[] = [
   {
     id: "1",
     slug: "google-maps-ranking-2025",
-    title: "How to Rank #1 on Google Maps: A Guide",
-    excerpt: "Learn how to rank #1 on Google Maps with a complete Google Business Profile, reviews, citations, and local pages that belong in the map pack.",
+    title: "How to Rank in Google Maps: A 2026 Guide",
+    seoTitle: "How to Rank in Google Maps (2026 Guide)",
+    excerpt: "Learn how to rank in Google Maps with a complete Google Business Profile, reviews, citations, and local pages that belong in the map pack.",
+    dateModified: "2026-10-30",
     content: `
+## How to rank in Google Maps: the short version
+
+1. **Complete every section of your Google Business Profile.** Real business name, exact address, a local phone number, accurate hours, and a clear description. [Profile basics](#the-foundation-google-business-profile-optimization)
+2. **Pick the most specific primary category** and only the secondary categories that match real services. [Categories](#the-foundation-google-business-profile-optimization)
+3. **Ask every happy customer for a review and reply to every review.** [Reviews](#the-secret-sauce-reviews-that-convert-and-rank)
+4. **Keep your name, address, and phone identical on every citation**, from Yelp and Apple Maps to industry directories. [Citations](#local-citations-the-forgotten-ranking-factor-you-cant-ignore)
+5. **Keep the profile active** with real photos, weekly posts, and messaging turned on. [Photos, posts, and messaging](#advanced-strategies-for-google-maps)
+6. **Back the profile with a local website**: NAP in the footer, a page for each area you serve, LocalBusiness schema, and fast mobile pages. [Website and on-page SEO](#website-and-on-page-seo-supporting-your-google-maps-ranking)
+7. **Track impressions, calls, direction requests, and website clicks every month**, then fix what's lagging. [Tracking](#tracking-your-progress-metrics-you-cant-afford-to-ignore)
+
+The sections below cover each step in detail.
+
+---
+
 ## Why Google Maps Ranking Matters
 
 Local search is where a lot of buying decisions start. People looking for a service nearby often choose from the map results, so ranking in the **Google 3-Pack** is how those searches turn into calls.
@@ -343,6 +363,10 @@ If you want expert help, check out our [SEO services](/services/seo/) or [contac
 ### What is the Google Maps 3-Pack and why is it important?
 
 The **Google Maps 3-Pack** is the top three local business listings that appear in Google’s map results for local searches. These three businesses get the majority of clicks and customer engagement, making it critical for local visibility and sales.
+
+### How long does it take to rank in Google Maps?
+
+It depends on how competitive your category and area are, how old and complete your profile is, and how many reviews and citations the businesses above you already have. A new profile in a busy market takes longer than an established one in a quiet town. The fastest gains usually come from fixing what's missing first: an incomplete profile, the wrong primary category, unanswered reviews, or a name, address, and phone that don't match across the web.
 
 ### How many reviews do I need to rank #1 on Google Maps?
 

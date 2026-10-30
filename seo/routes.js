@@ -88,7 +88,7 @@ export const routes = [
   {
     path: "/blog/google-maps-ranking-2025/",
     source: "src/data/blogPosts.ts",
-    lastmod: "2026-10-23",
+    lastmod: "2026-10-30",
     changefreq: "monthly",
     priority: "0.7",
   },
