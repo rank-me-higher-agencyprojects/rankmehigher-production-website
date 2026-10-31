@@ -174,6 +174,10 @@ export type Suburb = {
   local: string[];
   clients: string[];
   trades: string[];
+  /** Extra town-specific sections, rendered after the checklist. Links use [text](/path/). */
+  sections?: { title: string; paragraphs: string[] }[];
+  /** Visible questions. When set, the page emits one FAQPage schema. */
+  faqs?: TradeFaq[];
 };
 
 export const SUBURBS: Suburb[] = [
@@ -194,6 +198,75 @@ export const SUBURBS: Suburb[] = [
     ],
     clients: ["Truck Clinic"],
     trades: ["truck-repair"],
+    sections: [
+      {
+        title: "Who is searching for a Romeoville business",
+        paragraphs: [
+          "Most searches for a Romeoville business come from two groups. The first is people on the road: drivers, dispatchers and fleet managers moving freight through the I-55 corridor who need a shop, a supplier or a service close to the exit they are already on. They search on a phone, often with a truck stopped, and they decide in seconds based on the phone number, the hours and whether the shop handles their problem.",
+          "The second group is the people who live and work in Romeoville and the towns around it. They search for a roofer after a storm, a plumber for a leak, or an HVAC company before the first cold week. They compare two or three results, read the reviews, and call the business whose site answers their question fastest.",
+          "Both groups use Google Maps and the local results at the top of the page before they ever scroll to a list of websites. A Romeoville site has one job in that moment: confirm what the Google listing already promised and make the next step obvious. A site that loads slowly, hides the phone number or never says which services the business performs sends that visitor back to the next listing.",
+        ],
+      },
+      {
+        title: "What Truck Clinic's Romeoville site does",
+        paragraphs: [
+          "[Truck Clinic](/examples/#truck-clinic) is a commercial truck repair shop just off I-55 in Romeoville, and its site runs on Rank Me Higher. It gives each service its own page instead of one long list: fleet repair, engine, transmission and differential, DOT inspections, trailer repair, DPF cleaning, brakes and suspension, electrical and diagnostics. A driver searching for one of those jobs lands on the page about that job.",
+          "Above the fold, the site puts a click-to-call number and a \"Get a written quote\" form, so a visitor can act without scrolling. The Google rating is shown up front, and the trust points that matter to drivers are spelled out: a written quote before work starts and the size of the team. The same structure works for any Romeoville business that sells a handful of specific services to people in a hurry. The [truck repair websites](/websites-for/truck-repair/) page walks through it for shops.",
+        ],
+      },
+      {
+        title: "Match your site to your Google Business Profile",
+        paragraphs: [
+          "Google compares the details on your website with the details on your Google Business Profile. When the business name, address, phone number, hours and services agree, Google has more reason to trust both. When they disagree, for example a different phone number on the site, old hours, or a service on the listing that the site never mentions, the listing has a harder time showing up for Romeoville searches. Our guide to [common Google Business Profile mistakes](/blog/google-business-profile-mistakes/) lists the usual ones.",
+          "We build the site from the same facts you give us for the listing, then keep them in step. When your hours change or you add a service, you text the change once and the site updates. For the listing side of the work, the [Google Maps ranking guide](/blog/google-maps-ranking-2025/) covers categories, reviews, photos and posts, and our [local SEO services](/services/seo/) page explains what we handle for you.",
+        ],
+      },
+      {
+        title: "Serving Bolingbrook, Lockport, Plainfield and nearby towns",
+        paragraphs: [
+          "Many Romeoville businesses also take work from Bolingbrook, Lockport, Plainfield and Joliet. Google needs to see that on the site, but copying the same page five times with the town name swapped does not help and can hurt. A better approach is one clear service-area section that names the towns you actually serve, plus a dedicated page only for a town where you have something real to say: a second location, a project you finished there, or a service you only offer in that area.",
+          "When you answer the six questions, you tell the AI which towns you serve. It writes the service-area copy from that list and keeps it consistent with the area you set on your Google listing.",
+        ],
+      },
+      {
+        title: "What it costs and what you control",
+        paragraphs: [
+          "The AI builds the complete site for free, and you get a live preview link by text before you pay anything. You pay $99 a month only when you claim it and put it live on your domain, with hosting and SSL handled. The [pricing page](/pricing/) shows every plan.",
+          "Once the site is live, we connect your domain and your portal opens. Leads from the site are delivered to you instantly, and the portal keeps your site, your edits and your leads in one place, so you are not logging in to three different tools to see whether the site is working.",
+          "After launch you run the site by chatting with the AI: tell it what to change, like your hours, a new service or a promo, and it makes the edit. Every edit is versioned, so you can revert anything. The [AI website editor](/ai-website-editor/) page shows how that works. You own the site, and if you ever leave, your domain and your content go with you.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How much does a website for a Romeoville business cost?",
+        a: "The build and the preview are free. The site is $99 a month once you claim it and put it live on your domain. The plan is monthly and you can cancel anytime.",
+      },
+      {
+        q: "Do you only build sites for truck repair shops in Romeoville?",
+        a: "No. Truck Clinic is the Romeoville client you can see today, but the same builder makes sites for contractors and trades such as roofers, plumbers, HVAC companies and other local service businesses.",
+      },
+      {
+        q: "How long does it take to get my Romeoville site?",
+        a: "You answer 6 questions, and the AI researches your market, writes the pages and builds the site in minutes, not weeks. The preview link arrives by text.",
+      },
+      {
+        q: "Do I need a separate page for every service?",
+        a: "For the services people search for by name, yes. Someone searching for brake repair or a furnace install should land on a page about that job, with what you do, the area you cover and a way to reach you. Small add-ons can share a page. The AI builds one page per main service you list.",
+      },
+      {
+        q: "How do leads from the site reach me?",
+        a: "The quote or callback form sends each request to the number you use for leads, and you also see every lead in your portal. That number is separate from our line, which is SMS only.",
+      },
+      {
+        q: "I already have a website. Can you replace it?",
+        a: "Yes. The AI studies what you have and builds a faster site, then your domain moves over when you're ready.",
+      },
+      {
+        q: "Will a new website get me into the Google Maps results for Romeoville?",
+        a: "Nobody can promise a Maps position. A fast site that matches your Google Business Profile and has a real page for each service gives the listing the support it needs. The [Google Maps ranking guide](/blog/google-maps-ranking-2025/) covers the listing side.",
+      },
+    ],
   },
 ];
 

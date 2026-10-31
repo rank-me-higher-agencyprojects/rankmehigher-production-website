@@ -172,7 +172,7 @@ export const routes = [
   {
     path: "/locations/romeoville-il/",
     source: "src/lib/marketing-data.ts",
-    lastmod: "2026-10-22",
+    lastmod: "2026-10-31",
     changefreq: "monthly",
     priority: "0.7",
   },
