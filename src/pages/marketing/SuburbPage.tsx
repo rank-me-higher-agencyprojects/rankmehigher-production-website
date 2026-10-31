@@ -3,6 +3,26 @@ import MarketingLayout, { PageHero, Section, Bullets } from "@/components/market
 import { CtaBlock, CtaRow } from "@/components/marketing/Cta";
 import { CASE_STUDIES, PORTFOLIO, SUBURBS, TRADES } from "@/lib/marketing-data";
 
+/** Renders plain text with [label](/path/) internal links. */
+const LinkedText = ({ text }: { text: string }) => {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return (
+    <>
+      {parts.map((part, i) => {
+        const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (!match) return <span key={i}>{part}</span>;
+        return (
+          <Link key={i} to={match[2]} className="text-primary underline underline-offset-4">
+            {match[1]}
+          </Link>
+        );
+      })}
+    </>
+  );
+};
+
+const plain = (text: string) => text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+
 const SuburbPage = ({ slug }: { slug: string }) => {
   const town = SUBURBS.find((s) => s.slug === slug)!;
   const path = `/locations/${town.slug}/`;
@@ -24,6 +44,19 @@ const SuburbPage = ({ slug }: { slug: string }) => {
           areaServed: { "@type": "City", name: `${town.name}, IL` },
           offers: { "@type": "Offer", price: "99", priceCurrency: "USD" },
         },
+        ...(town.faqs?.length
+          ? [
+              {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: town.faqs.map((f) => ({
+                  "@type": "Question",
+                  name: f.q,
+                  acceptedAnswer: { "@type": "Answer", text: plain(f.a) },
+                })),
+              },
+            ]
+          : []),
       ]}
     >
       <PageHero eyebrow={`${town.name}, IL · ${town.county}`} h1={town.h1} sub={town.intro}>
@@ -32,13 +65,19 @@ const SuburbPage = ({ slug }: { slug: string }) => {
 
       <Section title={`What a ${town.name} business site needs`}>
         <Bullets items={town.local} />
-        {town.slug === "romeoville-il" && (
-          <p className="mt-4 max-w-3xl leading-relaxed">
-            Hours, the roads drivers use, and the towns you serve should match the Google listing. A mismatch is one of the{" "}
-            <Link to="/blog/google-business-profile-mistakes/" className="text-primary underline underline-offset-4">usual Google Business Profile errors</Link>.
-          </p>
-        )}
       </Section>
+
+      {town.sections?.map((sec) => (
+        <Section key={sec.title} title={sec.title}>
+          <div className="max-w-3xl space-y-4">
+            {sec.paragraphs.map((para, i) => (
+              <p key={i} className="leading-relaxed">
+                <LinkedText text={para} />
+              </p>
+            ))}
+          </div>
+        </Section>
+      ))}
 
       {clients.length > 0 && (
         <Section title={`${town.name} businesses on Rank Me Higher`}>
@@ -93,6 +132,21 @@ const SuburbPage = ({ slug }: { slug: string }) => {
           </p>
         )}
       </Section>
+
+      {town.faqs?.length ? (
+        <Section title="Frequently asked questions">
+          <dl className="max-w-3xl space-y-6">
+            {town.faqs.map((f) => (
+              <div key={f.q}>
+                <dt className="font-medium text-foreground">{f.q}</dt>
+                <dd className="mt-1 leading-relaxed">
+                  <LinkedText text={f.a} />
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </Section>
+      ) : null}
 
       <CtaBlock title={`Get your free ${town.name} website`} />
     </MarketingLayout>
