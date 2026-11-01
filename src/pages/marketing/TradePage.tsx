@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import MarketingLayout, { PageHero, Section, Bullets } from "@/components/marketing/MarketingLayout";
 import { CtaBlock, CtaRow } from "@/components/marketing/Cta";
 import { CASE_STUDIES, PORTFOLIO, SUBURBS, TRADES, type Trade, type TradeFaq } from "@/lib/marketing-data";
+import RoofersSections from "./trade-content/RoofersSections";
 import TruckRepairSections from "./trade-content/TruckRepairSections";
 
 const ORIGIN = "https://rankmehigher.com";
@@ -10,6 +11,7 @@ const ORIGIN = "https://rankmehigher.com";
 /** Rich bodies for trades that have outgrown the short template. */
 const RICH_BODIES: Partial<Record<string, ComponentType<{ trade: Trade }>>> = {
   "truck-repair": TruckRepairSections,
+  roofers: RoofersSections,
 };
 
 const serviceSchema = (trade: Trade, path: string) => ({

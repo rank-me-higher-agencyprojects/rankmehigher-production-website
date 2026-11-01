@@ -161,6 +161,71 @@ export const TRADES: Trade[] = [
       },
     ],
   },
+  {
+    slug: "roofers",
+    name: "Roofing",
+    plural: "roofing contractors",
+    title: "Roofing Websites for Contractors, $99/mo | Rank Me Higher",
+    description:
+      "Websites for roofers in the Chicago suburbs. Repair, replacement, storm, and gutter pages, plus job photos. Free preview, $99/mo when live.",
+    h1: "Roofing websites for contractors",
+    intro:
+      "A homeowner in the Chicago suburbs searches on a phone, usually after a leak, a missing shingle, or a hailstorm. They want the crew that does that job, the towns that crew actually covers, and a number they can tap. A roofing contractor website has to answer those three things before the visitor goes back to the next listing.",
+    pages: [
+      "A page for each job you perform: roof repair, roof replacement, storm damage, and gutters when you install them",
+      "A service-area section for the suburbs you send a truck to, and a town page only where you have something real to say",
+      "Photos from jobs your crew finished, with the town named and the street number left off",
+      "The same name, phone, and hours as your Google Business Profile, and a tap-to-call number on the first screen",
+    ],
+    jobs: [
+      "Post a storm-inspection banner the day hail hits a town you serve",
+      "Add or remove a service page when you start or stop offering that work",
+      "Swap in photos from a tear-off or a gutter job you finished",
+    ],
+    chatExamples: [
+      "\"Hail hit Naperville yesterday. Add a banner: storm inspections this week in Naperville, Bolingbrook, and Lockport.\"",
+      "\"We do not install gutters. Remove the gutter page.\"",
+      "\"Replace the top photo with this tear-off from the Orland Park job.\"",
+      "\"Saturday inspections are 8 to noon through November. Update the hours.\"",
+    ],
+    examples: [],
+    serviceDescription:
+      "AI-built websites for roofing contractors in the Chicago suburbs. Service pages for roof repair, replacement, storm damage, and gutters when the company does that work, a service-area section for the towns the crew covers, and a form that sends the lead to the company. The preview is free. $99 a month when the site goes live on your domain.",
+    faqs: [
+      {
+        q: "How much does a roofing contractor website cost?",
+        a: "The preview is free. The live website is $99 a month. [Other plans](/pricing/) are listed separately.",
+      },
+      {
+        q: "What should a website for a roofer include?",
+        a: "Pages for the services you perform, the suburbs you serve, photos of your jobs, and a phone number and hours that match your Google listing.",
+      },
+      {
+        q: "Can the site have separate pages for repair, replacement, storm damage, and gutters?",
+        a: "Yes, when the company does that work. Leave a page off when it does not. A gutter page for a crew that does not hang gutters sends the wrong call.",
+      },
+      {
+        q: "How should service areas work for the Chicago suburbs?",
+        a: "List the towns you will drive to in one service-area section, matching your Google listing. Add a town page only where a job, a yard, or a service is specific to that town.",
+      },
+      {
+        q: "How fast is the roofing website built?",
+        a: "Minutes, not weeks. The preview link arrives by text. The site goes on your domain after you claim it.",
+      },
+      {
+        q: "How do I update the site after a storm or a schedule change?",
+        a: "Open the portal, click the part that changed, and say it in a sentence. You can revert the edit if the wording is wrong. The [AI website editor](/ai-website-editor/) is where that is shown.",
+      },
+      {
+        q: "Will a new website put my roofing company in the map results?",
+        a: "Nobody can promise a Maps position. A fast site that matches your Google Business Profile, with a real page for each service, is the on-site half of local search. That work is part of the website, not a separate retainer. The [local SEO](/services/seo/) page says what is included.",
+      },
+      {
+        q: "How do leads reach me, and can I cancel?",
+        a: `The form sends the request to the company number you use for leads. That number is separate from our line, ${SMS_NUMBER_DISPLAY}, which is SMS only. The plan is monthly, you can cancel anytime, and your domain and content go with you.`,
+      },
+    ],
+  },
 ];
 
 export type Suburb = {
@@ -203,7 +268,7 @@ export const SUBURBS: Suburb[] = [
         title: "Who is searching for a Romeoville business",
         paragraphs: [
           "Most searches for a Romeoville business come from two groups. The first is people on the road: drivers, dispatchers and fleet managers moving freight through the I-55 corridor who need a shop, a supplier or a service close to the exit they are already on. They search on a phone, often with a truck stopped, and they decide in seconds based on the phone number, the hours and whether the shop handles their problem.",
-          "The second group is the people who live and work in Romeoville and the towns around it. They search for a roofer after a storm, a plumber for a leak, or an HVAC company before the first cold week. They compare two or three results, read the reviews, and call the business whose site answers their question fastest.",
+          "The second group is the people who live and work in Romeoville and the towns around it. They search for a [roofer](/websites-for/roofers/) after a storm, a plumber for a leak, or an HVAC company before the first cold week. They compare two or three results, read the reviews, and call the business whose site answers their question fastest.",
           "Both groups use Google Maps and the local results at the top of the page before they ever scroll to a list of websites. A Romeoville site has one job in that moment: confirm what the Google listing already promised and make the next step obvious. A site that loads slowly, hides the phone number or never says which services the business performs sends that visitor back to the next listing.",
         ],
       },

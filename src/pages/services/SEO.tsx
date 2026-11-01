@@ -196,7 +196,9 @@ const SEO = () => (
           <Link to="/locations/romeoville-il/" className="text-primary underline underline-offset-4">Romeoville page</Link>{" "}
           is a city page. It treats Romeoville as a place with roads and neighbors: the I-55 corridor, and towns a shop there also serves, such as Bolingbrook, Lockport, and Plainfield. It talks about the details a local customer checks, including hours. The{" "}
           <Link to="/websites-for/truck-repair/" className="text-primary underline underline-offset-4">truck repair websites</Link>{" "}
-          page is a trade page. It spells out one page per service, a location page with the yard and the hours, and a form that texts the lead to you. Those two URLs are examples of how a city page and a service page are shaped. They are not a report of any customer's rankings.
+          page is a trade page. It spells out one page per service, a location page with the yard and the hours, and a form that texts the lead to you. The{" "}
+          <Link to="/websites-for/roofers/" className="text-primary underline underline-offset-4">roofing websites</Link>{" "}
+          page does the same for roof repair, replacement, storm damage, and gutters in the Chicago suburbs. Those URLs are examples of how a city page and a trade page are shaped. They are not a report of any customer's rankings.
         </p>
         <p>
           On your site the same idea is specific to your work. A truck shop might need a page for engines, brakes, DOT inspections, or trailer repair. An HVAC company might need a page for installs and a page for repairs. A plumber might need the towns on the route, not every town in the county. The editor examples already published are the kind of follow-up a contractor sends: add trailer repair to the services list, add Bolingbrook to the areas we serve, put a banner up when you are closed for a holiday. You say it in the portal. The AI makes the change. You can revert it.

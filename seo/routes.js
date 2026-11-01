@@ -18,21 +18,21 @@ export const routes = [
   {
     path: "/",
     source: "src/pages/Index.tsx",
-    lastmod: "2026-10-23",
+    lastmod: "2026-11-01",
     changefreq: "weekly",
     priority: "1.0",
   },
   {
     path: "/services/websites/",
     source: "src/pages/services/Websites.tsx",
-    lastmod: "2026-10-22",
+    lastmod: "2026-11-01",
     changefreq: "monthly",
     priority: "0.9",
   },
   {
     path: "/services/seo/",
     source: "src/pages/services/SEO.tsx",
-    lastmod: "2026-10-26",
+    lastmod: "2026-11-01",
     changefreq: "monthly",
     priority: "0.9",
   },
@@ -158,7 +158,7 @@ export const routes = [
   {
     path: "/ai-website-editor/",
     source: "src/pages/marketing/AiWebsiteEditor.tsx",
-    lastmod: "2026-10-21",
+    lastmod: "2026-11-01",
     changefreq: "monthly",
     priority: "0.8",
   },
@@ -170,9 +170,16 @@ export const routes = [
     priority: "0.8",
   },
   {
+    path: "/websites-for/roofers/",
+    source: "src/pages/marketing/TradePage.tsx",
+    lastmod: "2026-11-01",
+    changefreq: "monthly",
+    priority: "0.8",
+  },
+  {
     path: "/locations/romeoville-il/",
     source: "src/lib/marketing-data.ts",
-    lastmod: "2026-10-31",
+    lastmod: "2026-11-01",
     changefreq: "monthly",
     priority: "0.7",
   },
@@ -194,7 +201,7 @@ export const unlistedRoutes = [
 ];
 
 /** Bump when a route is added or removed; the sitemap build checks it. */
-export const EXPECTED_ROUTE_COUNT = 23;
+export const EXPECTED_ROUTE_COUNT = 24;
 
 export function canonicalUrl(routePath) {
   if (routePath === "/") return `${SITE_ORIGIN}/`;
