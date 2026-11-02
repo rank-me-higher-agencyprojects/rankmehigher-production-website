@@ -537,6 +537,7 @@ const Index = () => {
                   <p className="text-white/45">By trade</p>
                   <ul className="mt-2 space-y-1.5">
                     <li><Link to="/websites-for/truck-repair/" className="text-white/75 hover:text-primary">Truck repair shop websites</Link></li>
+                    <li><Link to="/websites-for/roofers/" className="text-white/75 hover:text-primary">Roofing websites</Link></li>
                   </ul>
                 </div>
                 <div>

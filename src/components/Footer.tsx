@@ -21,6 +21,7 @@ const SERVICES = [
 
 const TRADES_AREAS = [
   { label: "Truck Repair Websites", href: "/websites-for/truck-repair/" },
+  { label: "Roofing Websites", href: "/websites-for/roofers/" },
   { label: "Romeoville", href: "/locations/romeoville-il/" },
 ];
 

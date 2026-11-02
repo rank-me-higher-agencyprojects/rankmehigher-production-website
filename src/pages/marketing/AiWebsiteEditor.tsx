@@ -213,7 +213,8 @@ const AiWebsiteEditor = () => (
     <Section title="Built for trades">
       <div className="max-w-3xl space-y-4 leading-relaxed">
         <p>
-          Rank Me Higher builds websites for contractors and trades in Chicagoland. The trades named on the homepage are roofers, plumbers, HVAC, and truck repair shops. Someone searching for that work is usually nearby and deciding who to call. They look for the service, the town, the hours, and a way to send the job. The AI studies the business, the trade, and the area, including what customers search for, and aims the site at that decision.
+          Rank Me Higher builds websites for contractors and trades in Chicagoland. The trades named on the homepage are{" "}
+          <Link to="/websites-for/roofers/" className="text-primary underline underline-offset-4">roofers</Link>, plumbers, HVAC, and truck repair shops. Someone searching for that work is usually nearby and deciding who to call. They look for the service, the town, the hours, and a way to send the job. The AI studies the business, the trade, and the area, including what customers search for, and aims the site at that decision.
         </p>
         <p>
           The aim is a local-SEO-correct website. That means the same name, address, and phone, JSON-LD schema, honest hours, and pages for the services and the cities you serve. A service page is for work the business actually performs. A city page is for a town the business serves. The hours on those pages are the hours you gave. The phone number is the business number. A form gives the customer a way to reach you. Real business photos are used where you have them. Where a photo is missing, the gap is filled with natural AI imagery that matches the trade, not a stock photo of a model in a hard hat.

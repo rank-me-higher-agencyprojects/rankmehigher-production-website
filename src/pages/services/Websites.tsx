@@ -505,6 +505,8 @@ const Websites = () => {
                 <p>
                   Every plan includes a complete website researched, written, and built by AI for your trade and your town. Shops that repair commercial trucks can read{" "}
                   <Link to="/websites-for/truck-repair/" className="underline hover:text-primary">websites for truck and diesel repair shops</Link>
+                  . Roofing contractors in the Chicago suburbs can read{" "}
+                  <Link to="/websites-for/roofers/" className="underline hover:text-primary">roofing websites for contractors</Link>
                   , and the town page for{" "}
                   <Link to="/locations/romeoville-il/" className="underline hover:text-primary">Romeoville, IL</Link>
                   {" "}covers businesses there. Finished sites are on{" "}
