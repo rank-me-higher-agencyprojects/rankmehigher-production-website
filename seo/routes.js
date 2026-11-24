@@ -256,6 +256,12 @@ export const spaRoutes = [
 
 export const spaPrefixes = ["/agency/client", "/avaseo", "/avabyrankmehigher"];
 
+// Rewrite target for app routes. Extensionless on purpose: Cloudflare Workers
+// static assets (html_handling auto-trailing-slash) answer "/spa.html" with a
+// 307 to "/spa", so a rewrite to "/spa.html" would leak that redirect. "/spa"
+// serves dist/spa.html directly. server.js ignores the target of 200 rules.
+const SPA_SHELL_PATH = "/spa";
+
 export function buildRedirectRules() {
   const rules = [];
   for (const route of [...routes, ...unlistedRoutes]) {
@@ -264,13 +270,13 @@ export function buildRedirectRules() {
     rules.push({ from: slashless, to: route.path, status: 301 });
   }
   for (const route of spaRoutes) {
-    rules.push({ from: route, to: "/spa.html", status: 200 });
-    rules.push({ from: `${route}/`, to: "/spa.html", status: 200 });
+    rules.push({ from: route, to: SPA_SHELL_PATH, status: 200 });
+    rules.push({ from: `${route}/`, to: SPA_SHELL_PATH, status: 200 });
   }
   for (const prefix of spaPrefixes) {
-    rules.push({ from: prefix, to: "/spa.html", status: 200 });
-    rules.push({ from: `${prefix}/`, to: "/spa.html", status: 200 });
-    rules.push({ from: `${prefix}/*`, to: "/spa.html", status: 200 });
+    rules.push({ from: prefix, to: SPA_SHELL_PATH, status: 200 });
+    rules.push({ from: `${prefix}/`, to: SPA_SHELL_PATH, status: 200 });
+    rules.push({ from: `${prefix}/*`, to: SPA_SHELL_PATH, status: 200 });
   }
   return rules;
 }
