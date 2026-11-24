@@ -29,10 +29,17 @@ export function redirect(url) {
   return Response.redirect(dest.toString(), 301);
 }
 
-// Paths still served by a VPS service: [{ prefix: '/api/', origin: 'https://something.andriusdigital.com' }]
-// TODO before the DNS swap: /api/ -> the `rankmehigher` container (server.js, port 5000),
-// which today is only reachable as rankmehigher.com itself.
-export const PROXIES = [];
+// Paths still served by a VPS service.
+//
+// SWAP-DAY BLOCKER: /api/ must go to the `rankmehigher` container (server.js, port 5000).
+// Today that container is only reachable as rankmehigher.com itself, so it has no origin
+// the Worker can call. Before DNS moves:
+//   1. add a Caddy hostname for it (e.g. a sites.d block `<host> { reverse_proxy rankmehigher:5000 }`),
+//   2. put that https origin in API_ORIGIN below and redeploy.
+// Until then /api/* falls through to static assets (404 page / 405), which breaks the lead
+// forms, careers screening and the internal /api tools.
+const API_ORIGIN = '';
+export const PROXIES = API_ORIGIN ? [{ prefix: '/api/', origin: API_ORIGIN }] : [];
 
 // Headers server.js set on every response (only added when the asset didn't set them).
 export const SECURITY_HEADERS = {
