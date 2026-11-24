@@ -1,0 +1,6 @@
+# Workers static assets: headers server.js set per path.
+# The audit page is unlisted until the live audit-lead test.
+/free-website-audit/
+  X-Robots-Tag: noindex, nofollow
+/free-website-audit
+  X-Robots-Tag: noindex, nofollow

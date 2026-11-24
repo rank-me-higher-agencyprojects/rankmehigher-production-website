@@ -1,0 +1,3 @@
+# Workers static assets: never publish these build leftovers (server.js 404ed dotfiles).
+.htaccess
+.vite

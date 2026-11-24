@@ -1,0 +1,28 @@
+{
+  "$schema": "https://unpkg.com/wrangler@4/config-schema.json",
+  "name": "rankmehigher-production-website",
+  "account_id": "e8be0cb8f132e4efd6dfb9c25aaa420b",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-01",
+  "observability": { "enabled": true },
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    // scripts/build-site.mjs writes the prerendered site + spa.html + 404.html +
+    // _redirects here (same folder server.js served).
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // /contact/ -> contact/index.html, like express.static. The slashless
+    // marketing URLs are 301'd by dist/_redirects before this kicks in.
+    "html_handling": "auto-trailing-slash",
+    // server.js answered unknown URLs with dist/404.html and status 404.
+    "not_found_handling": "404-page",
+    "run_worker_first": true
+  },
+  "vars": {
+    "CANONICAL_HOST": "rankmehigher.com",
+    "ALIAS_HOSTS": "www.rankmehigher.com"
+  }
+  // Custom hostnames are attached on swap day (Cloudflare for SaaS route on cdlagency.com,
+  // or a Workers custom domain when the zone is in our account). Do not add routes here.
+}
